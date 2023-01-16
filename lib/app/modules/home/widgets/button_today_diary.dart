@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/global_widgets/bottombar.dart';
 import 'package:remood/app/global_widgets/floating_action_button.dart';
+import 'package:remood/app/routes/app_routes.dart';
 
 class ButtonDiary extends StatelessWidget {
   const ButtonDiary({super.key});
@@ -29,6 +30,7 @@ class ButtonDiary extends StatelessWidget {
           ),
           onPressed: () {
             // today's diary
+            Get.toNamed(AppRoutes.writediary);
           },
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all<Color>(
