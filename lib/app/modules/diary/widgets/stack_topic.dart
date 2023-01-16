@@ -20,7 +20,7 @@ class StackTopic extends StatelessWidget {
           height: _screenHeight * 0.115,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: AppColors.brown)),
+              border: Border.all(color: AppColors.Primary)),
         ),
         Positioned(
           top: -30,
@@ -31,14 +31,14 @@ class StackTopic extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: AppColors.brown),
+              border: Border.all(color: AppColors.Primary),
             ),
             child: Center(
                 child: Text(
               'Topic',
               style: TextStyle(
                   fontWeight: FontWeight.w700,
-                  color: AppColors.brown,
+                  color: AppColors.Primary,
                   fontSize: 18),
             )),
           ),

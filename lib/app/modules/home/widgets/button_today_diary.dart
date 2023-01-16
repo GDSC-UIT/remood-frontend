@@ -22,19 +22,19 @@ class ButtonDiary extends StatelessWidget {
         child: ElevatedButton.icon(
           icon: const Icon(
             Icons.edit,
-            color: AppColors.brown,
+            color: AppColors.Primary,
           ),
           label: const Text(
             'Today\'s diary',
-            style: TextStyle(color: AppColors.brown, fontSize: 18),
+            style: TextStyle(color: AppColors.Primary, fontSize: 18),
           ),
           onPressed: () {
             // today's diary
             Get.toNamed(AppRoutes.writediary);
           },
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all<Color>(
-                Color.fromRGBO(245, 222, 176, 1)),
+            backgroundColor:
+                MaterialStateProperty.all<Color>(AppColors.BackgroundColor),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(22),
