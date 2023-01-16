@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
-import 'package:remood/app/global_widgets/bottombar.dart';
-import 'package:remood/app/global_widgets/floating_action_button.dart';
 import 'package:remood/app/modules/diary/widgets/stack_note.dart';
 import 'package:remood/app/modules/diary/widgets/stack_photos.dart';
 import 'package:remood/app/modules/diary/widgets/stack_tag.dart';
 import 'package:remood/app/modules/diary/widgets/stack_topic.dart';
 
-class writeDiaryScreen extends StatelessWidget {
-  const writeDiaryScreen({super.key});
+class WriteDiaryScreen extends StatelessWidget {
+  const WriteDiaryScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +23,7 @@ class writeDiaryScreen extends StatelessWidget {
             Container(
               child: ListTile(
                 leading: SizedBox(width: _screenWidth * 0.053),
-                title: Center(
+                title: const Center(
                     child: Text(
                   'DateTime',
                   style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
@@ -35,26 +33,26 @@ class writeDiaryScreen extends StatelessWidget {
                     // return homepage
                     Get.back();
                   },
-                  icon: Icon(Icons.exit_to_app),
+                  icon: const Icon(Icons.exit_to_app),
                 ),
               ),
             ),
             SizedBox(
               height: _screenHeight * 0.04,
             ),
-            StackTopic(),
+            const StackTopic(),
             SizedBox(
               height: _screenHeight * 0.043,
             ),
-            StackTag(),
+            const StackTag(),
             SizedBox(
               height: _screenHeight * 0.043,
             ),
-            StackPhotos(),
+            const StackPhotos(),
             SizedBox(
               height: _screenHeight * 0.043,
             ),
-            StackNote(),
+            const StackNote(),
             SizedBox(
               height: _screenHeight * 0.02,
             ),
@@ -64,7 +62,6 @@ class writeDiaryScreen extends StatelessWidget {
                 onPressed: () {
                   Get.back();
                 },
-                child: Text('Done'),
                 style: ButtonStyle(
                   backgroundColor:
                       MaterialStateProperty.all<Color>(AppColors.MainColor),
@@ -74,6 +71,7 @@ class writeDiaryScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                child: const Text('Done'),
               ),
             ),
           ],

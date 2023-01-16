@@ -1,7 +1,4 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 
 class BottomNavigation extends StatefulWidget {
@@ -20,7 +17,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
     return SizedBox(
       height: _screenHeight * 0.11,
       child: ClipRRect(
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(45), topRight: Radius.circular(45)),
         child: BottomNavigationBar(
           selectedItemColor: AppColors.MainColor,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/global_widgets/bottombar.dart';
 import 'package:remood/app/global_widgets/floating_action_button.dart';
@@ -20,10 +19,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: AppColors.BackgroundColor,
 // floating ActionButton
-      floatingActionButton: FloatingButton(),
+      floatingActionButton: const FloatingButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 // bottom navigation bar
-      bottomNavigationBar: BottomNavigation(),
+      bottomNavigationBar: const BottomNavigation(),
 // body screen
       body: Column(
         children: [
@@ -31,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
             height: _screenHeight * 0.714,
           ),
 // button (today's diary)
-          ButtonDiary(),
+          const ButtonDiary(),
         ],
       ),
     );

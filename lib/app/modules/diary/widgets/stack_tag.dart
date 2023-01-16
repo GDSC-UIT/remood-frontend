@@ -1,8 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 
 class StackTag extends StatelessWidget {
@@ -33,7 +29,7 @@ class StackTag extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
               border: Border.all(color: AppColors.Primary),
             ),
-            child: Center(
+            child: const Center(
                 child: Text(
               'Tag',
               style: TextStyle(
@@ -45,6 +41,5 @@ class StackTag extends StatelessWidget {
         ),
       ],
     );
-    ;
   }
 }
