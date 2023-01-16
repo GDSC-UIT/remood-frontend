@@ -33,6 +33,14 @@ class StackPhotos extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
               border: Border.all(color: AppColors.brown),
             ),
+            child: Center(
+                child: Text(
+              'Photos',
+              style: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.brown,
+                  fontSize: 18),
+            )),
           ),
         ),
       ],
