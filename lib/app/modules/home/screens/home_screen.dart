@@ -18,6 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
     double _screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: AppColors.BackgroundColor,
+// floating ActionButton
       floatingActionButton: Container(
         width: _screenWidth * 0.19,
         height: _screenHeight * 0.09,
@@ -26,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+// bottom navigation bar
       bottomNavigationBar: SizedBox(
         height: _screenHeight * 0.11,
         child: const ClipRRect(
@@ -34,11 +36,13 @@ class _HomeScreenState extends State<HomeScreen> {
           child: BottomNavigation(),
         ),
       ),
+// body screen
       body: Column(
         children: [
           SizedBox(
             height: _screenHeight * 0.714,
           ),
+// button (today's diary)
           Padding(
             padding: EdgeInsets.symmetric(horizontal: _screenWidth * 0.277),
             child: SizedBox(
