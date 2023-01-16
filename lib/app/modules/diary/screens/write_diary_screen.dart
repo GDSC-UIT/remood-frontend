@@ -40,7 +40,7 @@ class writeDiaryScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: _screenHeight * 0.0542,
+              height: _screenHeight * 0.04,
             ),
             StackTopic(),
             SizedBox(
