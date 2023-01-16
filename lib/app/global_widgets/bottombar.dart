@@ -15,36 +15,45 @@ class _BottomNavigationState extends State<BottomNavigation> {
   int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      selectedItemColor: AppColors.MainColor,
-      type: BottomNavigationBarType.fixed,
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
-      items: const [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.settings, size: 24),
-          label: 'None',
+    double _screenWidth = MediaQuery.of(context).size.width;
+    double _screenHeight = MediaQuery.of(context).size.height;
+    return SizedBox(
+      height: _screenHeight * 0.11,
+      child: ClipRRect(
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(45), topRight: Radius.circular(45)),
+        child: BottomNavigationBar(
+          selectedItemColor: AppColors.MainColor,
+          type: BottomNavigationBarType.fixed,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings, size: 24),
+              label: 'None',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings, size: 24),
+              label: 'None',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings, size: 24),
+              label: 'None',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings, size: 24),
+              label: 'None',
+            ),
+          ],
+          currentIndex: _currentIndex,
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+              print('$index');
+            });
+          },
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.settings, size: 24),
-          label: 'None',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.settings, size: 24),
-          label: 'None',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.settings, size: 24),
-          label: 'None',
-        ),
-      ],
-      currentIndex: _currentIndex,
-      onTap: (index) {
-        setState(() {
-          _currentIndex = index;
-          print('$index');
-        });
-      },
+      ),
     );
   }
 }

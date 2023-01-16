@@ -13,8 +13,8 @@ abstract class AppPages {
       binding: HomeBinding(),
     ),
     GetPage(
-      name: AppRoutes.diary,
-      page: () => const DiaryScreen(),
+      name: AppRoutes.writediary,
+      page: () => const writeDiaryScreen(),
       binding: DiaryBinding(),
     )
   ];
