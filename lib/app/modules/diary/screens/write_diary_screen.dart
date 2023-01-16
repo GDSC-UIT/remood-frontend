@@ -33,7 +33,7 @@ class WriteDiaryScreen extends StatelessWidget {
                     // return homepage
                     Get.back();
                   },
-                  icon: const Icon(Icons.exit_to_app),
+                  icon: const Icon(Icons.close),
                 ),
               ),
             ),

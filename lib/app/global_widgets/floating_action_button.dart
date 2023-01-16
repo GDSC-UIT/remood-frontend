@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:remood/app/core/values/app_colors.dart';
+import 'package:remood/app/core/values/assets_images.dart';
 
 class FloatingButton extends StatefulWidget {
   const FloatingButton({super.key});
@@ -28,7 +29,10 @@ class _FloatingButtonState extends State<FloatingButton> {
           onPressed: _onPressed,
           backgroundColor: isPressed ? AppColors.MainColor : Colors.white,
           foregroundColor: Colors.black,
-          child: const Icon(Icons.add),
+          child: Image.asset(
+            Assets.smile,
+            width: 30,
+          ),
         ),
       ),
     );

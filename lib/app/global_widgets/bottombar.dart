@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:remood/app/core/values/app_colors.dart';
+import 'package:remood/app/core/values/assets_images.dart';
 
 class BottomNavigation extends StatefulWidget {
   const BottomNavigation({super.key});
@@ -26,19 +27,19 @@ class _BottomNavigationState extends State<BottomNavigation> {
           showUnselectedLabels: false,
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(Icons.settings, size: 24),
+              icon: Icon(Icons.calendar_month),
               label: 'None',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.settings, size: 24),
+              icon: Icon(Icons.article),
               label: 'None',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.settings, size: 24),
+              icon: Icon(Icons.signal_cellular_alt),
               label: 'None',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.settings, size: 24),
+              icon: Icon(Icons.settings),
               label: 'None',
             ),
           ],
