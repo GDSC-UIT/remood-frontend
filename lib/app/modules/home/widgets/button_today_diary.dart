@@ -1,10 +1,6 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
-import 'package:remood/app/global_widgets/bottombar.dart';
-import 'package:remood/app/global_widgets/floating_action_button.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class ButtonDiary extends StatelessWidget {
