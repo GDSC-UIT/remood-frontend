@@ -31,6 +31,8 @@ class StackNote extends StatelessWidget {
                 child: TextField(
                   decoration: InputDecoration.collapsed(hintText: 'Add note'),
                   style: TextStyle(fontSize: 10),
+                  maxLines: 12,
+                  minLines: 1,
                 ),
               ),
             ),
