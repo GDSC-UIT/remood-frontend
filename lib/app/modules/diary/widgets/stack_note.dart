@@ -17,7 +17,26 @@ class StackNote extends StatelessWidget {
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               border: Border.all(color: AppColors.Primary)),
+// contain text field
+          child: Center(
+            child: Container(
+              height: _screenHeight * 0.167,
+              width: _screenWidth * 0.621,
+              decoration: BoxDecoration(
+                  color: AppColors.Primary42,
+                  borderRadius: BorderRadius.circular(10)),
+// text field
+              child: const Padding(
+                padding: EdgeInsets.all(10),
+                child: TextField(
+                  decoration: InputDecoration.collapsed(hintText: 'Add note'),
+                  style: TextStyle(fontSize: 10),
+                ),
+              ),
+            ),
+          ),
         ),
+// 'Note' container
         Positioned(
           top: -30,
           left: -26,
