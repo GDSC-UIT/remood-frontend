@@ -15,7 +15,7 @@ class WriteDiaryScreen extends StatelessWidget {
     double _screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
         resizeToAvoidBottomInset: true,
-        backgroundColor: AppColors.BackgroundColor,
+        backgroundColor: AppColors.backgroundColor,
         body: SingleChildScrollView(
           keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
           child: Column(
@@ -67,7 +67,7 @@ class WriteDiaryScreen extends StatelessWidget {
                   },
                   style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all<Color>(AppColors.MainColor),
+                        MaterialStateProperty.all<Color>(AppColors.mainColor),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(13),

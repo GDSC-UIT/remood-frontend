@@ -16,7 +16,7 @@ class StackPhotos extends StatelessWidget {
             height: _screenHeight * 0.174,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: AppColors.Primary)),
+                border: Border.all(color: AppColors.primary)),
             child: Center(
               child: GestureDetector(
                 onTap: () {
@@ -26,7 +26,7 @@ class StackPhotos extends StatelessWidget {
                     width: _screenWidth * 0.413,
                     height: _screenHeight * 0.124,
                     decoration: BoxDecoration(
-                      color: AppColors.Primary42,
+                      color: AppColors.primary42,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Column(
@@ -34,12 +34,12 @@ class StackPhotos extends StatelessWidget {
                       children: const [
                         Icon(
                           Icons.camera_alt,
-                          color: AppColors.DarkGrey,
+                          color: AppColors.darkGrey,
                         ),
                         Text(
                           'Select photos',
                           style: TextStyle(
-                              fontSize: 10, color: AppColors.DarkGrey),
+                              fontSize: 10, color: AppColors.darkGrey),
                         )
                       ],
                     )),

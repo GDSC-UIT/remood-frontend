@@ -1,8 +1,8 @@
 import 'dart:collection';
 import 'package:flutter/painting.dart';
 import 'package:get/get.dart';
-import '/app/core/values/languages/en_US.dart';
-import '/app/core/values/languages/vi_VN.dart';
+import '../../core/values/languages/en_us.dart';
+import '../../core/values/languages/vi_vn.dart';
 
 class LocalizationService extends Translations {
   static final locale = _getLocaleFromLanguage();

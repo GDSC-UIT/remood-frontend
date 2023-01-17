@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 
@@ -46,7 +48,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
           onTap: (index) {
             setState(() {
               _currentIndex = index;
-              print('$index');
+              log('$index');
             });
           },
         ),
