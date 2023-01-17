@@ -27,7 +27,7 @@ class _FloatingButtonState extends State<FloatingButton> {
       child: FittedBox(
         child: FloatingActionButton(
           onPressed: _onPressed,
-          backgroundColor: isPressed ? AppColors.MainColor : Colors.white,
+          backgroundColor: isPressed ? AppColors.mainColor : Colors.white,
           foregroundColor: Colors.black,
           child: Image.asset(
             Assets.smile,

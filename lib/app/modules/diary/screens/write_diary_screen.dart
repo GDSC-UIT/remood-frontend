@@ -14,7 +14,7 @@ class WriteDiaryScreen extends StatelessWidget {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-        backgroundColor: AppColors.BackgroundColor,
+        backgroundColor: AppColors.backgroundColor,
         body: Column(
           children: [
             SizedBox(
@@ -64,7 +64,7 @@ class WriteDiaryScreen extends StatelessWidget {
                 },
                 style: ButtonStyle(
                   backgroundColor:
-                      MaterialStateProperty.all<Color>(AppColors.MainColor),
+                      MaterialStateProperty.all<Color>(AppColors.mainColor),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(13),

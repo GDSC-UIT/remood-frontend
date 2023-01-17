@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:remood/app/core/values/app_colors.dart';
-import 'package:remood/app/core/values/assets_images.dart';
 
 class BottomNavigation extends StatefulWidget {
   const BottomNavigation({super.key});
@@ -21,7 +20,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
         borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(45), topRight: Radius.circular(45)),
         child: BottomNavigationBar(
-          selectedItemColor: AppColors.MainColor,
+          selectedItemColor: AppColors.mainColor,
           type: BottomNavigationBarType.fixed,
           showSelectedLabels: false,
           showUnselectedLabels: false,

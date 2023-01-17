@@ -16,7 +16,7 @@ class StackNote extends StatelessWidget {
           height: _screenHeight * 0.236,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: AppColors.Primary)),
+              border: Border.all(color: AppColors.primary)),
         ),
         Positioned(
           top: -30,
@@ -27,14 +27,14 @@ class StackNote extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: AppColors.Primary),
+              border: Border.all(color: AppColors.primary),
             ),
             child: const Center(
                 child: Text(
               'Note',
               style: TextStyle(
                   fontWeight: FontWeight.w700,
-                  color: AppColors.Primary,
+                  color: AppColors.primary,
                   fontSize: 18),
             )),
           ),

@@ -18,11 +18,11 @@ class ButtonDiary extends StatelessWidget {
         child: ElevatedButton.icon(
           icon: const Icon(
             Icons.edit,
-            color: AppColors.Primary,
+            color: AppColors.primary,
           ),
           label: const Text(
             'Today\'s diary',
-            style: TextStyle(color: AppColors.Primary, fontSize: 18),
+            style: TextStyle(color: AppColors.primary, fontSize: 18),
           ),
           onPressed: () {
             // today's diary
@@ -30,7 +30,7 @@ class ButtonDiary extends StatelessWidget {
           },
           style: ButtonStyle(
             backgroundColor:
-                MaterialStateProperty.all<Color>(AppColors.BackgroundColor),
+                MaterialStateProperty.all<Color>(AppColors.backgroundColor),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(22),
