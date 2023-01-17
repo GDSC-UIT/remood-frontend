@@ -14,67 +14,71 @@ class WriteDiaryScreen extends StatelessWidget {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-        backgroundColor: AppColors.backgroundColor,
-        body: Column(
-          children: [
-            SizedBox(
-              height: _screenHeight * 0.0542,
-            ),
-            Container(
-              child: ListTile(
-                leading: SizedBox(width: _screenWidth * 0.053),
-                title: const Center(
-                    child: Text(
-                  'DateTime',
-                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
-                )),
-                trailing: IconButton(
-                  onPressed: () {
-                    // return homepage
-                    Get.back();
-                  },
-                  icon: const Icon(Icons.close),
-                ),
+        resizeToAvoidBottomInset: true,
+        backgroundColor: AppColors.BackgroundColor,
+        body: SingleChildScrollView(
+          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+          child: Column(
+            children: [
+              SizedBox(
+                height: _screenHeight * 0.0542,
               ),
-            ),
-            SizedBox(
-              height: _screenHeight * 0.04,
-            ),
-            const StackTopic(),
-            SizedBox(
-              height: _screenHeight * 0.043,
-            ),
-            const StackTag(),
-            SizedBox(
-              height: _screenHeight * 0.043,
-            ),
-            const StackPhotos(),
-            SizedBox(
-              height: _screenHeight * 0.043,
-            ),
-            const StackNote(),
-            SizedBox(
-              height: _screenHeight * 0.02,
-            ),
-            SizedBox(
-              width: _screenWidth * 0.88,
-              child: ElevatedButton(
-                onPressed: () {
-                  Get.back();
-                },
-                style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(AppColors.mainColor),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(13),
-                    ),
+              Container(
+                child: ListTile(
+                  leading: SizedBox(width: _screenWidth * 0.053),
+                  title: const Center(
+                      child: Text(
+                    'DateTime',
+                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
+                  )),
+                  trailing: IconButton(
+                    onPressed: () {
+                      // return homepage
+                      Get.back();
+                    },
+                    icon: const Icon(Icons.close),
                   ),
                 ),
-                child: const Text('Done'),
               ),
-            ),
-          ],
+              SizedBox(
+                height: _screenHeight * 0.04,
+              ),
+              const StackTopic(),
+              SizedBox(
+                height: _screenHeight * 0.043,
+              ),
+              const StackTag(),
+              SizedBox(
+                height: _screenHeight * 0.043,
+              ),
+              const StackPhotos(),
+              SizedBox(
+                height: _screenHeight * 0.043,
+              ),
+              const StackNote(),
+              SizedBox(
+                height: _screenHeight * 0.02,
+              ),
+              SizedBox(
+                width: _screenWidth * 0.88,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Get.back();
+                  },
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(AppColors.MainColor),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(13),
+                      ),
+                    ),
+                  ),
+                  child: const Text('Done'),
+                ),
+              ),
+            ],
+          ),
         ));
   }
 }

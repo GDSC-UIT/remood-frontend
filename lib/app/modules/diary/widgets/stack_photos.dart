@@ -12,12 +12,40 @@ class StackPhotos extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         Container(
-          width: _screenWidth * 0.731,
-          height: _screenHeight * 0.174,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: AppColors.primary)),
-        ),
+            width: _screenWidth * 0.731,
+            height: _screenHeight * 0.174,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(color: AppColors.Primary)),
+            child: Center(
+              child: GestureDetector(
+                onTap: () {
+                  //select photos
+                },
+                child: Container(
+                    width: _screenWidth * 0.413,
+                    height: _screenHeight * 0.124,
+                    decoration: BoxDecoration(
+                      color: AppColors.Primary42,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Icon(
+                          Icons.camera_alt,
+                          color: AppColors.DarkGrey,
+                        ),
+                        Text(
+                          'Select photos',
+                          style: TextStyle(
+                              fontSize: 10, color: AppColors.DarkGrey),
+                        )
+                      ],
+                    )),
+              ),
+            )),
+// 'Photos' Tag
         Positioned(
           top: -30,
           left: -26,
