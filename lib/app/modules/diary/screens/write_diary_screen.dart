@@ -5,6 +5,7 @@ import 'package:remood/app/modules/diary/widgets/stack_note.dart';
 import 'package:remood/app/modules/diary/widgets/stack_photos.dart';
 import 'package:remood/app/modules/diary/widgets/stack_tag.dart';
 import 'package:remood/app/modules/diary/widgets/stack_topic.dart';
+import 'package:remood/app/routes/app_routes.dart';
 
 class WriteDiaryScreen extends StatelessWidget {
   const WriteDiaryScreen({super.key});
@@ -63,7 +64,7 @@ class WriteDiaryScreen extends StatelessWidget {
                 width: _screenWidth * 0.88,
                 child: ElevatedButton(
                   onPressed: () {
-                    Get.back();
+                    Get.toNamed(AppRoutes.readdiary);
                   },
                   style: ButtonStyle(
                     backgroundColor:
