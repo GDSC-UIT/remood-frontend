@@ -64,7 +64,7 @@ class WriteDiaryScreen extends StatelessWidget {
                 width: _screenWidth * 0.88,
                 child: ElevatedButton(
                   onPressed: () {
-                    Get.toNamed(AppRoutes.readdiary);
+                    Get.back();
                   },
                   style: ButtonStyle(
                     backgroundColor:
