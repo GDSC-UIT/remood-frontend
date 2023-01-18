@@ -11,8 +11,8 @@ class WriteDiaryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
         resizeToAvoidBottomInset: true,
         backgroundColor: AppColors.backgroundColor,
@@ -21,11 +21,11 @@ class WriteDiaryScreen extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
-                height: _screenHeight * 0.0542,
+                height: screenHeight * 0.0542,
               ),
               Container(
                 child: ListTile(
-                  leading: SizedBox(width: _screenWidth * 0.053),
+                  leading: SizedBox(width: screenWidth * 0.053),
                   title: const Center(
                       child: Text(
                     'DateTime',
@@ -41,26 +41,26 @@ class WriteDiaryScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: _screenHeight * 0.04,
+                height: screenHeight * 0.04,
               ),
               const StackTopic(),
               SizedBox(
-                height: _screenHeight * 0.043,
+                height: screenHeight * 0.043,
               ),
               const StackTag(),
               SizedBox(
-                height: _screenHeight * 0.043,
+                height: screenHeight * 0.043,
               ),
               const StackPhotos(),
               SizedBox(
-                height: _screenHeight * 0.043,
+                height: screenHeight * 0.043,
               ),
               const StackNote(),
               SizedBox(
-                height: _screenHeight * 0.02,
+                height: screenHeight * 0.02,
               ),
               SizedBox(
-                width: _screenWidth * 0.88,
+                width: screenWidth * 0.88,
                 child: ElevatedButton(
                   onPressed: () {
                     Get.back();

@@ -13,20 +13,20 @@ class _FloatingButtonState extends State<FloatingButton> {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
-    void _onPressed() {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+    void onPressed() {
       setState(() {
         isPressed = !isPressed;
       });
     }
 
     return Container(
-      width: _screenWidth * 0.19,
-      height: _screenHeight * 0.09,
+      width: screenWidth * 0.19,
+      height: screenHeight * 0.09,
       child: FittedBox(
         child: FloatingActionButton(
-          onPressed: _onPressed,
+          onPressed: onPressed,
           backgroundColor: isPressed ? AppColors.mainColor : Colors.white,
           foregroundColor: Colors.black,
           child: Image.asset(

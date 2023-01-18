@@ -25,8 +25,8 @@ class LocalizationService extends Translations {
     'vi': 'Tiếng Việt',
   });
 
-  static void changeLocale(String _languageCode) {
-    final locale = _getLocaleFromLanguage(languageCode: _languageCode);
+  static void changeLocale(String languageCode) {
+    final locale = _getLocaleFromLanguage(languageCode: languageCode);
     Get.updateLocale(locale);
   }
 
@@ -52,5 +52,6 @@ class LocalizationService extends Translations {
     //   var defaultLanguage = json['default_language'];
     //   return defaultLanguage;
     // }
+    return null;
   }
 }

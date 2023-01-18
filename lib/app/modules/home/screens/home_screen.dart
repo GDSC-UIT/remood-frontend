@@ -14,8 +14,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
 // floating ActionButton
@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Column(
         children: [
           SizedBox(
-            height: _screenHeight * 0.714,
+            height: screenHeight * 0.714,
           ),
 // button (today's diary)
           const ButtonDiary(),

@@ -6,14 +6,14 @@ class StackPhotos extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Stack(
       clipBehavior: Clip.none,
       children: [
         Container(
-            width: _screenWidth * 0.731,
-            height: _screenHeight * 0.174,
+            width: screenWidth * 0.731,
+            height: screenHeight * 0.174,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
                 border: Border.all(color: AppColors.primary)),
@@ -23,8 +23,8 @@ class StackPhotos extends StatelessWidget {
                   //select photos
                 },
                 child: Container(
-                    width: _screenWidth * 0.413,
-                    height: _screenHeight * 0.124,
+                    width: screenWidth * 0.413,
+                    height: screenHeight * 0.124,
                     decoration: BoxDecoration(
                       color: AppColors.primary42,
                       borderRadius: BorderRadius.circular(10),
@@ -50,8 +50,8 @@ class StackPhotos extends StatelessWidget {
           top: -30,
           left: -26,
           child: Container(
-            width: _screenWidth * 0.224,
-            height: _screenHeight * 0.061,
+            width: screenWidth * 0.224,
+            height: screenHeight * 0.061,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),
