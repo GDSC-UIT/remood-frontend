@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:remood/app/modules/diary/screens/write_diary_screen.dart';
 import 'package:remood/app/modules/home/screens/calendar_screen.dart';
 import 'package:remood/app/modules/home/screens/home_screen.dart';
-import 'package:remood/app/modules/home/screens/read_diary_screen.dart';
-import 'package:remood/app/modules/home/screens/report_screen.dart';
-import 'package:remood/app/modules/home/screens/setting_screen.dart';
+import 'package:remood/app/modules/diary/screens/read_diary_screen.dart';
+import 'package:remood/app/modules/report/screens/report_screen.dart';
+import 'package:remood/app/modules/setting/screens/setting_screen.dart';
 
 class Screens {
   List<Widget> ListScreens = [
