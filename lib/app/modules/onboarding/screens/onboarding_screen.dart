@@ -10,35 +10,55 @@ class OnboardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView.builder(
-        itemCount: 3,
-        itemBuilder: (_, i) {
-          return Container(
-            decoration: OnboardingDecoration.imageBackround(Assets.onboarding1),
-            padding: const EdgeInsets.all(10.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Background
+      body: Container(
+        decoration:
+            OnboardingDecoration.imageBackround(Assets.onboardingBackground),
+        child: Column(
+          children: [
+            Expanded(
+              child: PageView.builder(
+                itemCount: 3,
+                itemBuilder: (_, i) {
+                  return Container(
+                    decoration: OnboardingDecoration.imageBackround(
+                        Assets.onboardingBackground1),
+                    padding: const EdgeInsets.all(40.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Column(
+                          children: [
+                            // Background
+                            Image.asset(Assets.onboardingImage1),
+                            // Paragraph
+                            Text(
+                              "This is a paragraph. This is a paragraph. This is a paragraph. "
+                              "This is a paragraph. This is a paragraph. This is a paragraph. "
+                              "This is a paragraph. This is a paragraph. This is a paragraph. "
+                              "This is a paragraph. This is a paragraph. ",
+                              style: CustomTextStyle.onboardingText(
+                                  AppColors.primary),
+                            ),
+                          ],
+                        ),
+                        // Dots
 
-                // Paragraph
-                Center(
-                  child: Text(
-                    "This is a paragraph. This is a paragraph. This is a paragraph. "
-                    "This is a paragraph. This is a paragraph. This is a paragraph. "
-                    "This is a paragraph. This is a paragraph. This is a paragraph. "
-                    "This is a paragraph. This is a paragraph. ",
-                    style: CustomTextStyle.onboardingText(AppColors.primary),
-                  ),
-                ),
-                // Dots
-
-                // Next screen
-                ElevatedButton(onPressed: () {}, child: const Text("Next"))
-              ],
+                        // Next screen
+                      ],
+                    ),
+                  );
+                },
+              ),
             ),
-          );
-        },
+            SizedBox(
+              width: 300,
+              child: ElevatedButton(
+                onPressed: () {},
+                child: const Text("Next"),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
