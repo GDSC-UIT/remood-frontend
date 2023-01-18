@@ -10,4 +10,9 @@ class AppColors {
   static const Color TagColors = Color.fromRGBO(247, 201, 109, 1);
   static const Color Primary42 = Color.fromRGBO(222, 222, 222, 0.42);
   static const Color DarkGrey = Color.fromRGBO(140, 140, 140, 1);
+  static const Color LightGreen18 = Color.fromRGBO(28, 73, 30, 0.18);
+  static const Color Primary13 = Color.fromRGBO(0, 0, 0, 0.13);
+  static const Color LightRed22 = Color.fromRGBO(148, 5, 5, 0.22);
+  static const Color LightOrange27 = Color.fromRGBO(228, 161, 92, 0.27);
+  static const Color LightPurple22 = Color.fromRGBO(172, 95, 211, 0.22);
 }
