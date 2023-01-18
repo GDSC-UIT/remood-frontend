@@ -15,4 +15,5 @@ class AppColors {
   static const Color LightRed22 = Color.fromRGBO(148, 5, 5, 0.22);
   static const Color LightOrange27 = Color.fromRGBO(228, 161, 92, 0.27);
   static const Color LightPurple22 = Color.fromRGBO(172, 95, 211, 0.22);
+  static const Color Greyscale = Color.fromRGBO(229, 228, 227, 1);
 }
