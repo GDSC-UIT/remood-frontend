@@ -1,18 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
-import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/modules/onboarding/onboarding_controller.dart';
 import 'package:remood/app/modules/onboarding/widgets/onboarding_button.dart';
+import 'package:remood/app/modules/onboarding/widgets/onboarding_content.dart';
 import 'package:remood/app/modules/onboarding/widgets/onboarding_decoration.dart';
 
-class OnboardingScreen extends StatelessWidget {
+class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
+
+  @override
+  State<OnboardingScreen> createState() => _OnboardingScreenState();
+}
+
+class _OnboardingScreenState extends State<OnboardingScreen> {
+  RxInt pageIndex = 0.obs;
 
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(OnboardingController());
+
+    void updateIndex(int index) {
+      pageIndex(index);
+    }
 
     return Scaffold(
       body: Container(
@@ -20,38 +30,37 @@ class OnboardingScreen extends StatelessWidget {
             OnboardingDecoration.imageBackround(Assets.onboardingBackground),
         child: Column(
           children: [
+            // Onboarding content
             Expanded(
               child: PageView.builder(
                 itemCount: controller.contents.length,
+                onPageChanged: (value) {
+                  updateIndex(value);
+                },
                 itemBuilder: (_, i) {
-                  // TODO: Tạo widget Onboarding content
-                  return Container(
-                    decoration: OnboardingDecoration.imageBackround(
-                        controller.contents[i].background),
-                    padding: const EdgeInsets.all(30.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(controller.contents[i].image),
-                        const SizedBox(height: 40.0),
-                        // Paragraph
-                        Text(
-                          controller.contents[i].content,
-                          style:
-                              CustomTextStyle.onboardingText(AppColors.primary),
-                        ),
-                      ],
-                    ),
-                  );
+                  return OnboardingContent(controller: controller, index: i);
                 },
               ),
             ),
 
-            // todo: Dots
-            // Row
-            // List.generate
-            // Container
+            // Dots
+            GetBuilder<OnboardingController>(
+              builder: (controller) {
+                return FittedBox(
+                  child: Row(
+                    children: List.generate(
+                      controller.contents.length,
+                      (index) => controller.buildDots(pageIndex, index),
+                    ),
+                  ),
+                );
+              },
+            ),
+            const SizedBox(height: 20.0),
+
+            //Onboarding button
             const OnboardingButton(),
+            const SizedBox(height: 40.0)
           ],
         ),
       ),

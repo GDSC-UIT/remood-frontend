@@ -8,7 +8,7 @@ class OnboardingButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      // todo: Create button by Container
+      // TODO: Create button by Container
       width: 300,
       // Next screen
       child: ElevatedButton(
