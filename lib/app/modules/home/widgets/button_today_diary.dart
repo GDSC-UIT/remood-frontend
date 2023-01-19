@@ -1,10 +1,6 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
-import 'package:remood/app/global_widgets/bottombar.dart';
-import 'package:remood/app/global_widgets/floating_action_button.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class ButtonDiary extends StatelessWidget {
@@ -22,19 +18,19 @@ class ButtonDiary extends StatelessWidget {
         child: ElevatedButton.icon(
           icon: const Icon(
             Icons.edit,
-            color: AppColors.brown,
+            color: AppColors.Primary,
           ),
           label: const Text(
             'Today\'s diary',
-            style: TextStyle(color: AppColors.brown, fontSize: 18),
+            style: TextStyle(color: AppColors.Primary, fontSize: 18),
           ),
           onPressed: () {
             // today's diary
             Get.toNamed(AppRoutes.writediary);
           },
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all<Color>(
-                Color.fromRGBO(245, 222, 176, 1)),
+            backgroundColor:
+                MaterialStateProperty.all<Color>(AppColors.BackgroundColor),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(22),

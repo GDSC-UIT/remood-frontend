@@ -1,8 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 
 class StackNote extends StatelessWidget {
@@ -20,8 +16,29 @@ class StackNote extends StatelessWidget {
           height: _screenHeight * 0.236,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: AppColors.brown)),
+              border: Border.all(color: AppColors.Primary)),
+// contain text field
+          child: Center(
+            child: Container(
+              height: _screenHeight * 0.167,
+              width: _screenWidth * 0.621,
+              decoration: BoxDecoration(
+                  color: AppColors.Primary42,
+                  borderRadius: BorderRadius.circular(10)),
+// text field
+              child: const Padding(
+                padding: EdgeInsets.all(10),
+                child: TextField(
+                  decoration: InputDecoration.collapsed(hintText: 'Add note'),
+                  style: TextStyle(fontSize: 10),
+                  maxLines: 12,
+                  minLines: 1,
+                ),
+              ),
+            ),
+          ),
         ),
+// 'Note' container
         Positioned(
           top: -30,
           left: -26,
@@ -31,20 +48,19 @@ class StackNote extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: AppColors.brown),
+              border: Border.all(color: AppColors.Primary),
             ),
-            child: Center(
+            child: const Center(
                 child: Text(
               'Note',
               style: TextStyle(
                   fontWeight: FontWeight.w700,
-                  color: AppColors.brown,
+                  color: AppColors.Primary,
                   fontSize: 18),
             )),
           ),
         ),
       ],
     );
-    ;
   }
 }

@@ -1,38 +1,70 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
-import 'package:remood/app/global_widgets/bottombar.dart';
-import 'package:remood/app/global_widgets/floating_action_button.dart';
+import 'package:remood/app/data/models/list_bottom_screen.dart';
+import 'package:remood/app/modules/home/home_controller.dart';
+import 'package:remood/app/modules/home/widgets/floating_action_button.dart';
 import 'package:remood/app/modules/home/widgets/button_today_diary.dart';
+import 'package:get/get.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class HomeScreen extends StatelessWidget {
+  HomeScreen({super.key});
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    int currentIndex = 0;
+    Screens _listScreens = Screens();
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
+    HomeController changeScreen = Get.find();
     return Scaffold(
       backgroundColor: AppColors.BackgroundColor,
 // floating ActionButton
-      floatingActionButton: FloatingButton(),
+      floatingActionButton: const FloatingButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 // bottom navigation bar
-      bottomNavigationBar: BottomNavigation(),
-// body screen
-      body: Column(
-        children: [
-          SizedBox(
-            height: _screenHeight * 0.714,
+      bottomNavigationBar: SizedBox(
+        height: _screenHeight * 0.11,
+        child: ClipRRect(
+          borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(45), topRight: Radius.circular(45)),
+          child: Obx(
+            () => BottomNavigationBar(
+              selectedItemColor: AppColors.MainColor,
+              type: BottomNavigationBarType.fixed,
+              showSelectedLabels: false,
+              showUnselectedLabels: false,
+              items: const [
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.calendar_month),
+                  label: 'None',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.article),
+                  label: 'None',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.signal_cellular_alt),
+                  label: 'None',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.settings),
+                  label: 'None',
+                ),
+              ],
+              currentIndex: changeScreen.current.value,
+              onTap: (index) {
+                changeScreen.changeBottomScreen(index);
+              },
+            ),
           ),
-// button (today's diary)
-          ButtonDiary(),
-        ],
+        ),
+      ),
+// body screen
+      body: Obx(
+        () => IndexedStack(
+          index: changeScreen.current.value,
+          children: _listScreens.ListScreens,
+        ),
       ),
     );
   }
