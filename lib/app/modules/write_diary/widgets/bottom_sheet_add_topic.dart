@@ -6,8 +6,8 @@ import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/list_selected_color_topic.dart';
 import 'package:remood/app/data/models/list_selected_icons_topic.dart';
 
-class Sheet extends StatelessWidget {
-  const Sheet({super.key});
+class SheetAddTopic extends StatelessWidget {
+  const SheetAddTopic({super.key});
 
   @override
   Widget build(BuildContext context) {

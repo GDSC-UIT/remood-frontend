@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/app_strings.dart';
-import 'package:remood/app/modules/diary/diary_controller.dart';
+import 'package:remood/app/modules/write_diary/diary_controller.dart';
 import 'package:get/get.dart';
 
 class StackTag extends StatelessWidget {

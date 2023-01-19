@@ -14,13 +14,13 @@ abstract class AppPages {
       binding: HomeBinding(),
     ),
     GetPage(
-      name: AppRoutes.writediary,
-      page: () => WriteDiaryScreen(),
+      name: AppRoutes.home,
+      page: () => HomeScreen(),
       binding: DiaryBinding(),
     ),
     GetPage(
-      name: AppRoutes.readdiary,
-      page: () => const ReadDiaryScreen(),
+      name: AppRoutes.writediary,
+      page: () => WriteDiaryScreen(),
       binding: DiaryBinding(),
     ),
   ];
