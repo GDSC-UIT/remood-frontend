@@ -21,7 +21,7 @@ class _FloatingButtonState extends State<FloatingButton> {
       });
     }
 
-    return Container(
+    return SizedBox(
       width: screenWidth * 0.19,
       height: screenHeight * 0.09,
       child: FittedBox(

@@ -59,7 +59,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             const SizedBox(height: 20.0),
 
             //Onboarding button
-            const OnboardingButton(),
+            GetBuilder<OnboardingController>(
+              builder: (_) {
+                return OnboardingButton(
+                    pageIndex: pageIndex, content: controller.contents);
+              },
+            ),
             const SizedBox(height: 40.0)
           ],
         ),

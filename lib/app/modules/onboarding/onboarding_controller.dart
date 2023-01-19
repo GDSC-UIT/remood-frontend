@@ -57,4 +57,6 @@ class OnboardingController extends GetxController {
       ),
     );
   }
+
+  void nextPage() {}
 }
