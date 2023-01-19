@@ -40,7 +40,7 @@ class TopicCard extends StatelessWidget {
             topic.title,
             style: const TextStyle(
               color: Colors.black,
-              fontSize: 10,
+              fontSize: 8,
               fontWeight: FontWeight.w600,
             ),
           ),

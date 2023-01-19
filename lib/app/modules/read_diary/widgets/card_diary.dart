@@ -5,8 +5,8 @@ import 'package:remood/app/data/models/diary.dart';
 import 'package:intl/intl.dart';
 
 class DiaryCard extends StatelessWidget {
-  Diary positiveDiary;
-  DiaryCard({super.key, required this.positiveDiary});
+  Diary diary;
+  DiaryCard({super.key, required this.diary});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class DiaryCard extends StatelessWidget {
       width: _screenWidth * 0.723,
       height: _screenHeight * 0.167,
       decoration: BoxDecoration(
-        color: positiveDiary.diaryColor,
+        color: diary.diaryColor,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Padding(
@@ -27,17 +27,16 @@ class DiaryCard extends StatelessWidget {
             Row(
               children: [
                 Icon(
-                  positiveDiary.icon,
-                  color: positiveDiary.diaryColor.withOpacity(1),
+                  diary.icon,
+                  color: diary.diaryColor.withOpacity(1),
                 ),
-                Text(DateFormat('dd/MM/yyyy').format(positiveDiary.date)),
+                Text(DateFormat('dd/MM/yyyy').format(diary.date)),
               ],
             ),
             const SizedBox(
               height: 5,
             ),
-            Expanded(
-                child: SingleChildScrollView(child: Text(positiveDiary.diary))),
+            Expanded(child: SingleChildScrollView(child: Text(diary.diary))),
           ],
         ),
       ),

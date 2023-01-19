@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
-import 'package:remood/app/modules/diary/widgets/card_diary.dart';
-import 'package:remood/app/modules/diary/widgets/list_negative_diary_card.dart';
-import 'package:remood/app/modules/diary/widgets/list_positive_diary_card.dart';
+import 'package:remood/app/modules/write_diary/diary_controller.dart';
+import 'package:remood/app/modules/read_diary/widgets/card_diary.dart';
+import 'package:remood/app/modules/write_diary/widgets/list_negative_diary_card.dart';
+import 'package:remood/app/modules/read_diary/widgets/list_positive_diary_card.dart';
+import 'package:remood/app/modules/home/home_controller.dart';
 
 class ReadDiaryScreen extends StatefulWidget {
-  const ReadDiaryScreen({super.key});
+  ReadDiaryScreen({super.key});
 
   @override
   State<ReadDiaryScreen> createState() => _ReadDiaryScreenState();
@@ -32,6 +35,7 @@ class _ReadDiaryScreenState extends State<ReadDiaryScreen>
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
+    DiaryController diaryController = Get.find<DiaryController>();
     return Scaffold(
       backgroundColor: AppColors.BackgroundColor,
       body: Column(
@@ -116,7 +120,7 @@ class _ReadDiaryScreenState extends State<ReadDiaryScreen>
               ),
               child: SizedBox(
                 height: _screenHeight * 0.651,
-                child: TabBarView(controller: tabController, children: const [
+                child: TabBarView(controller: tabController, children: [
                   PositiveDiaryList(),
                   NegativeDiaryList(),
                 ]),

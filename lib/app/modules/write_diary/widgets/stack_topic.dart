@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/list_topic.dart';
-import 'package:remood/app/modules/diary/diary_controller.dart';
-import 'package:remood/app/modules/diary/widgets/bottom_sheet.dart';
-import 'package:remood/app/modules/diary/widgets/card_topic.dart';
+import 'package:remood/app/modules/write_diary/diary_controller.dart';
+import 'package:remood/app/modules/write_diary/widgets/bottom_sheet_add_topic.dart';
+import 'package:remood/app/modules/write_diary/widgets/card_topic.dart';
 
 class StackTopic extends StatelessWidget {
   const StackTopic({super.key});
@@ -14,7 +14,7 @@ class StackTopic extends StatelessWidget {
     ListTopic _ListTopics = ListTopic();
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
-    DiaryController _diaryController = Get.find();
+    DiaryController topicController = Get.find();
     return Stack(
       clipBehavior: Clip.none,
       children: [
@@ -60,7 +60,7 @@ class StackTopic extends StatelessWidget {
                       GestureDetector(
                         onTap: (() {
                           // open bottomsheet
-                          _diaryController.createTopic(context);
+                          topicController.createTopic(context);
                         }),
                         child: Container(
                           alignment: Alignment.topCenter,
