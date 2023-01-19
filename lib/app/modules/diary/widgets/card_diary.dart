@@ -33,7 +33,7 @@ class DiaryCard extends StatelessWidget {
                 Text(DateFormat('dd/MM/yyyy').format(positiveDiary.date)),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Expanded(

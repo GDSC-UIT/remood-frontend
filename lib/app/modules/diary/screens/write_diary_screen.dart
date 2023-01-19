@@ -8,7 +8,8 @@ import 'package:remood/app/modules/diary/widgets/stack_topic.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class WriteDiaryScreen extends StatelessWidget {
-  const WriteDiaryScreen({super.key});
+  final ValueNotifier<int> currentIndex = ValueNotifier(0);
+  WriteDiaryScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +49,7 @@ class WriteDiaryScreen extends StatelessWidget {
               SizedBox(
                 height: _screenHeight * 0.043,
               ),
-              const StackTag(),
+              StackTag(currentIndex: currentIndex),
               SizedBox(
                 height: _screenHeight * 0.043,
               ),
@@ -65,6 +66,7 @@ class WriteDiaryScreen extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
                     Get.back();
+                    print(currentIndex.value);
                   },
                   style: ButtonStyle(
                     backgroundColor:

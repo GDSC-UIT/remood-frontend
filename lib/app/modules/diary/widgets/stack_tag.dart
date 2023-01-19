@@ -5,14 +5,14 @@ import 'package:remood/app/modules/diary/diary_controller.dart';
 import 'package:get/get.dart';
 
 class StackTag extends StatelessWidget {
-  const StackTag({super.key});
+  final ValueNotifier<int> currentIndex;
+  StackTag({super.key, required this.currentIndex});
 
   @override
   Widget build(BuildContext context) {
-    DiaryController changTag = Get.find();
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
-
+    DiaryController changTag = Get.find();
     return Stack(
       clipBehavior: Clip.none,
       children: [
@@ -36,7 +36,10 @@ class StackTag extends StatelessWidget {
               itemBuilder: (context, index) {
 // container
                 return GestureDetector(
-                  onTap: () => {changTag.changeColortag(index)},
+                  onTap: () {
+                    changTag.changeColortag(index);
+                    currentIndex.value = index;
+                  },
                   child: Obx(
                     () => Container(
                       width: _screenWidth * 0.293,
