@@ -10,7 +10,7 @@ abstract class AppPages {
   static final List<GetPage> pages = [
     GetPage(
       name: AppRoutes.home,
-      page: () => const HomeScreen(),
+      page: () => HomeScreen(),
       binding: HomeBinding(),
     ),
     GetPage(
