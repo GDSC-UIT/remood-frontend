@@ -9,25 +9,21 @@ class ListTopic {
       title: "Work",
       TopicColor: AppColors.LightGreen18,
       icons: Icons.work,
-      IconColor: AppColors.LightGreen18.withOpacity(1),
     ),
     CardTopic(
       title: "Love",
       TopicColor: AppColors.LightRed22,
       icons: Icons.favorite,
-      IconColor: AppColors.LightRed22.withOpacity(1),
     ),
     CardTopic(
       title: "Friends",
       TopicColor: AppColors.LightOrange27,
       icons: Icons.group,
-      IconColor: AppColors.LightOrange27.withOpacity(1),
     ),
     CardTopic(
       title: "Family",
       TopicColor: AppColors.LightPurple22,
       icons: Icons.family_restroom,
-      IconColor: AppColors.LightPurple22.withOpacity(1),
     ),
   ];
 }

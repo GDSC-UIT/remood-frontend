@@ -31,7 +31,7 @@ class TopicCard extends StatelessWidget {
             child: Center(
               child: Icon(
                 topic.icons,
-                color: topic.IconColor,
+                color: topic.TopicColor.withOpacity(1),
                 size: 19,
               ),
             ),
