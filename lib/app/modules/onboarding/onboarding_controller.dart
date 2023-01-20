@@ -40,6 +40,10 @@ class OnboardingController extends GetxController {
                 "This is onboarding content 3. This is onboarding content 3. "
                 "This is onboarding content 3. This is onboarding content 3. "
                 "This is onboarding content 3. This is onboarding content 3. "),
+        Onboarding(
+            background: Assets.onboardingBackground,
+            image: "",
+            content: "This is time setting screen"),
       ];
 
   Obx buildDots(RxInt currentIndex, int index) {

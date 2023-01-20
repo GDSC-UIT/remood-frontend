@@ -9,4 +9,20 @@ class CustomTextStyle extends TextStyle {
       color: color,
     );
   }
+
+  static TextStyle mainStyle(Color color) {
+    return GoogleFonts.poppins(
+      fontSize: 16,
+      fontWeight: FontWeight.bold,
+      color: color,
+    );
+  }
+
+  static TextStyle alarmNumber(Color color) {
+    return GoogleFonts.poppins(
+      fontSize: 25,
+      fontWeight: FontWeight.w600,
+      color: color,
+    );
+  }
 }
