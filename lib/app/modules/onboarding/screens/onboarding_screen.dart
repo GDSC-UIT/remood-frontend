@@ -19,6 +19,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(OnboardingController());
+    PageController pageController = Get.put(PageController());
 
     void updateIndex(int index) {
       pageIndex(index);
@@ -33,6 +34,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             // Onboarding content
             Expanded(
               child: PageView.builder(
+                controller: pageController,
                 itemCount: controller.contents.length,
                 onPageChanged: (value) {
                   updateIndex(value);
@@ -65,7 +67,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     pageIndex: pageIndex, content: controller.contents);
               },
             ),
-            const SizedBox(height: 40.0)
+            const SizedBox(height: 20.0)
           ],
         ),
       ),

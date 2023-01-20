@@ -18,27 +18,33 @@ class OnboardingButton extends StatefulWidget {
 
 class _OnboardingButtonState extends State<OnboardingButton> {
   final controller = Get.find<OnboardingController>();
-  // TODO: Nhấn nút Next để chuyển trang
+  final pageController = Get.find<PageController>();
+  // Nhấn nút Next để chuyển trang
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 40.0),
-      height: 50.0,
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      height: 52.0,
       width: double.infinity,
       child: MaterialButton(
         onPressed: () {
           if (widget.pageIndex == (widget.content.length - 1).obs) {}
-          controller.nextPage();
+          pageController.nextPage(
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeInOut);
         },
         color: AppColors.mainColor,
         textColor: Colors.white,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(13),
         ),
         child: Obx(
-          () => Text(widget.pageIndex == (widget.content.length - 1).obs
-              ? "Continue"
-              : "Next"),
+          () => Text(
+            widget.pageIndex == (widget.content.length - 1).obs
+                ? "Continue"
+                : "Next",
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+          ),
         ),
       ),
     );
