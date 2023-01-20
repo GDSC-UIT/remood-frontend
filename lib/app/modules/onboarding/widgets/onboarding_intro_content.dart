@@ -4,8 +4,9 @@ import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/modules/onboarding/onboarding_controller.dart';
-import 'package:remood/app/modules/onboarding/widgets/onboarding_time_setting.dart';
+import 'package:remood/app/modules/onboarding/widgets/onboarding_time_picker.dart';
 import 'onboarding_decoration.dart';
+import 'onboarding_time_title.dart';
 
 class OnboardingContent extends StatelessWidget {
   const OnboardingContent({
@@ -27,8 +28,8 @@ class OnboardingContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Time to get notification
-    RxString hour = "05".obs;
-    RxString minute = "12".obs;
+    RxInt hour = 0.obs;
+    RxInt minute = 0.obs;
 
     return Container(
       decoration: OnboardingDecoration.imageBackround(
@@ -40,12 +41,12 @@ class OnboardingContent extends StatelessWidget {
           ? Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // SettingTitle
-                const SettingTitle(),
+                // Time Setting Title
+                const TimeTitle(),
                 const SizedBox(height: 26.0),
 
-                // Alarm clock
-                SettingClock(hour: hour, minute: minute),
+                // Time picker
+                TimePicker(hour: hour, minute: minute),
                 const SizedBox(height: 18.0),
 
                 // Alarm image
@@ -59,6 +60,7 @@ class OnboardingContent extends StatelessWidget {
                 // Intro image
                 Image.asset(controller.contents[index].image),
                 const SizedBox(height: 40.0),
+
                 // Intro paragraph
                 Text(
                   controller.contents[index].content,

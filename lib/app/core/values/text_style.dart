@@ -18,7 +18,7 @@ class CustomTextStyle extends TextStyle {
     );
   }
 
-  static TextStyle alarmNumber(Color color) {
+  static TextStyle timeNumber(Color color) {
     return GoogleFonts.poppins(
       fontSize: 25,
       fontWeight: FontWeight.w600,

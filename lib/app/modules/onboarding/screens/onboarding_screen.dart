@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/modules/onboarding/onboarding_controller.dart';
-import 'package:remood/app/modules/onboarding/widgets/onboarding_button.dart';
-import 'package:remood/app/modules/onboarding/widgets/onboarding_content.dart';
+import 'package:remood/app/modules/onboarding/widgets/onboarding_intro_button.dart';
+import 'package:remood/app/modules/onboarding/widgets/onboarding_intro_content.dart';
 import 'package:remood/app/modules/onboarding/widgets/onboarding_decoration.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -26,49 +26,51 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     }
 
     return Scaffold(
-      body: Container(
-        decoration:
-            OnboardingDecoration.imageBackround(Assets.onboardingBackground),
-        child: Column(
-          children: [
-            // Onboarding content
-            Expanded(
-              child: PageView.builder(
-                controller: pageController,
-                itemCount: controller.contents.length,
-                onPageChanged: (value) {
-                  updateIndex(value);
-                },
-                itemBuilder: (_, i) {
-                  return OnboardingContent(controller: controller, index: i);
+      body: SafeArea(
+        child: Container(
+          decoration:
+              OnboardingDecoration.imageBackround(Assets.onboardingBackground),
+          child: Column(
+            children: [
+              // Onboarding content
+              Expanded(
+                child: PageView.builder(
+                  controller: pageController,
+                  itemCount: controller.contents.length,
+                  onPageChanged: (value) {
+                    updateIndex(value);
+                  },
+                  itemBuilder: (_, i) {
+                    return OnboardingContent(controller: controller, index: i);
+                  },
+                ),
+              ),
+
+              // Dots
+              GetBuilder<OnboardingController>(
+                builder: (controller) {
+                  return FittedBox(
+                    child: Row(
+                      children: List.generate(
+                        controller.contents.length,
+                        (index) => controller.buildDots(pageIndex, index),
+                      ),
+                    ),
+                  );
                 },
               ),
-            ),
+              const SizedBox(height: 20.0),
 
-            // Dots
-            GetBuilder<OnboardingController>(
-              builder: (controller) {
-                return FittedBox(
-                  child: Row(
-                    children: List.generate(
-                      controller.contents.length,
-                      (index) => controller.buildDots(pageIndex, index),
-                    ),
-                  ),
-                );
-              },
-            ),
-            const SizedBox(height: 20.0),
-
-            //Onboarding button
-            GetBuilder<OnboardingController>(
-              builder: (_) {
-                return OnboardingButton(
-                    pageIndex: pageIndex, content: controller.contents);
-              },
-            ),
-            const SizedBox(height: 20.0)
-          ],
+              //Onboarding button
+              GetBuilder<OnboardingController>(
+                builder: (_) {
+                  return OnboardingButton(
+                      pageIndex: pageIndex, content: controller.contents);
+                },
+              ),
+              const SizedBox(height: 20.0)
+            ],
+          ),
         ),
       ),
     );

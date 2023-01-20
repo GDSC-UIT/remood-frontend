@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
@@ -60,5 +62,15 @@ class OnboardingController extends GetxController {
         ),
       ),
     );
+  }
+
+  void updateMinute(RxInt minute, int value) {
+    minute = value.toInt().obs;
+    log("min: $minute");
+  }
+
+  void updateHour(RxInt hour, int value) {
+    hour = value.toInt().obs;
+    log("hour: $hour");
   }
 }
