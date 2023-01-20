@@ -30,4 +30,5 @@ class AppColors {
   static const Color LightPrimary0 = Color.fromRGBO(0, 0, 0, 0.22);
   static const Color LightPrimary255 = Color.fromRGBO(255, 199, 0, 0.22);
   static const Color LightPrimary173 = Color.fromRGBO(250, 173, 20, 0.22);
+  static const Color TextDiaryColor = Color.fromRGBO(92, 87, 87, 1);
 }

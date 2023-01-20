@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
-import 'package:remood/app/modules/diary/widgets/stack_note.dart';
-import 'package:remood/app/modules/diary/widgets/stack_photos.dart';
-import 'package:remood/app/modules/diary/widgets/stack_tag.dart';
-import 'package:remood/app/modules/diary/widgets/stack_topic.dart';
+import 'package:remood/app/modules/write_diary/widgets/stack_note.dart';
+import 'package:remood/app/modules/write_diary/widgets/stack_photos.dart';
+import 'package:remood/app/modules/write_diary/widgets/stack_tag.dart';
+import 'package:remood/app/modules/write_diary/widgets/stack_topic.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class WriteDiaryScreen extends StatelessWidget {
