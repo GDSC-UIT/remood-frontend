@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/topic.dart';
+import 'package:remood/app/modules/home/home_controller.dart';
+
 import 'package:remood/app/modules/write_diary/diary_controller.dart';
 
-class TopicCard extends StatelessWidget {
+class TopicSortCard extends StatelessWidget {
   CardTopic topic;
   int index;
-  TopicCard({
+  TopicSortCard({
     super.key,
     required this.topic,
     required this.index,
@@ -19,7 +21,7 @@ class TopicCard extends StatelessWidget {
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
-    DiaryController currentTopicIndex = Get.find();
+    HomeController currentTopicIndex = Get.find();
     return SizedBox(
       width: _screenWidth * 0.093,
       height: _screenHeight * 0.059,

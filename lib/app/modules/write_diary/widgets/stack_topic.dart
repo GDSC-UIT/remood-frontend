@@ -45,6 +45,7 @@ class StackTopic extends StatelessWidget {
                           },
                           child: TopicCard(
                             topic: _ListTopics.topics[index],
+                            index: index,
                           ),
                         )),
                     separatorBuilder: ((context, index) => SizedBox(

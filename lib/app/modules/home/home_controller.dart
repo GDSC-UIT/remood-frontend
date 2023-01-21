@@ -82,4 +82,9 @@ class HomeController extends GetxController {
   void ChangeSort(index) {
     currentSort.value = index;
   }
+
+  RxInt currentTopic = 0.obs;
+  void ChangeTopic(index) {
+    currentTopic.value = index;
+  }
 }

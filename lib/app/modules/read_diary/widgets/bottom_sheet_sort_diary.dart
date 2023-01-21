@@ -6,6 +6,9 @@ import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/app_strings.dart';
 import 'package:remood/app/data/models/list_topic.dart';
 import 'package:remood/app/modules/home/home_controller.dart';
+
+import 'package:remood/app/modules/read_diary/widgets/card_topic_sort.dart';
+import 'package:remood/app/modules/write_diary/diary_controller.dart';
 import 'package:remood/app/modules/write_diary/widgets/card_topic.dart';
 
 class SheetSortDiary extends StatelessWidget {
@@ -128,8 +131,14 @@ class SheetSortDiary extends StatelessWidget {
               child: ListView.separated(
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
-                itemBuilder: ((context, index) => TopicCard(
-                      topic: _ListTopics.topics[index],
+                itemBuilder: ((context, index) => GestureDetector(
+                      onTap: (() {
+                        sortDiary.ChangeTopic(index);
+                      }),
+                      child: TopicSortCard(
+                        topic: _ListTopics.topics[index],
+                        index: index,
+                      ),
                     )),
                 separatorBuilder: ((context, index) => SizedBox(
                       width: _screenWidth * 0.024,

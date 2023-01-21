@@ -139,9 +139,11 @@ class SheetReadDiary extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
               color: id == 0
                   ? _positveDiary
-                      .listPositiveDiary[currentDiary.current.value].diaryColor
+                      .listPositiveDiary[currentDiary.currentDiary.value]
+                      .diaryColor
                   : _negativeDiary
-                      .listNegativeDiary[currentDiary.current.value].diaryColor,
+                      .listNegativeDiary[currentDiary.currentDiary.value]
+                      .diaryColor,
             ),
             child: Padding(
               padding: const EdgeInsets.all(15),
@@ -150,9 +152,10 @@ class SheetReadDiary extends StatelessWidget {
                   child: Text(
                     id == 0
                         ? _positveDiary
-                            .listPositiveDiary[currentDiary.current.value].diary
+                            .listPositiveDiary[currentDiary.currentDiary.value]
+                            .diary
                         : _negativeDiary
-                            .listNegativeDiary[currentDiary.current.value]
+                            .listNegativeDiary[currentDiary.currentDiary.value]
                             .diary,
                     style: const TextStyle(
                         fontWeight: FontWeight.w400,

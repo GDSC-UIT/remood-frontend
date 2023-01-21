@@ -12,7 +12,7 @@ class SheetSearchDiary extends StatelessWidget {
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
-    HomeController searchDiary = HomeController();
+    HomeController searchDiary = Get.find();
     return Container(
       height: _screenHeight * 0.82,
       decoration: const BoxDecoration(
