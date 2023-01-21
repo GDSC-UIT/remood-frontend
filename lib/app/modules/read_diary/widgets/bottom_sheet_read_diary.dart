@@ -68,15 +68,14 @@ class SheetReadDiary extends StatelessWidget {
                 ),
 // date
                 Text(
-                  DateFormat('dd/MM/yyyy').format(
-                    id == 0
-                        ? _positveDiary
-                            .listPositiveDiary[currentDiary.current.value].date
-                        : _negativeDiary
-                            .listNegativeDiary[currentDiary.current.value].date,
-                  ),
-                  style: const TextStyle(
-                      fontWeight: FontWeight.w600, fontSize: 20),
+                  DateFormat('dd/MM/yyyy').format(id == 0
+                      ? _positveDiary
+                          .listPositiveDiary[currentDiary.currentDiary.value]
+                          .date
+                      : _negativeDiary
+                          .listNegativeDiary[currentDiary.currentDiary.value]
+                          .date),
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
                 ),
                 SizedBox(
                   width: _screenWidth * 0.115,

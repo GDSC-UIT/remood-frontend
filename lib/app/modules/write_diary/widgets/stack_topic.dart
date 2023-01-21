@@ -39,8 +39,13 @@ class StackTopic extends StatelessWidget {
                   child: ListView.separated(
                     physics: const BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
-                    itemBuilder: ((context, index) => TopicCard(
-                          topic: _ListTopics.topics[index],
+                    itemBuilder: ((context, index) => GestureDetector(
+                          onTap: () {
+                            topicController.changeTopic(index);
+                          },
+                          child: TopicCard(
+                            topic: _ListTopics.topics[index],
+                          ),
                         )),
                     separatorBuilder: ((context, index) => SizedBox(
                           width: _screenWidth * 0.024,

@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/data/models/topic.dart';
+import 'package:remood/app/modules/write_diary/diary_controller.dart';
 
 class TopicCard extends StatelessWidget {
   CardTopic topic;
@@ -15,6 +16,7 @@ class TopicCard extends StatelessWidget {
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
+    DiaryController currentTopic = Get.find();
     return SizedBox(
       width: _screenWidth * 0.093,
       height: _screenHeight * 0.059,

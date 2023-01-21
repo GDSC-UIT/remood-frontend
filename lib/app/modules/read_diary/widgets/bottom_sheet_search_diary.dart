@@ -47,6 +47,7 @@ class SheetSearchDiary extends StatelessWidget {
             child: SizedBox(
               width: _screenWidth * 0.872,
               child: TextField(
+                onChanged: (value) => searchDiary.search(value),
                 controller: searchDiary.controller,
                 decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
@@ -67,13 +68,6 @@ class SheetSearchDiary extends StatelessWidget {
                 style: TextStyle(fontSize: 20),
               ),
             ),
-          ),
-          ElevatedButton(
-            onPressed: (() {
-              searchDiary.search();
-              Get.back();
-            }),
-            child: Text("Done"),
           ),
         ],
       ),
