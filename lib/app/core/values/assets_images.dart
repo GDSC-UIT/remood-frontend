@@ -2,6 +2,7 @@ class Assets {
   Assets._();
   // Icons
   static const String smile = 'assets/Smile.png';
+  static const String narrowBack = 'assets/arrow-back.png';
 
   // Images
   static const String onboardingBackground = 'assets/onboarding_bg.jpg';

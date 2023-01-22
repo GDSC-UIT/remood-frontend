@@ -25,4 +25,12 @@ class CustomTextStyle extends TextStyle {
       color: color,
     );
   }
+
+  static TextStyle textButton(Color color) {
+    return GoogleFonts.roboto(
+      fontSize: 15,
+      fontWeight: FontWeight.normal,
+      color: color,
+    );
+  }
 }

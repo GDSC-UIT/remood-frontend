@@ -29,4 +29,5 @@ class AppColors {
   static const Color onboardingBackground = Color.fromRGBO(254, 231, 185, 1);
   static const Color onboardingContainer = Color.fromRGBO(229, 228, 227, 1);
   static const Color onboardingOnContainer = Color.fromRGBO(179, 177, 176, 1);
+  static const Color onboardingSkipButton = Color.fromRGBO(154, 147, 147, 1);
 }

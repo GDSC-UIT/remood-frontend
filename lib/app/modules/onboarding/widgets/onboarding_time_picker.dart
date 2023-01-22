@@ -42,7 +42,7 @@ class TimePicker extends StatelessWidget {
               perspective: 0.005,
               physics: const FixedExtentScrollPhysics(),
               childDelegate: ListWheelChildBuilderDelegate(
-                childCount: 13,
+                childCount: 24,
                 builder: (context, index) {
                   return Hours(
                     hours: index,
