@@ -14,6 +14,16 @@ class Onboarding {
 }
 
 class OnboardingController extends GetxController {
+  void updateMinute(RxInt minute, int value) {
+    minute = value.toInt().obs;
+    log("min: $minute");
+  }
+
+  void updateHour(RxInt hour, int value) {
+    hour = value.toInt().obs;
+    log("hour: $hour");
+  }
+
   List<Onboarding> get contents => [
         Onboarding(
             background: Assets.onboardingBackground1,
@@ -62,15 +72,5 @@ class OnboardingController extends GetxController {
         ),
       ),
     );
-  }
-
-  void updateMinute(RxInt minute, int value) {
-    minute = value.toInt().obs;
-    log("min: $minute");
-  }
-
-  void updateHour(RxInt hour, int value) {
-    hour = value.toInt().obs;
-    log("hour: $hour");
   }
 }

@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/data/models/diary.dart';
 import 'package:remood/app/data/models/list_negative_diary.dart';
@@ -55,9 +54,9 @@ class HomeController extends GetxController {
   TextEditingController controller = TextEditingController();
   void search(String value) {
     List<Diary> results = [];
-    if (value.isEmpty)
+    if (value.isEmpty) {
       results = listPositiveDiary.value.listPositiveDiary;
-    else {
+    } else {
       results = listPositiveDiary.value.listPositiveDiary
           .where((element) => element.title.contains(controller.text.trim()))
           .toList();

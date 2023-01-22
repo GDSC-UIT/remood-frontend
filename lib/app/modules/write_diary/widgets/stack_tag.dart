@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 
 class StackTag extends StatelessWidget {
   final ValueNotifier<int> currentIndex;
-  StackTag({super.key, required this.currentIndex});
+  const StackTag({super.key, required this.currentIndex});
 
   @override
   Widget build(BuildContext context) {

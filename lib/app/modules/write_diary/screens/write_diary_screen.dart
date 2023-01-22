@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
@@ -5,7 +7,6 @@ import 'package:remood/app/modules/write_diary/widgets/stack_note.dart';
 import 'package:remood/app/modules/write_diary/widgets/stack_photos.dart';
 import 'package:remood/app/modules/write_diary/widgets/stack_tag.dart';
 import 'package:remood/app/modules/write_diary/widgets/stack_topic.dart';
-import 'package:remood/app/routes/app_routes.dart';
 
 class WriteDiaryScreen extends StatelessWidget {
   final ValueNotifier<int> currentIndex = ValueNotifier(0);
@@ -66,7 +67,7 @@ class WriteDiaryScreen extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
                     Get.back();
-                    print(currentIndex.value);
+                    log(currentIndex.value.toString());
                   },
                   style: ButtonStyle(
                     backgroundColor:

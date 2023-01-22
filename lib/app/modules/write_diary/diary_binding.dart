@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:remood/app/modules/home/home_binding.dart';
 
 import 'diary_controller.dart';
 

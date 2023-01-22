@@ -4,7 +4,7 @@ import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/modules/onboarding/onboarding_controller.dart';
 import 'package:remood/app/modules/onboarding/widgets/onboarding_action_bar.dart';
 import 'package:remood/app/modules/onboarding/widgets/onboarding_intro_button.dart';
-import 'package:remood/app/modules/onboarding/widgets/onboarding_intro_content.dart';
+import 'package:remood/app/modules/onboarding/widgets/onboarding_content.dart';
 import 'package:remood/app/modules/onboarding/widgets/onboarding_decoration.dart';
 
 class OnboardingScreen extends StatefulWidget {

@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/modules/write_diary/widgets/bottom_sheet_add_topic.dart';
 
-import 'package:flutter/animation.dart';
-
 class DiaryController extends GetxController {
   //
   RxInt current = 0.obs;
