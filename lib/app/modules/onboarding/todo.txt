@@ -1,2 +1,1 @@
-- Previous button
-- Skip button
+All done!

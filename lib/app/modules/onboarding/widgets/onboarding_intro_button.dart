@@ -18,8 +18,15 @@ class OnboardingButton extends StatefulWidget {
 }
 
 class _OnboardingButtonState extends State<OnboardingButton> {
-  final controller = Get.find<OnboardingController>();
   final pageController = Get.find<PageController>();
+
+  void nextScreen() {
+    if (widget.pageIndex == (widget.content.length - 1).obs) {
+      Get.offAllNamed(AppRoutes.home);
+    }
+    pageController.nextPage(
+        duration: const Duration(milliseconds: 200), curve: Curves.easeInOut);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +36,7 @@ class _OnboardingButtonState extends State<OnboardingButton> {
       width: double.infinity,
       child: MaterialButton(
         onPressed: () {
-          if (widget.pageIndex == (widget.content.length - 1).obs) {
-            Get.offAllNamed(AppRoutes.home);
-          }
-          pageController.nextPage(
-              duration: const Duration(milliseconds: 100),
-              curve: Curves.easeInOut);
+          nextScreen();
         },
         color: AppColors.mainColor,
         textColor: Colors.white,
