@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:remood/app/modules/diary/diary_binding.dart';
-import 'package:remood/app/modules/diary/screens/write_diary_screen.dart';
+import 'package:remood/app/modules/write_diary/diary_binding.dart';
+import 'package:remood/app/modules/write_diary/screens/write_diary_screen.dart';
 import 'package:remood/app/modules/onboarding/onboarding_binding.dart';
 import 'package:remood/app/modules/onboarding/screens/onboarding_screen.dart';
 import '/app/modules/home/home_binding.dart';
@@ -11,12 +11,12 @@ abstract class AppPages {
   static final List<GetPage> pages = [
     GetPage(
       name: AppRoutes.home,
-      page: () => const HomeScreen(),
+      page: () => HomeScreen(),
       binding: HomeBinding(),
     ),
     GetPage(
       name: AppRoutes.writediary,
-      page: () => const WriteDiaryScreen(),
+      page: () => WriteDiaryScreen(),
       binding: DiaryBinding(),
     ),
     GetPage(
