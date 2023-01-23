@@ -3,17 +3,17 @@ import 'package:remood/app/core/values/app_colors.dart';
 
 class ListSelectedColor {
   List<Color> selectedColors = [
-    AppColors.LightPrimary250,
-    AppColors.LightPrimary204,
-    AppColors.LightPrimary94,
-    AppColors.LightPrimary20,
-    AppColors.LightPrimary43,
-    AppColors.LightPrimary107,
-    AppColors.LightPrimary4,
-    AppColors.LightPrimary49,
-    AppColors.LightPrimary55,
-    AppColors.LightPrimary0,
-    AppColors.LightPrimary255,
-    AppColors.LightPrimary173,
+    AppColors.lightprimary250,
+    AppColors.lightprimary204,
+    AppColors.lightprimary94,
+    AppColors.lightprimary20,
+    AppColors.lightprimary43,
+    AppColors.lightprimary107,
+    AppColors.lightprimary4,
+    AppColors.lightprimary49,
+    AppColors.lightprimary55,
+    AppColors.lightprimary0,
+    AppColors.lightprimary255,
+    AppColors.lightprimary173,
   ];
 }

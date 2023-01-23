@@ -31,7 +31,7 @@ class TopicSortCard extends StatelessWidget {
               decoration: BoxDecoration(
                 color: currentTopicIndex.currentTopic.value == index
                     ? topic.TopicColor
-                    : AppColors.Grey22,
+                    : AppColors.grey22,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Center(
@@ -39,7 +39,7 @@ class TopicSortCard extends StatelessWidget {
                   topic.icons,
                   color: currentTopicIndex.currentTopic.value == index
                       ? topic.TopicColor.withOpacity(1)
-                      : AppColors.DarkBlue,
+                      : AppColors.darkBlue,
                   size: 19,
                 ),
               ),

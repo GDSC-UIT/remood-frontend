@@ -51,7 +51,7 @@ class SheetSearchDiary extends StatelessWidget {
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(16),
                       borderSide: const BorderSide(
-                        color: AppColors.Greyscale,
+                        color: AppColors.greyscale,
                       ),
                     ),
                     focusedBorder: OutlineInputBorder(

@@ -67,8 +67,8 @@ class SheetSortDiary extends StatelessWidget {
                         height: _screenHeight * 0.058,
                         decoration: BoxDecoration(
                           color: sortDiary.currentSort.value == index
-                              ? AppColors.MainColor
-                              : AppColors.Greyscale,
+                              ? AppColors.mainColor
+                              : AppColors.greyscale,
                           borderRadius: BorderRadius.circular(16),
                         ),
 // nameSort
@@ -97,7 +97,7 @@ class SheetSortDiary extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(
               border: Border(
-                bottom: BorderSide(color: AppColors.Greyscale),
+                bottom: BorderSide(color: AppColors.greyscale),
               ),
             ),
           ),

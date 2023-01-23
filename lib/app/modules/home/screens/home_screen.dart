@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
               topLeft: Radius.circular(45), topRight: Radius.circular(45)),
           child: Obx(
             () => BottomNavigationBar(
-              selectedItemColor: AppColors.MainColor,
+              selectedItemColor: AppColors.mainColor,
               type: BottomNavigationBarType.fixed,
               showSelectedLabels: false,
               showUnselectedLabels: false,

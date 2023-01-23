@@ -34,7 +34,7 @@ class _ReadDiaryScreenState extends State<ReadDiaryScreen>
     double _screenHeight = MediaQuery.of(context).size.height;
     HomeController _SearchAndSort = Get.find();
     return Scaffold(
-      backgroundColor: AppColors.BackgroundColor,
+      backgroundColor: AppColors.backgroundColor,
       body: Column(
         children: [
 // tab bar
@@ -66,12 +66,12 @@ class _ReadDiaryScreenState extends State<ReadDiaryScreen>
                   child: Padding(
                       padding: const EdgeInsets.all(5),
                       child: TabBar(
-                        unselectedLabelColor: AppColors.Greyscale,
+                        unselectedLabelColor: AppColors.greyscale,
                         labelColor: Colors.white,
-                        indicatorColor: AppColors.TagColors,
+                        indicatorColor: AppColors.tagColors,
                         indicatorWeight: 2,
                         indicator: BoxDecoration(
-                          color: AppColors.TagColors,
+                          color: AppColors.tagColors,
                           borderRadius: BorderRadius.circular(45),
                         ),
                         controller: tabController,

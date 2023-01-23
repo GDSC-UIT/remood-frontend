@@ -68,7 +68,7 @@ class OnboardingController extends GetxController {
           borderRadius: BorderRadius.circular(20),
           color: currentIndex == index.obs
               ? AppColors.mainColor
-              : AppColors.darkGrey,
+              : AppColors.darkgrey,
         ),
       ),
     );
