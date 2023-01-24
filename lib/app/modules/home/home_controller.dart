@@ -32,4 +32,9 @@ class HomeController extends GetxController {
     }
     ispressed.value = !ispressed.value;
   }
+
+  RxDouble valueSlider = 50.0.obs;
+  void onChangeSlider(value) {
+    valueSlider.value = value;
+  }
 }

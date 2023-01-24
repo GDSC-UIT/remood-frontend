@@ -2,12 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/list_bottom_screen.dart';
 import 'package:remood/app/modules/home/home_controller.dart';
+import 'package:remood/app/modules/home/widgets/container_freshmood.dart';
 import 'package:remood/app/modules/home/widgets/floating_action_button.dart';
 import 'package:remood/app/modules/home/widgets/button_today_diary.dart';
 import 'package:get/get.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  HomeController changeScreen = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +23,7 @@ class HomeScreen extends StatelessWidget {
     Screens _listScreens = Screens();
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
-    HomeController changeScreen = Get.find();
+
     return Scaffold(
       backgroundColor: AppColors.BackgroundColor,
       // floating ActionButton
