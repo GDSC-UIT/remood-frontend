@@ -56,14 +56,18 @@ class _FreshmoodPercentState extends State<FreshmoodPercent> {
                     () => Column(
                       children: [
                         SizedBox(
-                          height: 5,
+                          height: 10,
                         ),
-                        SizedBox(
-                          width: 42,
-                          height: 42,
-                          child: Image.asset(
-                            Assets.smile,
-                          ),
+                        Image.asset(
+                          sliderController.valueSlider.value < 20
+                              ? Assets.depressed
+                              : sliderController.valueSlider.value < 40
+                                  ? Assets.sad
+                                  : sliderController.valueSlider.value < 60
+                                      ? Assets.normal
+                                      : sliderController.valueSlider.value < 80
+                                          ? Assets.fun
+                                          : Assets.happy,
                         ),
                         SizedBox(
                           height: 5,
