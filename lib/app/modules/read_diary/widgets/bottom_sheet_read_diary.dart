@@ -5,8 +5,8 @@ import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/list_negative_diary.dart';
 import 'package:remood/app/data/models/list_positive_diary.dart';
-import 'package:remood/app/modules/home/home_controller.dart';
 import 'package:intl/intl.dart';
+import 'package:remood/app/modules/read_diary/read_diary_controller.dart';
 import 'package:remood/app/modules/read_diary/widgets/list_positive_diary_card.dart';
 
 class SheetReadDiary extends StatelessWidget {
@@ -24,7 +24,7 @@ class SheetReadDiary extends StatelessWidget {
     double _screenHeight = MediaQuery.of(context).size.height;
     ListPositveDiary _positveDiary = ListPositveDiary();
     ListNegativeDiary _negativeDiary = ListNegativeDiary();
-    HomeController currentDiary = Get.find();
+    ReadDiaryController currentDiary = Get.find();
     return Container(
       height: _screenHeight * 0.82,
       decoration: const BoxDecoration(

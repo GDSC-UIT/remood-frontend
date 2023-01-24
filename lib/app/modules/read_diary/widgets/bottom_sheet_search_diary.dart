@@ -3,7 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
-import 'package:remood/app/modules/home/home_controller.dart';
+import 'package:remood/app/modules/read_diary/read_diary_controller.dart';
 
 class SheetSearchDiary extends StatelessWidget {
   const SheetSearchDiary({super.key});
@@ -12,7 +12,7 @@ class SheetSearchDiary extends StatelessWidget {
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
-    HomeController searchDiary = Get.find();
+    ReadDiaryController searchDiary = Get.find();
     return Container(
       height: _screenHeight * 0.82,
       decoration: const BoxDecoration(

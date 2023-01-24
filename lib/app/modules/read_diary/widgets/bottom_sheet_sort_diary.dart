@@ -6,6 +6,7 @@ import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/app_strings.dart';
 import 'package:remood/app/data/models/list_topic.dart';
 import 'package:remood/app/modules/home/home_controller.dart';
+import 'package:remood/app/modules/read_diary/read_diary_controller.dart';
 
 import 'package:remood/app/modules/read_diary/widgets/card_topic_sort.dart';
 import 'package:remood/app/modules/write_diary/diary_controller.dart';
@@ -19,7 +20,7 @@ class SheetSortDiary extends StatelessWidget {
     ListTopic _ListTopics = ListTopic();
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
-    HomeController sortDiary = Get.find();
+    ReadDiaryController sortDiary = Get.find();
     return Container(
       height: _screenHeight * 0.82,
       decoration: const BoxDecoration(

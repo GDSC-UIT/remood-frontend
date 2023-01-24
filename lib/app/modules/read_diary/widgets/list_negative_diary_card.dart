@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:remood/app/data/models/list_negative_diary.dart';
 import 'package:remood/app/modules/home/home_controller.dart';
+import 'package:remood/app/modules/read_diary/read_diary_controller.dart';
 
 import 'package:remood/app/modules/write_diary/diary_controller.dart';
 import 'package:remood/app/modules/read_diary/widgets/card_diary.dart';
@@ -15,7 +16,7 @@ class NegativeDiaryList extends StatelessWidget {
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
-    HomeController readNegativeDiary = Get.find();
+    ReadDiaryController readNegativeDiary = Get.find();
     return Obx(
       () => ListView.separated(
         padding: EdgeInsets.zero,

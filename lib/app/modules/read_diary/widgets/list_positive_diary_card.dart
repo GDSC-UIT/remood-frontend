@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/data/models/list_positive_diary.dart';
 import 'package:remood/app/modules/home/home_controller.dart';
+import 'package:remood/app/modules/read_diary/read_diary_controller.dart';
 import 'package:remood/app/modules/read_diary/widgets/card_diary.dart';
 
 class PositiveDiaryList extends StatelessWidget {
@@ -14,7 +15,7 @@ class PositiveDiaryList extends StatelessWidget {
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
-    HomeController readPositveDiary = Get.find();
+    ReadDiaryController readPositveDiary = Get.find();
     return ListView.separated(
       padding: EdgeInsets.zero,
       physics: const BouncingScrollPhysics(),
