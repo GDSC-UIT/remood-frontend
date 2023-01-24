@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/modules/onboarding/onboarding_controller.dart';
-import 'package:remood/app/modules/onboarding/widgets/onboarding_time_hour.dart';
-import 'package:remood/app/modules/onboarding/widgets/onboarding_time_minute.dart';
+import 'package:remood/app/modules/onboarding/widgets/time_hour.dart';
+import 'package:remood/app/modules/onboarding/widgets/time_minute.dart';
 
 // ignore: must_be_immutable
 class TimePicker extends StatelessWidget {

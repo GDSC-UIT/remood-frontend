@@ -4,9 +4,9 @@ import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/modules/onboarding/onboarding_controller.dart';
-import 'package:remood/app/modules/onboarding/widgets/onboarding_time_picker.dart';
-import 'onboarding_decoration.dart';
-import 'onboarding_time_title.dart';
+import 'package:remood/app/modules/onboarding/widgets/time_picker.dart';
+import 'decoration.dart';
+import 'time_title.dart';
 
 class OnboardingContent extends StatelessWidget {
   const OnboardingContent({
