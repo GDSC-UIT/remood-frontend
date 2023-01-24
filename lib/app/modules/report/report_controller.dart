@@ -7,12 +7,17 @@ class ReportController extends GetxController {
   DateTime now = DateTime.now();
   RxString date = DateFormat('dd/MM/yyyy').format(DateTime.now()).obs;
 
-  RxString formatDate(DateTime date) =>
-      DateFormat('dd/MM/yyyy').format(date).obs;
+  RxString previousDate() {
+    now = now.subtract(const Duration(days: 1));
+    date(DateFormat('dd/MM/yyyy').format(now));
+    log('previous date: $date & $now');
+    return date;
+  }
 
-  RxString nextDate(ReportController reportController) {
+  RxString nextDate() {
     now = now.add(const Duration(days: 1));
-    date = reportController.formatDate(now);
-    return reportController.formatDate(now);
+    date(DateFormat('dd/MM/yyyy').format(now));
+    log('next date: $date & $now');
+    return date;
   }
 }
