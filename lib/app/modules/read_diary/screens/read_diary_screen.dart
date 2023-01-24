@@ -34,7 +34,7 @@ class _ReadDiaryScreenState extends State<ReadDiaryScreen>
     double _screenHeight = MediaQuery.of(context).size.height;
     HomeController _SearchAndSort = Get.find();
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor,
+      backgroundColor: AppColors.backgroundPage,
       body: Column(
         children: [
 // tab bar

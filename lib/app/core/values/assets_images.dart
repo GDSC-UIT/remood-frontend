@@ -2,7 +2,9 @@ class Assets {
   Assets._();
   // Icons
   static const String smile = 'assets/Smile.png';
-  static const String narrowBack = 'assets/arrow-back.png';
+  static const String arrowBack = 'assets/arrow-back.png';
+  static const String arrowLeftCircle = 'assets/arrow-left-circle.png';
+  static const String arrowRightCircle = 'assets/arrow-right-circle.png';
 
   // Images
   static const String onboardingBackground = 'assets/onboarding_bg.jpg';
@@ -13,4 +15,5 @@ class Assets {
   static const String onboardingImage2 = 'assets/onboarding_image2.png';
   static const String onboardingImage3 = 'assets/onboarding_image3.png';
   static const String onboardingAlarmImage = 'assets/alarm.jpg';
+  static const String reportPercentage = 'assets/report-percentage-bg.png';
 }

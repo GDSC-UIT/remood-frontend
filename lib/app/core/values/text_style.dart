@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:remood/app/core/values/app_colors.dart';
 
 class CustomTextStyle extends TextStyle {
   static TextStyle onboardingText(Color color) {
@@ -30,6 +31,22 @@ class CustomTextStyle extends TextStyle {
     return GoogleFonts.roboto(
       fontSize: 15,
       fontWeight: FontWeight.normal,
+      color: color,
+    );
+  }
+
+  static TextStyle reportHeading() {
+    return GoogleFonts.poppins(
+      fontSize: 24,
+      fontWeight: FontWeight.w600,
+      color: AppColors.mainColor.withOpacity(0.5),
+    );
+  }
+
+  static TextStyle reportText(Color color, double size) {
+    return GoogleFonts.poppins(
+      fontSize: size,
+      fontWeight: FontWeight.bold,
       color: color,
     );
   }

@@ -41,7 +41,7 @@ class _ActionBarState extends State<ActionBar> {
                       onPressed: () {
                         previousScreen();
                       },
-                      icon: Image.asset(Assets.narrowBack))
+                      icon: Image.asset(Assets.arrowBack))
                   : const SizedBox(),
 
               // Skip button

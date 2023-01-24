@@ -7,7 +7,7 @@ import 'package:remood/app/modules/setting/screens/setting_screen.dart';
 class Screens {
   List<Widget> ListScreens = [
     const CalendarScreen(),
-    ReadDiaryScreen(),
+    const ReadDiaryScreen(),
     const ReportScreen(),
     const SettingScreen(),
   ];

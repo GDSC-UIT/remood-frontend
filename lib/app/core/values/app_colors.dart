@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class AppColors {
   AppColors._();
   static const Color mainColor = Color.fromRGBO(250, 173, 20, 1);
+  static const Color backgroundColor = Color.fromARGB(255, 244, 230, 204);
+  static const Color backgroundPage = Color.fromRGBO(241, 239, 235, 1);
   static const Color lightGreen18 = Color.fromRGBO(28, 73, 30, 0.18);
   static const Color primary13 = Color.fromRGBO(0, 0, 0, 0.13);
   static const Color lightRed22 = Color.fromRGBO(148, 5, 5, 0.22);
@@ -24,7 +26,6 @@ class AppColors {
   static const Color lightprimary255 = Color.fromRGBO(255, 199, 0, 0.22);
   static const Color lightprimary173 = Color.fromRGBO(250, 173, 20, 0.22);
   static const Color textDiaryColor = Color.fromRGBO(92, 87, 87, 1);
-  static const Color backgroundColor = Color.fromARGB(255, 244, 230, 204);
 
   static const Color primary = Color.fromRGBO(143, 117, 63, 1);
   static const Color primary60 = Color.fromRGBO(143, 117, 63, 0.6);

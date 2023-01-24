@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
     double _screenHeight = MediaQuery.of(context).size.height;
     HomeController changeScreen = Get.find();
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor,
+      backgroundColor: AppColors.backgroundPage,
 // floating ActionButton
       floatingActionButton: const FloatingButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

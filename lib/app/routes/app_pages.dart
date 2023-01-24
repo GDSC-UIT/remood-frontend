@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:remood/app/modules/read_diary/screens/read_diary_screen.dart';
 import 'package:remood/app/modules/report/report_binding.dart';
 import 'package:remood/app/modules/report/report_controller.dart';
 import 'package:remood/app/modules/report/screens/report_screen.dart';
@@ -14,8 +15,8 @@ abstract class AppPages {
   static final List<GetPage> pages = [
     GetPage(
       name: AppRoutes.home,
-      page: () => HomeScreen(),
-      binding: HomeBinding(),
+      page: () => const HomeScreen(),
+      bindings: [HomeBinding(), ReportBinding()],
     ),
     GetPage(
       name: AppRoutes.writediary,
