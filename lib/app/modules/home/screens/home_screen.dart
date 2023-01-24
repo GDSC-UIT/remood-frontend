@@ -18,10 +18,10 @@ class HomeScreen extends StatelessWidget {
     HomeController changeScreen = Get.find();
     return Scaffold(
       backgroundColor: AppColors.BackgroundColor,
-// floating ActionButton
+      // floating ActionButton
       floatingActionButton: const FloatingButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-// bottom navigation bar
+      // bottom navigation bar
       bottomNavigationBar: SizedBox(
         height: _screenHeight * 0.11,
         child: ClipRRect(
@@ -59,7 +59,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-// body screen
+      // body screen
       body: Obx(
         () => IndexedStack(
           index: changeScreen.current.value,

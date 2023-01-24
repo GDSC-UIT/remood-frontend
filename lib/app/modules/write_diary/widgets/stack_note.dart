@@ -25,14 +25,16 @@ class StackNote extends StatelessWidget {
               decoration: BoxDecoration(
                   color: AppColors.Primary42,
                   borderRadius: BorderRadius.circular(10)),
-// text field
+              // text field
               child: const Padding(
                 padding: EdgeInsets.all(10),
-                child: TextField(
-                  decoration: InputDecoration.collapsed(hintText: 'Add note'),
-                  style: TextStyle(fontSize: 10),
-                  maxLines: 12,
-                  minLines: 1,
+                child: Expanded(
+                  child: TextField(
+                    decoration: InputDecoration.collapsed(hintText: 'Add note'),
+                    style: TextStyle(fontSize: 10),
+                    expands: true,
+                    maxLines: null,
+                  ),
                 ),
               ),
             ),

@@ -19,7 +19,9 @@ class FloatingButton extends StatelessWidget {
       child: FittedBox(
         child: Obx(
           () => FloatingActionButton(
-            onPressed: pressButton.onPressedButton,
+            onPressed: (() {
+              pressButton.onPressedButton(context);
+            }),
             backgroundColor: pressButton.ispressed.value
                 ? AppColors.MainColor
                 : Colors.white,

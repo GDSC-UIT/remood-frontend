@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:remood/app/data/models/diary.dart';
 import 'package:remood/app/data/models/list_negative_diary.dart';
 import 'package:remood/app/data/models/list_positive_diary.dart';
+import 'package:remood/app/modules/home/widgets/container_freshmood.dart';
 import 'package:remood/app/modules/read_diary/widgets/bottom_sheet_read_diary.dart';
 import 'package:flutter/material.dart';
 import 'package:remood/app/modules/read_diary/widgets/bottom_sheet_search_diary.dart';
@@ -17,7 +18,18 @@ class HomeController extends GetxController {
   }
 
   RxBool ispressed = false.obs;
-  void onPressedButton() {
+  OverlayEntry floatingcontainer = OverlayEntry(
+      opaque: false,
+      maintainState: true,
+      builder: ((context) {
+        return const FreshmoodPercent();
+      }));
+  void onPressedButton(BuildContext context) {
+    if (ispressed.value) {
+      floatingcontainer.remove();
+    } else {
+      Overlay.of(context)!.insert(floatingcontainer);
+    }
     ispressed.value = !ispressed.value;
   }
 }
