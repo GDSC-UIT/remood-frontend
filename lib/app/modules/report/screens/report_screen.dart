@@ -14,9 +14,6 @@ class ReportScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(ReportController());
 
-    int percentage = 60;
-    String avgMood = "Happy";
-
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
       body: SafeArea(
@@ -34,27 +31,24 @@ class ReportScreen extends StatelessWidget {
             Stack(
               children: [
                 Image.asset(Assets.reportPercentage),
-                SizedBox(
+                Container(
+                  alignment: Alignment.center,
                   width: 151,
                   height: 146,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "$percentage%",
+                  child: Obx(() => Text(
+                        "${controller.percentage}%",
                         style: CustomTextStyle.reportText(
                             const Color(0xFF8F753F), 48),
-                      ),
-                    ],
-                  ),
+                      )),
                 ),
               ],
             ),
             // Average mood of the day
-            Text(
-              avgMood,
-              style: CustomTextStyle.reportText(const Color(0xFF130F26), 48),
-            ),
+            Obx(() => Text(
+                  '${controller.avgMood}',
+                  style:
+                      CustomTextStyle.reportText(const Color(0xFF130F26), 48),
+                )),
           ],
         ),
       ),
