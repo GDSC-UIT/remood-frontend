@@ -9,6 +9,7 @@ import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/modules/home/home_controller.dart';
 import 'package:remood/app/modules/home/widgets/floating_action_button.dart';
+import 'package:remood/app/routes/app_routes.dart';
 
 class FreshmoodPercent extends StatefulWidget {
   const FreshmoodPercent({super.key});
@@ -58,16 +59,24 @@ class _FreshmoodPercentState extends State<FreshmoodPercent> {
                         SizedBox(
                           height: 10,
                         ),
-                        Image.asset(
-                          sliderController.valueSlider.value < 20
-                              ? Assets.depressed
-                              : sliderController.valueSlider.value < 40
-                                  ? Assets.sad
-                                  : sliderController.valueSlider.value < 60
-                                      ? Assets.normal
-                                      : sliderController.valueSlider.value < 80
-                                          ? Assets.fun
-                                          : Assets.happy,
+                        GestureDetector(
+                          onTap: (() {
+                            Get.toNamed(AppRoutes.happyfreshmood);
+                            sliderController.floatingcontainer.remove();
+                            sliderController.ispressed.value = false;
+                          }),
+                          child: Image.asset(
+                            sliderController.valueSlider.value < 20
+                                ? Assets.depressed
+                                : sliderController.valueSlider.value < 40
+                                    ? Assets.sad
+                                    : sliderController.valueSlider.value < 60
+                                        ? Assets.normal
+                                        : sliderController.valueSlider.value <
+                                                80
+                                            ? Assets.fun
+                                            : Assets.happy,
+                          ),
                         ),
                         SizedBox(
                           height: 5,

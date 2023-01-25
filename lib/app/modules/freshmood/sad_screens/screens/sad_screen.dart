@@ -1,9 +1,8 @@
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/material.dart';
 
-class FreshmoodScreen extends StatelessWidget {
-  const FreshmoodScreen({super.key});
+class SadScreen extends StatelessWidget {
+  const SadScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -38,22 +38,6 @@ class ReadDiaryController extends GetxController {
     );
   }
 
-  Rx<ListPositveDiary> listPositiveDiary = ListPositveDiary().obs;
-  Rx<ListNegativeDiary> listNegativeDiary = ListNegativeDiary().obs;
-
-  TextEditingController controller = TextEditingController();
-  void search(String value) {
-    List<Diary> results = [];
-    if (value.isEmpty)
-      results = listPositiveDiary.value.listPositiveDiary;
-    else {
-      results = listPositiveDiary.value.listPositiveDiary
-          .where((element) => element.title.contains(controller.text.trim()))
-          .toList();
-    }
-    listNegativeDiary.value.listNegativeDiary = results;
-  }
-
   void sortDiary(context) {
     showModalBottomSheet(
       shape: RoundedRectangleBorder(

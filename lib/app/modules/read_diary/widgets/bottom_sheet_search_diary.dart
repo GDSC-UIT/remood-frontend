@@ -47,8 +47,6 @@ class SheetSearchDiary extends StatelessWidget {
             child: SizedBox(
               width: _screenWidth * 0.872,
               child: TextField(
-                onChanged: (value) => searchDiary.search(value),
-                controller: searchDiary.controller,
                 decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(16),
