@@ -10,6 +10,7 @@ class ListNegativeDiary {
       date: DateTime.now(),
       diaryColor: AppColors.LightRed22,
       icon: Icons.work,
+      title: "Work",
     ),
     Diary(
       diary:
@@ -17,6 +18,7 @@ class ListNegativeDiary {
       date: DateTime.now(),
       diaryColor: AppColors.LightRed22,
       icon: Icons.work,
+      title: "Work",
     ),
     Diary(
       diary:
@@ -24,6 +26,7 @@ class ListNegativeDiary {
       date: DateTime.now(),
       diaryColor: AppColors.LightRed22,
       icon: Icons.work,
+      title: "Work",
     ),
     Diary(
       diary:
@@ -31,6 +34,7 @@ class ListNegativeDiary {
       date: DateTime.now(),
       diaryColor: AppColors.LightRed22,
       icon: Icons.work,
+      title: "Love",
     ),
     Diary(
       diary:
@@ -38,6 +42,7 @@ class ListNegativeDiary {
       date: DateTime.now(),
       diaryColor: AppColors.LightRed22,
       icon: Icons.work,
+      title: "Love",
     ),
   ];
 }

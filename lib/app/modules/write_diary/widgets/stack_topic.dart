@@ -4,7 +4,7 @@ import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/list_topic.dart';
 import 'package:remood/app/modules/write_diary/diary_controller.dart';
 import 'package:remood/app/modules/write_diary/widgets/bottom_sheet_add_topic.dart';
-import 'package:remood/app/modules/write_diary/widgets/card_topic.dart';
+import 'package:remood/app/global_widgets/card_topic.dart';
 
 class StackTopic extends StatelessWidget {
   const StackTopic({super.key});
@@ -39,8 +39,15 @@ class StackTopic extends StatelessWidget {
                   child: ListView.separated(
                     physics: const BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
-                    itemBuilder: ((context, index) => TopicCard(
-                          topic: _ListTopics.topics[index],
+                    itemBuilder: ((context, index) => GestureDetector(
+                          onTap: () {
+                            topicController.changeTopic(index);
+                          },
+                          child: TopicCard(
+                            topic: _ListTopics.topics[index],
+                            index: index,
+                            currentIndex: topicController.currentTopic,
+                          ),
                         )),
                     separatorBuilder: ((context, index) => SizedBox(
                           width: _screenWidth * 0.024,

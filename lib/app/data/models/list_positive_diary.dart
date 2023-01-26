@@ -10,6 +10,15 @@ class ListPositveDiary {
       date: DateTime.now(),
       diaryColor: AppColors.LightGreen18,
       icon: Icons.work,
+      title: "Work",
+    ),
+    Diary(
+      diary:
+          "Mauris interdum sapien sodales mi sagittis hendrerit. Curabitur ut lectus nec orci cursus rhoncus. Donec a ultrices risus. ",
+      date: DateTime.now(),
+      diaryColor: AppColors.LightGreen18,
+      icon: Icons.work,
+      title: "Work",
     ),
     Diary(
       diary:
@@ -17,6 +26,7 @@ class ListPositveDiary {
       date: DateTime.now(),
       diaryColor: AppColors.LightGreen18,
       icon: Icons.work,
+      title: "Love",
     ),
     Diary(
       diary:
@@ -24,6 +34,7 @@ class ListPositveDiary {
       date: DateTime.now(),
       diaryColor: AppColors.LightGreen18,
       icon: Icons.work,
+      title: "Love",
     ),
     Diary(
       diary:
@@ -31,13 +42,7 @@ class ListPositveDiary {
       date: DateTime.now(),
       diaryColor: AppColors.LightGreen18,
       icon: Icons.work,
-    ),
-    Diary(
-      diary:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum sapien sodales mi sagittis hendrerit. Curabitur ut lectus nec orci cursus rhoncus. Donec a ultrices risus. ",
-      date: DateTime.now(),
-      diaryColor: AppColors.LightGreen18,
-      icon: Icons.work,
+      title: "Work",
     ),
   ];
 }

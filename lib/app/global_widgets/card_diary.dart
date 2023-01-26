@@ -30,7 +30,13 @@ class DiaryCard extends StatelessWidget {
                   diary.icon,
                   color: diary.diaryColor.withOpacity(1),
                 ),
-                Text(DateFormat('dd/MM/yyyy').format(diary.date)),
+                SizedBox(
+                  width: 7,
+                ),
+                Text(DateFormat('dd/MM/yyyy').format(diary.date),
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                    )),
               ],
             ),
             const SizedBox(

@@ -3,11 +3,12 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
-import 'package:remood/app/modules/write_diary/diary_controller.dart';
-import 'package:remood/app/modules/read_diary/widgets/card_diary.dart';
-import 'package:remood/app/modules/write_diary/widgets/list_negative_diary_card.dart';
+import 'package:remood/app/modules/read_diary/read_diary_controller.dart';
+
+import 'package:remood/app/modules/read_diary/widgets/bottom_sheet_search_diary.dart';
+import 'package:remood/app/global_widgets/card_diary.dart';
+import 'package:remood/app/modules/read_diary/widgets/list_negative_diary_card.dart';
 import 'package:remood/app/modules/read_diary/widgets/list_positive_diary_card.dart';
-import 'package:remood/app/modules/home/home_controller.dart';
 
 class ReadDiaryScreen extends StatefulWidget {
   ReadDiaryScreen({super.key});
@@ -35,7 +36,7 @@ class _ReadDiaryScreenState extends State<ReadDiaryScreen>
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
-    DiaryController diaryController = Get.find<DiaryController>();
+    ReadDiaryController _SearchAndSort = Get.find();
     return Scaffold(
       backgroundColor: AppColors.BackgroundColor,
       body: Column(
@@ -56,6 +57,7 @@ class _ReadDiaryScreenState extends State<ReadDiaryScreen>
                   ),
                   onPressed: (() {
                     //search
+                    _SearchAndSort.searchDiary(context);
                   }),
                 ),
 // tab bar
@@ -95,6 +97,7 @@ class _ReadDiaryScreenState extends State<ReadDiaryScreen>
                   ),
                   onPressed: () {
                     // sort
+                    _SearchAndSort.sortDiary(context);
                   },
                 ),
               ],

@@ -2,13 +2,19 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/topic.dart';
+import 'package:remood/app/modules/write_diary/diary_controller.dart';
 
 class TopicCard extends StatelessWidget {
   CardTopic topic;
+  int index;
+  RxInt currentIndex;
   TopicCard({
     super.key,
     required this.topic,
+    required this.index,
+    required this.currentIndex,
   });
 
   @override
@@ -21,18 +27,24 @@ class TopicCard extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-            height: _screenHeight * 0.043,
-            width: _screenWidth * 0.093,
-            decoration: BoxDecoration(
-              color: topic.TopicColor,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Center(
-              child: Icon(
-                topic.icons,
-                color: topic.TopicColor.withOpacity(1),
-                size: 19,
+          Obx(
+            () => Container(
+              height: _screenHeight * 0.043,
+              width: _screenWidth * 0.093,
+              decoration: BoxDecoration(
+                color: currentIndex.value == index
+                    ? topic.TopicColor
+                    : AppColors.Grey22,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Center(
+                child: Icon(
+                  topic.icons,
+                  color: currentIndex.value == index
+                      ? topic.TopicColor.withOpacity(1)
+                      : AppColors.DarkBlue,
+                  size: 19,
+                ),
               ),
             ),
           ),

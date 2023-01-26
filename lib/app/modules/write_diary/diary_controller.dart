@@ -24,5 +24,10 @@ class DiaryController extends GetxController {
     );
   }
 
+  RxInt currentTopic = 0.obs;
+  void changeTopic(index) {
+    currentTopic.value = index;
+  }
+
 /*  */
 }
