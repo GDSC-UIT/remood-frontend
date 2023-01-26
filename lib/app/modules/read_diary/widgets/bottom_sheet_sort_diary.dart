@@ -7,10 +7,8 @@ import 'package:remood/app/core/values/app_strings.dart';
 import 'package:remood/app/data/models/list_topic.dart';
 import 'package:remood/app/modules/home/home_controller.dart';
 import 'package:remood/app/modules/read_diary/read_diary_controller.dart';
-
-import 'package:remood/app/modules/read_diary/widgets/card_topic_sort.dart';
 import 'package:remood/app/modules/write_diary/diary_controller.dart';
-import 'package:remood/app/modules/write_diary/widgets/card_topic.dart';
+import 'package:remood/app/global_widgets/card_topic.dart';
 
 class SheetSortDiary extends StatelessWidget {
   const SheetSortDiary({super.key});
@@ -136,9 +134,10 @@ class SheetSortDiary extends StatelessWidget {
                       onTap: (() {
                         sortDiary.ChangeTopic(index);
                       }),
-                      child: TopicSortCard(
+                      child: TopicCard(
                         topic: _ListTopics.topics[index],
                         index: index,
+                        currentIndex: sortDiary.currentTopic,
                       ),
                     )),
                 separatorBuilder: ((context, index) => SizedBox(

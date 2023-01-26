@@ -9,17 +9,18 @@ import 'package:remood/app/modules/write_diary/diary_controller.dart';
 class TopicCard extends StatelessWidget {
   CardTopic topic;
   int index;
+  RxInt currentIndex;
   TopicCard({
     super.key,
     required this.topic,
     required this.index,
+    required this.currentIndex,
   });
 
   @override
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
-    DiaryController currentTopicIndex = Get.find();
     return SizedBox(
       width: _screenWidth * 0.093,
       height: _screenHeight * 0.059,
@@ -31,7 +32,7 @@ class TopicCard extends StatelessWidget {
               height: _screenHeight * 0.043,
               width: _screenWidth * 0.093,
               decoration: BoxDecoration(
-                color: currentTopicIndex.currentTopic.value == index
+                color: currentIndex.value == index
                     ? topic.TopicColor
                     : AppColors.Grey22,
                 borderRadius: BorderRadius.circular(10),
@@ -39,7 +40,7 @@ class TopicCard extends StatelessWidget {
               child: Center(
                 child: Icon(
                   topic.icons,
-                  color: currentTopicIndex.currentTopic.value == index
+                  color: currentIndex.value == index
                       ? topic.TopicColor.withOpacity(1)
                       : AppColors.DarkBlue,
                   size: 19,

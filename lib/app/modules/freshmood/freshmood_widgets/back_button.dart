@@ -14,7 +14,7 @@ class BackButtonContainer extends StatelessWidget {
       padding: EdgeInsets.only(top: 50, left: 22),
       child: GestureDetector(
         onTap: () {
-          Get.toNamed(AppRoutes.home);
+          Get.back();
         },
         child: Container(
           height: 46,

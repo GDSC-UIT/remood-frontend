@@ -6,6 +6,7 @@ import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/modules/freshmood/freshmood_widgets/back_button.dart';
 import 'package:remood/app/modules/home/home_controller.dart';
+import 'package:remood/app/modules/home/widgets/floating_action_button.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class HappyScreen extends StatelessWidget {
@@ -21,10 +22,12 @@ class HappyScreen extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+// back button
           BackButtonContainer(),
           SizedBox(
-            height: _screenHeight * 0.115,
+            height: _screenHeight * 0.2,
           ),
+// icon feelings
           Padding(
             padding: EdgeInsets.only(left: _screenWidth * 0.43),
             child: Container(
@@ -45,6 +48,7 @@ class HappyScreen extends StatelessWidget {
           SizedBox(
             height: 17,
           ),
+// quote
           Padding(
             padding: EdgeInsets.symmetric(horizontal: _screenWidth * 0.18),
             child: Container(
@@ -66,37 +70,6 @@ class HappyScreen extends StatelessWidget {
             ),
           )
         ],
-      ),
-      bottomNavigationBar: SizedBox(
-        height: _screenHeight * 0.11,
-        child: ClipRRect(
-          borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(45), topRight: Radius.circular(45)),
-          child: BottomNavigationBar(
-            selectedItemColor: AppColors.MainColor,
-            type: BottomNavigationBarType.fixed,
-            showSelectedLabels: false,
-            showUnselectedLabels: false,
-            items: const [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.calendar_month),
-                label: 'None',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.article),
-                label: 'None',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.signal_cellular_alt),
-                label: 'None',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.settings),
-                label: 'None',
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }

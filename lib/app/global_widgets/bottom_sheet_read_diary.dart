@@ -12,10 +12,12 @@ import 'package:remood/app/modules/read_diary/widgets/list_positive_diary_card.d
 class SheetReadDiary extends StatelessWidget {
   String tag;
   int id;
+  RxInt currentDiary;
   SheetReadDiary({
     super.key,
     required this.tag,
     required this.id,
+    required this.currentDiary,
   });
 
   @override
@@ -24,7 +26,6 @@ class SheetReadDiary extends StatelessWidget {
     double _screenHeight = MediaQuery.of(context).size.height;
     ListPositveDiary _positveDiary = ListPositveDiary();
     ListNegativeDiary _negativeDiary = ListNegativeDiary();
-    ReadDiaryController currentDiary = Get.find();
     return Container(
       height: _screenHeight * 0.82,
       decoration: const BoxDecoration(
@@ -46,20 +47,15 @@ class SheetReadDiary extends StatelessWidget {
 // Icon
                 Icon(
                   id == 0
-                      ? _positveDiary
-                          .listPositiveDiary[currentDiary.currentDiary.value]
-                          .icon
+                      ? _positveDiary.listPositiveDiary[currentDiary.value].icon
                       : _negativeDiary
-                          .listNegativeDiary[currentDiary.currentDiary.value]
-                          .icon,
+                          .listNegativeDiary[currentDiary.value].icon,
                   color: id == 0
                       ? _positveDiary
-                          .listPositiveDiary[currentDiary.currentDiary.value]
-                          .diaryColor
+                          .listPositiveDiary[currentDiary.value].diaryColor
                           .withOpacity(1)
                       : _negativeDiary
-                          .listNegativeDiary[currentDiary.currentDiary.value]
-                          .diaryColor
+                          .listNegativeDiary[currentDiary.value].diaryColor
                           .withOpacity(1),
                   size: 30,
                 ),
@@ -69,12 +65,9 @@ class SheetReadDiary extends StatelessWidget {
 // date
                 Text(
                   DateFormat('dd/MM/yyyy').format(id == 0
-                      ? _positveDiary
-                          .listPositiveDiary[currentDiary.currentDiary.value]
-                          .date
+                      ? _positveDiary.listPositiveDiary[currentDiary.value].date
                       : _negativeDiary
-                          .listNegativeDiary[currentDiary.currentDiary.value]
-                          .date),
+                          .listNegativeDiary[currentDiary.value].date),
                   style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
                 ),
                 SizedBox(
@@ -139,11 +132,9 @@ class SheetReadDiary extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
               color: id == 0
                   ? _positveDiary
-                      .listPositiveDiary[currentDiary.currentDiary.value]
-                      .diaryColor
+                      .listPositiveDiary[currentDiary.value].diaryColor
                   : _negativeDiary
-                      .listNegativeDiary[currentDiary.currentDiary.value]
-                      .diaryColor,
+                      .listNegativeDiary[currentDiary.value].diaryColor,
             ),
             child: Padding(
               padding: const EdgeInsets.all(15),
@@ -152,11 +143,9 @@ class SheetReadDiary extends StatelessWidget {
                   child: Text(
                     id == 0
                         ? _positveDiary
-                            .listPositiveDiary[currentDiary.currentDiary.value]
-                            .diary
+                            .listPositiveDiary[currentDiary.value].diary
                         : _negativeDiary
-                            .listNegativeDiary[currentDiary.currentDiary.value]
-                            .diary,
+                            .listNegativeDiary[currentDiary.value].diary,
                     style: const TextStyle(
                         fontWeight: FontWeight.w400,
                         color: AppColors.TextDiaryColor,

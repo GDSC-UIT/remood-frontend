@@ -37,4 +37,5 @@ class AppColors {
   static const Color normalFace = Color.fromRGBO(255, 206, 70, 1);
   static const Color smileFace = Color.fromRGBO(250, 173, 20, 1);
   static const Color happyFace = Color.fromRGBO(175, 121, 13, 1);
+  static const Color unselecttedIcon = Color.fromRGBO(179, 177, 176, 1);
 }
