@@ -47,14 +47,15 @@ class SheetReadDiary extends StatelessWidget {
 // Icon
                 Icon(
                   id == 0
-                      ? _positveDiary.listPositiveDiary[currentDiary.value].icon
-                      : _negativeDiary
+                      ? ListPositveDiary
+                          .listPositiveDiary[currentDiary.value].icon
+                      : ListNegativeDiary
                           .listNegativeDiary[currentDiary.value].icon,
                   color: id == 0
-                      ? _positveDiary
+                      ? ListPositveDiary
                           .listPositiveDiary[currentDiary.value].diaryColor
                           .withOpacity(1)
-                      : _negativeDiary
+                      : ListNegativeDiary
                           .listNegativeDiary[currentDiary.value].diaryColor
                           .withOpacity(1),
                   size: 30,
@@ -65,8 +66,9 @@ class SheetReadDiary extends StatelessWidget {
 // date
                 Text(
                   DateFormat('dd/MM/yyyy').format(id == 0
-                      ? _positveDiary.listPositiveDiary[currentDiary.value].date
-                      : _negativeDiary
+                      ? ListPositveDiary
+                          .listPositiveDiary[currentDiary.value].date
+                      : ListNegativeDiary
                           .listNegativeDiary[currentDiary.value].date),
                   style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
                 ),
@@ -131,9 +133,9 @@ class SheetReadDiary extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               color: id == 0
-                  ? _positveDiary
+                  ? ListPositveDiary
                       .listPositiveDiary[currentDiary.value].diaryColor
-                  : _negativeDiary
+                  : ListNegativeDiary
                       .listNegativeDiary[currentDiary.value].diaryColor,
             ),
             child: Padding(
@@ -142,9 +144,9 @@ class SheetReadDiary extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Text(
                     id == 0
-                        ? _positveDiary
+                        ? ListPositveDiary
                             .listPositiveDiary[currentDiary.value].diary
-                        : _negativeDiary
+                        : ListNegativeDiary
                             .listNegativeDiary[currentDiary.value].diary,
                     style: const TextStyle(
                         fontWeight: FontWeight.w400,

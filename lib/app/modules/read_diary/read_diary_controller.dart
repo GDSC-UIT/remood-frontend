@@ -64,4 +64,23 @@ class ReadDiaryController extends GetxController {
   void ChangeTopic(index) {
     currentTopic.value = index;
   }
+
+  RxList<Diary> positiveDiaryList = <Diary>[].obs;
+  RxList<Diary> negativeDiaryList = <Diary>[].obs;
+  @override
+  void onInit() {
+    positiveDiaryList.value = ListPositveDiary.listPositiveDiary;
+    negativeDiaryList.value = ListNegativeDiary.listNegativeDiary;
+    super.onInit();
+  }
+
+  void deletePositiveDiary(index) {
+    positiveDiaryList.removeAt(index);
+    ListPositveDiary.listPositiveDiary = positiveDiaryList.value;
+  }
+
+  void deleteNegativeDiary(index) {
+    negativeDiaryList.removeAt(index);
+    ListNegativeDiary.listNegativeDiary = negativeDiaryList.value;
+  }
 }
