@@ -5,6 +5,8 @@ import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/models/setting_function.dart';
+import 'package:remood/app/modules/setting/widgets/listtile_setting_func.dart';
+import 'package:remood/app/modules/setting/widgets/stack_user_avt.dart';
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({super.key});
@@ -12,13 +14,17 @@ class SettingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String username = "cute pie";
-    var listFunc = [
+    var settingList = [
       SettingFunc(icon: Assets.calendar, title: "Start of the week"),
       SettingFunc(icon: Assets.language, title: "Language"),
       SettingFunc(icon: Assets.notification, title: "Notification"),
       SettingFunc(icon: Assets.dangerCircle, title: "Privacy"),
       SettingFunc(icon: Assets.category, title: "Manage topics"),
       SettingFunc(icon: Assets.password, title: "Security"),
+    ];
+    var helpList = [
+      SettingFunc(icon: Assets.call, title: "Contact Us"),
+      SettingFunc(icon: Assets.document, title: "FAQ"),
     ];
 
     return Scaffold(
@@ -54,29 +60,7 @@ class SettingScreen extends StatelessWidget {
                       color: AppColors.settingUserAvtBg,
                       borderRadius: BorderRadius.circular(50.0),
                     ),
-                    child: Stack(children: [
-                      // User avatar
-                      Center(child: Image.asset(Assets.settingUserAvt)),
-
-                      // Edit button
-                      Align(
-                        alignment: Alignment.topRight,
-                        child: GestureDetector(
-                          onTap: () {
-                            log("Changed avt.");
-                          },
-                          child: Container(
-                            width: 20.83,
-                            height: 19.65,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50.0),
-                              color: Colors.white,
-                            ),
-                            child: Image.asset(Assets.edit),
-                          ),
-                        ),
-                      ),
-                    ]),
+                    child: const UserAvatar(),
                   ),
 
                   // User name
@@ -107,52 +91,70 @@ class SettingScreen extends StatelessWidget {
             Expanded(
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child:
-                    // Settings
-                    Column(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       "Settings",
                       style: CustomTextStyle.mainStyle(Colors.black),
                     ),
-
                     Expanded(
                       child: ListView.builder(
-                        itemCount: listFunc.length,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: settingList.length,
                         itemBuilder: (context, index) {
-                          return ListTile(
-                            leading: Image.asset(listFunc[index].icon),
-                            trailing: Image.asset(Assets.arrowRight),
-                            title: Text(
-                              listFunc[index].title,
-                              style:
-                                  CustomTextStyle.onboardingText(Colors.black),
-                            ),
-                          );
+                          return ListTileSettingFunc(
+                              settingList: settingList, index: index);
                         },
                       ),
                     ),
-                    //  Start of the week
-
-                    //  Language
+                    Text(
+                      "Help",
+                      style: CustomTextStyle.mainStyle(Colors.black),
+                    ),
+                    Expanded(
+                      child: ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: helpList.length,
+                        itemBuilder: (context, index) {
+                          return ListTileHelpFunc(
+                              helpList: helpList, index: index);
+                        },
+                      ),
+                    ),
                   ],
                 ),
-
-                //  Notification
-
-                //  Privacy
-
-                //  Manage topics
-
-                //  Security
-
-                // TODO: Help
-                //  Contact us
-                //  FAQ
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class ListTileHelpFunc extends StatelessWidget {
+  const ListTileHelpFunc({
+    Key? key,
+    required this.helpList,
+    required this.index,
+  }) : super(key: key);
+
+  final List<SettingFunc> helpList;
+  final int index;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        log("Clicked help function!");
+      },
+      child: ListTile(
+        leading: Image.asset(helpList[index].icon),
+        trailing: Image.asset(Assets.arrowRight),
+        title: Text(
+          helpList[index].title,
+          style: CustomTextStyle.onboardingText(Colors.black),
         ),
       ),
     );
