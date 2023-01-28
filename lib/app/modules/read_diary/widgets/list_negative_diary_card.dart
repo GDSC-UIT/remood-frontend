@@ -30,8 +30,8 @@ class NegativeDiaryList extends StatelessWidget {
               readNegativeDiary.readDiary(context, index, "Negative diary", 1);
             },
             child: Slidable(
-              child:
-                  DiaryCard(diary: readNegativeDiary.negativeDiaryList[index]),
+              child: Obx(() =>
+                  DiaryCard(diary: readNegativeDiary.negativeDiaryList[index])),
               endActionPane: ActionPane(motion: ScrollMotion(), children: [
                 SlidableAction(
                   onPressed: ((context) =>
