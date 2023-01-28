@@ -4,7 +4,7 @@ import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/topic.dart';
 
 class ListTopic {
-  List<CardTopic> topics = [
+  static List<CardTopic> topics = [
     CardTopic(
       title: "Work",
       TopicColor: AppColors.LightGreen18,

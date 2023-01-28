@@ -135,7 +135,7 @@ class SheetSortDiary extends StatelessWidget {
                         sortDiary.ChangeTopic(index);
                       }),
                       child: TopicCard(
-                        topic: _ListTopics.topics[index],
+                        topic: ListTopic.topics[index],
                         index: index,
                         currentIndex: sortDiary.currentTopic,
                       ),
@@ -143,7 +143,7 @@ class SheetSortDiary extends StatelessWidget {
                 separatorBuilder: ((context, index) => SizedBox(
                       width: _screenWidth * 0.024,
                     )),
-                itemCount: _ListTopics.topics.length,
+                itemCount: ListTopic.topics.length,
               ),
             ),
           ),
