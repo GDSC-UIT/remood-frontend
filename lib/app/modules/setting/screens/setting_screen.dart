@@ -1,10 +1,10 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/models/setting_function.dart';
+import 'package:remood/app/modules/setting/widgets/listtile_help_func.dart';
 import 'package:remood/app/modules/setting/widgets/listtile_setting_func.dart';
 import 'package:remood/app/modules/setting/widgets/stack_user_avt.dart';
 
@@ -101,8 +101,8 @@ class SettingScreen extends StatelessWidget {
                     Expanded(
                       child: ListView.builder(
                         physics: const NeverScrollableScrollPhysics(),
-                        itemCount: settingList.length,
-                        itemBuilder: (context, index) {
+                        itemCount: 6,
+                        itemBuilder: (_, index) {
                           return ListTileSettingFunc(
                               settingList: settingList, index: index);
                         },
@@ -112,11 +112,12 @@ class SettingScreen extends StatelessWidget {
                       "Help",
                       style: CustomTextStyle.mainStyle(Colors.black),
                     ),
-                    Expanded(
+                    SizedBox(
+                      height: 135,
                       child: ListView.builder(
                         physics: const NeverScrollableScrollPhysics(),
                         itemCount: helpList.length,
-                        itemBuilder: (context, index) {
+                        itemBuilder: (_, index) {
                           return ListTileHelpFunc(
                               helpList: helpList, index: index);
                         },
@@ -127,34 +128,6 @@ class SettingScreen extends StatelessWidget {
               ),
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class ListTileHelpFunc extends StatelessWidget {
-  const ListTileHelpFunc({
-    Key? key,
-    required this.helpList,
-    required this.index,
-  }) : super(key: key);
-
-  final List<SettingFunc> helpList;
-  final int index;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        log("Clicked help function!");
-      },
-      child: ListTile(
-        leading: Image.asset(helpList[index].icon),
-        trailing: Image.asset(Assets.arrowRight),
-        title: Text(
-          helpList[index].title,
-          style: CustomTextStyle.onboardingText(Colors.black),
         ),
       ),
     );
