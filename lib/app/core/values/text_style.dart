@@ -3,18 +3,18 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 
 class CustomTextStyle extends TextStyle {
-  static TextStyle onboardingText(Color color) {
-    return GoogleFonts.poppins(
-      fontSize: 14,
-      fontWeight: FontWeight.normal,
-      color: color,
-    );
-  }
-
   static TextStyle mainStyle(Color color) {
     return GoogleFonts.poppins(
       fontSize: 16,
       fontWeight: FontWeight.bold,
+      color: color,
+    );
+  }
+
+  static TextStyle onboardingText(Color color) {
+    return GoogleFonts.poppins(
+      fontSize: 14,
+      fontWeight: FontWeight.normal,
       color: color,
     );
   }
@@ -43,11 +43,7 @@ class CustomTextStyle extends TextStyle {
     );
   }
 
-  static TextStyle reportText(Color color, double size) {
-    return GoogleFonts.poppins(
-      fontSize: size,
-      fontWeight: FontWeight.bold,
-      color: color,
-    );
+  static TextStyle customMainStyle(Color color, double size) {
+    return mainStyle(color).copyWith(fontSize: size);
   }
 }

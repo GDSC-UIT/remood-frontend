@@ -35,8 +35,8 @@ class ReportScreen extends StatelessWidget {
             // Average mood of the day
             Obx(() => Text(
                   '${controller.avgMood}',
-                  style:
-                      CustomTextStyle.reportText(const Color(0xFF130F26), 48),
+                  style: CustomTextStyle.customMainStyle(
+                      const Color(0xFF130F26), 48),
                 )),
           ],
         ),

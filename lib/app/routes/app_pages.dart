@@ -3,6 +3,7 @@ import 'package:remood/app/modules/read_diary/screens/read_diary_screen.dart';
 import 'package:remood/app/modules/report/report_binding.dart';
 import 'package:remood/app/modules/report/report_controller.dart';
 import 'package:remood/app/modules/report/screens/report_screen.dart';
+import 'package:remood/app/modules/setting/setting_binding.dart';
 import 'package:remood/app/modules/write_diary/diary_binding.dart';
 import 'package:remood/app/modules/write_diary/screens/write_diary_screen.dart';
 import 'package:remood/app/modules/onboarding/onboarding_binding.dart';
@@ -16,7 +17,7 @@ abstract class AppPages {
     GetPage(
       name: AppRoutes.home,
       page: () => const HomeScreen(),
-      bindings: [HomeBinding(), ReportBinding()],
+      bindings: [HomeBinding(), ReportBinding(), SettingBinding()],
     ),
     GetPage(
       name: AppRoutes.writediary,

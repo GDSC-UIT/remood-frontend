@@ -33,7 +33,8 @@ class ShowDate extends StatelessWidget {
               width: 95,
               child: Text(
                 '${controller.date}',
-                style: CustomTextStyle.reportText(const Color(0xFFB3B1B0), 14),
+                style: CustomTextStyle.customMainStyle(
+                    const Color(0xFFB3B1B0), 14),
               ),
             ),
           ),

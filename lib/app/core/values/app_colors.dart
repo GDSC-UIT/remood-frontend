@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AppColors {
   AppColors._();
   static const Color mainColor = Color.fromRGBO(250, 173, 20, 1);
-  static const Color backgroundColor = Color.fromARGB(255, 244, 230, 204);
+  static const Color backgroundColor = Color.fromRGBO(244, 230, 204, 1);
   static const Color backgroundPage = Color.fromRGBO(241, 239, 235, 1);
   static const Color lightGreen18 = Color.fromRGBO(28, 73, 30, 0.18);
   static const Color primary13 = Color.fromRGBO(0, 0, 0, 0.13);
@@ -44,12 +44,19 @@ class AppColors {
   // Text
   static const Color textlightgrey = Color.fromRGBO(218, 218, 218, 1);
   static const Color textdarkgrey = Color.fromRGBO(130, 130, 130, 1);
-  static const Color textYellow = Color.fromRGBO(247, 201, 109, 1);
-  static const Color textBrown = Color.fromRGBO(143, 117, 63, 1);
+  static const Color textYellow = tagColors;
+  static const Color textBrown = primary;
 
   // Onboarding
   static const Color onboardingBackground = Color.fromRGBO(254, 231, 185, 1);
-  static const Color onboardingContainer = Color.fromRGBO(229, 228, 227, 1);
+  static const Color onboardingContainer = greyscale;
   static const Color onboardingOnContainer = Color.fromRGBO(179, 177, 176, 1);
   static const Color onboardingSkipButton = Color.fromRGBO(154, 147, 147, 1);
+
+  // Setting
+  static const Color settingUserBg = tagColors;
+  static const Color settingPageName = Color.fromRGBO(195, 159, 86, 1);
+  static const Color settingUserName = primary;
+  static const Color settingIconBg = Color.fromRGBO(231, 231, 231, 1);
+  static const Color settingUserAvtBg = Color.fromRGBO(217, 217, 217, 1);
 }

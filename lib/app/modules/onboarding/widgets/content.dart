@@ -50,7 +50,7 @@ class OnboardingContent extends StatelessWidget {
                 const SizedBox(height: 18.0),
 
                 // Alarm image
-                Image.asset(Assets.onboardingAlarmImage),
+                Image.asset(Assets.onboardingAlarm),
               ],
             )
           // App intro page
