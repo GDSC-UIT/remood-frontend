@@ -15,6 +15,9 @@ class ColHelpFuncs extends StatelessWidget {
       SettingFunc(icon: Assets.call, title: "Contact Us"),
       SettingFunc(icon: Assets.document, title: "FAQ"),
     ];
+
+    var settingHeading = CustomTextStyle.onboardingText(Colors.black);
+
     return Column(
       children: [
         GestureDetector(
@@ -26,7 +29,7 @@ class ColHelpFuncs extends StatelessWidget {
             trailing: Image.asset(Assets.arrowRight),
             title: Text(
               helpList[0].title,
-              style: CustomTextStyle.onboardingText(Colors.black),
+              style: settingHeading,
             ),
           ),
         ),
@@ -39,7 +42,7 @@ class ColHelpFuncs extends StatelessWidget {
             trailing: Image.asset(Assets.arrowRight),
             title: Text(
               helpList[1].title,
-              style: CustomTextStyle.onboardingText(Colors.black),
+              style: settingHeading,
             ),
           ),
         ),

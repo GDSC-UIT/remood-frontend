@@ -1,11 +1,7 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
-import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/core/values/text_style.dart';
-import 'package:remood/app/data/models/setting_function.dart';
-import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/modules/setting/widgets/col_help_funcs.dart';
 import 'package:remood/app/modules/setting/widgets/col_setting_funcs.dart';
 import 'package:remood/app/modules/setting/widgets/stack_user_avt.dart';
@@ -78,6 +74,7 @@ class SettingScreen extends StatelessWidget {
               ),
             ),
 
+            // Setting Functions
             Expanded(
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
