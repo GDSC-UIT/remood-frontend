@@ -1,11 +1,13 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/models/setting_function.dart';
-import 'package:remood/app/modules/setting/widgets/listtile_help_func.dart';
-import 'package:remood/app/modules/setting/widgets/listtile_setting_func.dart';
+import 'package:remood/app/modules/setting/setting_controller.dart';
+import 'package:remood/app/modules/setting/widgets/col_help_funcs.dart';
+import 'package:remood/app/modules/setting/widgets/col_setting_funcs.dart';
 import 'package:remood/app/modules/setting/widgets/stack_user_avt.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -14,18 +16,6 @@ class SettingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String username = "cute pie";
-    var settingList = [
-      SettingFunc(icon: Assets.calendar, title: "Start of the week"),
-      SettingFunc(icon: Assets.language, title: "Language"),
-      SettingFunc(icon: Assets.notification, title: "Notification"),
-      SettingFunc(icon: Assets.dangerCircle, title: "Privacy"),
-      SettingFunc(icon: Assets.category, title: "Manage topics"),
-      SettingFunc(icon: Assets.password, title: "Security"),
-    ];
-    var helpList = [
-      SettingFunc(icon: Assets.call, title: "Contact Us"),
-      SettingFunc(icon: Assets.document, title: "FAQ"),
-    ];
 
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
@@ -98,31 +88,12 @@ class SettingScreen extends StatelessWidget {
                       "Settings",
                       style: CustomTextStyle.mainStyle(Colors.black),
                     ),
-                    Expanded(
-                      child: ListView.builder(
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: 6,
-                        itemBuilder: (_, index) {
-                          return ListTileSettingFunc(
-                              settingList: settingList, index: index);
-                        },
-                      ),
-                    ),
+                    const ColSettingFuncs(),
                     Text(
                       "Help",
                       style: CustomTextStyle.mainStyle(Colors.black),
                     ),
-                    SizedBox(
-                      height: 135,
-                      child: ListView.builder(
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: helpList.length,
-                        itemBuilder: (_, index) {
-                          return ListTileHelpFunc(
-                              helpList: helpList, index: index);
-                        },
-                      ),
-                    ),
+                    const ColHelpFuncs(),
                   ],
                 ),
               ),
