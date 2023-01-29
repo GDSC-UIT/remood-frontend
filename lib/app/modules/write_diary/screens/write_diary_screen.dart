@@ -73,7 +73,6 @@ class WriteDiaryScreen extends StatelessWidget {
                   onPressed: () {
                     diaryController.addDiary();
                     Get.toNamed(AppRoutes.home);
-                    print(ListPositveDiary.listPositiveDiary);
                   },
                   style: ButtonStyle(
                     backgroundColor:

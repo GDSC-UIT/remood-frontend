@@ -24,6 +24,7 @@ class SheetReadDiaryFreshmood extends StatelessWidget {
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
+
     return Container(
       height: _screenHeight * 0.82,
       decoration: const BoxDecoration(
@@ -113,13 +114,18 @@ class SheetReadDiaryFreshmood extends StatelessWidget {
               color: AppColors.Primary42,
               borderRadius: BorderRadius.circular(10),
             ),
-            child: const Center(
-              child: Icon(
-                Icons.camera_alt,
-                color: AppColors.DarkGrey,
-                size: 40,
-              ),
-            ),
+            child:
+                ListPositveDiary.listPositiveDiary[currentDiary.value].image !=
+                        null
+                    ? Image.file(ListPositveDiary
+                        .listPositiveDiary[currentDiary.value].image!)
+                    : const Center(
+                        child: Icon(
+                          Icons.camera_alt,
+                          color: AppColors.DarkGrey,
+                          size: 40,
+                        ),
+                      ),
           ),
 // diary
           const SizedBox(

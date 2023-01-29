@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/diary.dart';
 import 'package:remood/app/data/models/list_negative_diary.dart';
@@ -7,7 +8,7 @@ import 'package:remood/app/data/models/list_positive_diary.dart';
 import 'package:remood/app/data/models/list_topic.dart';
 import 'package:remood/app/data/models/topic.dart';
 import 'package:remood/app/modules/write_diary/widgets/bottom_sheet_add_topic.dart';
-
+import 'dart:io';
 import 'package:flutter/animation.dart';
 
 class DiaryController extends GetxController {
@@ -43,14 +44,17 @@ class DiaryController extends GetxController {
   Rx<Color> colorDiary = AppColors.LightGreen18.obs;
   Rx<String> titleDiary = "".obs;
   TextEditingController diaryNote = TextEditingController();
+  File? image;
   // add diary function
   void addDiary() {
     Diary addDiary = Diary(
-        diary: diaryNote.text.trim(),
-        date: DateTime.now(),
-        diaryColor: colorDiary.value,
-        icon: iconTopic.value,
-        title: titleDiary.value);
+      diary: diaryNote.text.trim(),
+      date: DateTime.now(),
+      diaryColor: colorDiary.value,
+      icon: iconTopic.value,
+      title: titleDiary.value,
+      image: image,
+    );
 
     current.value == 0
         ? ListPositveDiary.listPositiveDiary.add(addDiary)
@@ -85,5 +89,8 @@ class DiaryController extends GetxController {
     ListTopic.topics.add(newTopic);
     listTopic.add(newTopic);
   }
+
+// pick photos
+
 /*  */
 }

@@ -9,7 +9,6 @@ import 'package:remood/app/modules/read_diary/screens/read_diary_screen.dart';
 import 'package:remood/app/modules/read_diary/widgets/bottom_sheet_read_diary.dart';
 import 'package:flutter/material.dart';
 import 'package:remood/app/modules/read_diary/widgets/bottom_sheet_search_diary.dart';
-import 'package:remood/app/modules/read_diary/widgets/bottom_sheet_sort_diary.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class ReadDiaryController extends GetxController {
@@ -82,20 +81,6 @@ class ReadDiaryController extends GetxController {
 // sort diary
 
   RxBool sortPress = false.obs;
-
-  void sortDiary(context) {
-    showModalBottomSheet(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(32.0),
-      ),
-      isScrollControlled: true,
-      context: context,
-      builder: ((context) {
-        return const SheetSortDiary();
-      }),
-    );
-  }
-
   void sortBoxOldtoNew() {
     positiveDiaryList.sort(((a, b) => a.date.compareTo(b.date)));
     negativeDiaryList.sort(((a, b) => a.date.compareTo(b.date)));
