@@ -150,21 +150,39 @@ class SheetReadDiary extends StatelessWidget {
               color: AppColors.Primary42,
               borderRadius: BorderRadius.circular(10),
             ),
-            child: readDiaryController
+            child: id == 0
+                ? readDiaryController
+                            .positiveDiaryList[
+                                readDiaryController.currentDiary.value]
+                            .image !=
+                        null
+                    ? Image.file(readDiaryController
                         .positiveDiaryList[
                             readDiaryController.currentDiary.value]
-                        .image !=
-                    null
-                ? Image.file(readDiaryController
-                    .positiveDiaryList[readDiaryController.currentDiary.value]
-                    .image!)
-                : const Center(
-                    child: Icon(
-                      Icons.camera_alt,
-                      color: AppColors.DarkGrey,
-                      size: 40,
-                    ),
-                  ),
+                        .image!)
+                    : const Center(
+                        child: Icon(
+                          Icons.camera_alt,
+                          color: AppColors.DarkGrey,
+                          size: 40,
+                        ),
+                      )
+                : readDiaryController
+                            .negativeDiaryList[
+                                readDiaryController.currentDiary.value]
+                            .image !=
+                        null
+                    ? Image.file(readDiaryController
+                        .negativeDiaryList[
+                            readDiaryController.currentDiary.value]
+                        .image!)
+                    : const Center(
+                        child: Icon(
+                          Icons.camera_alt,
+                          color: AppColors.DarkGrey,
+                          size: 40,
+                        ),
+                      ),
           ),
           // diary
           const SizedBox(

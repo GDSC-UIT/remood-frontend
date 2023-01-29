@@ -36,4 +36,9 @@ class HomeController extends GetxController {
   void onChangeSlider(value) {
     valueSlider.value = value;
   }
+
+  Rx<DateTime> currentdate = DateTime.now().obs;
+  void changedate(DateTime date) {
+    currentdate.value = date;
+  }
 }

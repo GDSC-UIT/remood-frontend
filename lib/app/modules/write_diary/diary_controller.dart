@@ -45,11 +45,12 @@ class DiaryController extends GetxController {
   Rx<String> titleDiary = "".obs;
   TextEditingController diaryNote = TextEditingController();
   File? image;
+  late DateTime addDate;
   // add diary function
   void addDiary() {
     Diary addDiary = Diary(
       diary: diaryNote.text.trim(),
-      date: DateTime.now(),
+      date: addDate,
       diaryColor: colorDiary.value,
       icon: iconTopic.value,
       title: titleDiary.value,
@@ -89,8 +90,6 @@ class DiaryController extends GetxController {
     ListTopic.topics.add(newTopic);
     listTopic.add(newTopic);
   }
-
-// pick photos
 
 /*  */
 }
