@@ -30,7 +30,8 @@ class PositiveDiaryList extends StatelessWidget {
             }),
             child: Slidable(
               child: DiaryCard(
-                  diary: readPositveDiary.positiveDiaryList.value[index]),
+                diary: readPositveDiary.positiveDiaryList[index],
+              ),
               endActionPane: ActionPane(motion: ScrollMotion(), children: [
                 SlidableAction(
                   onPressed: (context) =>

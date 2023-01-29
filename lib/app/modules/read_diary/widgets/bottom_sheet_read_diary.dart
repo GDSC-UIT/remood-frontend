@@ -178,7 +178,7 @@ class SheetReadDiary extends StatelessWidget {
               padding: const EdgeInsets.all(15),
               child: Obx(
                 () => Expanded(
-                  child: readDiaryController.isPressed.value
+                  child: readDiaryController.isPressed.value == true
                       ? TextField(
                           controller: readDiaryController.editingController,
                           decoration: InputDecoration.collapsed(hintText: ''),

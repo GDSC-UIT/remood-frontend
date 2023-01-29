@@ -42,7 +42,7 @@ class WriteDiaryScreen extends StatelessWidget {
                   trailing: IconButton(
                     onPressed: () {
                       // return homepage
-                      Get.back();
+                      Get.toNamed(AppRoutes.home);
                     },
                     icon: const Icon(Icons.close),
                   ),

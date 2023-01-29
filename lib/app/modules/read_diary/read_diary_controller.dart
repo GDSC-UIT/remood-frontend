@@ -1,9 +1,11 @@
 import 'package:get/get.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/diary.dart';
 import 'package:remood/app/data/models/list_negative_diary.dart';
 import 'package:remood/app/data/models/list_positive_diary.dart';
+import 'package:remood/app/modules/read_diary/screens/read_diary_screen.dart';
 import 'package:remood/app/modules/read_diary/widgets/bottom_sheet_read_diary.dart';
 import 'package:flutter/material.dart';
 import 'package:remood/app/modules/read_diary/widgets/bottom_sheet_search_diary.dart';
@@ -113,12 +115,14 @@ class ReadDiaryController extends GetxController {
   }
 
 // save edit task
+  Rx<String?> title = null.obs;
   void donePositivePress() {
     if (isPressed.value) {
       ListPositveDiary.listPositiveDiary[currentDiary.value].diary =
           editingController.text;
       positiveDiaryList[currentDiary.value].diary = editingController.text;
-      Get.toNamed(AppRoutes.home);
+      positiveDiaryList.refresh();
+      isPressed.value = false;
       Get.back();
     } else
       Get.back();
@@ -129,6 +133,8 @@ class ReadDiaryController extends GetxController {
       ListNegativeDiary.listNegativeDiary[currentDiary.value].diary =
           editingController.text;
       negativeDiaryList[currentDiary.value].diary = editingController.text;
+      negativeDiaryList.refresh();
+      isPressed.value = false;
       Get.back();
     } else
       Get.back();
