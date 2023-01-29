@@ -99,7 +99,12 @@ class _ReadDiaryScreenState extends State<ReadDiaryScreen>
                     ),
                     onPressed: () {
                       // sort
-                      _SearchAndSort.sortDiary(context);
+                      _SearchAndSort.sortPress.value =
+                          !_SearchAndSort.sortPress.value;
+
+                      _SearchAndSort.sortPress.value
+                          ? _SearchAndSort.sortBoxOldtoNew()
+                          : _SearchAndSort.sortBoxNewtoOld();
                     },
                   ),
                 ],

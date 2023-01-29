@@ -40,6 +40,7 @@ class ReadDiaryController extends GetxController {
   }
 
 // search diary
+  TextEditingController searchController = TextEditingController();
   void searchDiary(context) {
     showModalBottomSheet(
       shape: RoundedRectangleBorder(
@@ -53,7 +54,35 @@ class ReadDiaryController extends GetxController {
     );
   }
 
+  void searchTitleDiary(value) {
+    List<Diary> resultsPositive = <Diary>[];
+    List<Diary> resultsNegative = <Diary>[];
+    if (searchController.text.isEmpty) {
+      resultsPositive = ListPositveDiary.listPositiveDiary;
+      resultsNegative = ListNegativeDiary.listNegativeDiary;
+    } else {
+      resultsPositive = ListPositveDiary.listPositiveDiary
+          .where((element) => element.title
+              .toLowerCase()
+              .contains(value.toString().toLowerCase()))
+          .toList();
+
+      resultsNegative = ListNegativeDiary.listNegativeDiary
+          .where((element) => element.title
+              .toLowerCase()
+              .contains(value.toString().toLowerCase()))
+          .toList();
+    }
+    positiveDiaryList.value = resultsPositive;
+    negativeDiaryList.value = resultsNegative;
+    positiveDiaryList.refresh();
+    negativeDiaryList.refresh();
+  }
+
 // sort diary
+
+  RxBool sortPress = false.obs;
+
   void sortDiary(context) {
     showModalBottomSheet(
       shape: RoundedRectangleBorder(
@@ -65,6 +94,16 @@ class ReadDiaryController extends GetxController {
         return const SheetSortDiary();
       }),
     );
+  }
+
+  void sortBoxOldtoNew() {
+    positiveDiaryList.sort(((a, b) => a.date.compareTo(b.date)));
+    negativeDiaryList.sort(((a, b) => a.date.compareTo(b.date)));
+  }
+
+  void sortBoxNewtoOld() {
+    positiveDiaryList.sort(((b, a) => a.date.compareTo(b.date)));
+    negativeDiaryList.sort(((b, a) => a.date.compareTo(b.date)));
   }
 
 // change sort
