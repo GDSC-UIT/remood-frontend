@@ -20,7 +20,9 @@ class HourPicker extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            log('hour++');
+            // TODO: OnTap -> move to the higher value in list wheel
+            log('hour++: ${controller.hour}');
+            controller.addHour();
           },
           child: Padding(
             padding: const EdgeInsets.all(6.0),

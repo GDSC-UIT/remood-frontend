@@ -6,7 +6,6 @@ import 'package:remood/app/global_widgets/time_picker_hour.dart';
 import 'package:remood/app/global_widgets/time_picker_minute.dart';
 import 'package:remood/app/modules/onboarding/onboarding_controller.dart';
 
-// ignore: must_be_immutable
 class TimePicker extends StatelessWidget {
   const TimePicker({
     Key? key,

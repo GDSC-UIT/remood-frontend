@@ -34,6 +34,10 @@ class OnboardingController extends GetxController {
     log("ampm: $ampm");
   }
 
+  void addHour() {
+    hour.value++;
+  }
+
   bool isLastView(int index) {
     if (index == contents.length - 1) {
       return true;
