@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/diary.dart';
 import 'package:remood/app/data/models/list_negative_diary.dart';
@@ -12,6 +13,19 @@ import 'package:remood/app/modules/read_diary/widgets/bottom_sheet_search_diary.
 import 'package:remood/app/routes/app_routes.dart';
 
 class ReadDiaryController extends GetxController {
+  // hive box
+
+  RxList<Diary> positiveDiaryList = <Diary>[].obs;
+  RxList<Diary> negativeDiaryList = <Diary>[].obs;
+
+  @override
+  void onInit() {
+    positiveDiaryList.value = ListPositveDiary.listPositiveDiary;
+    negativeDiaryList.value = ListNegativeDiary.listNegativeDiary;
+
+    super.onInit();
+  }
+
 // read diary
   RxInt currentDiary = 0.obs;
   void readDiary(context, index, String tag, int id) {
@@ -104,14 +118,6 @@ class ReadDiaryController extends GetxController {
   }
 
 // delete diary
-  RxList<Diary> positiveDiaryList = <Diary>[].obs;
-  RxList<Diary> negativeDiaryList = <Diary>[].obs;
-  @override
-  void onInit() {
-    positiveDiaryList.value = ListPositveDiary.listPositiveDiary;
-    negativeDiaryList.value = ListNegativeDiary.listNegativeDiary;
-    super.onInit();
-  }
 
   void deletePositiveDiary(index) {
     positiveDiaryList.removeAt(index);
