@@ -56,4 +56,15 @@ class SettingController extends GetxController {
     choice = lanList[index];
     log(choice.label.toString());
   }
+
+  // -------------------------------------------
+  // Notification
+
+  RxBool selected = false.obs;
+
+  // Turn on/off the reminder
+  void switchOnChange() {
+    selected(!selected.value);
+    log(selected.value.toString());
+  }
 }
