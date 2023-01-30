@@ -22,18 +22,21 @@ class ListTileLaguage extends StatelessWidget {
         log('Tap');
         controller.activeLanguage(index);
       },
-      child: Obx(() => ListTile(
-            // Language label
-            title: Text(
-              controller.lanList[index].label,
-              style: controller.getStyleLan(index),
-            ),
-            trailing: Checkbox(
-              activeColor: AppColors.mainColor,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(6)),
-              value: controller.lanList[index].actived.value,
-              onChanged: (_) => controller.activeLanguage(index),
+      child: Obx(() => Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: ListTile(
+              // Language label
+              title: Text(
+                controller.lanList[index].label,
+                style: controller.getStyleLan(index),
+              ),
+              trailing: Checkbox(
+                activeColor: AppColors.mainColor,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(6)),
+                value: controller.lanList[index].actived.value,
+                onChanged: (_) => controller.activeLanguage(index),
+              ),
             ),
           )),
     );

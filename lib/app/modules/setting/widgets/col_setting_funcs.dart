@@ -5,12 +5,11 @@ import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/models/setting_function.dart';
 import 'package:remood/app/modules/setting/screens/language_screen.dart';
-import 'package:remood/app/modules/setting/screens/manage_topic_screen.dart';
+import 'package:remood/app/modules/setting/screens/manage_topics_screen.dart';
 import 'package:remood/app/modules/setting/screens/notification_screen.dart';
 import 'package:remood/app/modules/setting/screens/privacy_screen.dart';
 import 'package:remood/app/modules/setting/screens/security_screen.dart';
 import 'package:remood/app/modules/setting/screens/start_of_the_week_screen.dart';
-import 'package:remood/app/modules/setting/setting_controller.dart';
 
 class ColSettingFuncs extends StatelessWidget {
   const ColSettingFuncs({
