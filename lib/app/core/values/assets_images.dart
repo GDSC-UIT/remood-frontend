@@ -6,6 +6,8 @@ class Assets {
   static const String arrowLeftCircle = 'assets/icons/arrow-left-circle.png';
   static const String arrowRightCircle = 'assets/icons/arrow-right-circle.png';
   static const String arrowRight = 'assets/icons/arrow-right.png';
+  static const String arrowUpward = 'assets/icons/arrow-upward.png';
+  static const String arrowDownaward = 'assets/icons/arrow-downward.png';
   static const String edit = 'assets/icons/edit.png';
   static const String call = 'assets/icons/call.png';
   static const String category = 'assets/icons/category.png';

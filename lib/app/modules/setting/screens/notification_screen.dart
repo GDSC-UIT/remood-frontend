@@ -59,6 +59,17 @@ class NotificationScreen extends StatelessWidget {
                   GestureDetector(
                     onTap: () {
                       log("Show dialog");
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12)),
+                            title: Text("This is a dialog"),
+                            actions: [],
+                          );
+                        },
+                      );
                     },
                     child: Container(
                       alignment: Alignment.center,
@@ -70,9 +81,8 @@ class NotificationScreen extends StatelessWidget {
                       ),
                       child: Text(
                         "$hour : $minute",
-                        style:
-                            CustomTextStyle.onboardingText(AppColors.mainColor)
-                                .copyWith(fontSize: 16),
+                        style: CustomTextStyle.normalText(AppColors.mainColor)
+                            .copyWith(fontSize: 16),
                       ),
                     ),
                   ),

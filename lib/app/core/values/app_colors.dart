@@ -60,5 +60,5 @@ class AppColors {
   static const Color settingIconBg = Color.fromRGBO(231, 231, 231, 1);
   static const Color settingUserAvtBg = Color.fromRGBO(217, 217, 217, 1);
   static const Color settingNotificationClockBg =
-      Color.fromRGBO(238, 237, 237, 1);
+      Color.fromRGBO(108, 101, 86, 0.23);
 }

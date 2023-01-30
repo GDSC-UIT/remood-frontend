@@ -27,7 +27,7 @@ class ColSettingFuncs extends StatelessWidget {
       SettingFunc(icon: Assets.password, title: "Security"),
     ];
 
-    var settingLabel = CustomTextStyle.onboardingText(Colors.black);
+    var settingLabel = CustomTextStyle.normalText(Colors.black);
 
     return Column(
       children: [

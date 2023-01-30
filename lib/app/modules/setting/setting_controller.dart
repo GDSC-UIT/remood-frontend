@@ -41,7 +41,7 @@ class SettingController extends GetxController {
 
   // Language label style (unselected)
   var styleInactivedLan =
-      CustomTextStyle.onboardingText(Colors.black).copyWith(fontSize: 16);
+      CustomTextStyle.normalText(Colors.black).copyWith(fontSize: 16);
 
   // Language label style will change when that language is selected
   TextStyle getStyleLan(int index) =>
@@ -67,4 +67,7 @@ class SettingController extends GetxController {
     selected(!selected.value);
     log(selected.value.toString());
   }
+
+  // Show dialog to set alarm
+  void showDialog() {}
 }

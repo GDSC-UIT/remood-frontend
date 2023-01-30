@@ -16,7 +16,7 @@ class ColHelpFuncs extends StatelessWidget {
       SettingFunc(icon: Assets.document, title: "FAQ"),
     ];
 
-    var settingHeading = CustomTextStyle.onboardingText(Colors.black);
+    var settingHeading = CustomTextStyle.normalText(Colors.black);
 
     return Column(
       children: [

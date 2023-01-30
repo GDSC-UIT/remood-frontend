@@ -11,7 +11,7 @@ class CustomTextStyle extends TextStyle {
     );
   }
 
-  static TextStyle onboardingText(Color color) {
+  static TextStyle normalText(Color color) {
     return GoogleFonts.poppins(
       fontSize: 14,
       fontWeight: FontWeight.normal,
@@ -19,7 +19,7 @@ class CustomTextStyle extends TextStyle {
     );
   }
 
-  static TextStyle timeNumber(Color color) {
+  static TextStyle titleText(Color color) {
     return GoogleFonts.poppins(
       fontSize: 25,
       fontWeight: FontWeight.w600,
