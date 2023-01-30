@@ -1,15 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:remood/app/core/values/app_colors.dart';
 
 class CustomTextStyle extends TextStyle {
-  static TextStyle onboardingText(Color color) {
-    return GoogleFonts.poppins(
-      fontSize: 14,
-      fontWeight: FontWeight.normal,
-      color: color,
-    );
-  }
-
   static TextStyle mainStyle(Color color) {
     return GoogleFonts.poppins(
       fontSize: 16,
@@ -18,7 +11,15 @@ class CustomTextStyle extends TextStyle {
     );
   }
 
-  static TextStyle timeNumber(Color color) {
+  static TextStyle normalText(Color color) {
+    return GoogleFonts.poppins(
+      fontSize: 14,
+      fontWeight: FontWeight.normal,
+      color: color,
+    );
+  }
+
+  static TextStyle titleText(Color color) {
     return GoogleFonts.poppins(
       fontSize: 25,
       fontWeight: FontWeight.w600,
@@ -32,5 +33,17 @@ class CustomTextStyle extends TextStyle {
       fontWeight: FontWeight.normal,
       color: color,
     );
+  }
+
+  static TextStyle reportHeading() {
+    return GoogleFonts.poppins(
+      fontSize: 24,
+      fontWeight: FontWeight.w600,
+      color: AppColors.mainColor.withOpacity(0.5),
+    );
+  }
+
+  static TextStyle customMainStyle(Color color, double size) {
+    return mainStyle(color).copyWith(fontSize: size);
   }
 }

@@ -6,22 +6,22 @@ class ListTopic {
   List<CardTopic> topics = [
     CardTopic(
       title: "Work",
-      TopicColor: AppColors.LightGreen18,
+      TopicColor: AppColors.lightGreen18,
       icons: Icons.work,
     ),
     CardTopic(
       title: "Love",
-      TopicColor: AppColors.LightRed22,
+      TopicColor: AppColors.lightRed22,
       icons: Icons.favorite,
     ),
     CardTopic(
       title: "Friends",
-      TopicColor: AppColors.LightOrange27,
+      TopicColor: AppColors.lightOrange27,
       icons: Icons.group,
     ),
     CardTopic(
       title: "Family",
-      TopicColor: AppColors.LightPurple22,
+      TopicColor: AppColors.lightPurple22,
       icons: Icons.family_restroom,
     ),
   ];

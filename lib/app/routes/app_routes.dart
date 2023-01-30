@@ -4,4 +4,5 @@ abstract class AppRoutes {
   static const splash = '/splash';
   static const onboarding = '/onboarding';
   static const writediary = '/home/writediary';
+  static const report = '/home/report';
 }

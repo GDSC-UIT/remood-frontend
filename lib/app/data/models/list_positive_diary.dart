@@ -8,7 +8,7 @@ class ListPositveDiary {
       diary:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum sapien sodales mi sagittis hendrerit. Curabitur ut lectus nec orci cursus rhoncus. Donec a ultrices risus. ",
       date: DateTime.now(),
-      diaryColor: AppColors.LightGreen18,
+      diaryColor: AppColors.lightGreen18,
       icon: Icons.work,
       title: "Work",
     ),
@@ -16,7 +16,7 @@ class ListPositveDiary {
       diary:
           "Mauris interdum sapien sodales mi sagittis hendrerit. Curabitur ut lectus nec orci cursus rhoncus. Donec a ultrices risus. ",
       date: DateTime.now(),
-      diaryColor: AppColors.LightGreen18,
+      diaryColor: AppColors.lightGreen18,
       icon: Icons.work,
       title: "Work",
     ),
@@ -24,7 +24,7 @@ class ListPositveDiary {
       diary:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum sapien sodales mi sagittis hendrerit. Curabitur ut lectus nec orci cursus rhoncus. Donec a ultrices risus. ",
       date: DateTime.now(),
-      diaryColor: AppColors.LightGreen18,
+      diaryColor: AppColors.lightGreen18,
       icon: Icons.work,
       title: "Love",
     ),
@@ -32,7 +32,7 @@ class ListPositveDiary {
       diary:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum sapien sodales mi sagittis hendrerit. Curabitur ut lectus nec orci cursus rhoncus. Donec a ultrices risus. ",
       date: DateTime.now(),
-      diaryColor: AppColors.LightGreen18,
+      diaryColor: AppColors.lightGreen18,
       icon: Icons.work,
       title: "Love",
     ),
@@ -40,7 +40,7 @@ class ListPositveDiary {
       diary:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum sapien sodales mi sagittis hendrerit. Curabitur ut lectus nec orci cursus rhoncus. Donec a ultrices risus. ",
       date: DateTime.now(),
-      diaryColor: AppColors.LightGreen18,
+      diaryColor: AppColors.lightGreen18,
       icon: Icons.work,
       title: "Work",
     ),

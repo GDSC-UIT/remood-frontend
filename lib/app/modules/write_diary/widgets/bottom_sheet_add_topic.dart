@@ -50,7 +50,7 @@ class SheetAddTopic extends StatelessWidget {
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(16),
                     borderSide: const BorderSide(
-                      color: AppColors.Greyscale,
+                      color: AppColors.greyscale,
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
@@ -70,7 +70,7 @@ class SheetAddTopic extends StatelessWidget {
             Container(
               decoration: const BoxDecoration(
                 border: Border(
-                  bottom: BorderSide(color: AppColors.Greyscale),
+                  bottom: BorderSide(color: AppColors.greyscale),
                 ),
               ),
             ),
@@ -106,12 +106,12 @@ class SheetAddTopic extends StatelessWidget {
                     width: _screenWidth * 0.093,
                     height: _screenHeight * 0.043,
                     decoration: BoxDecoration(
-                      color: AppColors.Grey22,
+                      color: AppColors.grey22,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Icon(
                       listSelectedIcons.selectedIcons[index],
-                      color: AppColors.DarkBlue,
+                      color: AppColors.darkBlue,
                     ),
                   );
                 },
@@ -168,7 +168,7 @@ class SheetAddTopic extends StatelessWidget {
                 },
                 style: ButtonStyle(
                   backgroundColor:
-                      MaterialStateProperty.all<Color>(AppColors.MainColor),
+                      MaterialStateProperty.all<Color>(AppColors.mainColor),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(13),

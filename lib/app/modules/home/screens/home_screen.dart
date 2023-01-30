@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
     double _screenHeight = MediaQuery.of(context).size.height;
     HomeController changeScreen = Get.find();
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor,
+      backgroundColor: AppColors.backgroundPage,
 // floating ActionButton
       floatingActionButton: const FloatingButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
               topLeft: Radius.circular(45), topRight: Radius.circular(45)),
           child: Obx(
             () => BottomNavigationBar(
-              selectedItemColor: AppColors.MainColor,
+              selectedItemColor: AppColors.mainColor,
               type: BottomNavigationBarType.fixed,
               showSelectedLabels: false,
               showUnselectedLabels: false,

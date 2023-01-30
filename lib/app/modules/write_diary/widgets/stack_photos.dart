@@ -34,12 +34,12 @@ class StackPhotos extends StatelessWidget {
                       children: const [
                         Icon(
                           Icons.camera_alt,
-                          color: AppColors.darkGrey,
+                          color: AppColors.darkgrey,
                         ),
                         Text(
                           'Select photos',
                           style: TextStyle(
-                              fontSize: 10, color: AppColors.darkGrey),
+                              fontSize: 10, color: AppColors.darkgrey),
                         )
                       ],
                     )),
