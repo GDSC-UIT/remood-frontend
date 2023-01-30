@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/diary.dart';
 import 'package:remood/app/data/models/list_negative_diary.dart';
@@ -12,7 +11,6 @@ import 'dart:io';
 import 'package:flutter/animation.dart';
 
 class DiaryController extends GetxController {
-  //
   RxInt current = 0.obs;
 // change Tag positive negative
   void changeColortag(index) {

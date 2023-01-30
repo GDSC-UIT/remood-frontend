@@ -3,10 +3,15 @@ import 'dart:io';
 
 class Diary {
   String diary;
+
   DateTime date;
+
   IconData icon;
+
   Color diaryColor;
+
   String title;
+
   File? image;
   Diary({
     required this.diary,
