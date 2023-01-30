@@ -114,11 +114,24 @@ class SheetReadDiaryFreshmood extends StatelessWidget {
               color: AppColors.Primary42,
               borderRadius: BorderRadius.circular(10),
             ),
-            child:
-                ListPositveDiary.listPositiveDiary[currentDiary.value].image !=
+            child: id == 0
+                ? ListPositveDiary
+                            .listPositiveDiary[currentDiary.value].image !=
                         null
                     ? Image.file(ListPositveDiary
                         .listPositiveDiary[currentDiary.value].image!)
+                    : const Center(
+                        child: Icon(
+                          Icons.camera_alt,
+                          color: AppColors.DarkGrey,
+                          size: 40,
+                        ),
+                      )
+                : ListNegativeDiary
+                            .listNegativeDiary[currentDiary.value].image !=
+                        null
+                    ? Image.file(ListNegativeDiary
+                        .listNegativeDiary[currentDiary.value].image!)
                     : const Center(
                         child: Icon(
                           Icons.camera_alt,
