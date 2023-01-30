@@ -47,6 +47,8 @@ class SheetSearchDiary extends StatelessWidget {
             child: SizedBox(
               width: _screenWidth * 0.872,
               child: TextField(
+                onChanged: (value) => searchDiary.searchTitleDiary(value),
+                controller: searchDiary.searchController,
                 decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(16),
@@ -61,9 +63,44 @@ class SheetSearchDiary extends StatelessWidget {
                       ),
                     ),
                     prefixIcon: Icon(Icons.search),
-                    hintText:
-                        "Search your Diary (date, topic, tag, keywords,....)"),
+                    hintText: "Search your Diary topic"),
                 style: TextStyle(fontSize: 20),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 24,
+          ),
+// underline
+          Container(
+            decoration: const BoxDecoration(
+              border: Border(
+                bottom: BorderSide(color: AppColors.Greyscale),
+              ),
+            ),
+          ),
+// done button
+          SizedBox(
+            height: _screenHeight * 0.55,
+          ),
+// done button
+          Center(
+            child: SizedBox(
+              width: _screenWidth * 0.88,
+              child: ElevatedButton(
+                onPressed: () {
+                  Get.back();
+                },
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(AppColors.MainColor),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(13),
+                    ),
+                  ),
+                ),
+                child: const Text('Done'),
               ),
             ),
           ),

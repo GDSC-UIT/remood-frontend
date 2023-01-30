@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:remood/app/global_widgets/bottom_sheet_read_diary.dart';
+import 'package:remood/app/data/models/diary.dart';
+import 'package:remood/app/data/models/list_positive_diary.dart';
+import 'package:remood/app/modules/freshmood/sad_screens/widgets/bottom_sheet_read_diary_freshmood.dart';
 
 class SadController extends GetxController {
   RxInt currentTopic = 0.obs;
@@ -23,7 +25,7 @@ class SadController extends GetxController {
       isScrollControlled: true,
       context: context,
       builder: ((context) {
-        return SheetReadDiary(
+        return SheetReadDiaryFreshmood(
           tag: tag,
           id: id,
           currentDiary: currentDiary,

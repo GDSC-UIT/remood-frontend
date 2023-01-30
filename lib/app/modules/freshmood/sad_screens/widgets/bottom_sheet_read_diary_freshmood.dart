@@ -9,11 +9,11 @@ import 'package:intl/intl.dart';
 import 'package:remood/app/modules/read_diary/read_diary_controller.dart';
 import 'package:remood/app/modules/read_diary/widgets/list_positive_diary_card.dart';
 
-class SheetReadDiary extends StatelessWidget {
+class SheetReadDiaryFreshmood extends StatelessWidget {
   String tag;
   int id;
   RxInt currentDiary;
-  SheetReadDiary({
+  SheetReadDiaryFreshmood({
     super.key,
     required this.tag,
     required this.id,
@@ -24,8 +24,7 @@ class SheetReadDiary extends StatelessWidget {
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
-    ListPositveDiary _positveDiary = ListPositveDiary();
-    ListNegativeDiary _negativeDiary = ListNegativeDiary();
+
     return Container(
       height: _screenHeight * 0.82,
       decoration: const BoxDecoration(
@@ -47,14 +46,15 @@ class SheetReadDiary extends StatelessWidget {
 // Icon
                 Icon(
                   id == 0
-                      ? _positveDiary.listPositiveDiary[currentDiary.value].icon
-                      : _negativeDiary
+                      ? ListPositveDiary
+                          .listPositiveDiary[currentDiary.value].icon
+                      : ListNegativeDiary
                           .listNegativeDiary[currentDiary.value].icon,
                   color: id == 0
-                      ? _positveDiary
+                      ? ListPositveDiary
                           .listPositiveDiary[currentDiary.value].diaryColor
                           .withOpacity(1)
-                      : _negativeDiary
+                      : ListNegativeDiary
                           .listNegativeDiary[currentDiary.value].diaryColor
                           .withOpacity(1),
                   size: 30,
@@ -65,8 +65,9 @@ class SheetReadDiary extends StatelessWidget {
 // date
                 Text(
                   DateFormat('dd/MM/yyyy').format(id == 0
-                      ? _positveDiary.listPositiveDiary[currentDiary.value].date
-                      : _negativeDiary
+                      ? ListPositveDiary
+                          .listPositiveDiary[currentDiary.value].date
+                      : ListNegativeDiary
                           .listNegativeDiary[currentDiary.value].date),
                   style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
                 ),
@@ -113,13 +114,18 @@ class SheetReadDiary extends StatelessWidget {
               color: AppColors.Primary42,
               borderRadius: BorderRadius.circular(10),
             ),
-            child: const Center(
-              child: Icon(
-                Icons.camera_alt,
-                color: AppColors.DarkGrey,
-                size: 40,
-              ),
-            ),
+            child:
+                ListPositveDiary.listPositiveDiary[currentDiary.value].image !=
+                        null
+                    ? Image.file(ListPositveDiary
+                        .listPositiveDiary[currentDiary.value].image!)
+                    : const Center(
+                        child: Icon(
+                          Icons.camera_alt,
+                          color: AppColors.DarkGrey,
+                          size: 40,
+                        ),
+                      ),
           ),
 // diary
           const SizedBox(
@@ -131,9 +137,9 @@ class SheetReadDiary extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               color: id == 0
-                  ? _positveDiary
+                  ? ListPositveDiary
                       .listPositiveDiary[currentDiary.value].diaryColor
-                  : _negativeDiary
+                  : ListNegativeDiary
                       .listNegativeDiary[currentDiary.value].diaryColor,
             ),
             child: Padding(
@@ -142,9 +148,9 @@ class SheetReadDiary extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Text(
                     id == 0
-                        ? _positveDiary
+                        ? ListPositveDiary
                             .listPositiveDiary[currentDiary.value].diary
-                        : _negativeDiary
+                        : ListNegativeDiary
                             .listNegativeDiary[currentDiary.value].diary,
                     style: const TextStyle(
                         fontWeight: FontWeight.w400,

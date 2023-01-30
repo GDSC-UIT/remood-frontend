@@ -36,23 +36,31 @@ class StackTopic extends StatelessWidget {
 // list topic
                 SizedBox(
                   width: _screenWidth * 0.44,
-                  child: ListView.separated(
-                    physics: const BouncingScrollPhysics(),
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: ((context, index) => GestureDetector(
-                          onTap: () {
-                            topicController.changeTopic(index);
-                          },
-                          child: TopicCard(
-                            topic: _ListTopics.topics[index],
-                            index: index,
-                            currentIndex: topicController.currentTopic,
-                          ),
-                        )),
-                    separatorBuilder: ((context, index) => SizedBox(
-                          width: _screenWidth * 0.024,
-                        )),
-                    itemCount: _ListTopics.topics.length,
+                  child: Obx(
+                    () => ListView.separated(
+                      physics: const BouncingScrollPhysics(),
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: ((context, index) => GestureDetector(
+                            onTap: () {
+                              topicController.changeTopic(index);
+                              topicController.iconTopic.value =
+                                  ListTopic.topics[index].icons;
+                              topicController.colorDiary.value =
+                                  ListTopic.topics[index].TopicColor;
+                              topicController.titleDiary.value =
+                                  ListTopic.topics[index].title;
+                            },
+                            child: TopicCard(
+                              topic: topicController.listTopic[index],
+                              index: index,
+                              currentIndex: topicController.currentTopic,
+                            ),
+                          )),
+                      separatorBuilder: ((context, index) => SizedBox(
+                            width: _screenWidth * 0.024,
+                          )),
+                      itemCount: topicController.listTopic.length,
+                    ),
                   ),
                 ),
                 SizedBox(
