@@ -13,30 +13,19 @@ class LanguageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(SettingController());
-
-    var lanList = [
-      Language(label: "English", actived: true),
-      Language(label: "Tiếng Việt", actived: false),
-      Language(label: "日本語", actived: false),
-    ];
-
-    var styleActivedLan = CustomTextStyle.reportHeading()
-        .copyWith(color: Colors.black, fontSize: 16);
-    var styleInactivedLan =
-        CustomTextStyle.onboardingText(Colors.black).copyWith(fontSize: 16);
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
       body: SafeArea(
         child: Column(
-          children: [
-            const StackSettingAppbar(title: "Select language"),
-            const SizedBox(height: 16.0),
-            ListTileLaguage(
-                lanList: lanList, index: 0, styleLan: styleActivedLan),
-            ListTileLaguage(
-                lanList: lanList, index: 1, styleLan: styleInactivedLan),
-            ListTileLaguage(
-                lanList: lanList, index: 2, styleLan: styleInactivedLan),
+          children: const [
+            StackSettingAppbar(title: "Select language"),
+            SizedBox(height: 16.0),
+            // English
+            ListTileLaguage(index: 0),
+            // Vietnamese
+            ListTileLaguage(index: 1),
+            // Japanese
+            ListTileLaguage(index: 2),
           ],
         ),
       ),

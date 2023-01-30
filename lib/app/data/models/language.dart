@@ -1,5 +1,7 @@
+import 'package:get/get.dart';
+
 class Language {
   String label;
-  bool actived;
+  RxBool actived;
   Language({required this.label, required this.actived});
 }

@@ -22,17 +22,38 @@ class SettingController extends GetxController {
     log('Monday is the first day');
   }
 
+  // -------------------------------------------
   // Language
+
+  // Current language
+  late Language choice;
+
+  // Languages list
+  var lanList = [
+    Language(label: "English", actived: true.obs),
+    Language(label: "Tiếng Việt", actived: false.obs),
+    Language(label: "日本語", actived: false.obs),
+  ];
+
+  // Language label style (selected)
   var styleActivedLan = CustomTextStyle.reportHeading()
       .copyWith(color: Colors.black, fontSize: 16);
+
+  // Language label style (unselected)
   var styleInactivedLan =
       CustomTextStyle.onboardingText(Colors.black).copyWith(fontSize: 16);
 
-  void activeLanguage(List<Language> lanList, int index) {
-    for (var lan in lanList) {
-      lan.actived = false;
-    }
+  // Language label style will change when that language is selected
+  TextStyle getStyleLan(int index) =>
+      lanList[index].actived.value ? styleActivedLan : styleInactivedLan;
 
-    lanList[index].actived = true;
+  // Select the language
+  void activeLanguage(int index) {
+    for (var lan in lanList) {
+      lan.actived(false);
+    }
+    lanList[index].actived(true);
+    choice = lanList[index];
+    log(choice.label.toString());
   }
 }
