@@ -18,42 +18,54 @@ class ActionBar extends StatefulWidget {
 }
 
 class _ActionBarState extends State<ActionBar> {
-  final controller = Get.find<OnboardingController>();
   final pageController = Get.find<PageController>();
-
-  void previousScreen() {
-    pageController.previousPage(
-        duration: const Duration(milliseconds: 200), curve: Curves.easeInOut);
-  }
+  final onboardingController = Get.find<OnboardingController>();
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.transparent,
-      child: Obx(() => Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              // Previous button
-              widget.pageIndex > 0
-                  ? IconButton(
-                      onPressed: () {
-                        previousScreen();
-                      },
-                      icon: Image.asset(Assets.arrowBack))
-                  : const SizedBox(),
+      child: Stack(
+        children: [
+          Obx(
+            () => Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                // Previous button
+                widget.pageIndex > 0
+                    ? IconButton(
+                        onPressed: () {
+                          onboardingController.previousScreen(pageController);
+                        },
+                        icon: Image.asset(Assets.arrowBack))
+                    : const SizedBox(),
 
-              // Skip button
-              TextButton(
-                onPressed: () {
-                  Get.offAllNamed(AppRoutes.home);
-                },
-                child: Text("Skip",
-                    style: CustomTextStyle.textButton(
-                        AppColors.onboardingSkipButton)),
-              )
+                // Skip button
+                TextButton(
+                  onPressed: () {
+                    Get.offAllNamed(AppRoutes.home);
+                  },
+                  child: Text("Skip",
+                      style: CustomTextStyle.textButton(
+                          AppColors.onboardingSkipButton)),
+                ),
+              ],
+            ),
+          ),
+          // Logo
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Image.asset(Assets.logo),
+              ),
             ],
-          )),
+          ),
+        ],
+      ),
     );
   }
 }

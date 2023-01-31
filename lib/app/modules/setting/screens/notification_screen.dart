@@ -88,9 +88,9 @@ class NotificationScreen extends StatelessWidget {
                                             color: AppColors.mainColor),
                                         child: Text(
                                           "Done",
-                                          style: CustomTextStyle.mainStyle(
-                                                  Colors.white)
-                                              .copyWith(fontSize: 16),
+                                          style:
+                                              CustomTextStyle.h2(Colors.white)
+                                                  .copyWith(fontSize: 16),
                                         ),
                                       ),
                                     ),

@@ -19,6 +19,7 @@ class Assets {
   static const String language = 'assets/icons/language.png';
 
   // Images
+  static const String logo = 'assets/images/logo.png';
   static const String onboardingBackground = 'assets/images/onboarding_bg.jpg';
   static const String onboardingBackground1 =
       'assets/images/onboarding_bg1.jpg';
@@ -26,8 +27,10 @@ class Assets {
       'assets/images/onboarding_bg2.jpg';
   static const String onboardingBackground3 =
       'assets/images/onboarding_bg3.jpg';
-  static const String onboardingImage1 = 'assets/images/onboarding_image1.png';
-  static const String onboardingImage2 = 'assets/images/onboarding_image2.png';
+  static const String onboardingImage1 =
+      'assets/images/onboarding_img_diary.png';
+  static const String onboardingImage2 =
+      'assets/images/onboarding_img_freshmood.png';
   static const String onboardingImage3 = 'assets/images/onboarding_image3.png';
   static const String onboardingAlarm = 'assets/images/alarm.jpg';
   static const String reportPercentage =

@@ -23,8 +23,7 @@ class MoodPercentage extends StatelessWidget {
           height: 146,
           child: Obx(() => Text(
                 "${controller.percentage}%",
-                style: CustomTextStyle.customMainStyle(
-                    const Color(0xFF8F753F), 48),
+                style: CustomTextStyle.customh2(const Color(0xFF8F753F), 48),
               )),
         ),
       ],

@@ -1,17 +1,17 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/global_widgets/time_minute.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
 
 class MinutePicker extends StatelessWidget {
-  const MinutePicker({
+  MinutePicker({
     Key? key,
-    required this.controller,
   }) : super(key: key);
 
-  final SettingController controller;
+  final controller = Get.find<SettingController>();
 
   @override
   Widget build(BuildContext context) {

@@ -4,6 +4,7 @@ import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/global_widgets/time_picker.dart';
 import 'package:remood/app/modules/onboarding/onboarding_controller.dart';
+import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'decoration.dart';
 import 'time_title.dart';
 
@@ -17,8 +18,8 @@ class OnboardingContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.find<OnboardingController>();
-
+    final onboardingController = Get.find<OnboardingController>();
+    final settingController = Get.put(SettingController());
     var boxDecoration = BoxDecoration(
       boxShadow: const [
         BoxShadow(
@@ -32,11 +33,11 @@ class OnboardingContent extends StatelessWidget {
     );
     return Container(
       decoration: OnboardingDecoration.imageBackround(
-          controller.contents[index].background),
-      padding: controller.isLastView(index)
+          onboardingController.contents[index].background),
+      padding: onboardingController.isLastView(index)
           ? const EdgeInsets.all(0.0)
           : const EdgeInsets.all(30.0),
-      child: controller.isLastView(index)
+      child: onboardingController.isLastView(index)
           // Setting time page
           ? Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -61,12 +62,19 @@ class OnboardingContent extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // Intro image
-                Image.asset(controller.contents[index].image),
+                Image.asset(onboardingController.contents[index].image),
                 const SizedBox(height: 40.0),
+
+                // Intro title
+                Text(
+                  onboardingController.contents[index].title,
+                  style: CustomTextStyle.h1(AppColors.primary),
+                ),
 
                 // Intro paragraph
                 Text(
-                  controller.contents[index].content,
+                  onboardingController.contents[index].content,
+                  textAlign: TextAlign.center,
                   style: CustomTextStyle.normalText(AppColors.primary),
                 ),
               ],

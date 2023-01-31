@@ -7,24 +7,13 @@ import 'package:remood/app/modules/onboarding/widgets/intro_button.dart';
 import 'package:remood/app/modules/onboarding/widgets/content.dart';
 import 'package:remood/app/modules/onboarding/widgets/decoration.dart';
 
-class OnboardingScreen extends StatefulWidget {
+class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
-
-  @override
-  State<OnboardingScreen> createState() => _OnboardingScreenState();
-}
-
-class _OnboardingScreenState extends State<OnboardingScreen> {
-  RxInt pageIndex = 0.obs;
 
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<OnboardingController>();
     final pageController = Get.put(PageController());
-
-    void updateIndex(int index) {
-      pageIndex(index);
-    }
 
     return Scaffold(
       body: SafeArea(
@@ -38,40 +27,59 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   alignment: Alignment.topCenter,
                   children: [
                     // Onboarding content
-                    Expanded(
-                      child: PageView.builder(
-                        controller: pageController,
-                        itemCount: controller.contents.length,
-                        onPageChanged: (value) {
-                          updateIndex(value);
-                        },
-                        itemBuilder: (_, i) {
-                          return OnboardingContent(index: i);
-                        },
-                      ),
+                    GetBuilder<OnboardingController>(
+                      builder: (controller) {
+                        return Expanded(
+                          child: PageView.builder(
+                            controller: pageController,
+                            itemCount: controller.contents.length,
+                            onPageChanged: (value) {
+                              controller.updateIndex(value);
+                            },
+                            itemBuilder: (_, i) {
+                              return OnboardingContent(index: i);
+                            },
+                          ),
+                        );
+                      },
                     ),
 
                     // Action bar
-                    ActionBar(pageIndex: pageIndex),
+                    GetBuilder<OnboardingController>(
+                      builder: (controller) {
+                        return ActionBar(
+                          pageIndex: controller.pageIndex,
+                        );
+                      },
+                    ),
+                    ActionBar(pageIndex: controller.pageIndex),
                   ],
                 ),
               ),
 
               // Dots
-              FittedBox(
-                child: Row(
-                  children: List.generate(
-                    controller.contents.length,
-                    (index) => controller.buildDots(pageIndex, index),
-                  ),
-                ),
+              GetBuilder<OnboardingController>(
+                builder: (controller) {
+                  return FittedBox(
+                    child: Row(
+                      children: List.generate(
+                        controller.contents.length,
+                        (index) =>
+                            controller.buildDots(controller.pageIndex, index),
+                      ),
+                    ),
+                  );
+                },
               ),
 
               const SizedBox(height: 20.0),
 
               //Onboarding button
-              OnboardingButton(pageIndex: pageIndex),
-
+              GetBuilder<OnboardingController>(
+                builder: (controller) {
+                  return OnboardingButton(pageIndex: controller.pageIndex);
+                },
+              ),
               const SizedBox(height: 20.0)
             ],
           ),

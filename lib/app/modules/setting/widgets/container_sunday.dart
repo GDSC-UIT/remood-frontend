@@ -34,7 +34,7 @@ class ContainerFirstDaySunday extends StatelessWidget {
             ),
             child: Text(
               label,
-              style: CustomTextStyle.titleText(
+              style: CustomTextStyle.h3(
                   controller.getIsSunday ? Colors.white : AppColors.mainColor),
             ),
           )),

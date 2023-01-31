@@ -17,7 +17,7 @@ class TimeTitle extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text("Choose time to get notification",
-              style: CustomTextStyle.mainStyle(AppColors.textBrown)),
+              style: CustomTextStyle.h2(AppColors.textBrown)),
         ],
       ),
     );
