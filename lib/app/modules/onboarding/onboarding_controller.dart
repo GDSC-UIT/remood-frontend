@@ -66,7 +66,7 @@ class OnboardingController extends GetxController {
       () => Container(
         width: currentIndex == index.obs ? 20 : 8,
         height: currentIndex == index.obs ? 4 : 8,
-        margin: const EdgeInsets.only(right: 7.0),
+        margin: const EdgeInsets.only(right: 3.5, left: 3.5),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: currentIndex == index.obs

@@ -24,7 +24,7 @@ class NotificationScreen extends StatelessWidget {
             const StackSettingAppbar(title: "Notification"),
             const SizedBox(height: 20),
 
-            // Turn on/off the reminder
+            // Turn on/off the reminder with a switch
             Padding(
               padding: const EdgeInsets.only(left: 24, right: 14),
               child: Row(
@@ -35,13 +35,15 @@ class NotificationScreen extends StatelessWidget {
                     style: CustomTextStyle.reportHeading()
                         .copyWith(color: Colors.black, fontSize: 16),
                   ),
-                  Obx(() => CupertinoSwitch(
-                        activeColor: AppColors.mainColor,
-                        value: controller.actived.value,
-                        onChanged: (_) {
-                          controller.switchOnChange();
-                        },
-                      )),
+                  Obx(
+                    () => CupertinoSwitch(
+                      activeColor: AppColors.mainColor,
+                      value: controller.actived.value,
+                      onChanged: (_) {
+                        controller.switchOnChange();
+                      },
+                    ),
+                  ),
                 ],
               ),
             ),

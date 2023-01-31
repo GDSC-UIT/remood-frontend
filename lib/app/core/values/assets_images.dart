@@ -31,7 +31,8 @@ class Assets {
       'assets/images/onboarding_img_diary.png';
   static const String onboardingImage2 =
       'assets/images/onboarding_img_freshmood.png';
-  static const String onboardingImage3 = 'assets/images/onboarding_image3.png';
+  static const String onboardingImage3 =
+      'assets/images/onboarding_img_report.png';
   static const String onboardingAlarm = 'assets/images/alarm.jpg';
   static const String reportPercentage =
       'assets/images/report-percentage-bg.png';
