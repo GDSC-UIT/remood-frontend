@@ -20,7 +20,7 @@ class StackSettingAppbar extends StatelessWidget {
           alignment: Alignment.topCenter,
           child: Text(
             title,
-            style: CustomTextStyle.mainStyle(Colors.black),
+            style: CustomTextStyle.h2(Colors.black),
           ),
         ),
       ],

@@ -11,7 +11,7 @@ class MinutePicker extends StatelessWidget {
     required this.controller,
   }) : super(key: key);
 
-  final OnboardingController controller;
+  final controller;
 
   @override
   Widget build(BuildContext context) {

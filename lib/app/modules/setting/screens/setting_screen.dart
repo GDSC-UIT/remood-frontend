@@ -33,7 +33,7 @@ class SettingScreen extends StatelessWidget {
                   // Page name
                   Text(
                     "Settings Page",
-                    style: CustomTextStyle.mainStyle(AppColors.settingPageName)
+                    style: CustomTextStyle.h2(AppColors.settingPageName)
                         .copyWith(fontSize: 15),
                   ),
                   const SizedBox(height: 10.0),
@@ -52,7 +52,7 @@ class SettingScreen extends StatelessWidget {
                   // User name
                   Text(
                     username,
-                    style: CustomTextStyle.customMainStyle(
+                    style: CustomTextStyle.customh2(
                         AppColors.settingUserName, 20.0),
                   ),
 
@@ -63,11 +63,10 @@ class SettingScreen extends StatelessWidget {
                     },
                     child: Text(
                       "Change nickname",
-                      style:
-                          CustomTextStyle.mainStyle(AppColors.settingUserName)
-                              .copyWith(
-                                  fontSize: 7,
-                                  decoration: TextDecoration.underline),
+                      style: CustomTextStyle.h2(AppColors.settingUserName)
+                          .copyWith(
+                              fontSize: 7,
+                              decoration: TextDecoration.underline),
                     ),
                   ),
                 ],
@@ -83,12 +82,12 @@ class SettingScreen extends StatelessWidget {
                   children: [
                     Text(
                       "Settings",
-                      style: CustomTextStyle.mainStyle(Colors.black),
+                      style: CustomTextStyle.h2(Colors.black),
                     ),
                     const ColSettingFuncs(),
                     Text(
                       "Help",
-                      style: CustomTextStyle.mainStyle(Colors.black),
+                      style: CustomTextStyle.h2(Colors.black),
                     ),
                     const ColHelpFuncs(),
                   ],

@@ -4,7 +4,8 @@ import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/global_widgets/time_picker_ampm.dart';
 import 'package:remood/app/global_widgets/time_picker_hour.dart';
 import 'package:remood/app/global_widgets/time_picker_minute.dart';
-import 'package:remood/app/modules/onboarding/onboarding_controller.dart';
+
+import '../modules/setting/setting_controller.dart';
 
 class TimePicker extends StatelessWidget {
   const TimePicker({
@@ -13,7 +14,7 @@ class TimePicker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.find<OnboardingController>();
+    final controller = Get.find<SettingController>();
 
     return Container(
       decoration: BoxDecoration(

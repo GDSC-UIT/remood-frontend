@@ -7,24 +7,12 @@ import 'package:remood/app/modules/onboarding/widgets/intro_button.dart';
 import 'package:remood/app/modules/onboarding/widgets/content.dart';
 import 'package:remood/app/modules/onboarding/widgets/decoration.dart';
 
-class OnboardingScreen extends StatefulWidget {
+class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
 
   @override
-  State<OnboardingScreen> createState() => _OnboardingScreenState();
-}
-
-class _OnboardingScreenState extends State<OnboardingScreen> {
-  RxInt pageIndex = 0.obs;
-
-  @override
   Widget build(BuildContext context) {
-    // final controller = Get.put(OnboardingController());
-    PageController pageController = Get.put(PageController());
-
-    void updateIndex(int index) {
-      pageIndex(index);
-    }
+    final pageController = Get.put(PageController());
 
     return Scaffold(
       body: SafeArea(
@@ -45,7 +33,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             controller: pageController,
                             itemCount: controller.contents.length,
                             onPageChanged: (value) {
-                              updateIndex(value);
+                              controller.updateIndex(value);
                             },
                             itemBuilder: (_, i) {
                               return OnboardingContent(
@@ -60,7 +48,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     GetBuilder<OnboardingController>(
                       builder: (controller) {
                         return ActionBar(
-                            pageIndex: pageIndex, controler: controller);
+                            pageIndex: controller.pageIndex,
+                            controler: controller);
                       },
                     ),
                   ],
@@ -74,7 +63,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     child: Row(
                       children: List.generate(
                         controller.contents.length,
-                        (index) => controller.buildDots(pageIndex, index),
+                        (index) =>
+                            controller.buildDots(controller.pageIndex, index),
                       ),
                     ),
                   );
@@ -86,7 +76,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               GetBuilder<OnboardingController>(
                 builder: (controller) {
                   return OnboardingButton(
-                      pageIndex: pageIndex, content: controller.contents);
+                      pageIndex: controller.pageIndex,
+                      content: controller.contents);
                 },
               ),
               const SizedBox(height: 20.0)

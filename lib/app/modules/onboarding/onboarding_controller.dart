@@ -8,34 +8,20 @@ import 'package:remood/app/core/values/assets_images.dart';
 class Onboarding {
   final String background;
   final String image;
+  final String title;
   final String content;
   Onboarding(
-      {required this.background, required this.image, required this.content});
+      {required this.background,
+      required this.image,
+      required this.title,
+      required this.content});
 }
 
 class OnboardingController extends GetxController {
-  late RxInt hour = 0.obs;
-  late RxInt minute = 0.obs;
-  late RxInt ampm = 0.obs;
+  RxInt pageIndex = 0.obs;
 
-  void updateHour(int value) {
-    hour(value);
-    log("hour: $hour");
-  }
-
-  void updateMinute(int value) {
-    minute(value);
-    log("min: $minute");
-  }
-
-  void updateAmPm(int value) {
-    // am is 0, pm is 1
-    ampm(value);
-    log("ampm: $ampm");
-  }
-
-  void addHour() {
-    hour.value++;
+  void updateIndex(int index) {
+    pageIndex(index);
   }
 
   bool isLastView(int index) {
@@ -49,33 +35,24 @@ class OnboardingController extends GetxController {
         Onboarding(
             background: Assets.onboardingBackground1,
             image: Assets.onboardingImage1,
+            title: "Diary",
             content:
-                "This is onboarding content 1. This is onboarding content 1. "
-                "This is onboarding content 1. This is onboarding content 1. "
-                "This is onboarding content 1. This is onboarding content 1. "
-                "This is onboarding content 1. This is onboarding content 1. "
-                "This is onboarding content 1. This is onboarding content 1. "),
+                "Journal your thoughts and feelings with REMOOD’s diary for deeper self-awareness"),
         Onboarding(
             background: Assets.onboardingBackground2,
             image: Assets.onboardingImage2,
+            title: "Freshmood",
             content:
-                "This is onboarding content 2. This is onboarding content 2. "
-                "This is onboarding content 2. This is onboarding content 2. "
-                "This is onboarding content 2. This is onboarding content 2. "
-                "This is onboarding content 2. This is onboarding content 2. "
-                "This is onboarding content 2. This is onboarding content 2. "),
+                "Evaluate and boost your mood with Freshmood - Personalized diary journey and mood enhancing tips"),
         Onboarding(
             background: Assets.onboardingBackground3,
             image: Assets.onboardingImage3,
-            content:
-                "This is onboarding content 3. This is onboarding content 3. "
-                "This is onboarding content 3. This is onboarding content 3. "
-                "This is onboarding content 3. This is onboarding content 3. "
-                "This is onboarding content 3. This is onboarding content 3. "
-                "This is onboarding content 3. This is onboarding content 3. "),
+            title: "Report",
+            content: "Mood meter, measuring happiness"),
         Onboarding(
             background: Assets.onboardingBackground,
             image: "",
+            title: "",
             content: "This is time setting screen"),
       ];
 

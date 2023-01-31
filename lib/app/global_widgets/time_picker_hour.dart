@@ -11,7 +11,7 @@ class HourPicker extends StatelessWidget {
     required this.controller,
   }) : super(key: key);
 
-  final OnboardingController controller;
+  final controller;
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +20,7 @@ class HourPicker extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            // TODO: OnTap -> move to the higher value in list wheel
-            log('hour++: ${controller.hour}');
-            controller.addHour();
+            log('hour++');
           },
           child: Padding(
             padding: const EdgeInsets.all(6.0),

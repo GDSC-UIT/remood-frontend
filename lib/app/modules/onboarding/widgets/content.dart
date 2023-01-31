@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:remood/app/core/values/app_colors.dart';
-import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/global_widgets/time_picker.dart';
 import 'package:remood/app/modules/onboarding/onboarding_controller.dart';
@@ -47,9 +46,16 @@ class OnboardingContent extends StatelessWidget {
                 Image.asset(controller.contents[index].image),
                 const SizedBox(height: 40.0),
 
+                // Intro title
+                Text(
+                  controller.contents[index].title,
+                  style: CustomTextStyle.h1(AppColors.primary),
+                ),
+
                 // Intro paragraph
                 Text(
                   controller.contents[index].content,
+                  textAlign: TextAlign.center,
                   style: CustomTextStyle.normalText(AppColors.primary),
                 ),
               ],
