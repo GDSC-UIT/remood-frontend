@@ -2,8 +2,6 @@ import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
@@ -17,9 +15,6 @@ class NotificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(SettingController());
-
-    int hour = 21;
-    int minute = 30;
 
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
@@ -115,11 +110,12 @@ class NotificationScreen extends StatelessWidget {
                         color: AppColors.settingNotificationClockBg,
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child: Text(
-                        "$hour : $minute",
-                        style: CustomTextStyle.normalText(AppColors.mainColor)
-                            .copyWith(fontSize: 16),
-                      ),
+                      child: Obx(() => Text(
+                            "${controller.getHour} : ${controller.getMin}",
+                            style:
+                                CustomTextStyle.normalText(AppColors.mainColor)
+                                    .copyWith(fontSize: 16),
+                          )),
                     ),
                   ),
                 ],

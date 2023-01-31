@@ -19,8 +19,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // final controller = Get.put(OnboardingController());
-    PageController pageController = Get.put(PageController());
+    final controller = Get.find<OnboardingController>();
+    final pageController = Get.put(PageController());
 
     void updateIndex(int index) {
       pageIndex(index);
@@ -38,57 +38,40 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   alignment: Alignment.topCenter,
                   children: [
                     // Onboarding content
-                    GetBuilder<OnboardingController>(
-                      builder: (controller) {
-                        return Expanded(
-                          child: PageView.builder(
-                            controller: pageController,
-                            itemCount: controller.contents.length,
-                            onPageChanged: (value) {
-                              updateIndex(value);
-                            },
-                            itemBuilder: (_, i) {
-                              return OnboardingContent(
-                                  controller: controller, index: i);
-                            },
-                          ),
-                        );
-                      },
+                    Expanded(
+                      child: PageView.builder(
+                        controller: pageController,
+                        itemCount: controller.contents.length,
+                        onPageChanged: (value) {
+                          updateIndex(value);
+                        },
+                        itemBuilder: (_, i) {
+                          return OnboardingContent(index: i);
+                        },
+                      ),
                     ),
 
                     // Action bar
-                    GetBuilder<OnboardingController>(
-                      builder: (controller) {
-                        return ActionBar(
-                            pageIndex: pageIndex, controler: controller);
-                      },
-                    ),
+                    ActionBar(pageIndex: pageIndex),
                   ],
                 ),
               ),
 
               // Dots
-              GetBuilder<OnboardingController>(
-                builder: (controller) {
-                  return FittedBox(
-                    child: Row(
-                      children: List.generate(
-                        controller.contents.length,
-                        (index) => controller.buildDots(pageIndex, index),
-                      ),
-                    ),
-                  );
-                },
+              FittedBox(
+                child: Row(
+                  children: List.generate(
+                    controller.contents.length,
+                    (index) => controller.buildDots(pageIndex, index),
+                  ),
+                ),
               ),
+
               const SizedBox(height: 20.0),
 
               //Onboarding button
-              GetBuilder<OnboardingController>(
-                builder: (controller) {
-                  return OnboardingButton(
-                      pageIndex: pageIndex, content: controller.contents);
-                },
-              ),
+              OnboardingButton(pageIndex: pageIndex),
+
               const SizedBox(height: 20.0)
             ],
           ),

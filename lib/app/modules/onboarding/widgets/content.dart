@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
-import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/global_widgets/time_picker.dart';
 import 'package:remood/app/modules/onboarding/onboarding_controller.dart';
@@ -10,15 +10,15 @@ import 'time_title.dart';
 class OnboardingContent extends StatelessWidget {
   const OnboardingContent({
     Key? key,
-    required this.controller,
     required this.index,
   }) : super(key: key);
 
-  final OnboardingController controller;
   final int index;
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.find<OnboardingController>();
+
     var boxDecoration = BoxDecoration(
       boxShadow: const [
         BoxShadow(

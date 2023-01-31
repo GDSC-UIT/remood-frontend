@@ -68,6 +68,12 @@ class SettingController extends GetxController {
   late RxInt minute = 0.obs;
   late RxInt ampm = 0.obs;
 
+  // Get hour
+  String get getHour => hour.value < 10 ? '0$hour' : '$hour';
+
+  // Get minute
+  String get getMin => minute.value < 10 ? '0$minute' : '$minute';
+
   // Turn on/off the reminder
   void switchOnChange() {
     actived(!actived.value);

@@ -8,20 +8,19 @@ class OnboardingButton extends StatefulWidget {
   const OnboardingButton({
     Key? key,
     required this.pageIndex,
-    required this.content,
   }) : super(key: key);
   final RxInt pageIndex;
-  final List<Onboarding> content;
 
   @override
   State<OnboardingButton> createState() => _OnboardingButtonState();
 }
 
 class _OnboardingButtonState extends State<OnboardingButton> {
+  final controller = Get.find<OnboardingController>();
   final pageController = Get.find<PageController>();
 
   void nextScreen() {
-    if (widget.pageIndex == (widget.content.length - 1).obs) {
+    if (widget.pageIndex == (controller.contents.length - 1).obs) {
       Get.offAllNamed(AppRoutes.home);
     }
     pageController.nextPage(
@@ -45,7 +44,7 @@ class _OnboardingButtonState extends State<OnboardingButton> {
         ),
         child: Obx(
           () => Text(
-            widget.pageIndex == (widget.content.length - 1).obs
+            widget.pageIndex == (controller.contents.length - 1).obs
                 ? "Continue"
                 : "Next",
             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),

@@ -10,17 +10,16 @@ class ActionBar extends StatefulWidget {
   const ActionBar({
     Key? key,
     required this.pageIndex,
-    required this.controler,
   }) : super(key: key);
   final RxInt pageIndex;
-  final OnboardingController controler;
 
   @override
   State<ActionBar> createState() => _ActionBarState();
 }
 
 class _ActionBarState extends State<ActionBar> {
-  final PageController pageController = Get.find<PageController>();
+  final controller = Get.find<OnboardingController>();
+  final pageController = Get.find<PageController>();
 
   void previousScreen() {
     pageController.previousPage(

@@ -27,7 +27,7 @@ abstract class AppPages {
     GetPage(
       name: AppRoutes.onboarding,
       page: () => const OnboardingScreen(),
-      binding: OnboardingBinding(),
+      bindings: [OnboardingBinding(), SettingBinding()],
     ),
     GetPage(
       name: AppRoutes.report,
