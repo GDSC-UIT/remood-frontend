@@ -18,6 +18,17 @@ class OnboardingContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var boxDecoration = BoxDecoration(
+      boxShadow: const [
+        BoxShadow(
+          spreadRadius: 1,
+          blurRadius: 10.0,
+          color: Color(0xfff2f2f2),
+        ),
+      ],
+      borderRadius: BorderRadius.circular(10.0),
+      color: Colors.white,
+    );
     return Container(
       decoration: OnboardingDecoration.imageBackround(
           controller.contents[index].background),
@@ -28,14 +39,20 @@ class OnboardingContent extends StatelessWidget {
           // Setting time page
           ? Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 // Time Setting Title
-                TimeTitle(),
-                SizedBox(height: 26.0),
+                const TimeTitle(),
+                const SizedBox(height: 26.0),
 
                 // Time picker
-                TimePicker(),
-                SizedBox(height: 18.0),
+                Container(
+                  decoration: boxDecoration,
+                  padding: const EdgeInsets.all(5.0),
+                  height: 139.0,
+                  width: 254.0,
+                  child: const TimePicker(),
+                ),
+                const SizedBox(height: 18.0),
               ],
             )
           // App intro page

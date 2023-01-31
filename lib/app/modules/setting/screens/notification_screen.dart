@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
+import 'package:remood/app/global_widgets/time_picker.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/modules/setting/widgets/stack_setting_appbar.dart';
 
@@ -14,6 +15,7 @@ class NotificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(SettingController());
+
     int hour = 21;
     int minute = 30;
 
@@ -38,7 +40,7 @@ class NotificationScreen extends StatelessWidget {
                   ),
                   Obx(() => CupertinoSwitch(
                         activeColor: AppColors.mainColor,
-                        value: controller.selected.value,
+                        value: controller.actived.value,
                         onChanged: (_) {
                           controller.switchOnChange();
                         },
@@ -63,8 +65,42 @@ class NotificationScreen extends StatelessWidget {
                           return AlertDialog(
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(12)),
-                            title: Text("This is a dialog"),
-                            actions: [],
+                            actions: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    const TimePicker(),
+                                    const SizedBox(height: 12),
+                                    GestureDetector(
+                                      onTap: () {
+                                        log("Set up alarm");
+                                        // Chuyển hour và minute từ onboarding -> setting controller
+
+                                        log("Turn off dialog");
+                                        Get.back();
+                                      },
+                                      child: Container(
+                                        alignment: Alignment.center,
+                                        height: 44,
+                                        width: 246,
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(12),
+                                            color: AppColors.mainColor),
+                                        child: Text(
+                                          "Done",
+                                          style: CustomTextStyle.mainStyle(
+                                                  Colors.white)
+                                              .copyWith(fontSize: 16),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           );
                         },
                       );

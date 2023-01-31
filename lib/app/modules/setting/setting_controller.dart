@@ -60,14 +60,33 @@ class SettingController extends GetxController {
   // -------------------------------------------
   // Notification
 
-  RxBool selected = false.obs;
+  // Active the reminder
+  RxBool actived = false.obs;
+
+  // Hour - minute - AM/PM
+  late RxInt hour = 0.obs;
+  late RxInt minute = 0.obs;
+  late RxInt ampm = 0.obs;
 
   // Turn on/off the reminder
   void switchOnChange() {
-    selected(!selected.value);
-    log(selected.value.toString());
+    actived(!actived.value);
+    log(actived.value.toString());
   }
 
-  // Show dialog to set alarm
-  void showDialog() {}
+  void updateHour(int value) {
+    hour(value);
+    log("hour: $hour");
+  }
+
+  void updateMinute(int value) {
+    minute(value);
+    log("min: $minute");
+  }
+
+  void updateAmPm(int value) {
+    // am is 0, pm is 1
+    ampm(value);
+    log("ampm: $ampm");
+  }
 }

@@ -4,8 +4,7 @@ import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/global_widgets/time_picker_ampm.dart';
 import 'package:remood/app/global_widgets/time_picker_hour.dart';
 import 'package:remood/app/global_widgets/time_picker_minute.dart';
-
-import '../modules/setting/setting_controller.dart';
+import 'package:remood/app/modules/setting/setting_controller.dart';
 
 class TimePicker extends StatelessWidget {
   const TimePicker({
@@ -14,46 +13,30 @@ class TimePicker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.find<SettingController>();
+    final controller = Get.put(SettingController());
 
-    return Container(
-      decoration: BoxDecoration(
-        boxShadow: const [
-          BoxShadow(
-            spreadRadius: 1,
-            blurRadius: 10.0,
-            color: Color(0xfff2f2f2),
-          ),
-        ],
-        borderRadius: BorderRadius.circular(10.0),
-        color: Colors.white,
-      ),
-      padding: const EdgeInsets.all(5.0),
-      height: 139.0,
-      width: 254.0,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          // Hour Picker
-          Expanded(
-            child: HourPicker(controller: controller),
-          ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        // Hour Picker
+        Expanded(
+          child: HourPicker(controller: controller),
+        ),
 
-          Text(":",
-              style: CustomTextStyle.normalText(Colors.black)
-                  .copyWith(fontSize: 18)),
+        Text(":",
+            style: CustomTextStyle.normalText(Colors.black)
+                .copyWith(fontSize: 18)),
 
-          // Minute Picker
-          Expanded(
-            child: MinutePicker(controller: controller),
-          ),
+        // Minute Picker
+        Expanded(
+          child: MinutePicker(controller: controller),
+        ),
 
-          // AM/PM Picker
-          Expanded(
-            child: AmpmPicker(controller: controller),
-          ),
-        ],
-      ),
+        // AM/PM Picker
+        Expanded(
+          child: AmpmPicker(controller: controller),
+        ),
+      ],
     );
   }
 }

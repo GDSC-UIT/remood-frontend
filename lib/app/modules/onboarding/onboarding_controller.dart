@@ -18,12 +18,6 @@ class Onboarding {
 }
 
 class OnboardingController extends GetxController {
-  RxInt pageIndex = 0.obs;
-
-  void updateIndex(int index) {
-    pageIndex(index);
-  }
-
   bool isLastView(int index) {
     if (index == contents.length - 1) {
       return true;
