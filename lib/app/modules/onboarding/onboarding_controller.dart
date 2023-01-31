@@ -31,6 +31,11 @@ class OnboardingController extends GetxController {
     return false;
   }
 
+  void previousScreen(PageController pageController) {
+    pageController.previousPage(
+        duration: const Duration(milliseconds: 200), curve: Curves.easeInOut);
+  }
+
   List<Onboarding> get contents => [
         Onboarding(
             background: Assets.onboardingBackground1,

@@ -20,12 +20,8 @@ class ActionBar extends StatefulWidget {
 }
 
 class _ActionBarState extends State<ActionBar> {
-  final PageController pageController = Get.find<PageController>();
-
-  void previousScreen() {
-    pageController.previousPage(
-        duration: const Duration(milliseconds: 200), curve: Curves.easeInOut);
-  }
+  final pageController = Get.find<PageController>();
+  final onboardingController = Get.find<OnboardingController>();
 
   @override
   Widget build(BuildContext context) {
@@ -34,15 +30,25 @@ class _ActionBarState extends State<ActionBar> {
       child: Obx(() => Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               // Previous button
               widget.pageIndex > 0
                   ? IconButton(
                       onPressed: () {
-                        previousScreen();
+                        onboardingController.previousScreen(pageController);
                       },
                       icon: Image.asset(Assets.arrowBack))
-                  : const SizedBox(),
+                  : const SizedBox(
+                      width: 40,
+                      height: 40,
+                    ),
+
+              // Logo
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Image.asset(Assets.logo),
+              ),
 
               // Skip button
               TextButton(
