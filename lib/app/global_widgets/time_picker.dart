@@ -13,14 +13,14 @@ class TimePicker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(SettingController());
+    final controller = Get.find<SettingController>();
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         // Hour Picker
         Expanded(
-          child: HourPicker(controller: controller),
+          child: HourPicker(),
         ),
 
         Text(":",
@@ -29,12 +29,12 @@ class TimePicker extends StatelessWidget {
 
         // Minute Picker
         Expanded(
-          child: MinutePicker(controller: controller),
+          child: MinutePicker(),
         ),
 
         // AM/PM Picker
         Expanded(
-          child: AmpmPicker(controller: controller),
+          child: AmpmPicker(),
         ),
       ],
     );

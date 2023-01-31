@@ -36,8 +36,7 @@ class OnboardingScreen extends StatelessWidget {
                               controller.updateIndex(value);
                             },
                             itemBuilder: (_, i) {
-                              return OnboardingContent(
-                                  controller: controller, index: i);
+                              return OnboardingContent(index: i);
                             },
                           ),
                         );
