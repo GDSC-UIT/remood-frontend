@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:remood/app/global_widgets/time_ampm.dart';
-import 'package:remood/app/modules/onboarding/onboarding_controller.dart';
+import 'package:remood/app/modules/setting/setting_controller.dart';
 
 class AmpmPicker extends StatelessWidget {
   const AmpmPicker({
@@ -8,7 +8,7 @@ class AmpmPicker extends StatelessWidget {
     required this.controller,
   }) : super(key: key);
 
-  final OnboardingController controller;
+  final SettingController controller;
 
   @override
   Widget build(BuildContext context) {

@@ -14,26 +14,6 @@ class Onboarding {
 }
 
 class OnboardingController extends GetxController {
-  late RxInt hour = 0.obs;
-  late RxInt minute = 0.obs;
-  late RxInt ampm = 0.obs;
-
-  void updateHour(int value) {
-    hour(value);
-    log("hour: $hour");
-  }
-
-  void updateMinute(int value) {
-    minute(value);
-    log("min: $minute");
-  }
-
-  void updateAmPm(int value) {
-    // am is 0, pm is 1
-    ampm(value);
-    log("ampm: $ampm");
-  }
-
   bool isLastView(int index) {
     if (index == contents.length - 1) {
       return true;
