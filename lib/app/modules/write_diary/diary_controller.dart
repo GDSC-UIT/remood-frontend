@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/diary.dart';
 import 'package:remood/app/data/models/list_negative_diary.dart';
@@ -11,6 +12,23 @@ import 'dart:io';
 import 'package:flutter/animation.dart';
 
 class DiaryController extends GetxController {
+// hive box
+  final _mybox = Hive.box<List>('mybox');
+  ListNegativeDiary hiveBoxNegative = ListNegativeDiary();
+  ListPositveDiary hiveBoxPositive = ListPositveDiary();
+  RxList<CardTopic> listTopic = <CardTopic>[].obs;
+  ListTopic hiveBoxTopic = ListTopic();
+  @override
+  void onInit() {
+    if (_mybox.get("topic") == null) {
+      hiveBoxTopic.createInitialData();
+    } else {
+      hiveBoxTopic.loadData();
+    }
+    listTopic.value = ListTopic.topics;
+    super.onInit();
+  }
+
   RxInt current = 0.obs;
 // change Tag positive negative
   void changeColortag(index) {
@@ -49,15 +67,16 @@ class DiaryController extends GetxController {
     Diary addDiary = Diary(
       diary: diaryNote.text.trim(),
       date: addDate,
-      diaryColor: colorDiary.value,
-      icon: iconTopic.value,
+      diaryColor: colorDiary.value.value,
+      icon: iconTopic.value.codePoint,
       title: titleDiary.value,
-      image: image,
+      image: image == null ? null : image!.path,
     );
-
     current.value == 0
         ? ListPositveDiary.listPositiveDiary.add(addDiary)
         : ListNegativeDiary.listNegativeDiary.add(addDiary);
+    hiveBoxNegative.updateDatabase();
+    hiveBoxPositive.updateDatabase();
     diaryNote.clear();
   }
 
@@ -79,14 +98,14 @@ class DiaryController extends GetxController {
 
 // add topic
   TextEditingController titleController = TextEditingController();
-  RxList<CardTopic> listTopic = ListTopic.topics.obs;
+
   void addCurrentTopic() {
     CardTopic newTopic = CardTopic(
         title: titleController.text.trim(),
-        TopicColor: colorTopic.value,
-        icons: addtopicIcon.value);
-    ListTopic.topics.add(newTopic);
+        TopicColor: colorTopic.value.value,
+        icons: addtopicIcon.value.codePoint);
     listTopic.add(newTopic);
+    hiveBoxTopic.updateDatabase();
   }
 
 /*  */

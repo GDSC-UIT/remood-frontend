@@ -43,10 +43,12 @@ class StackTopic extends StatelessWidget {
                       itemBuilder: ((context, index) => GestureDetector(
                             onTap: () {
                               topicController.changeTopic(index);
-                              topicController.iconTopic.value =
-                                  ListTopic.topics[index].icons;
+                              topicController.iconTopic.value = IconData(
+                                ListTopic.topics[index].icons,
+                                fontFamily: 'MaterialIcons',
+                              );
                               topicController.colorDiary.value =
-                                  ListTopic.topics[index].TopicColor;
+                                  Color(ListTopic.topics[index].TopicColor);
                               topicController.titleDiary.value =
                                   ListTopic.topics[index].title;
                             },

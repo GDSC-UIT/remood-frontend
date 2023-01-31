@@ -77,8 +77,12 @@ class WriteDiaryScreen extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
                     diaryController.addDate = dateController.currentdate.value;
-                    diaryController.addDiary();
-                    Get.toNamed(AppRoutes.home);
+                    if (diaryController.diaryNote.text.isEmpty) {
+                      Get.back();
+                    } else {
+                      diaryController.addDiary();
+                      Get.toNamed(AppRoutes.home);
+                    }
                   },
                   style: ButtonStyle(
                     backgroundColor:
