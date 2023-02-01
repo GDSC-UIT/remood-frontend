@@ -7,6 +7,9 @@ import 'package:remood/app/modules/freshmood/sad_screens/screens/final_negative_
 import 'package:remood/app/modules/freshmood/sad_screens/screens/read_diary.dart';
 import 'package:remood/app/modules/freshmood/sad_screens/screens/sad_screen.dart';
 import 'package:remood/app/modules/read_diary/read_diary_binding.dart';
+import 'package:remood/app/modules/report/report_binding.dart';
+import 'package:remood/app/modules/report/screens/report_screen.dart';
+import 'package:remood/app/modules/setting/setting_binding.dart';
 import 'package:remood/app/modules/write_diary/diary_binding.dart';
 import 'package:remood/app/modules/write_diary/screens/write_diary_screen.dart';
 import 'package:remood/app/modules/onboarding/onboarding_binding.dart';
@@ -20,8 +23,9 @@ abstract class AppPages {
     GetPage(
       name: AppRoutes.home,
       page: () => const HomeScreen(),
-      bindingss: [
-        [HomeBinding(), ReadDiaryBinding()],
+      bindings: [
+        HomeBinding(),
+        ReadDiaryBinding(),
         ReportBinding(),
         SettingBinding()
       ],

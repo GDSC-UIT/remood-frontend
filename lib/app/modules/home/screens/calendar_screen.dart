@@ -13,7 +13,7 @@ class CalendarScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // double _screenWidth = MediaQuery.of(context).size.width;
+    double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
     HomeController calendarController = Get.find();
     return Column(
@@ -25,9 +25,9 @@ class CalendarScreen extends StatelessWidget {
               height: _screenHeight * 0.53,
               child: Obx(
                 () => CalendarCarousel(
-                  iconColor: AppColors.MainColor,
+                  iconColor: AppColors.mainColor,
                   headerTextStyle: const TextStyle(
-                      color: AppColors.MainColor,
+                      color: AppColors.mainColor,
                       fontWeight: FontWeight.w700,
                       fontSize: 18),
                   weekdayTextStyle: const TextStyle(
@@ -40,12 +40,12 @@ class CalendarScreen extends StatelessWidget {
                   weekendTextStyle: TextStyle(
                       color: AppColors.weekendColor,
                       fontWeight: FontWeight.w700),
-                  todayButtonColor: AppColors.MainColor,
-                  todayBorderColor: AppColors.MainColor,
+                  todayButtonColor: AppColors.mainColor,
+                  todayBorderColor: AppColors.mainColor,
                   onDayPressed: ((p0, p1) => calendarController.changedate(p0)),
                   selectedDateTime: calendarController.currentdate.value,
-                  selectedDayBorderColor: AppColors.MainColor,
-                  selectedDayButtonColor: AppColors.MainColor,
+                  selectedDayBorderColor: AppColors.mainColor,
+                  selectedDayButtonColor: AppColors.mainColor,
                 ),
               )),
         ),

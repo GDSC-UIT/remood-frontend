@@ -12,9 +12,9 @@ class Diary extends HiveObject {
   @HiveField(1)
   DateTime date;
   @HiveField(2)
-  int icon;
+  IconData icon;
   @HiveField(3)
-  int diaryColor;
+  Color diaryColor;
   @HiveField(4)
   String title;
   @HiveField(5)

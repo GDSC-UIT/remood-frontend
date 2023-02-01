@@ -14,7 +14,7 @@ class FinalNegativeScreen extends StatelessWidget {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: AppColors.BackgroundColor,
+      backgroundColor: AppColors.backgroundColor,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -27,7 +27,7 @@ class FinalNegativeScreen extends StatelessWidget {
             "Why would you stop when you have been through all of this before?",
             textAlign: TextAlign.center,
             style: TextStyle(
-                color: AppColors.Primary,
+                color: AppColors.primary,
                 fontWeight: FontWeight.w700,
                 fontSize: 25),
           )),
@@ -52,7 +52,7 @@ class FinalNegativeScreen extends StatelessWidget {
                   child: Text(
                     "Okay",
                     style: TextStyle(
-                        color: AppColors.Primary,
+                        color: AppColors.primary,
                         fontWeight: FontWeight.w700,
                         fontSize: 18),
                   ),

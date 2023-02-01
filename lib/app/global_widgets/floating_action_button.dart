@@ -13,8 +13,8 @@ class _FloatingButtonState extends State<FloatingButton> {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
+    double _screenWidth = MediaQuery.of(context).size.width;
+    double _screenHeight = MediaQuery.of(context).size.height;
     void onPressed() {
       setState(() {
         isPressed = !isPressed;
@@ -22,8 +22,8 @@ class _FloatingButtonState extends State<FloatingButton> {
     }
 
     return SizedBox(
-      width: screenWidth * 0.19,
-      height: screenHeight * 0.09,
+      width: _screenWidth * 0.19,
+      height: _screenHeight * 0.09,
       child: FittedBox(
         child: FloatingActionButton(
           onPressed: onPressed,

@@ -19,8 +19,8 @@ class DiaryAdapter extends TypeAdapter<Diary> {
     return Diary(
       diary: fields[0] as String,
       date: fields[1] as DateTime,
-      diaryColor: fields[3] as int,
-      icon: fields[2] as int,
+      diaryColor: fields[3] as Color,
+      icon: fields[2] as IconData,
       title: fields[4] as String,
       image: fields[5] as String?,
     );

@@ -67,8 +67,8 @@ class DiaryController extends GetxController {
     Diary addDiary = Diary(
       diary: diaryNote.text.trim(),
       date: addDate,
-      diaryColor: colorDiary.value.value,
-      icon: iconTopic.value.codePoint,
+      diaryColor: colorDiary.value,
+      icon: iconTopic.value,
       title: titleDiary.value,
       image: image == null ? null : image!.path,
     );

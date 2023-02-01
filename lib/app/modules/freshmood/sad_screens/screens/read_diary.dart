@@ -20,7 +20,7 @@ class ReadDiaryFreshmood extends StatelessWidget {
     double _screenHeight = MediaQuery.of(context).size.height;
     SadController diaryController = Get.find();
     return Scaffold(
-      backgroundColor: AppColors.BackgroundColor,
+      backgroundColor: AppColors.backgroundColor,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -33,7 +33,7 @@ class ReadDiaryFreshmood extends StatelessWidget {
               width: _screenWidth * 0.355,
               height: 37,
               decoration: BoxDecoration(
-                  color: AppColors.TagColors,
+                  color: AppColors.tagColors,
                   borderRadius: BorderRadius.circular(40)),
               child: Center(
                 child: Text(
@@ -92,7 +92,7 @@ class ReadDiaryFreshmood extends StatelessWidget {
                   child: Text(
                     "Next",
                     style: TextStyle(
-                        color: AppColors.Primary,
+                        color: AppColors.primary,
                         fontSize: 16,
                         fontWeight: FontWeight.w600),
                   ),

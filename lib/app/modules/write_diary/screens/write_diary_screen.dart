@@ -35,7 +35,7 @@ class WriteDiaryScreen extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
-                height: screenHeight * 0.0542,
+                height: _screenHeight * 0.0542,
               ),
               Container(
                 child: ListTile(
@@ -56,26 +56,26 @@ class WriteDiaryScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: screenHeight * 0.04,
+                height: _screenHeight * 0.04,
               ),
               const StackTopic(),
               SizedBox(
-                height: screenHeight * 0.043,
+                height: _screenHeight * 0.043,
               ),
               StackTag(currentIndex: currentIndex),
               SizedBox(
-                height: screenHeight * 0.043,
+                height: _screenHeight * 0.043,
               ),
               const StackPhotos(),
               SizedBox(
-                height: screenHeight * 0.043,
+                height: _screenHeight * 0.043,
               ),
               const StackNote(),
               SizedBox(
-                height: screenHeight * 0.02,
+                height: _screenHeight * 0.02,
               ),
               SizedBox(
-                width: screenWidth * 0.88,
+                width: _screenWidth * 0.88,
                 child: ElevatedButton(
                   onPressed: () {
                     diaryController.addDate = dateController.currentdate.value;

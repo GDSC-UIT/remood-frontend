@@ -17,7 +17,7 @@ class ChooseScreen extends StatelessWidget {
     double _screenHeight = MediaQuery.of(context).size.height;
     SadController sadController = Get.find();
     return Scaffold(
-      backgroundColor: AppColors.BackgroundColor,
+      backgroundColor: AppColors.backgroundColor,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -30,7 +30,7 @@ class ChooseScreen extends StatelessWidget {
             child: Text(
               "You want to....",
               style: TextStyle(
-                  color: AppColors.Primary,
+                  color: AppColors.primary,
                   fontWeight: FontWeight.w700,
                   fontSize: 20),
             ),
@@ -54,7 +54,7 @@ class ChooseScreen extends StatelessWidget {
                             decoration: BoxDecoration(
                                 color:
                                     sadController.currentChoice.value == index
-                                        ? AppColors.MainColor
+                                        ? AppColors.mainColor
                                         : Colors.white,
                                 borderRadius: BorderRadius.circular(23),
                                 boxShadow: const [
@@ -67,7 +67,7 @@ class ChooseScreen extends StatelessWidget {
                                   color:
                                       sadController.currentChoice.value == index
                                           ? Colors.white
-                                          : AppColors.Primary,
+                                          : AppColors.primary,
                                   fontSize: 18,
                                   fontWeight: FontWeight.w600),
                             )),
