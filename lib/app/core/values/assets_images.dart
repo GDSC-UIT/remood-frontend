@@ -19,7 +19,8 @@ class Assets {
   static const String language = 'assets/icons/language.png';
 
   // Images
-  static const String logo = 'assets/images/logo-text.png';
+  static const String logoText = 'assets/images/logo-text.png';
+  static const String logo = 'assets/images/logo.png';
   static const String onboardingBackground = 'assets/images/onboarding_bg.jpg';
   static const String onboardingBackground1 =
       'assets/images/onboarding_bg1.jpg';

@@ -12,7 +12,7 @@ class LanguageScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(SettingController());
+    final controller = Get.find<SettingController>();
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
       body: SafeArea(
@@ -23,9 +23,8 @@ class LanguageScreen extends StatelessWidget {
             // English
             ListTileLaguage(index: 0),
             // Vietnamese
-            ListTileLaguage(index: 1),
+
             // Japanese
-            ListTileLaguage(index: 2),
           ],
         ),
       ),
