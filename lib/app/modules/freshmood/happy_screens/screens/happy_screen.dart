@@ -77,18 +77,40 @@ class _HappyScreenState extends State<HappyScreen> {
                   future: fetchPost(),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
-                      return Text(
-                        ' "${snapshot.data!.data!.quotes![0].text!}"',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: changeAsset.valueSlider.value < 60
-                              ? AppColors.normalFace
-                              : changeAsset.valueSlider.value < 80
-                                  ? AppColors.smileFace
-                                  : AppColors.happyFace,
-                          fontWeight: FontWeight.w700,
-                        ),
-                        textAlign: TextAlign.center,
+                      return Column(
+                        children: [
+                          Text(
+                            ' "${snapshot.data!.data!.quotes![0].text!}"',
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: changeAsset.valueSlider.value < 60
+                                  ? AppColors.normalFace
+                                  : changeAsset.valueSlider.value < 80
+                                      ? AppColors.smileFace
+                                      : AppColors.happyFace,
+                              fontWeight: FontWeight.w700,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          SizedBox(height: 8),
+                          Padding(
+                            padding:
+                                EdgeInsets.only(left: _screenWidth * 0.323),
+                            child: Text(
+                              "-${snapshot.data!.data!.quotes![0].author}-",
+                              style: TextStyle(
+                                fontSize: 17,
+                                fontStyle: FontStyle.italic,
+                                color: changeAsset.valueSlider.value < 60
+                                    ? AppColors.normalFace
+                                    : changeAsset.valueSlider.value < 80
+                                        ? AppColors.smileFace
+                                        : AppColors.happyFace,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          )
+                        ],
                       );
                     } else if (snapshot.hasError) {
                       return Text('${snapshot.error}');
