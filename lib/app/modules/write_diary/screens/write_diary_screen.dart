@@ -3,10 +3,19 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
+import 'package:remood/app/data/models/diary.dart';
+import 'package:remood/app/data/models/list_negative_diary.dart';
+import 'package:remood/app/data/models/list_positive_diary.dart';
+import 'package:remood/app/global_widgets/card_diary.dart';
+import 'package:remood/app/modules/home/home_binding.dart';
+import 'package:remood/app/modules/home/home_controller.dart';
+import 'package:remood/app/modules/write_diary/diary_controller.dart';
 import 'package:remood/app/modules/write_diary/widgets/stack_note.dart';
 import 'package:remood/app/modules/write_diary/widgets/stack_photos.dart';
 import 'package:remood/app/modules/write_diary/widgets/stack_tag.dart';
 import 'package:remood/app/modules/write_diary/widgets/stack_topic.dart';
+import 'package:remood/app/routes/app_routes.dart';
+import 'package:intl/intl.dart';
 
 class WriteDiaryScreen extends StatelessWidget {
   final ValueNotifier<int> currentIndex = ValueNotifier(0);
@@ -14,8 +23,10 @@ class WriteDiaryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
+    double _screenWidth = MediaQuery.of(context).size.width;
+    double _screenHeight = MediaQuery.of(context).size.height;
+    HomeController dateController = Get.find();
+    DiaryController diaryController = Get.find();
     return Scaffold(
         resizeToAvoidBottomInset: true,
         backgroundColor: AppColors.backgroundColor,
@@ -28,16 +39,17 @@ class WriteDiaryScreen extends StatelessWidget {
               ),
               Container(
                 child: ListTile(
-                  leading: SizedBox(width: screenWidth * 0.053),
-                  title: const Center(
+                  leading: SizedBox(width: _screenWidth * 0.053),
+                  title: Center(
                       child: Text(
-                    'DateTime',
+                    DateFormat('dd/MM/yyyy')
+                        .format(dateController.currentdate.value),
                     style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
                   )),
                   trailing: IconButton(
                     onPressed: () {
                       // return homepage
-                      Get.back();
+                      Get.toNamed(AppRoutes.home);
                     },
                     icon: const Icon(Icons.close),
                   ),
@@ -66,8 +78,13 @@ class WriteDiaryScreen extends StatelessWidget {
                 width: screenWidth * 0.88,
                 child: ElevatedButton(
                   onPressed: () {
-                    Get.back();
-                    log(currentIndex.value.toString());
+                    diaryController.addDate = dateController.currentdate.value;
+                    if (diaryController.diaryNote.text.isEmpty) {
+                      Get.back();
+                    } else {
+                      diaryController.addDiary();
+                      Get.toNamed(AppRoutes.home);
+                    }
                   },
                   style: ButtonStyle(
                     backgroundColor:

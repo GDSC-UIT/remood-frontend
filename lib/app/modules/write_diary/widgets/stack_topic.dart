@@ -4,7 +4,7 @@ import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/list_topic.dart';
 import 'package:remood/app/modules/write_diary/diary_controller.dart';
 import 'package:remood/app/modules/write_diary/widgets/bottom_sheet_add_topic.dart';
-import 'package:remood/app/modules/write_diary/widgets/card_topic.dart';
+import 'package:remood/app/global_widgets/card_topic.dart';
 
 class StackTopic extends StatelessWidget {
   const StackTopic({super.key});
@@ -36,22 +36,33 @@ class StackTopic extends StatelessWidget {
 // list topic
                 SizedBox(
                   width: _screenWidth * 0.44,
-                  child: ListView.separated(
-                    physics: const BouncingScrollPhysics(),
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: ((context, index) => GestureDetector(
-                          onTap: () {
-                            topicController.changeTopic(index);
-                          },
-                          child: TopicCard(
-                            topic: _ListTopics.topics[index],
-                            index: index,
-                          ),
-                        )),
-                    separatorBuilder: ((context, index) => SizedBox(
-                          width: _screenWidth * 0.024,
-                        )),
-                    itemCount: _ListTopics.topics.length,
+                  child: Obx(
+                    () => ListView.separated(
+                      physics: const BouncingScrollPhysics(),
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: ((context, index) => GestureDetector(
+                            onTap: () {
+                              topicController.changeTopic(index);
+                              topicController.iconTopic.value = IconData(
+                                ListTopic.topics[index].icons,
+                                fontFamily: 'MaterialIcons',
+                              );
+                              topicController.colorDiary.value =
+                                  Color(ListTopic.topics[index].TopicColor);
+                              topicController.titleDiary.value =
+                                  ListTopic.topics[index].title;
+                            },
+                            child: TopicCard(
+                              topic: topicController.listTopic[index],
+                              index: index,
+                              currentIndex: topicController.currentTopic,
+                            ),
+                          )),
+                      separatorBuilder: ((context, index) => SizedBox(
+                            width: _screenWidth * 0.024,
+                          )),
+                      itemCount: topicController.listTopic.length,
+                    ),
                   ),
                 ),
                 SizedBox(

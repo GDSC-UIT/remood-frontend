@@ -3,8 +3,10 @@ import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/list_negative_diary.dart';
 import 'package:remood/app/data/models/list_positive_diary.dart';
-import 'package:remood/app/modules/home/home_controller.dart';
 import 'package:intl/intl.dart';
+import 'package:remood/app/modules/read_diary/read_diary_controller.dart';
+import 'package:remood/app/modules/read_diary/widgets/list_positive_diary_card.dart';
+import 'dart:io';
 
 class SheetReadDiary extends StatelessWidget {
   String tag;
@@ -19,9 +21,7 @@ class SheetReadDiary extends StatelessWidget {
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
-    ListPositveDiary _positveDiary = ListPositveDiary();
-    ListNegativeDiary _negativeDiary = ListNegativeDiary();
-    HomeController currentDiary = Get.find();
+    ReadDiaryController readDiaryController = Get.find();
     return Container(
       height: _screenHeight * 0.82,
       decoration: const BoxDecoration(
@@ -40,45 +40,55 @@ class SheetReadDiary extends StatelessWidget {
             ),
             child: Row(
               children: [
-// Icon
+                // Icon
                 Icon(
                   id == 0
-                      ? _positveDiary
-                          .listPositiveDiary[currentDiary.currentDiary.value]
-                          .icon
-                      : _negativeDiary
-                          .listNegativeDiary[currentDiary.currentDiary.value]
-                          .icon,
+                      ? IconData(
+                          readDiaryController
+                              .positiveDiaryList[
+                                  readDiaryController.currentDiary.value]
+                              .icon,
+                          fontFamily: 'MaterialIcons')
+                      : IconData(
+                          readDiaryController
+                              .negativeDiaryList[
+                                  readDiaryController.currentDiary.value]
+                              .icon,
+                          fontFamily: 'MaterialIcons'),
                   color: id == 0
-                      ? _positveDiary
-                          .listPositiveDiary[currentDiary.currentDiary.value]
-                          .diaryColor
+                      ? Color(readDiaryController
+                              .positiveDiaryList[
+                                  readDiaryController.currentDiary.value]
+                              .diaryColor)
                           .withOpacity(1)
-                      : _negativeDiary
-                          .listNegativeDiary[currentDiary.currentDiary.value]
-                          .diaryColor
+                      : Color(readDiaryController
+                              .negativeDiaryList[
+                                  readDiaryController.currentDiary.value]
+                              .diaryColor)
                           .withOpacity(1),
                   size: 30,
                 ),
                 const SizedBox(
                   width: 16,
                 ),
-// date
+                // date
                 Text(
                   DateFormat('dd/MM/yyyy').format(id == 0
-                      ? _positveDiary
-                          .listPositiveDiary[currentDiary.currentDiary.value]
+                      ? readDiaryController
+                          .positiveDiaryList[
+                              readDiaryController.currentDiary.value]
                           .date
-                      : _negativeDiary
-                          .listNegativeDiary[currentDiary.currentDiary.value]
+                      : readDiaryController
+                          .negativeDiaryList[
+                              readDiaryController.currentDiary.value]
                           .date),
                   style: const TextStyle(
                       fontWeight: FontWeight.w600, fontSize: 20),
                 ),
-                SizedBox(
-                  width: _screenWidth * 0.115,
+                const SizedBox(
+                  width: 20,
                 ),
-// tag
+                // tag
                 Container(
                   width: _screenWidth * 0.355,
                   height: _screenHeight * 0.046,
@@ -92,11 +102,36 @@ class SheetReadDiary extends StatelessWidget {
                     tag,
                     style: TextStyle(color: AppColors.grey22.withOpacity(1)),
                   )),
-                )
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                // edit
+                IconButton(
+                    onPressed: () {
+                      id == 0
+                          ? readDiaryController.editPositiveDiary()
+                          : readDiaryController.editNegativeDiary();
+                    },
+                    icon: Icon(
+                      Icons.edit,
+                      color: id == 0
+                          ? Color(readDiaryController
+                                  .positiveDiaryList[
+                                      readDiaryController.currentDiary.value]
+                                  .diaryColor)
+                              .withOpacity(1)
+                          : Color(readDiaryController
+                                  .negativeDiaryList[
+                                      readDiaryController.currentDiary.value]
+                                  .diaryColor)
+                              .withOpacity(1),
+                      size: 30,
+                    ))
               ],
             ),
           ),
-// underline
+          // underline
           SizedBox(
             height: _screenHeight * 0.021,
           ),
@@ -107,10 +142,11 @@ class SheetReadDiary extends StatelessWidget {
               ),
             ),
           ),
-// photos
+          // photos
           const SizedBox(
             height: 20,
           ),
+// image
           Container(
             width: _screenWidth * 0.771,
             height: _screenHeight * 0.232,
@@ -118,15 +154,41 @@ class SheetReadDiary extends StatelessWidget {
               color: AppColors.primary42,
               borderRadius: BorderRadius.circular(10),
             ),
-            child: const Center(
-              child: Icon(
-                Icons.camera_alt,
-                color: AppColors.darkgrey,
-                size: 40,
-              ),
-            ),
+            child: id == 0
+                ? readDiaryController
+                            .positiveDiaryList[
+                                readDiaryController.currentDiary.value]
+                            .image !=
+                        null
+                    ? Image.file(File(readDiaryController
+                        .positiveDiaryList[
+                            readDiaryController.currentDiary.value]
+                        .image!))
+                    : const Center(
+                        child: Icon(
+                          Icons.camera_alt,
+                          color: AppColors.DarkGrey,
+                          size: 40,
+                        ),
+                      )
+                : readDiaryController
+                            .negativeDiaryList[
+                                readDiaryController.currentDiary.value]
+                            .image !=
+                        null
+                    ? Image.file(File(readDiaryController
+                        .negativeDiaryList[
+                            readDiaryController.currentDiary.value]
+                        .image!))
+                    : const Center(
+                        child: Icon(
+                          Icons.camera_alt,
+                          color: AppColors.DarkGrey,
+                          size: 40,
+                        ),
+                      ),
           ),
-// diary
+          // diary
           const SizedBox(
             height: 19,
           ),
@@ -136,36 +198,47 @@ class SheetReadDiary extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               color: id == 0
-                  ? _positveDiary
-                      .listPositiveDiary[currentDiary.currentDiary.value]
-                      .diaryColor
-                  : _negativeDiary
-                      .listNegativeDiary[currentDiary.currentDiary.value]
-                      .diaryColor,
+                  ? Color(readDiaryController
+                      .positiveDiaryList[readDiaryController.currentDiary.value]
+                      .diaryColor)
+                  : Color(readDiaryController
+                      .negativeDiaryList[readDiaryController.currentDiary.value]
+                      .diaryColor),
             ),
             child: Padding(
               padding: const EdgeInsets.all(15),
-              child: Expanded(
-                child: SingleChildScrollView(
-                  child: Text(
-                    id == 0
-                        ? _positveDiary
-                            .listPositiveDiary[currentDiary.currentDiary.value]
-                            .diary
-                        : _negativeDiary
-                            .listNegativeDiary[currentDiary.currentDiary.value]
-                            .diary,
-                    style: const TextStyle(
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.textDiaryColor,
-                        fontSize: 15),
-                  ),
+              child: Obx(
+                () => Expanded(
+                  child: readDiaryController.isPressed.value == true
+                      ? TextField(
+                          controller: readDiaryController.editingController,
+                          decoration: InputDecoration.collapsed(hintText: ''),
+                          expands: true,
+                          maxLines: null,
+                        )
+                      : SingleChildScrollView(
+                          child: Text(
+                            id == 0
+                                ? readDiaryController
+                                    .positiveDiaryList[
+                                        readDiaryController.currentDiary.value]
+                                    .diary
+                                : readDiaryController
+                                    .negativeDiaryList[
+                                        readDiaryController.currentDiary.value]
+                                    .diary,
+                            style: const TextStyle(
+                                fontWeight: FontWeight.w400,
+                                color: AppColors.TextDiaryColor,
+                                fontSize: 15),
+                          ),
+                        ),
                 ),
               ),
             ),
           ),
 
-// done button
+          // done button
           const SizedBox(
             height: 20,
           ),
@@ -173,7 +246,9 @@ class SheetReadDiary extends StatelessWidget {
             width: _screenWidth * 0.88,
             child: ElevatedButton(
               onPressed: () {
-                Get.back();
+                id == 0
+                    ? readDiaryController.donePositivePress()
+                    : readDiaryController.doneNegativePress();
               },
               style: ButtonStyle(
                 backgroundColor:

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
-import 'package:remood/app/modules/home/home_controller.dart';
+import 'package:remood/app/modules/read_diary/read_diary_controller.dart';
 
 class SheetSearchDiary extends StatelessWidget {
   const SheetSearchDiary({super.key});
@@ -10,7 +10,7 @@ class SheetSearchDiary extends StatelessWidget {
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
-    HomeController searchDiary = Get.find();
+    ReadDiaryController searchDiary = Get.find();
     return Container(
       height: _screenHeight * 0.82,
       decoration: const BoxDecoration(
@@ -45,8 +45,8 @@ class SheetSearchDiary extends StatelessWidget {
             child: SizedBox(
               width: _screenWidth * 0.872,
               child: TextField(
-                onChanged: (value) => searchDiary.search(value),
-                controller: searchDiary.controller,
+                onChanged: (value) => searchDiary.searchTitleDiary(value),
+                controller: searchDiary.searchController,
                 decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(16),
@@ -61,9 +61,44 @@ class SheetSearchDiary extends StatelessWidget {
                       ),
                     ),
                     prefixIcon: const Icon(Icons.search),
-                    hintText:
-                        "Search your Diary (date, topic, tag, keywords,....)"),
+                    hintText: "Search your Diary topic"),
                 style: const TextStyle(fontSize: 20),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 24,
+          ),
+// underline
+          Container(
+            decoration: const BoxDecoration(
+              border: Border(
+                bottom: BorderSide(color: AppColors.Greyscale),
+              ),
+            ),
+          ),
+// done button
+          SizedBox(
+            height: _screenHeight * 0.55,
+          ),
+// done button
+          Center(
+            child: SizedBox(
+              width: _screenWidth * 0.88,
+              child: ElevatedButton(
+                onPressed: () {
+                  Get.back();
+                },
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(AppColors.MainColor),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(13),
+                    ),
+                  ),
+                ),
+                child: const Text('Done'),
               ),
             ),
           ),

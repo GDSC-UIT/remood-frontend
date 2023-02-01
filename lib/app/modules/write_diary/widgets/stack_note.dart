@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
+import 'package:remood/app/modules/write_diary/diary_controller.dart';
 
 class StackNote extends StatelessWidget {
   const StackNote({super.key});
@@ -8,6 +10,7 @@ class StackNote extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+    DiaryController noteController = Get.find();
     return Stack(
       clipBehavior: Clip.none,
       children: [
@@ -25,14 +28,17 @@ class StackNote extends StatelessWidget {
               decoration: BoxDecoration(
                   color: AppColors.primary42,
                   borderRadius: BorderRadius.circular(10)),
-// text field
-              child: const Padding(
+              // text field
+              child: Padding(
                 padding: EdgeInsets.all(10),
-                child: TextField(
-                  decoration: InputDecoration.collapsed(hintText: 'Add note'),
-                  style: TextStyle(fontSize: 10),
-                  maxLines: 12,
-                  minLines: 1,
+                child: Expanded(
+                  child: TextField(
+                    controller: noteController.diaryNote,
+                    decoration: InputDecoration.collapsed(hintText: 'Add note'),
+                    style: TextStyle(fontSize: 10),
+                    expands: true,
+                    maxLines: null,
+                  ),
                 ),
               ),
             ),
