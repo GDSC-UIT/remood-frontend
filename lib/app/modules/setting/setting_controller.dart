@@ -8,6 +8,7 @@ import 'package:remood/app/data/models/language.dart';
 import 'package:remood/app/data/models/setting_function.dart';
 import 'package:remood/app/modules/setting/screens/contact_us_screen.dart';
 import 'package:remood/app/modules/setting/screens/faq_screen.dart';
+import 'package:remood/app/routes/app_routes.dart';
 
 import 'screens/language_screen.dart';
 import 'screens/manage_topics_screen.dart';
@@ -23,36 +24,34 @@ class SettingController extends GetxController {
     SettingFunc(
       icon: Assets.calendar,
       title: "Start of the week",
-      screen: const StartOfTheWeekScreen(),
+      screen: AppRoutes.starOfTheWeek,
     ),
     SettingFunc(
-        icon: Assets.language,
-        title: "Language",
-        screen: const LanguageScreen()),
+        icon: Assets.language, title: "Language", screen: AppRoutes.language),
     SettingFunc(
       icon: Assets.notification,
       title: "Notification",
-      screen: const NotificationScreen(),
+      screen: AppRoutes.notification,
     ),
     SettingFunc(
       icon: Assets.dangerCircle,
       title: "Privacy",
-      screen: const PrivacyScreen(),
+      screen: AppRoutes.privacy,
     ),
     SettingFunc(
       icon: Assets.category,
       title: "Manage topics",
-      screen: const ManageTopicsScreen(),
+      screen: AppRoutes.manageTopics,
     ),
     SettingFunc(
       icon: Assets.category,
       title: "Pinned diaries",
-      screen: const PinnedDiariesScreen(),
+      screen: AppRoutes.pinnedDiaries,
     ),
     SettingFunc(
       icon: Assets.password,
       title: "Security",
-      screen: const SecurityScreen(),
+      screen: AppRoutes.security,
     ),
   ];
 
@@ -60,12 +59,12 @@ class SettingController extends GetxController {
     SettingFunc(
       icon: Assets.call,
       title: "Contact Us",
-      screen: const ContactUsScreen(),
+      screen: AppRoutes.contactUs,
     ),
     SettingFunc(
       icon: Assets.document,
       title: "FAQ",
-      screen: const FAQScreen(),
+      screen: AppRoutes.faq,
     ),
   ];
 
