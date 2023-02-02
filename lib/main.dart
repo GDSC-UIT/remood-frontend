@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       initialBinding: SettingBinding(),
       title: AppStrings.appName,
-      initialRoute: AppRoutes.onboarding,
+      initialRoute: AppRoutes.home,
       locale: LocalizationService.locale,
       fallbackLocale: LocalizationService.fallbackLocale,
       translations: LocalizationService(),
