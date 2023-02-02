@@ -2,11 +2,12 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/assets_images.dart';
+import 'package:remood/app/data/models/topic.dart';
+import 'package:remood/app/global_widgets/card_topic.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
-import 'package:remood/app/routes/app_routes.dart';
 
-class ColSettingFuncs extends StatelessWidget {
-  const ColSettingFuncs({
+class ColButtonList extends StatelessWidget {
+  const ColButtonList({
     Key? key,
     required this.list,
   }) : super(key: key);
@@ -24,10 +25,17 @@ class ColSettingFuncs extends StatelessWidget {
         (index) => GestureDetector(
           onTap: () {
             log(settingList[index].title);
-            Get.toNamed(settingList[index].screen);
+            if (settingList[index].screen != null) {
+              Get.toNamed(settingList[index].screen);
+            }
           },
           child: ListTile(
-            leading: Image.asset(settingList[index].icon),
+            leading: settingList[index].icon.runtimeType == String
+                ? Image.asset(settingList[index].icon)
+                : TopicCard(
+                    topic: settingList[index].icon,
+                    index: index,
+                    currentIndex: index.obs),
             trailing: Image.asset(Assets.arrowRight),
             title: Text(
               settingList[index].title,

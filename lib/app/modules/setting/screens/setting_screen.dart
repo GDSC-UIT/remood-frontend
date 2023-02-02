@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
-import 'package:remood/app/modules/setting/widgets/col_setting_funcs.dart';
+import 'package:remood/app/modules/setting/widgets/col_button_list.dart';
 import 'package:remood/app/modules/setting/widgets/stack_user_avt.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -85,12 +85,12 @@ class SettingScreen extends StatelessWidget {
                       "Settings",
                       style: CustomTextStyle.h2(Colors.black),
                     ),
-                    ColSettingFuncs(list: controller.settingList),
+                    ColButtonList(list: controller.settingList),
                     Text(
                       "Help",
                       style: CustomTextStyle.h2(Colors.black),
                     ),
-                    ColSettingFuncs(list: controller.helpList),
+                    ColButtonList(list: controller.helpList),
                   ],
                 ),
               ),

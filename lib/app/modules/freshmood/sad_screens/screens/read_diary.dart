@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/app_strings.dart';
@@ -8,7 +6,6 @@ import 'package:remood/app/modules/freshmood/freshmood_widgets/back_button.dart'
 import 'package:remood/app/modules/freshmood/sad_screens/sad_screen_controller.dart';
 import 'package:remood/app/modules/freshmood/sad_screens/widgets/list_negative_diary_card.dart';
 import 'package:remood/app/modules/freshmood/sad_screens/widgets/list_positive_diary_card.dart';
-import 'package:remood/app/modules/read_diary/widgets/list_positive_diary_card.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class ReadDiaryFreshmood extends StatelessWidget {
