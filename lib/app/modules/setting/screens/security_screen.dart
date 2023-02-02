@@ -21,6 +21,9 @@ class SecurityScreen extends StatelessWidget {
         child: Column(
           children: [
             const StackSettingAppbar(title: "Security"),
+            const SizedBox(
+              height: 25.0,
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: GestureDetector(
@@ -42,6 +45,5 @@ class SecurityScreen extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }

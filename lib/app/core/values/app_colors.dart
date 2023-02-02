@@ -53,12 +53,6 @@ class AppColors {
   static const Color onboardingOnContainer = Color.fromRGBO(179, 177, 176, 1);
   static const Color onboardingSkipButton = Color.fromRGBO(154, 147, 147, 1);
 
-  // Setting
-  static const Color settingUserBg = tagColors;
-  static const Color settingPageName = Color.fromRGBO(195, 159, 86, 1);
-  static const Color settingUserName = primary;
-  static const Color settingIconBg = Color.fromRGBO(231, 231, 231, 1);
-  static const Color settingUserAvtBg = Color.fromRGBO(217, 217, 217, 1);
   static const Color barrierColor = Color.fromRGBO(0, 0, 0, 0.49);
   static const Color depressedFace = Color.fromRGBO(108, 101, 86, 0.23);
   static const Color sadFace = Color.fromRGBO(250, 173, 20, 0.35);
@@ -67,6 +61,14 @@ class AppColors {
   static const Color happyFace = Color.fromRGBO(175, 121, 13, 1);
   static const Color unselecttedIcon = Color.fromRGBO(179, 177, 176, 1);
   static const Color weekendColor = Color.fromRGBO(218, 218, 218, 1);
+
+  // Setting
+  static const Color settingUserBg = tagColors;
+  static const Color settingPageName = Color.fromRGBO(195, 159, 86, 1);
+  static const Color settingUserName = primary;
+  static const Color settingIconBg = Color.fromRGBO(231, 231, 231, 1);
+  static const Color settingUserAvtBg = Color.fromRGBO(217, 217, 217, 1);
   static const Color settingNotificationClockBg =
       Color.fromRGBO(108, 101, 86, 0.23);
+  static const Color settingNumpadButton = tagColors;
 }
