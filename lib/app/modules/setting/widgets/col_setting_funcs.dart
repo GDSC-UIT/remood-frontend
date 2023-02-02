@@ -7,17 +7,19 @@ import 'package:remood/app/modules/setting/setting_controller.dart';
 class ColSettingFuncs extends StatelessWidget {
   const ColSettingFuncs({
     Key? key,
+    required this.list,
   }) : super(key: key);
+  final List list;
 
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<SettingController>();
-    List settingList = controller.settingList;
+    List settingList = list;
     TextStyle settingLabelStyle = controller.settingLabelStyle;
 
     return Column(
       children: List.generate(
-        controller.settingList.length,
+        settingList.length,
         (index) => GestureDetector(
           onTap: () {
             log(settingList[index].title);

@@ -54,6 +54,11 @@ class SettingController extends GetxController {
     ),
   ];
 
+  var helpList = [
+    SettingFunc(icon: Assets.call, title: "Contact Us", screen: null),
+    SettingFunc(icon: Assets.document, title: "FAQ", screen: null),
+  ];
+
   var settingLabelStyle = CustomTextStyle.normalText(Colors.black);
 
   // First day of the week
