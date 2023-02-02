@@ -12,8 +12,8 @@ class ColHelpFuncs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var helpList = [
-      SettingFunc(icon: Assets.call, title: "Contact Us"),
-      SettingFunc(icon: Assets.document, title: "FAQ"),
+      SettingFunc(icon: Assets.call, title: "Contact Us", screen: null),
+      SettingFunc(icon: Assets.document, title: "FAQ", screen: null),
     ];
 
     var settingHeading = CustomTextStyle.normalText(Colors.black);

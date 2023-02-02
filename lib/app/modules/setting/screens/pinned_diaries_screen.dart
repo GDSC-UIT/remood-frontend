@@ -2,17 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/modules/setting/widgets/stack_setting_appbar.dart';
 
-class ManageTopicsScreen extends StatelessWidget {
-  const ManageTopicsScreen({super.key});
+class PinnedDiariesScreen extends StatelessWidget {
+  const PinnedDiariesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    String appBarTitle = "Pinned diaries";
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
       body: SafeArea(
         child: Column(
           children: [
-            const StackSettingAppbar(title: "Manage topics"),
+            StackSettingAppbar(
+              title: appBarTitle,
+            ),
           ],
         ),
       ),

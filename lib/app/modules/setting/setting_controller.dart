@@ -2,10 +2,60 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/models/language.dart';
+import 'package:remood/app/data/models/setting_function.dart';
+
+import 'screens/language_screen.dart';
+import 'screens/manage_topics_screen.dart';
+import 'screens/notification_screen.dart';
+import 'screens/pinned_diaries_screen.dart';
+import 'screens/privacy_screen.dart';
+import 'screens/security_screen.dart';
+import 'screens/start_of_the_week_screen.dart';
 
 class SettingController extends GetxController {
+  // Main screen
+  var settingList = [
+    SettingFunc(
+      icon: Assets.calendar,
+      title: "Start of the week",
+      screen: const StartOfTheWeekScreen(),
+    ),
+    SettingFunc(
+        icon: Assets.language,
+        title: "Language",
+        screen: const LanguageScreen()),
+    SettingFunc(
+      icon: Assets.notification,
+      title: "Notification",
+      screen: const NotificationScreen(),
+    ),
+    SettingFunc(
+      icon: Assets.dangerCircle,
+      title: "Privacy",
+      screen: const PrivacyScreen(),
+    ),
+    SettingFunc(
+      icon: Assets.category,
+      title: "Manage topics",
+      screen: const ManageTopicsScreen(),
+    ),
+    SettingFunc(
+      icon: Assets.category,
+      title: "Pinned diaries",
+      screen: const PinnedDiariesScreen(),
+    ),
+    SettingFunc(
+      icon: Assets.password,
+      title: "Security",
+      screen: const SecurityScreen(),
+    ),
+  ];
+
+  var settingLabelStyle = CustomTextStyle.normalText(Colors.black);
+
   // First day of the week
   RxBool isSunday = true.obs;
 
