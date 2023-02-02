@@ -6,6 +6,8 @@ import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/models/language.dart';
 import 'package:remood/app/data/models/setting_function.dart';
+import 'package:remood/app/modules/setting/screens/contact_us_screen.dart';
+import 'package:remood/app/modules/setting/screens/faq_screen.dart';
 
 import 'screens/language_screen.dart';
 import 'screens/manage_topics_screen.dart';
@@ -55,8 +57,16 @@ class SettingController extends GetxController {
   ];
 
   var helpList = [
-    SettingFunc(icon: Assets.call, title: "Contact Us", screen: null),
-    SettingFunc(icon: Assets.document, title: "FAQ", screen: null),
+    SettingFunc(
+      icon: Assets.call,
+      title: "Contact Us",
+      screen: const ContactUsScreen(),
+    ),
+    SettingFunc(
+      icon: Assets.document,
+      title: "FAQ",
+      screen: const FAQScreen(),
+    ),
   ];
 
   var settingLabelStyle = CustomTextStyle.normalText(Colors.black);

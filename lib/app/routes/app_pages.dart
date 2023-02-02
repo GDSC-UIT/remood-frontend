@@ -9,6 +9,16 @@ import 'package:remood/app/modules/freshmood/sad_screens/screens/sad_screen.dart
 import 'package:remood/app/modules/read_diary/read_diary_binding.dart';
 import 'package:remood/app/modules/report/report_binding.dart';
 import 'package:remood/app/modules/report/screens/report_screen.dart';
+import 'package:remood/app/modules/setting/screens/contact_us_screen.dart';
+import 'package:remood/app/modules/setting/screens/faq_screen.dart';
+import 'package:remood/app/modules/setting/screens/language_screen.dart';
+import 'package:remood/app/modules/setting/screens/manage_topics_screen.dart';
+import 'package:remood/app/modules/setting/screens/notification_screen.dart';
+import 'package:remood/app/modules/setting/screens/pinned_diaries_screen.dart';
+import 'package:remood/app/modules/setting/screens/privacy_screen.dart';
+import 'package:remood/app/modules/setting/screens/security_screen.dart';
+import 'package:remood/app/modules/setting/screens/setting_screen.dart';
+import 'package:remood/app/modules/setting/screens/start_of_the_week_screen.dart';
 import 'package:remood/app/modules/setting/setting_binding.dart';
 import 'package:remood/app/modules/write_diary/diary_binding.dart';
 import 'package:remood/app/modules/write_diary/screens/write_diary_screen.dart';
@@ -67,6 +77,56 @@ abstract class AppPages {
       name: AppRoutes.report,
       page: () => const ReportScreen(),
       binding: ReportBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.setting,
+      page: () => const SettingScreen(),
+      binding: SettingBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.language,
+      page: () => const LanguageScreen(),
+      binding: SettingBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.starOfTheWeek,
+      page: () => const StartOfTheWeekScreen(),
+      binding: SettingBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.notification,
+      page: () => const NotificationScreen(),
+      binding: SettingBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.privacy,
+      page: () => const PrivacyScreen(),
+      binding: SettingBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.manageTopics,
+      page: () => const ManageTopicsScreen(),
+      binding: SettingBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.pinnedDiaries,
+      page: () => const PinnedDiariesScreen(),
+      binding: SettingBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.security,
+      page: () => const SecurityScreen(),
+      binding: SettingBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.contactUs,
+      page: () => const ContactUsScreen(),
+      binding: SettingBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.faq,
+      page: () => const FAQScreen(),
+      binding: SettingBinding(),
     ),
   ];
 }

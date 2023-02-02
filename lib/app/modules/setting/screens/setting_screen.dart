@@ -12,7 +12,7 @@ class SettingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(SettingController());
+    final SettingController controller = Get.find();
     String username = "cute pie";
 
     return Scaffold(
