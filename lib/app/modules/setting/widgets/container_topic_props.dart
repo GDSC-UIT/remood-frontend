@@ -6,8 +6,8 @@ import 'package:remood/app/data/models/topic.dart';
 import 'package:remood/app/global_widgets/card_topic.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
 
-class ListTileTopicProps extends StatelessWidget {
-  const ListTileTopicProps({
+class ContainerTopiProps extends StatelessWidget {
+  const ContainerTopiProps({
     Key? key,
   }) : super(key: key);
 

@@ -71,4 +71,5 @@ class AppColors {
   static const Color settingNotificationClockBg =
       Color.fromRGBO(108, 101, 86, 0.23);
   static const Color settingNumpadButton = tagColors;
+  static const Color settingTopicProps = settingUserAvtBg;
 }
