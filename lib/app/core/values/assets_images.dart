@@ -6,4 +6,6 @@ class Assets {
   static const String normal = 'assets/icons/normalface.png';
   static const String fun = 'assets/icons/smileface.png';
   static const String happy = 'assets/icons/happyface.png';
+  static const String pinnedDiary = 'assets/icons/pinned.png';
+  static const String isPinnedDiary = 'assets/icons/ispinned.png';
 }
