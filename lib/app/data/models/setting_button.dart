@@ -1,12 +1,9 @@
 import 'package:flutter/cupertino.dart';
 
 class SettingButton {
-  /// icons can be
-  /// a String (Setting button icon)
-  /// or a CardTopic (a topic card icon)
-  final icon;
+  String icon;
   String label;
-  String? screen;
+  String screen;
   SettingButton(
       {required this.icon, required this.label, required this.screen});
 }

@@ -9,6 +9,8 @@ import 'package:remood/app/data/models/language.dart';
 import 'package:remood/app/data/models/list_topic.dart';
 import 'package:remood/app/data/models/setting_button.dart';
 import 'package:remood/app/data/models/topic.dart';
+import 'package:remood/app/data/models/topic_button.dart';
+import 'package:remood/app/modules/setting/screens/mt_topic_detail_screen.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class SettingController extends GetxController {
@@ -64,54 +66,59 @@ class SettingController extends GetxController {
   var settingLabelStyle = CustomTextStyle.normalText(Colors.black);
 
   // Manage topics
-  List<SettingButton> topicList = [
-    SettingButton(
+  // TODO: Thêm screen cho các topic
+  Rx<TopicButton> currentTopic = TopicButton(
+    icon: CardTopic(
+      title: "",
+      TopicColor: AppColors.lightGreen18.value,
+      icons: Icons.work.codePoint,
+    ),
+    label: "Work",
+  ).obs;
+
+  List<TopicButton> topicList = [
+    TopicButton(
       icon: CardTopic(
         title: "",
         TopicColor: AppColors.lightGreen18.value,
         icons: Icons.work.codePoint,
       ),
       label: "Work",
-      screen: null,
     ),
-    SettingButton(
+    TopicButton(
       icon: CardTopic(
         title: "",
         TopicColor: AppColors.lightRed22.value,
         icons: Icons.favorite.codePoint,
       ),
       label: "Love",
-      screen: null,
     ),
-    SettingButton(
+    TopicButton(
       icon: CardTopic(
         title: "",
         TopicColor: AppColors.lightOrange27.value,
         icons: Icons.group.codePoint,
       ),
       label: "Friends",
-      screen: null,
     ),
-    SettingButton(
+    TopicButton(
       icon: CardTopic(
         title: "",
         TopicColor: AppColors.lightPurple22.value,
         icons: Icons.family_restroom.codePoint,
       ),
       label: "Family",
-      screen: null,
     ),
   ];
 
-  List<SettingButton> createNewTopic = [
-    SettingButton(
+  List<TopicButton> createNewTopic = [
+    TopicButton(
       icon: CardTopic(
         title: "",
         TopicColor: AppColors.grey22.value,
         icons: Icons.add.codePoint,
       ),
       label: "Create new topic",
-      screen: null,
     ),
   ];
 

@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:remood/app/data/models/setting_button.dart';
 import 'package:remood/app/modules/freshmood/happy_screens/happy_screen_binding.dart';
 import 'package:remood/app/modules/freshmood/happy_screens/screens/happy_screen.dart';
 import 'package:remood/app/modules/freshmood/sad_screens/sad_screen_binding.dart';
@@ -13,6 +14,7 @@ import 'package:remood/app/modules/setting/screens/contact_us_screen.dart';
 import 'package:remood/app/modules/setting/screens/faq_screen.dart';
 import 'package:remood/app/modules/setting/screens/language_screen.dart';
 import 'package:remood/app/modules/setting/screens/manage_topics_screen.dart';
+import 'package:remood/app/modules/setting/screens/mt_topic_detail_screen.dart';
 import 'package:remood/app/modules/setting/screens/notification_screen.dart';
 import 'package:remood/app/modules/setting/screens/pinned_diaries_screen.dart';
 import 'package:remood/app/modules/setting/screens/privacy_screen.dart';
@@ -126,6 +128,12 @@ abstract class AppPages {
     GetPage(
       name: AppRoutes.faq,
       page: () => const FAQScreen(),
+      binding: SettingBinding(),
+    ),
+    // TODO: Thêm các subpage của manage topics screen
+    GetPage(
+      name: AppRoutes.topicDetail,
+      page: () => const TopicDetailScreen(),
       binding: SettingBinding(),
     ),
   ];

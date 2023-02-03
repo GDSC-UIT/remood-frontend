@@ -16,13 +16,18 @@ abstract class AppRoutes {
       '/home/sadfreshmood/choose/readDiaryFreshmood/finalNegativeScreen';
   static const report = '/home/report';
   static const setting = '/home/setting';
-  static const starOfTheWeek = '/home/setting/startOfTheWeek';
-  static const language = '/home/setting/language';
-  static const notification = '/home/setting/notification';
-  static const privacy = '/home/setting/privacy';
-  static const manageTopics = '/home/setting/manageTopics';
-  static const pinnedDiaries = '/home/setting/pinnedDiaries';
-  static const security = '/home/setting/security';
-  static const contactUs = '/home/setting/contactUs';
-  static const faq = '/home/setting/faq';
+  static const starOfTheWeek = '$setting/startOfTheWeek';
+  static const language = '$setting/language';
+  static const notification = '$setting/notification';
+  static const privacy = '$setting/privacy';
+  static const manageTopics = '$setting/manageTopics';
+  static const pinnedDiaries = '$setting/pinnedDiaries';
+  static const security = '$setting/security';
+  static const contactUs = '$setting/contactUs';
+  static const faq = '$setting/faq';
+  static const topicDetail = '$manageTopics/topicDetail';
+  static const renameTopic = '$topicDetail/renameTopic';
+  static const changeIconTopic = '$topicDetail/changeIconTopic';
+  static const changeColorTopic = '$topicDetail/changeColorTopic';
+  static const createNewTopic = '$topicDetail/createNewTopic';
 }

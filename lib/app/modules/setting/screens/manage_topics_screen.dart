@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/modules/setting/widgets/col_button_list.dart';
+import 'package:remood/app/modules/setting/widgets/col_topic_list.dart';
 import 'package:remood/app/modules/setting/widgets/stack_setting_appbar.dart';
 
 class ManageTopicsScreen extends StatelessWidget {
@@ -25,9 +26,9 @@ class ManageTopicsScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: ListView(
                   children: [
-                    ColButtonList(list: controller.topicList),
+                    ColTopicList(list: controller.topicList),
                     // Create-new-topic button
-                    ColButtonList(list: controller.createNewTopic),
+                    ColTopicList(list: controller.createNewTopic),
                   ],
                 ),
               ),
