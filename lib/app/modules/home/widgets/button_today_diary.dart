@@ -30,7 +30,7 @@ class ButtonDiary extends StatelessWidget {
           },
           style: ButtonStyle(
             backgroundColor:
-                MaterialStateProperty.all<Color>(AppColors.BackgroundColor),
+                MaterialStateProperty.all<Color>(AppColors.buttonDiary),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(22),
