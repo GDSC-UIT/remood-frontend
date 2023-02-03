@@ -20,9 +20,17 @@ class ManageTopicsScreen extends StatelessWidget {
             const SizedBox(
               height: 20.0,
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: ColButtonList(list: controller.topicList),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: ListView(
+                  children: [
+                    ColButtonList(list: controller.topicList),
+                    // Create-new-topic button
+                    ColButtonList(list: controller.createNewTopic),
+                  ],
+                ),
+              ),
             ),
           ],
         ),

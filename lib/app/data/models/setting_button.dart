@@ -5,8 +5,8 @@ class SettingButton {
   /// a String (Setting button icon)
   /// or a CardTopic (a topic card icon)
   final icon;
-  String title;
+  String label;
   String? screen;
   SettingButton(
-      {required this.icon, required this.title, required this.screen});
+      {required this.icon, required this.label, required this.screen});
 }

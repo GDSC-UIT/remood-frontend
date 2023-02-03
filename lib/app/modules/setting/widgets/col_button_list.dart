@@ -24,7 +24,7 @@ class ColButtonList extends StatelessWidget {
         settingList.length,
         (index) => GestureDetector(
           onTap: () {
-            log(settingList[index].title);
+            log(settingList[index].label);
             if (settingList[index].screen != null) {
               Get.toNamed(settingList[index].screen);
             }
@@ -38,7 +38,7 @@ class ColButtonList extends StatelessWidget {
                     currentIndex: index.obs),
             trailing: Image.asset(Assets.arrowRight),
             title: Text(
-              settingList[index].title,
+              settingList[index].label,
               style: settingLabelStyle,
             ),
           ),
