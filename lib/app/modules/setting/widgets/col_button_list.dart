@@ -31,12 +31,7 @@ class ColButtonList extends StatelessWidget {
             }
           },
           child: ListTile(
-            leading: settingList[index].icon.runtimeType == String
-                ? Image.asset(settingList[index].icon)
-                : TopicCard(
-                    topic: settingList[index].icon,
-                    index: index,
-                    currentIndex: index.obs),
+            leading: Image.asset(settingList[index].icon),
             trailing: Image.asset(Assets.arrowRight),
             title: Text(
               settingList[index].label,

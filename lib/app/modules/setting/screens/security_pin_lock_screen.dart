@@ -109,7 +109,10 @@ class PINLock extends StatelessWidget {
 
                 // Switch button
                 Container(
-                  padding: const EdgeInsets.only(top: 21.5, right: 14.0),
+                  padding: EdgeInsets.only(
+                    top: screenHeight * 0.021,
+                    right: screenWidth * 0.053,
+                  ),
                   alignment: Alignment.topRight,
                   child: const SwitchButton(),
                 ),
