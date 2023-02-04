@@ -28,7 +28,7 @@ class ColTopicList extends StatelessWidget {
           onTap: () {
             log(topicList[index].label);
             controller.currentTopic = topicList[index].obs;
-            Get.toNamed(topicList[index].screen.toString());
+            Get.toNamed(topicList[index].screen);
           },
           child: ListTile(
             leading: TopicCard(

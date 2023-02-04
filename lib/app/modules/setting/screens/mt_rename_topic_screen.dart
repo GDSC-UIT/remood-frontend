@@ -4,8 +4,11 @@ import 'package:remood/app/data/models/setting_button.dart';
 import 'package:remood/app/modules/setting/widgets/stack_setting_appbar.dart';
 
 class RenameTopicScreen extends StatelessWidget {
-  const RenameTopicScreen({super.key, required this.topic});
-  final SettingButton topic;
+  const RenameTopicScreen({
+    super.key,
+    // required this.topic,
+  });
+  // final SettingButton topic;
 
   @override
   Widget build(BuildContext context) {

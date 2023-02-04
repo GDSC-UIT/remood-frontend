@@ -29,5 +29,5 @@ abstract class AppRoutes {
   static const renameTopic = '$topicDetail/renameTopic';
   static const changeIconTopic = '$topicDetail/changeIconTopic';
   static const changeColorTopic = '$topicDetail/changeColorTopic';
-  static const createNewTopic = '$topicDetail/createNewTopic';
+  static const createNewTopic = '$manageTopics/createNewTopic';
 }

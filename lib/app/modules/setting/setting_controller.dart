@@ -74,6 +74,7 @@ class SettingController extends GetxController {
       icons: Icons.work.codePoint,
     ),
     label: "Work",
+    screen: AppRoutes.topicDetail,
   ).obs;
 
   List<TopicButton> topicList = [
@@ -84,6 +85,7 @@ class SettingController extends GetxController {
         icons: Icons.work.codePoint,
       ),
       label: "Work",
+      screen: AppRoutes.topicDetail,
     ),
     TopicButton(
       icon: CardTopic(
@@ -92,6 +94,7 @@ class SettingController extends GetxController {
         icons: Icons.favorite.codePoint,
       ),
       label: "Love",
+      screen: AppRoutes.topicDetail,
     ),
     TopicButton(
       icon: CardTopic(
@@ -100,6 +103,7 @@ class SettingController extends GetxController {
         icons: Icons.group.codePoint,
       ),
       label: "Friends",
+      screen: AppRoutes.topicDetail,
     ),
     TopicButton(
       icon: CardTopic(
@@ -108,6 +112,7 @@ class SettingController extends GetxController {
         icons: Icons.family_restroom.codePoint,
       ),
       label: "Family",
+      screen: AppRoutes.topicDetail,
     ),
   ];
 
@@ -119,6 +124,7 @@ class SettingController extends GetxController {
         icons: Icons.add.codePoint,
       ),
       label: "Create new topic",
+      screen: AppRoutes.createNewTopic,
     ),
   ];
 

@@ -14,6 +14,10 @@ import 'package:remood/app/modules/setting/screens/contact_us_screen.dart';
 import 'package:remood/app/modules/setting/screens/faq_screen.dart';
 import 'package:remood/app/modules/setting/screens/language_screen.dart';
 import 'package:remood/app/modules/setting/screens/manage_topics_screen.dart';
+import 'package:remood/app/modules/setting/screens/mt_change_color_topic_screen.dart';
+import 'package:remood/app/modules/setting/screens/mt_change_icon_topic_screen.dart';
+import 'package:remood/app/modules/setting/screens/mt_create_new_topic_screen.dart';
+import 'package:remood/app/modules/setting/screens/mt_rename_topic_screen.dart';
 import 'package:remood/app/modules/setting/screens/mt_topic_detail_screen.dart';
 import 'package:remood/app/modules/setting/screens/notification_screen.dart';
 import 'package:remood/app/modules/setting/screens/pinned_diaries_screen.dart';
@@ -134,6 +138,26 @@ abstract class AppPages {
     GetPage(
       name: AppRoutes.topicDetail,
       page: () => const TopicDetailScreen(),
+      binding: SettingBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.createNewTopic,
+      page: () => const CreateNewTopicScreen(),
+      bindings: [DiaryBinding(), SettingBinding()],
+    ),
+    GetPage(
+      name: AppRoutes.renameTopic,
+      page: () => const RenameTopicScreen(),
+      binding: SettingBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.changeIconTopic,
+      page: () => const ChangeIconTopicScreen(),
+      binding: SettingBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.changeColorTopic,
+      page: () => const ChangeColorTopicScreen(),
       binding: SettingBinding(),
     ),
   ];
