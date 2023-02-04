@@ -56,13 +56,13 @@ class CreateNewTopicScreen extends StatelessWidget {
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),
                           borderSide: const BorderSide(
-                            color: AppColors.greyscale,
+                            color: AppColors.mainColor,
                           ),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),
                           borderSide: const BorderSide(
-                            color: AppColors.mainColor,
+                            color: Colors.blue,
                           ),
                         ),
                       ),

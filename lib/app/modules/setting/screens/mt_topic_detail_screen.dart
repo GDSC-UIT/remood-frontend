@@ -9,6 +9,7 @@ import 'package:remood/app/global_widgets/card_topic.dart';
 import 'package:remood/app/modules/setting/screens/mt_create_new_topic_screen.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/modules/setting/widgets/stack_setting_appbar.dart';
+import 'package:remood/app/routes/app_routes.dart';
 
 class TopicDetailScreen extends StatelessWidget {
   const TopicDetailScreen({
@@ -51,50 +52,53 @@ class TopicDetailScreen extends StatelessWidget {
                   const SizedBox(
                     height: 13.0,
                   ),
-                  // Rename
-                  Container(
-                    width: screenWidth,
-                    padding: const EdgeInsets.only(
-                        right: 35, left: 25, top: 8, bottom: 8),
-                    color: AppColors.settingTopicProps,
-                    child: Row(
-                      children: [
-                        // Label
-                        Text(
-                          "Rename",
-                          style: CustomTextStyle.h3(
-                            Colors.black,
-                          ).copyWith(fontSize: 14),
-                        ),
-
-                        Expanded(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              // Value
-                              Text(
-                                currentTopic.label,
-                                style: CustomTextStyle.normalText(
-                                  Color(controller
-                                          .currentTopic.value.icon.TopicColor)
-                                      .withOpacity(1),
-                                ),
-                              ),
-                              const SizedBox(
-                                width: 2,
-                              ),
-                              // Arrow-right icon
-                              const Icon(Icons.keyboard_arrow_right),
-                            ],
+// Rename
+                  GestureDetector(
+                    onTap: () => Get.toNamed(AppRoutes.renameTopic),
+                    child: Container(
+                      width: screenWidth,
+                      padding: const EdgeInsets.only(
+                          right: 35, left: 25, top: 8, bottom: 8),
+                      color: AppColors.settingTopicProps,
+                      child: Row(
+                        children: [
+                          // Label
+                          Text(
+                            "Rename",
+                            style: CustomTextStyle.h3(
+                              Colors.black,
+                            ).copyWith(fontSize: 14),
                           ),
-                        ),
-                      ],
+
+                          Expanded(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                // Value
+                                Text(
+                                  currentTopic.label,
+                                  style: CustomTextStyle.normalText(
+                                    Color(controller
+                                            .currentTopic.value.icon.TopicColor)
+                                        .withOpacity(1),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 2,
+                                ),
+                                // Arrow-right icon
+                                const Icon(Icons.keyboard_arrow_right),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   SizedBox(
                     height: screenHeight * 0.0197,
                   ),
-                  // Change icon
+// Change icon
                   Container(
                     width: screenWidth,
                     padding: const EdgeInsets.only(
@@ -136,7 +140,7 @@ class TopicDetailScreen extends StatelessWidget {
                   SizedBox(
                     height: screenHeight * 0.0197,
                   ),
-                  // Change color
+// Change color
                   Container(
                     width: screenWidth,
                     padding: const EdgeInsets.only(

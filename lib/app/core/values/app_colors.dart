@@ -11,6 +11,7 @@ class AppColors {
   static const Color lightOrange27 = Color.fromRGBO(228, 161, 92, 0.27);
   static const Color lightPurple22 = Color.fromRGBO(172, 95, 211, 0.22);
   static const Color greyscale = Color.fromRGBO(229, 228, 227, 1);
+  static const Color grey = Color.fromRGBO(179, 177, 176, 1);
   static const Color grey22 = Color.fromRGBO(179, 177, 176, 0.22);
   static const Color darkBlue = Color.fromRGBO(19, 15, 38, 1);
   static const Color lightprimary250 = Color.fromRGBO(250, 75, 20, 0.22);
@@ -72,4 +73,5 @@ class AppColors {
       Color.fromRGBO(108, 101, 86, 0.23);
   static const Color settingNumpadButton = tagColors;
   static const Color settingTopicProps = settingUserAvtBg;
+  static const Color settingTextHint = grey;
 }

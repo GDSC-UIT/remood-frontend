@@ -134,7 +134,6 @@ abstract class AppPages {
       page: () => const FAQScreen(),
       binding: SettingBinding(),
     ),
-    // TODO: Thêm các subpage của manage topics screen
     GetPage(
       name: AppRoutes.topicDetail,
       page: () => const TopicDetailScreen(),
@@ -148,17 +147,17 @@ abstract class AppPages {
     GetPage(
       name: AppRoutes.renameTopic,
       page: () => const RenameTopicScreen(),
-      binding: SettingBinding(),
+      bindings: [SettingBinding(), DiaryBinding()],
     ),
     GetPage(
       name: AppRoutes.changeIconTopic,
       page: () => const ChangeIconTopicScreen(),
-      binding: SettingBinding(),
+      bindings: [SettingBinding(), DiaryBinding()],
     ),
     GetPage(
       name: AppRoutes.changeColorTopic,
       page: () => const ChangeColorTopicScreen(),
-      binding: SettingBinding(),
+      bindings: [SettingBinding(), DiaryBinding()],
     ),
   ];
 }
