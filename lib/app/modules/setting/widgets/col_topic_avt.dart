@@ -6,11 +6,11 @@ import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/topic.dart';
 import 'package:remood/app/modules/write_diary/diary_controller.dart';
 
-class TopicCard extends StatelessWidget {
+class TopicAvatar extends StatelessWidget {
   CardTopic topic;
   int index;
   RxInt currentIndex;
-  TopicCard({
+  TopicAvatar({
     super.key,
     required this.topic,
     required this.index,
@@ -49,14 +49,6 @@ class TopicCard extends StatelessWidget {
                   size: 19,
                 ),
               ),
-            ),
-          ),
-          Text(
-            topic.title,
-            style: const TextStyle(
-              color: Colors.black,
-              fontSize: 8,
-              fontWeight: FontWeight.w600,
             ),
           ),
         ],

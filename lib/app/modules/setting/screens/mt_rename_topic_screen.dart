@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
-import 'package:remood/app/modules/setting/setting_binding.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/modules/setting/widgets/confirm_button.dart';
 import 'package:remood/app/modules/setting/widgets/stack_setting_appbar.dart';
@@ -50,7 +49,7 @@ class RenameTopicScreen extends StatelessWidget {
                       color: Colors.blue,
                     ),
                   ),
-                  hintText: settingController.currentTopic.value.label,
+                  hintText: settingController.currentTopic.value.title,
                   hintStyle: CustomTextStyle.normalText(AppColors.grey),
                 ),
                 style: const TextStyle(fontSize: 20),

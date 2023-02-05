@@ -7,7 +7,6 @@ import 'package:remood/app/data/models/list_selected_icons_topic.dart';
 import 'package:remood/app/modules/setting/widgets/confirm_button.dart';
 import 'package:remood/app/modules/setting/widgets/stack_setting_appbar.dart';
 import 'package:remood/app/modules/write_diary/diary_controller.dart';
-import 'package:remood/app/modules/write_diary/widgets/bottom_sheet_add_topic.dart';
 
 class CreateNewTopicScreen extends StatelessWidget {
   const CreateNewTopicScreen({super.key});

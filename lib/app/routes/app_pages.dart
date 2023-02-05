@@ -112,7 +112,7 @@ abstract class AppPages {
     GetPage(
       name: AppRoutes.manageTopics,
       page: () => const ManageTopicsScreen(),
-      binding: SettingBinding(),
+      bindings: [SettingBinding(), DiaryBinding()],
     ),
     GetPage(
       name: AppRoutes.pinnedDiaries,

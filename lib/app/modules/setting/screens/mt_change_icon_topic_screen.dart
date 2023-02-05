@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
-import 'package:remood/app/data/models/list_selected_color_topic.dart';
 import 'package:remood/app/data/models/list_selected_icons_topic.dart';
-import 'package:remood/app/data/models/setting_button.dart';
-import 'package:remood/app/data/models/topic_button.dart';
+import 'package:remood/app/data/models/topic.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/modules/setting/widgets/confirm_button.dart';
 import 'package:remood/app/modules/setting/widgets/stack_setting_appbar.dart';
@@ -13,9 +11,7 @@ import 'package:remood/app/modules/write_diary/diary_controller.dart';
 class ChangeIconTopicScreen extends StatelessWidget {
   const ChangeIconTopicScreen({
     super.key,
-    // required this.topic,
   });
-  // final SettingButton topic;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +22,7 @@ class ChangeIconTopicScreen extends StatelessWidget {
     SettingController settingController = Get.find();
     DiaryController diaryController = Get.find();
     ListSelectedIcons listSelectedIcons = ListSelectedIcons();
-    TopicButton currentTopic = settingController.currentTopic.value;
+    CardTopic currentTopic = settingController.currentTopic.value;
 
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,

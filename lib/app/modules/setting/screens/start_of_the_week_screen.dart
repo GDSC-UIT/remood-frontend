@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:remood/app/core/values/app_colors.dart';
-import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/modules/setting/widgets/confirm_button.dart';
 import 'package:remood/app/modules/setting/widgets/container_monday.dart';
 import 'package:remood/app/modules/setting/widgets/container_sunday.dart';
