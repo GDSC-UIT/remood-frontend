@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/modules/read_diary/read_diary_controller.dart';
@@ -11,7 +9,7 @@ import 'package:remood/app/modules/read_diary/widgets/list_negative_diary_card.d
 import 'package:remood/app/modules/read_diary/widgets/list_positive_diary_card.dart';
 
 class ReadDiaryScreen extends StatefulWidget {
-  ReadDiaryScreen({super.key});
+  const ReadDiaryScreen({super.key});
 
   @override
   State<ReadDiaryScreen> createState() => _ReadDiaryScreenState();
@@ -39,7 +37,7 @@ class _ReadDiaryScreenState extends State<ReadDiaryScreen>
     ReadDiaryController _SearchAndSort = Get.find();
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: AppColors.BackgroundColor,
+      backgroundColor: AppColors.backgroundPage,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -72,12 +70,12 @@ class _ReadDiaryScreenState extends State<ReadDiaryScreen>
                     child: Padding(
                         padding: const EdgeInsets.all(5),
                         child: TabBar(
-                          unselectedLabelColor: AppColors.Greyscale,
+                          unselectedLabelColor: AppColors.greyscale,
                           labelColor: Colors.white,
-                          indicatorColor: AppColors.TagColors,
+                          indicatorColor: AppColors.tagColors,
                           indicatorWeight: 2,
                           indicator: BoxDecoration(
-                            color: AppColors.TagColors,
+                            color: AppColors.tagColors,
                             borderRadius: BorderRadius.circular(45),
                           ),
                           controller: tabController,

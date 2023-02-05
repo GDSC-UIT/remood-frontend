@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:remood/app/core/values/app_colors.dart';
@@ -11,22 +10,22 @@ class ListTopic {
     topics = [
       CardTopic(
         title: "Work",
-        TopicColor: AppColors.LightGreen18.value,
+        TopicColor: AppColors.lightGreen18.value,
         icons: Icons.work.codePoint,
       ),
       CardTopic(
         title: "Love",
-        TopicColor: AppColors.LightRed22.value,
+        TopicColor: AppColors.lightRed22.value,
         icons: Icons.favorite.codePoint,
       ),
       CardTopic(
         title: "Friends",
-        TopicColor: AppColors.LightOrange27.value,
+        TopicColor: AppColors.lightOrange27.value,
         icons: Icons.group.codePoint,
       ),
       CardTopic(
         title: "Family",
-        TopicColor: AppColors.LightPurple22.value,
+        TopicColor: AppColors.lightPurple22.value,
         icons: Icons.family_restroom.codePoint,
       ),
     ];

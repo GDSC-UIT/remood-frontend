@@ -19,14 +19,14 @@ class StackNote extends StatelessWidget {
           height: _screenHeight * 0.236,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: AppColors.Primary)),
+              border: Border.all(color: AppColors.primary)),
 // contain text field
           child: Center(
             child: Container(
               height: _screenHeight * 0.167,
               width: _screenWidth * 0.621,
               decoration: BoxDecoration(
-                  color: AppColors.Primary42,
+                  color: AppColors.primary42,
                   borderRadius: BorderRadius.circular(10)),
               // text field
               child: Padding(
@@ -54,14 +54,14 @@ class StackNote extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: AppColors.Primary),
+              border: Border.all(color: AppColors.primary),
             ),
             child: const Center(
                 child: Text(
               'Note',
               style: TextStyle(
                   fontWeight: FontWeight.w700,
-                  color: AppColors.Primary,
+                  color: AppColors.primary,
                   fontSize: 18),
             )),
           ),

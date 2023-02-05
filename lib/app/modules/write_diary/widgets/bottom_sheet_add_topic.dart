@@ -1,5 +1,3 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
@@ -56,7 +54,7 @@ class SheetAddTopic extends StatelessWidget {
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(16),
                     borderSide: const BorderSide(
-                      color: AppColors.Greyscale,
+                      color: AppColors.greyscale,
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
@@ -76,7 +74,7 @@ class SheetAddTopic extends StatelessWidget {
             Container(
               decoration: const BoxDecoration(
                 border: Border(
-                  bottom: BorderSide(color: AppColors.Greyscale),
+                  bottom: BorderSide(color: AppColors.greyscale),
                 ),
               ),
             ),
@@ -120,14 +118,14 @@ class SheetAddTopic extends StatelessWidget {
                         decoration: BoxDecoration(
                           color: addTopic.currentIconTopic.value == index
                               ? addTopic.colorTopic.value
-                              : AppColors.Grey22,
+                              : AppColors.grey22,
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Icon(
                           listSelectedIcons.selectedIcons[index],
                           color: addTopic.currentIconTopic.value == index
                               ? addTopic.colorTopic.value.withOpacity(1)
-                              : AppColors.DarkBlue,
+                              : AppColors.darkBlue,
                         ),
                       ),
                     ),
@@ -197,7 +195,7 @@ class SheetAddTopic extends StatelessWidget {
                 },
                 style: ButtonStyle(
                   backgroundColor:
-                      MaterialStateProperty.all<Color>(AppColors.MainColor),
+                      MaterialStateProperty.all<Color>(AppColors.mainColor),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(13),

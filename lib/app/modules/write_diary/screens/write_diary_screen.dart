@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
@@ -27,7 +29,7 @@ class WriteDiaryScreen extends StatelessWidget {
     DiaryController diaryController = Get.find();
     return Scaffold(
         resizeToAvoidBottomInset: true,
-        backgroundColor: AppColors.BackgroundColor,
+        backgroundColor: AppColors.backgroundColor,
         body: SingleChildScrollView(
           keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
           child: Column(
@@ -86,7 +88,7 @@ class WriteDiaryScreen extends StatelessWidget {
                   },
                   style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all<Color>(AppColors.MainColor),
+                        MaterialStateProperty.all<Color>(AppColors.mainColor),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(13),

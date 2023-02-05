@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/app_strings.dart';
@@ -8,7 +6,6 @@ import 'package:remood/app/modules/freshmood/freshmood_widgets/back_button.dart'
 import 'package:remood/app/modules/freshmood/sad_screens/sad_screen_controller.dart';
 import 'package:remood/app/modules/freshmood/sad_screens/widgets/list_negative_diary_card.dart';
 import 'package:remood/app/modules/freshmood/sad_screens/widgets/list_positive_diary_card.dart';
-import 'package:remood/app/modules/read_diary/widgets/list_positive_diary_card.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class ReadDiaryFreshmood extends StatelessWidget {
@@ -20,7 +17,7 @@ class ReadDiaryFreshmood extends StatelessWidget {
     double _screenHeight = MediaQuery.of(context).size.height;
     SadController diaryController = Get.find();
     return Scaffold(
-      backgroundColor: AppColors.BackgroundColor,
+      backgroundColor: AppColors.backgroundColor,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -33,7 +30,7 @@ class ReadDiaryFreshmood extends StatelessWidget {
               width: _screenWidth * 0.355,
               height: 37,
               decoration: BoxDecoration(
-                  color: AppColors.TagColors,
+                  color: AppColors.tagColors,
                   borderRadius: BorderRadius.circular(40)),
               child: Center(
                 child: Text(
@@ -92,7 +89,7 @@ class ReadDiaryFreshmood extends StatelessWidget {
                   child: Text(
                     "Next",
                     style: TextStyle(
-                        color: AppColors.Primary,
+                        color: AppColors.primary,
                         fontSize: 16,
                         fontWeight: FontWeight.w600),
                   ),

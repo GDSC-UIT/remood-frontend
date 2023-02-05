@@ -23,7 +23,7 @@ class StackTopic extends StatelessWidget {
           height: _screenHeight * 0.115,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: AppColors.Primary)),
+              border: Border.all(color: AppColors.primary)),
           child: Padding(
             padding: EdgeInsets.only(
               top: _screenHeight * 0.038,
@@ -84,13 +84,13 @@ class StackTopic extends StatelessWidget {
                           height: _screenHeight * 0.043,
                           width: _screenWidth * 0.093,
                           decoration: BoxDecoration(
-                            color: AppColors.Primary13,
+                            color: AppColors.primary13,
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: const Center(
                             child: Icon(
                               Icons.add,
-                              color: AppColors.BackgroundColor,
+                              color: AppColors.backgroundColor,
                               size: 19,
                             ),
                           ),
@@ -113,14 +113,14 @@ class StackTopic extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: AppColors.Primary),
+              border: Border.all(color: AppColors.primary),
             ),
             child: const Center(
                 child: Text(
               'Topic',
               style: TextStyle(
                   fontWeight: FontWeight.w700,
-                  color: AppColors.Primary,
+                  color: AppColors.primary,
                   fontSize: 18),
             )),
           ),

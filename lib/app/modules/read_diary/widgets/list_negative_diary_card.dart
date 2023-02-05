@@ -16,7 +16,7 @@ class NegativeDiaryList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
+    // double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
     ReadDiaryController readNegativeDiary = Get.find();
     return Obx(

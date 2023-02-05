@@ -47,20 +47,16 @@ class SheetReadDiaryFreshmood extends StatelessWidget {
 // Icon
                 Icon(
                   id == 0
-                      ? IconData(
-                          ListPositveDiary
-                              .listPositiveDiary[currentDiary.value].icon,
-                          fontFamily: 'MaterialIcons')
-                      : IconData(
-                          ListNegativeDiary
-                              .listNegativeDiary[currentDiary.value].icon,
-                          fontFamily: 'MaterialIcons'),
+                      ? ListPositveDiary
+                          .listPositiveDiary[currentDiary.value].icon
+                      : ListNegativeDiary
+                          .listNegativeDiary[currentDiary.value].icon,
                   color: id == 0
-                      ? Color(ListPositveDiary
-                              .listPositiveDiary[currentDiary.value].diaryColor)
+                      ? ListPositveDiary
+                          .listPositiveDiary[currentDiary.value].diaryColor
                           .withOpacity(1)
-                      : Color(ListNegativeDiary
-                              .listNegativeDiary[currentDiary.value].diaryColor)
+                      : ListNegativeDiary
+                          .listNegativeDiary[currentDiary.value].diaryColor
                           .withOpacity(1),
                   size: 30,
                 ),
@@ -86,12 +82,12 @@ class SheetReadDiaryFreshmood extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(40),
                     border: Border.all(
-                        color: AppColors.Grey22.withOpacity(1), width: 1),
+                        color: AppColors.grey22.withOpacity(1), width: 1),
                   ),
                   child: Center(
                       child: Text(
                     tag,
-                    style: TextStyle(color: AppColors.Grey22.withOpacity(1)),
+                    style: TextStyle(color: AppColors.grey22.withOpacity(1)),
                   )),
                 )
               ],
@@ -104,7 +100,7 @@ class SheetReadDiaryFreshmood extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(
               border: Border(
-                bottom: BorderSide(color: AppColors.Greyscale),
+                bottom: BorderSide(color: AppColors.greyscale),
               ),
             ),
           ),
@@ -116,7 +112,7 @@ class SheetReadDiaryFreshmood extends StatelessWidget {
             width: _screenWidth * 0.771,
             height: _screenHeight * 0.232,
             decoration: BoxDecoration(
-              color: AppColors.Primary42,
+              color: AppColors.primary42,
               borderRadius: BorderRadius.circular(10),
             ),
             child: id == 0
@@ -128,7 +124,7 @@ class SheetReadDiaryFreshmood extends StatelessWidget {
                     : const Center(
                         child: Icon(
                           Icons.camera_alt,
-                          color: AppColors.DarkGrey,
+                          color: AppColors.darkgrey,
                           size: 40,
                         ),
                       )
@@ -140,7 +136,7 @@ class SheetReadDiaryFreshmood extends StatelessWidget {
                     : const Center(
                         child: Icon(
                           Icons.camera_alt,
-                          color: AppColors.DarkGrey,
+                          color: AppColors.darkgrey,
                           size: 40,
                         ),
                       ),
@@ -155,10 +151,10 @@ class SheetReadDiaryFreshmood extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               color: id == 0
-                  ? Color(ListPositveDiary
-                      .listPositiveDiary[currentDiary.value].diaryColor)
-                  : Color(ListNegativeDiary
-                      .listNegativeDiary[currentDiary.value].diaryColor),
+                  ? ListPositveDiary
+                      .listPositiveDiary[currentDiary.value].diaryColor
+                  : ListNegativeDiary
+                      .listNegativeDiary[currentDiary.value].diaryColor,
             ),
             child: Padding(
               padding: const EdgeInsets.all(15),
@@ -172,7 +168,7 @@ class SheetReadDiaryFreshmood extends StatelessWidget {
                             .listNegativeDiary[currentDiary.value].diary,
                     style: const TextStyle(
                         fontWeight: FontWeight.w400,
-                        color: AppColors.TextDiaryColor,
+                        color: AppColors.textDiaryColor,
                         fontSize: 15),
                   ),
                 ),
@@ -192,7 +188,7 @@ class SheetReadDiaryFreshmood extends StatelessWidget {
               },
               style: ButtonStyle(
                 backgroundColor:
-                    MaterialStateProperty.all<Color>(AppColors.MainColor),
+                    MaterialStateProperty.all<Color>(AppColors.mainColor),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(13),

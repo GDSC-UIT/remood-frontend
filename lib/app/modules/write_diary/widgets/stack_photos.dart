@@ -32,7 +32,6 @@ class _StackPhotosState extends State<StackPhotos> {
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
-
     return Stack(
       clipBehavior: Clip.none,
       children: [
@@ -41,7 +40,7 @@ class _StackPhotosState extends State<StackPhotos> {
             height: _screenHeight * 0.174,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: AppColors.Primary)),
+                border: Border.all(color: AppColors.primary)),
             child: Center(
               child: GestureDetector(
                 onTap: () {
@@ -53,7 +52,7 @@ class _StackPhotosState extends State<StackPhotos> {
                       width: _screenWidth * 0.413,
                       height: _screenHeight * 0.124,
                       decoration: BoxDecoration(
-                        color: AppColors.Primary42,
+                        color: AppColors.primary42,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: photoController.image != null
@@ -66,12 +65,12 @@ class _StackPhotosState extends State<StackPhotos> {
                               children: const [
                                 Icon(
                                   Icons.camera_alt,
-                                  color: AppColors.DarkGrey,
+                                  color: AppColors.darkgrey,
                                 ),
                                 Text(
                                   'Select photos',
                                   style: TextStyle(
-                                      fontSize: 10, color: AppColors.DarkGrey),
+                                      fontSize: 10, color: AppColors.darkgrey),
                                 )
                               ],
                             )),
@@ -88,14 +87,14 @@ class _StackPhotosState extends State<StackPhotos> {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: AppColors.Primary),
+              border: Border.all(color: AppColors.primary),
             ),
             child: const Center(
                 child: Text(
               'Photos',
               style: TextStyle(
                   fontWeight: FontWeight.w700,
-                  color: AppColors.Primary,
+                  color: AppColors.primary,
                   fontSize: 18),
             )),
           ),

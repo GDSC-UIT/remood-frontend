@@ -57,7 +57,7 @@ class DiaryController extends GetxController {
 
 // add diary
   Rx<IconData> iconTopic = Icons.work.obs;
-  Rx<Color> colorDiary = AppColors.LightGreen18.obs;
+  Rx<Color> colorDiary = AppColors.lightGreen18.obs;
   Rx<String> titleDiary = "".obs;
   TextEditingController diaryNote = TextEditingController();
   File? image;
@@ -67,8 +67,8 @@ class DiaryController extends GetxController {
     Diary addDiary = Diary(
       diary: diaryNote.text.trim(),
       date: addDate,
-      diaryColor: colorDiary.value.value,
-      icon: iconTopic.value.codePoint,
+      diaryColor: colorDiary.value,
+      icon: iconTopic.value,
       title: titleDiary.value,
       image: image == null ? null : image!.path,
     );
@@ -82,7 +82,7 @@ class DiaryController extends GetxController {
 
 // choose color added topic
   Rx<int> currentColorTopic = 0.obs;
-  Rx<Color> colorTopic = AppColors.LightPrimary250.obs;
+  Rx<Color> colorTopic = AppColors.lightprimary250.obs;
   void changeColorTopic(index, Color currentColor) {
     currentColorTopic.value = index;
     colorTopic.value = currentColor;

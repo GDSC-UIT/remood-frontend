@@ -1,5 +1,3 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
@@ -53,7 +51,7 @@ class SheetSearchDiary extends StatelessWidget {
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(16),
                       borderSide: const BorderSide(
-                        color: AppColors.Greyscale,
+                        color: AppColors.greyscale,
                       ),
                     ),
                     focusedBorder: OutlineInputBorder(
@@ -62,9 +60,9 @@ class SheetSearchDiary extends StatelessWidget {
                         color: Colors.blue,
                       ),
                     ),
-                    prefixIcon: Icon(Icons.search),
+                    prefixIcon: const Icon(Icons.search),
                     hintText: "Search your Diary topic"),
-                style: TextStyle(fontSize: 20),
+                style: const TextStyle(fontSize: 20),
               ),
             ),
           ),
@@ -75,7 +73,7 @@ class SheetSearchDiary extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(
               border: Border(
-                bottom: BorderSide(color: AppColors.Greyscale),
+                bottom: BorderSide(color: AppColors.greyscale),
               ),
             ),
           ),
@@ -93,7 +91,7 @@ class SheetSearchDiary extends StatelessWidget {
                 },
                 style: ButtonStyle(
                   backgroundColor:
-                      MaterialStateProperty.all<Color>(AppColors.MainColor),
+                      MaterialStateProperty.all<Color>(AppColors.mainColor),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(13),
