@@ -29,7 +29,7 @@ class WriteDiaryScreen extends StatelessWidget {
     DiaryController diaryController = Get.find();
     return Scaffold(
         resizeToAvoidBottomInset: true,
-        backgroundColor: AppColors.backgroundColor,
+        backgroundColor: AppColors.BackgroundColor,
         body: SingleChildScrollView(
           keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
           child: Column(
