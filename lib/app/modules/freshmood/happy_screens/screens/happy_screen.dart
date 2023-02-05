@@ -37,7 +37,7 @@ class _HappyScreenState extends State<HappyScreen> {
     double _screenHeight = MediaQuery.of(context).size.height;
     HomeController changeAsset = Get.find();
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor,
+      backgroundColor: AppColors.BackgroundColor,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
