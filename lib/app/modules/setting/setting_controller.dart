@@ -66,7 +66,6 @@ class SettingController extends GetxController {
   var settingLabelStyle = CustomTextStyle.normalText(Colors.black);
 
   // Manage topics
-  // TODO: Thêm screen cho các topic
   Rx<TopicButton> currentTopic = TopicButton(
     icon: CardTopic(
       title: "",
@@ -77,6 +76,7 @@ class SettingController extends GetxController {
     screen: AppRoutes.topicDetail,
   ).obs;
 
+  // Properties of topics button
   List<TopicButton> topicList = [
     TopicButton(
       icon: CardTopic(
@@ -116,6 +116,7 @@ class SettingController extends GetxController {
     ),
   ];
 
+  // Properties of create-new-topic button
   List<TopicButton> createNewTopic = [
     TopicButton(
       icon: CardTopic(
@@ -131,14 +132,17 @@ class SettingController extends GetxController {
   // First day of the week
   RxBool isSunday = true.obs;
 
+  // Get value of isSunday
   bool get getIsSunday => isSunday.value;
   bool get getIsMonday => !isSunday.value;
 
+  // Active Sunday button
   void onTapSunday() {
     isSunday(true);
     log('Sunday is the first day.');
   }
 
+  // Active Sunday button
   void onTapMonday() {
     isSunday(false);
     log('Monday is the first day');

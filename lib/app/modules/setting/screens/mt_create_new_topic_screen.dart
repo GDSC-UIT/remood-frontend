@@ -4,6 +4,7 @@ import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/models/list_selected_color_topic.dart';
 import 'package:remood/app/data/models/list_selected_icons_topic.dart';
+import 'package:remood/app/modules/setting/widgets/confirm_button.dart';
 import 'package:remood/app/modules/setting/widgets/stack_setting_appbar.dart';
 import 'package:remood/app/modules/write_diary/diary_controller.dart';
 import 'package:remood/app/modules/write_diary/widgets/bottom_sheet_add_topic.dart';
@@ -39,7 +40,7 @@ class CreateNewTopicScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Name
+// "Name"
                   Text(
                     "Name",
                     style: CustomTextStyle.h2(Colors.black),
@@ -179,29 +180,13 @@ class CreateNewTopicScreen extends StatelessWidget {
                   SizedBox(
                     height: screenHeight * 0.187,
                   ),
-// Done button
-                  SizedBox(
-                    width: screenWidth * 0.88,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        controller.addCurrentTopic();
-                        Get.back();
-                      },
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(
-                            AppColors.mainColor),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(13),
-                          ),
-                        ),
-                      ),
-                      child: const Text('Done'),
-                    ),
-                  ),
                 ],
               ),
+            ),
+// Save button
+            const ConfirmButton(label: "Save"),
+            SizedBox(
+              height: screenHeight * 0.03,
             ),
           ],
         ),

@@ -7,6 +7,7 @@ import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/global_widgets/time_picker.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
+import 'package:remood/app/modules/setting/widgets/confirm_button.dart';
 import 'package:remood/app/modules/setting/widgets/stack_setting_appbar.dart';
 
 class NotificationScreen extends StatelessWidget {
@@ -15,6 +16,8 @@ class NotificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(SettingController());
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
@@ -122,6 +125,10 @@ class NotificationScreen extends StatelessWidget {
                   ),
                 ],
               ),
+            ),
+            const ConfirmButton(label: "Save"),
+            SizedBox(
+              height: screenHeight * 0.03,
             ),
           ],
         ),

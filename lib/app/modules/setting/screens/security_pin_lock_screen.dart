@@ -5,6 +5,7 @@ import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/global_widgets/switch_button.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
+import 'package:remood/app/modules/setting/widgets/confirm_button.dart';
 import 'package:remood/app/modules/setting/widgets/fittedbox_password_dots.dart';
 import 'package:remood/app/modules/setting/widgets/stack_setting_appbar.dart';
 
@@ -21,30 +22,6 @@ class PINLock extends StatelessWidget {
     /// -2 is delete button
     /// the others is numpad data
     var numpadData = [1, 2, 3, 4, 5, 6, 7, 8, 9, -1, 0, -2];
-
-    Widget confirmButton() {
-      double width = screenWidth * 0.872;
-      double height = 60;
-      Color boxColor = AppColors.mainColor;
-      double borderRadius = 30.5;
-      String label = "Done";
-      return GestureDetector(
-        onTap: () => Get.back(),
-        child: Container(
-          alignment: Alignment.center,
-          width: width,
-          height: height,
-          decoration: BoxDecoration(
-            color: boxColor,
-            borderRadius: BorderRadius.circular(borderRadius),
-          ),
-          child: Text(
-            label,
-            style: CustomTextStyle.h2(Colors.white),
-          ),
-        ),
-      );
-    }
 
     Widget numpadButton(int index) {
       double width = 66;
@@ -141,14 +118,7 @@ class PINLock extends StatelessWidget {
             numpadGrid(),
 
             // Done button
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  confirmButton(),
-                ],
-              ),
-            ),
+            const ConfirmButton(label: "Save"),
             SizedBox(
               height: screenHeight * 0.03,
             ),

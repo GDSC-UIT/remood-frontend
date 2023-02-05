@@ -74,4 +74,5 @@ class AppColors {
   static const Color settingNumpadButton = tagColors;
   static const Color settingTopicProps = settingUserAvtBg;
   static const Color settingTextHint = grey;
+  static const Color settingFaqAnswer = grey;
 }

@@ -6,7 +6,6 @@ import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
 
-// ignore: must_be_immutable
 class ContainerFirstDayMonday extends StatelessWidget {
   const ContainerFirstDayMonday({
     Key? key,
