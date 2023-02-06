@@ -63,7 +63,17 @@ class TopicDetailScreen extends StatelessWidget {
             ),
 // Rename
             GestureDetector(
-              onTap: () => Get.toNamed(AppRoutes.renameTopic),
+              onTap: () {
+                // Switch actionIndex to Rename topic action
+                settingController.actionIndex = 0;
+
+                /// Change the text in textEditingController to the current topic's title,
+                /// if not, the text in text field will be keep even when you change the topic.
+                diaryController.topicName.text = currentTopic.title;
+
+                // Navigate to rename screen
+                Get.toNamed(AppRoutes.renameTopic);
+              },
               child: Container(
                 width: screenWidth,
                 padding: const EdgeInsets.only(

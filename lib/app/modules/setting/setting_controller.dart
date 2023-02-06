@@ -9,10 +9,12 @@ import 'package:remood/app/data/models/language.dart';
 import 'package:remood/app/data/models/list_topic.dart';
 import 'package:remood/app/data/models/setting_button.dart';
 import 'package:remood/app/data/models/topic.dart';
-import 'package:remood/app/modules/setting/screens/mt_topic_detail_screen.dart';
+import 'package:remood/app/modules/write_diary/diary_controller.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class SettingController extends GetxController {
+  DiaryController diaryController = Get.find();
+
   // Main screen
   List<SettingButton> settingList = [
     SettingButton(
@@ -68,11 +70,36 @@ class SettingController extends GetxController {
   var settingLabelStyle = CustomTextStyle.normalText(Colors.black);
 
   // Manage topics
+
   Rx<CardTopic> currentTopic = CardTopic(
     title: "",
     TopicColor: AppColors.lightGreen18.value,
     icons: Icons.work.codePoint,
   ).obs;
+
+  /// action 0 is Renaming topic
+  /// action 1 is Changing topic icon
+  /// action 2 is Changing topic color
+  int actionIndex = 0;
+
+  void actions() {
+    switch (actionIndex) {
+      // Rename
+      case 0:
+        log(diaryController.topicName.text.trim());
+        ListTopic.topics[diaryController.currentTopic.value].title =
+            diaryController.topicName.text.trim();
+        break;
+      // Changing topic icon
+      case 1:
+        break;
+      // Changing topic color
+      case 2:
+        break;
+      default:
+        break;
+    }
+  }
 
   // Properties of topics button
   List<CardTopic> topicList = [

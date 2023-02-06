@@ -108,5 +108,6 @@ class DiaryController extends GetxController {
     hiveBoxTopic.updateDatabase();
   }
 
-/*  */
+// Change topic name
+  TextEditingController topicName = TextEditingController();
 }
