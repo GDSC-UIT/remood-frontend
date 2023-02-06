@@ -137,7 +137,7 @@ abstract class AppPages {
     GetPage(
       name: AppRoutes.topicDetail,
       page: () => const TopicDetailScreen(),
-      binding: SettingBinding(),
+      bindings: [SettingBinding(), DiaryBinding()],
     ),
     GetPage(
       name: AppRoutes.createNewTopic,

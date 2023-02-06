@@ -37,7 +37,6 @@ class ChangeIconTopicScreen extends StatelessWidget {
             ),
 
 // Icon list
-// TODO: Change to current topic icon
             SizedBox(
               width: screenWidth * 0.89,
               height: screenHeight * 0.13,
@@ -81,6 +80,7 @@ class ChangeIconTopicScreen extends StatelessWidget {
             ),
 
 // Save button
+// TODO: Change-icon function
             const ConfirmButton(label: "Save"),
             SizedBox(
               height: screenHeight * 0.03,

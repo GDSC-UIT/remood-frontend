@@ -21,7 +21,10 @@ class SettingController extends GetxController {
       screen: AppRoutes.starOfTheWeek,
     ),
     SettingButton(
-        icon: Assets.language, label: "Language", screen: AppRoutes.language),
+      icon: Assets.language,
+      label: "Language",
+      screen: AppRoutes.language,
+    ),
     SettingButton(
       icon: Assets.notification,
       label: "Notification",

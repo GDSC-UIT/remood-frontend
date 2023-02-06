@@ -56,6 +56,7 @@ class RenameTopicScreen extends StatelessWidget {
               ),
             ),
 // Save button
+// TODO: Rename function
             const ConfirmButton(label: "Save"),
             SizedBox(
               height: screenHeight * 0.03,

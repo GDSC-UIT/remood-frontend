@@ -64,69 +64,71 @@ class FAQScreen extends StatelessWidget {
             ),
 
 // FAQs
-            Column(
-              children: List.generate(
-                faqList.length,
-                (index) {
-                  return Obx(
-                    () => Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: screenWidth * 0.064),
-                      child: Column(
-                        children: [
-// Question
-                          GestureDetector(
-                            onTap: () => showAnswer(index),
-                            behavior: HitTestBehavior.opaque,
-                            child: Container(
-                              padding:
-                                  EdgeInsets.fromLTRB(px24w, px24h, px24w, 0),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  // Label
-                                  Text(
-                                    faqList[index].question,
-                                    style: CustomTextStyle.h3(
-                                      Colors.black,
-                                    ).copyWith(fontSize: 14),
-                                  ),
+            Expanded(
+              child: ListView(
+                children: List.generate(
+                  faqList.length,
+                  (index) {
+                    return Obx(
+                      () => Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: screenWidth * 0.064),
+                        child: Column(
+                          children: [
+                            // Question
+                            GestureDetector(
+                              onTap: () => showAnswer(index),
+                              behavior: HitTestBehavior.opaque,
+                              child: Container(
+                                padding:
+                                    EdgeInsets.fromLTRB(px24w, px24h, px24w, 0),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    // Label
+                                    Text(
+                                      faqList[index].question,
+                                      style: CustomTextStyle.h3(
+                                        Colors.black,
+                                      ).copyWith(fontSize: 14),
+                                    ),
 
-                                  // Arrow-right icon
-                                  !faqList[index].isRead.value
-                                      ? const Icon(Icons.keyboard_arrow_down)
-                                      : const Icon(Icons.keyboard_arrow_up),
-                                ],
+                                    // Arrow-right icon
+                                    !faqList[index].isRead.value
+                                        ? const Icon(Icons.keyboard_arrow_down)
+                                        : const Icon(Icons.keyboard_arrow_up),
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
 
-// Ansqer
-                          faqList[index].isRead.value
-                              ? Container(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: px24w,
-                                  ),
-                                  child: Column(
-                                    children: [
-                                      SizedBox(
-                                        height: px16h,
-                                      ),
-                                      Text(
-                                        faqList[index].answer,
-                                        style: CustomTextStyle.normalText(
-                                            AppColors.settingFaqAnswer),
-                                      ),
-                                    ],
-                                  ),
-                                )
-                              : const SizedBox(),
-                        ],
+                            // Ansqer
+                            faqList[index].isRead.value
+                                ? Container(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: px24w,
+                                    ),
+                                    child: Column(
+                                      children: [
+                                        SizedBox(
+                                          height: px16h,
+                                        ),
+                                        Text(
+                                          faqList[index].answer,
+                                          style: CustomTextStyle.normalText(
+                                              AppColors.settingFaqAnswer),
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                : const SizedBox(),
+                          ],
+                        ),
                       ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
             ),
           ],

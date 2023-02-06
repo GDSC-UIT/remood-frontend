@@ -81,10 +81,10 @@ class PINLock extends StatelessWidget {
           children: [
             Stack(
               children: [
-                // Appbar
+// Appbar
                 const StackSettingAppbar(title: "PIN lock"),
 
-                // Switch button
+// Switch button
                 Container(
                   padding: EdgeInsets.only(
                     top: screenHeight * 0.021,
@@ -99,7 +99,7 @@ class PINLock extends StatelessWidget {
               height: 17,
             ),
 
-            // Title
+// Title
             Text(
               "Enter your PIN",
               style: CustomTextStyle.normalText(Colors.black),
@@ -108,16 +108,18 @@ class PINLock extends StatelessWidget {
               height: 25.0,
             ),
 
-            // Password (4 characters)
+// Password (4 characters)
+// TODO: Chức năng nhập passcode
             const FittedboxPasswordDots(),
             const SizedBox(
               height: 48,
             ),
 
-            // Numeric keyboard
+// Numeric keyboard
             numpadGrid(),
 
-            // Done button
+// Done button
+// TODO: Chức năng lưu passcode
             const ConfirmButton(label: "Save"),
             SizedBox(
               height: screenHeight * 0.03,

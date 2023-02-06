@@ -25,7 +25,7 @@ class ManageTopicsScreen extends StatelessWidget {
 
     String titleAddButton = "Create new topic";
     TextStyle topicLabelStyle = settingController.settingLabelStyle;
-    List<CardTopic> listTopic = diaryController.listTopic;
+    RxList<CardTopic> listTopic = ListTopic.topics;
 
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,

@@ -1,12 +1,16 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
+import 'package:remood/app/data/models/list_topic.dart';
 import 'package:remood/app/data/models/topic.dart';
 import 'package:remood/app/modules/setting/screens/mt_create_new_topic_screen.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/modules/setting/widgets/confirm_button.dart';
 import 'package:remood/app/modules/setting/widgets/stack_setting_appbar.dart';
+import 'package:remood/app/modules/write_diary/diary_controller.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class TopicDetailScreen extends StatelessWidget {
@@ -16,12 +20,15 @@ class TopicDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SettingController controller = Get.find();
+    final SettingController settingController = Get.find();
+    final DiaryController diaryController = Get.find();
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-    String appBarTitle = controller.currentTopic.value.title;
-    CardTopic currentTopic = controller.currentTopic.value;
+    String appBarTitle = settingController.currentTopic.value.title;
+    CardTopic currentTopic = settingController.currentTopic.value;
     double widthValueBox = screenWidth * 0.1;
+
+    ListTopic listTopic = ListTopic();
 
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
@@ -33,13 +40,21 @@ class TopicDetailScreen extends StatelessWidget {
                 StackSettingAppbar(
                   title: appBarTitle,
                 ),
-                Container(
-                  padding: EdgeInsets.only(
-                    top: screenHeight * 0.033,
-                    right: screenWidth * 0.053,
+// Delete button
+                GestureDetector(
+                  onTap: () {
+                    listTopic.deleteTopic(settingController.currentTopic.value);
+                    log(listTopic.toString());
+                    Get.back();
+                  },
+                  child: Container(
+                    padding: EdgeInsets.only(
+                      top: screenHeight * 0.033,
+                      right: screenWidth * 0.053,
+                    ),
+                    alignment: Alignment.topRight,
+                    child: const Icon(Icons.delete_outline),
                   ),
-                  alignment: Alignment.topRight,
-                  child: const Icon(Icons.delete_outline),
                 ),
               ],
             ),
@@ -72,7 +87,8 @@ class TopicDetailScreen extends StatelessWidget {
                           Text(
                             currentTopic.title,
                             style: CustomTextStyle.normalText(
-                              Color(controller.currentTopic.value.TopicColor)
+                              Color(settingController
+                                      .currentTopic.value.TopicColor)
                                   .withOpacity(1),
                             ),
                           ),
