@@ -22,7 +22,7 @@ class SettingScreen extends StatelessWidget {
         left: false,
         child: Column(
           children: [
-            // User info
+// User info
             Container(
               height: 167,
               width: 375,
@@ -51,14 +51,14 @@ class SettingScreen extends StatelessWidget {
                     child: const UserAvatar(),
                   ),
 
-                  // User name
+// User name
                   Text(
                     username,
                     style: CustomTextStyle.customh2(
                         AppColors.settingUserName, 20.0),
                   ),
 
-                  // Change nickname button
+// Change nickname button
                   GestureDetector(
                     onTap: () {
                       log("Changed nickname!");
@@ -75,20 +75,32 @@ class SettingScreen extends StatelessWidget {
               ),
             ),
 
-            // Setting Functions
+// Setting Functions
             Expanded(
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: ListView(
                   children: [
+                    const SizedBox(
+                      height: 12,
+                    ),
                     Text(
                       "Settings",
                       style: CustomTextStyle.h2(Colors.black),
                     ),
+                    const SizedBox(
+                      height: 12,
+                    ),
                     ColButtonList(list: controller.settingList),
+                    const SizedBox(
+                      height: 12,
+                    ),
                     Text(
                       "Help",
                       style: CustomTextStyle.h2(Colors.black),
+                    ),
+                    const SizedBox(
+                      height: 10,
                     ),
                     ColButtonList(list: controller.helpList),
                   ],
