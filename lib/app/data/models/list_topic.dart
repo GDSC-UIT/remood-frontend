@@ -15,6 +15,7 @@ class ListTopic {
   final _mybox = Hive.box<List>('mybox');
   void createInitialData() {
     topics = [
+      // TODO: Thay thế icons = thứ tự của icon trong list-selected-icon-topics
       CardTopic(
         title: "Work",
         TopicColor: AppColors.lightGreen18.value,

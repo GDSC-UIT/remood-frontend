@@ -32,7 +32,16 @@ class SecurityScreen extends StatelessWidget {
                   Get.to(const PINLock());
                 },
                 child: ListTile(
-                  leading: Image.asset(Assets.password),
+                  leading: Container(
+                    padding: const EdgeInsets.all(10.0),
+                    width: 42,
+                    height: 42,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: AppColors.settingIconBg,
+                    ),
+                    child: Image.asset(Assets.password),
+                  ),
                   trailing: Image.asset(Assets.arrowRight),
                   title: Text(
                     'PIN lock',

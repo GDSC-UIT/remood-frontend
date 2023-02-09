@@ -27,6 +27,7 @@ import 'package:remood/app/modules/setting/screens/setting_screen.dart';
 import 'package:remood/app/modules/setting/screens/start_of_the_week_screen.dart';
 import 'package:remood/app/modules/setting/setting_binding.dart';
 import 'package:remood/app/modules/write_diary/diary_binding.dart';
+import 'package:remood/app/modules/write_diary/diary_controller.dart';
 import 'package:remood/app/modules/write_diary/screens/write_diary_screen.dart';
 import 'package:remood/app/modules/onboarding/onboarding_binding.dart';
 import 'package:remood/app/modules/onboarding/screens/onboarding_screen.dart';
@@ -87,7 +88,7 @@ abstract class AppPages {
     GetPage(
       name: AppRoutes.setting,
       page: () => const SettingScreen(),
-      binding: SettingBinding(),
+      bindings: [SettingBinding(), DiaryBinding()],
     ),
     GetPage(
       name: AppRoutes.language,

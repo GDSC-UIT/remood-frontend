@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 part 'topic.g.dart';
 
@@ -12,7 +13,7 @@ class CardTopic {
   int TopicColor;
   CardTopic({
     required this.title,
-    required this.TopicColor,
     required this.icons,
+    required this.TopicColor,
   });
 }

@@ -29,6 +29,7 @@ class LanguageScreen extends StatelessWidget {
             // Japanese
             const ListTileLaguage(index: 2),
             // Save button
+            // TODO: Save the current selected value - Language choice
             const ConfirmButton(label: "Save"),
             SizedBox(
               height: screenHeight * 0.03,

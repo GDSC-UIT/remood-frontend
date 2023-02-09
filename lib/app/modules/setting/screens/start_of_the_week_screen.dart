@@ -29,6 +29,7 @@ class StartOfTheWeekScreen extends StatelessWidget {
             const ContainerFirstDayMonday(),
 
             // Save button
+// TODO: Save the selected value - first day of the week
             const ConfirmButton(label: "Save"),
             SizedBox(
               height: screenHeight * 0.03,

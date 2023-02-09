@@ -58,9 +58,11 @@ class RenameTopicScreen extends StatelessWidget {
                 style: const TextStyle(fontSize: 20),
               ),
             ),
-// Save button
-// TODO: Rename function
-            const ConfirmButton(label: "Save"),
+            // Save button
+            ConfirmButton(
+              label: "Save",
+              func: diaryController.renameTopicSetting,
+            ),
             SizedBox(
               height: screenHeight * 0.03,
             ),

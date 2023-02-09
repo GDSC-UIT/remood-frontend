@@ -30,7 +30,7 @@ class ColTopicList extends StatelessWidget {
             onTap: () {
               log(topicList[index].title);
 
-              // Gán thứ tự topic
+              // Gán thứ tự topic được chọn
               settingController.currentTopic(topicList[index]);
               diaryController.currentTopic(index);
 

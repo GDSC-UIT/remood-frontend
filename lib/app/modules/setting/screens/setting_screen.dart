@@ -6,13 +6,15 @@ import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/modules/setting/widgets/col_button_list.dart';
 import 'package:remood/app/modules/setting/widgets/stack_user_avt.dart';
+import 'package:remood/app/modules/write_diary/diary_controller.dart';
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final SettingController controller = Get.find();
+    final SettingController settingController = Get.find();
+    // final DiaryController diaryController = Get.find();
     String username = "cute pie";
 
     return Scaffold(
@@ -91,7 +93,7 @@ class SettingScreen extends StatelessWidget {
                     const SizedBox(
                       height: 12,
                     ),
-                    ColButtonList(list: controller.settingList),
+                    ColButtonList(list: settingController.settingList),
                     const SizedBox(
                       height: 12,
                     ),
@@ -102,7 +104,7 @@ class SettingScreen extends StatelessWidget {
                     const SizedBox(
                       height: 10,
                     ),
-                    ColButtonList(list: controller.helpList),
+                    ColButtonList(list: settingController.helpList),
                   ],
                 ),
               ),
