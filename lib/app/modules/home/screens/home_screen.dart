@@ -7,11 +7,10 @@ import 'package:remood/app/modules/home/home_controller.dart';
 import 'package:remood/app/modules/home/widgets/bottom_bar.dart';
 import 'package:remood/app/modules/home/widgets/container_freshmood.dart';
 import 'package:remood/app/modules/home/widgets/floating_action_button.dart';
-import 'package:remood/app/modules/home/widgets/button_today_diary.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -23,11 +22,11 @@ class _HomeScreenState extends State<HomeScreen> {
     HomeController changeScreen = Get.find();
     int currentIndex = 0;
     Screens _listScreens = Screens();
-    double _screenWidth = MediaQuery.of(context).size.width;
+    // double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: AppColors.BackgroundColor,
+      backgroundColor: AppColors.backgroundPage,
       // floating ActionButton
       floatingActionButton: const FloatingButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

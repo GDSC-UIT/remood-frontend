@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
@@ -27,7 +29,7 @@ class WriteDiaryScreen extends StatelessWidget {
     DiaryController diaryController = Get.find();
     return Scaffold(
         resizeToAvoidBottomInset: true,
-        backgroundColor: AppColors.BackgroundColor,
+        backgroundColor: AppColors.backgroundColor,
         body: SingleChildScrollView(
           keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
           child: Column(
@@ -38,12 +40,16 @@ class WriteDiaryScreen extends StatelessWidget {
               Container(
                 child: ListTile(
                   leading: SizedBox(width: _screenWidth * 0.053),
+// Date
                   title: Center(
-                      child: Text(
-                    DateFormat('dd/MM/yyyy')
-                        .format(dateController.currentdate.value),
-                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
-                  )),
+                    child: Text(
+                      DateFormat('dd/MM/yyyy')
+                          .format(dateController.currentdate.value),
+                      style:
+                          TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
+                    ),
+                  ),
+// Close button
                   trailing: IconButton(
                     onPressed: () {
                       // return homepage
@@ -56,18 +62,22 @@ class WriteDiaryScreen extends StatelessWidget {
               SizedBox(
                 height: _screenHeight * 0.04,
               ),
+// Topic list
               const StackTopic(),
               SizedBox(
                 height: _screenHeight * 0.043,
               ),
+// Tag list
               StackTag(currentIndex: currentIndex),
               SizedBox(
                 height: _screenHeight * 0.043,
               ),
+// Photo-upload field
               const StackPhotos(),
               SizedBox(
                 height: _screenHeight * 0.043,
               ),
+// Note field
               const StackNote(),
               SizedBox(
                 height: _screenHeight * 0.02,
@@ -86,7 +96,7 @@ class WriteDiaryScreen extends StatelessWidget {
                   },
                   style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all<Color>(AppColors.MainColor),
+                        MaterialStateProperty.all<Color>(AppColors.mainColor),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(13),

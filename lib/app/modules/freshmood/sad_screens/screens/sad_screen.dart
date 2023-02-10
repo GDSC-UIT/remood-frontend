@@ -22,7 +22,7 @@ class SadScreen extends StatelessWidget {
     HomeController changeAsset = Get.find();
     SadController changeTopic = Get.find();
     return Scaffold(
-      backgroundColor: AppColors.BackgroundColor,
+      backgroundColor: AppColors.backgroundColor,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -44,7 +44,7 @@ class SadScreen extends StatelessWidget {
                 child: Text(
                   "What made you sad today?",
                   style: TextStyle(
-                      color: AppColors.Primary,
+                      color: AppColors.primary,
                       fontWeight: FontWeight.w700,
                       fontSize: 20),
                 ),
@@ -104,7 +104,7 @@ class SadScreen extends StatelessWidget {
                       child: const Text(
                         "Choose a topic",
                         style: TextStyle(
-                          color: AppColors.Primary,
+                          color: AppColors.primary,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -161,7 +161,7 @@ class SadScreen extends StatelessWidget {
                   child: Text(
                     "Next",
                     style: TextStyle(
-                        color: AppColors.Primary,
+                        color: AppColors.primary,
                         fontSize: 16,
                         fontWeight: FontWeight.w600),
                   ),

@@ -1,9 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
-import 'package:remood/app/data/models/list_positive_diary.dart';
 import 'package:remood/app/modules/home/home_controller.dart';
 import 'package:remood/app/modules/read_diary/read_diary_controller.dart';
 import 'package:remood/app/global_widgets/card_diary.dart';

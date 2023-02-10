@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/data/models/diary.dart';
 import 'package:remood/app/data/models/list_negative_diary.dart';
@@ -27,7 +26,7 @@ class HomeController extends GetxController {
     if (ispressed.value) {
       floatingcontainer.remove();
     } else {
-      Overlay.of(context)!.insert(floatingcontainer);
+      Overlay.of(context).insert(floatingcontainer);
     }
     ispressed.value = !ispressed.value;
   }

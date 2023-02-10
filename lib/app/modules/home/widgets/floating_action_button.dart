@@ -23,7 +23,7 @@ class FloatingButton extends StatelessWidget {
               pressButton.onPressedButton(context);
             }),
             backgroundColor: pressButton.ispressed.value
-                ? AppColors.MainColor
+                ? AppColors.mainColor
                 : Colors.white,
             foregroundColor: Colors.black,
             child: Image.asset(
