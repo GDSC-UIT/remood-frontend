@@ -6,11 +6,8 @@ import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/models/language.dart';
-import 'package:remood/app/data/models/list_selected_icons_topic.dart';
-import 'package:remood/app/data/models/list_topic.dart';
 import 'package:remood/app/data/models/setting_button.dart';
 import 'package:remood/app/data/models/topic.dart';
-import 'package:remood/app/modules/write_diary/diary_controller.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class SettingController extends GetxController {
@@ -219,5 +216,35 @@ class SettingController extends GetxController {
     // am is 0, pm is 1
     ampm(value);
     log("ampm: $ampm");
+  }
+
+  // -------------------------------------------
+  // PIN LOCK
+  // Passcode is typed
+  var code = [-1, -1, -1, -1].obs;
+
+  // Number of code was typed
+  var count = 0.obs;
+
+  // Status of dots
+  bool isActiveDot(int index) {
+    if (index > 4) return false;
+    return code[index] >= 0 ? true : false;
+  }
+
+  void deleteCode(int index, RxList<int> code, RxInt count) {
+    // Nếu bấm nút có giá trị -2, code sẽ xóa đi 1 giá trị
+    if (index == -2) {
+      code[--count.value] = -1;
+    }
+  }
+
+  void enterCode(int index, RxList<int> code, RxInt count) {
+    /// Nếu số code đã đủ 4 hoặc
+    /// nút có giá trị âm (bao gồm nút whitespace và nút xóa)
+    /// thì sẽ không lưu giá trị của nút
+    if (count < code.length && index >= 0) {
+      code[count.value++] = index;
+    }
   }
 }

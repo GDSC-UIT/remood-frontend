@@ -147,13 +147,15 @@ class TopicDetailScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           // Value
-                          SizedBox(
-                            width: widthValueBox,
-                            child: Icon(
-                              IconData(currentTopic.value.icons,
-                                  fontFamily: "MaterialIcons"),
-                              color: Color(currentTopic.value.TopicColor)
-                                  .withOpacity(1),
+                          Obx(
+                            () => SizedBox(
+                              width: widthValueBox,
+                              child: Icon(
+                                IconData(currentTopic.value.icons,
+                                    fontFamily: "MaterialIcons"),
+                                color: Color(currentTopic.value.TopicColor)
+                                    .withOpacity(1),
+                              ),
                             ),
                           ),
 
