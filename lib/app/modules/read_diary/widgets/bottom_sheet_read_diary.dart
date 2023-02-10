@@ -85,7 +85,7 @@ class SheetReadDiary extends StatelessWidget {
                       fontWeight: FontWeight.w600, fontSize: 20),
                 ),
                 const SizedBox(
-                  width: 20,
+                  width: 15,
                 ),
                 // tag
                 Container(
