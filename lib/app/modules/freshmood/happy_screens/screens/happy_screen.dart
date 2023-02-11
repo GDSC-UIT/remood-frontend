@@ -12,6 +12,7 @@ import 'package:remood/app/modules/home/home_controller.dart';
 import 'package:remood/app/modules/home/widgets/floating_action_button.dart';
 import 'package:remood/app/routes/app_routes.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class HappyScreen extends StatefulWidget {
   const HappyScreen({super.key});
@@ -115,7 +116,14 @@ class _HappyScreenState extends State<HappyScreen> {
                     } else if (snapshot.hasError) {
                       return Text('${snapshot.error}');
                     }
-                    return CircularProgressIndicator();
+                    return SpinKitFadingCircle(
+                      color: changeAsset.valueSlider.value < 60
+                          ? AppColors.normalFace
+                          : changeAsset.valueSlider.value < 80
+                              ? AppColors.smileFace
+                              : AppColors.happyFace,
+                      size: 50.0,
+                    );
                   },
                 )),
           )
