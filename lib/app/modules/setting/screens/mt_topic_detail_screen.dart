@@ -6,7 +6,6 @@ import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/models/list_topic.dart';
 import 'package:remood/app/data/models/topic.dart';
-import 'package:remood/app/modules/setting/screens/mt_create_new_topic_screen.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/modules/setting/widgets/confirm_button.dart';
 import 'package:remood/app/modules/setting/widgets/stack_setting_appbar.dart';
@@ -147,10 +146,10 @@ class TopicDetailScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           // Value
-                          Obx(
-                            () => SizedBox(
-                              width: widthValueBox,
-                              child: Icon(
+                          SizedBox(
+                            width: widthValueBox,
+                            child: Obx(
+                              () => Icon(
                                 IconData(currentTopic.value.icons,
                                     fontFamily: "MaterialIcons"),
                                 color: Color(currentTopic.value.TopicColor)
@@ -197,14 +196,16 @@ class TopicDetailScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           // Value
-                          Container(
-                            margin:
-                                EdgeInsets.only(right: screenWidth * 0.0267),
-                            height: screenHeight * 0.024,
-                            width: screenWidth * 0.053,
-                            decoration: BoxDecoration(
-                              color: Color(currentTopic.value.TopicColor),
-                              shape: BoxShape.circle,
+                          Obx(
+                            () => Container(
+                              margin:
+                                  EdgeInsets.only(right: screenWidth * 0.0267),
+                              height: screenHeight * 0.024,
+                              width: screenWidth * 0.053,
+                              decoration: BoxDecoration(
+                                color: Color(currentTopic.value.TopicColor),
+                                shape: BoxShape.circle,
+                              ),
                             ),
                           ),
 

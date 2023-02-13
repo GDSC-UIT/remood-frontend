@@ -14,6 +14,7 @@ class UserAvatar extends StatelessWidget {
       Center(child: Image.asset(Assets.settingUserAvt)),
 
       // Edit button
+      // TODO: Edit-avt function
       Align(
         alignment: Alignment.topRight,
         child: GestureDetector(
