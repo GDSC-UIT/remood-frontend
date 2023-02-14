@@ -14,7 +14,7 @@ class DiaryCard extends StatelessWidget {
       width: _screenWidth * 0.723,
       height: _screenHeight * 0.167,
       decoration: BoxDecoration(
-        color: diary.diaryColor,
+        color: Color(diary.diaryColor),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Padding(
@@ -25,16 +25,18 @@ class DiaryCard extends StatelessWidget {
             Row(
               children: [
                 Icon(
-                  diary.icon,
-                  color: diary.diaryColor.withOpacity(1),
+                  IconData(diary.icon),
+                  color: Color(diary.diaryColor).withOpacity(1),
                 ),
                 const SizedBox(
                   width: 7,
                 ),
-                Text(DateFormat('dd/MM/yyyy').format(diary.date),
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                    )),
+                Text(
+                  DateFormat('dd/MM/yyyy').format(diary.date),
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
               ],
             ),
             const SizedBox(

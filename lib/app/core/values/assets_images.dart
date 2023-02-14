@@ -36,7 +36,8 @@ class Assets {
   static const String onboardingAlarm = 'assets/images/alarm.jpg';
   static const String reportPercentage =
       'assets/images/report-percentage-bg.png';
-  static const String settingUserAvt = 'assets/images/setting_user_avt.png';
+  static const String settingUserAvt1 = 'assets/images/avt1.png';
+  static const String settingUserAvt2 = 'assets/images/avt2.png';
   static const String depressed = 'assets/icons/depressedface.png';
   static const String sad = 'assets/icons/sadface.png';
   static const String normal = 'assets/icons/normalface.png';

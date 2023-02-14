@@ -11,9 +11,26 @@ import 'package:remood/app/data/models/topic.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class SettingController extends GetxController {
-  // DiaryController diaryController = Get.find();
-
   // Main screen
+  TextEditingController nameController = TextEditingController();
+  RxString nickname = "cute pie".obs;
+  RxString avatar = Assets.settingUserAvt1.obs;
+  RxBool isEditableName = false.obs;
+
+  void editAvatar(String url) {
+    avatar(url);
+  }
+
+  void editNickName() {
+    String newName = nameController.text.trim();
+    if (newName != "") {
+      nickname(nameController.text.trim());
+    }
+    isEditableName(!isEditableName.value);
+  }
+
+  var settingLabelStyle = CustomTextStyle.normalText(Colors.black);
+
   List<SettingButton> settingList = [
     SettingButton(
       icon: Assets.calendar,
@@ -64,8 +81,6 @@ class SettingController extends GetxController {
       screen: AppRoutes.faq,
     ),
   ];
-
-  var settingLabelStyle = CustomTextStyle.normalText(Colors.black);
 
   // Manage topics
 
