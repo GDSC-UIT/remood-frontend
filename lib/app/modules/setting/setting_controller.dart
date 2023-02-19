@@ -11,11 +11,24 @@ import 'package:remood/app/data/models/topic.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class SettingController extends GetxController {
+  double designWidth = 375;
+  double designHeight = 812;
+
+  /// Percentage of width and height
+  /// of design screen and real screen
+  double pctWidth(context) => MediaQuery.of(context).size.width / designWidth;
+  double pctHeight(context) =>
+      MediaQuery.of(context).size.height / designHeight;
+
   // Main screen
   TextEditingController nameController = TextEditingController();
   RxString nickname = "cute pie".obs;
   RxString avatar = Assets.settingUserAvt1.obs;
   RxBool isEditableName = false.obs;
+  List<String> avatars = [
+    Assets.settingUserAvt1,
+    Assets.settingUserAvt2,
+  ];
 
   void editAvatar(String url) {
     avatar(url);
@@ -248,8 +261,9 @@ class SettingController extends GetxController {
   }
 
   void deleteCode(int index, RxList<int> code, RxInt count) {
-    // Nếu bấm nút có giá trị -2, code sẽ xóa đi 1 giá trị
-    if (index == -2) {
+    /// Nếu có ít nhất 1 giá trị passcode và giá trị đó = -2,
+    /// passcode sẽ xóa đi 1 giá trị bên phải
+    if (count > 0 && index == -2) {
       code[--count.value] = -1;
     }
   }
