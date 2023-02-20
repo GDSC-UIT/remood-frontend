@@ -2,12 +2,16 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/models/language.dart';
+import 'package:remood/app/data/models/setting.dart';
 import 'package:remood/app/data/models/setting_button.dart';
 import 'package:remood/app/data/models/topic.dart';
+import 'package:remood/app/data/models/user.dart';
+import 'package:remood/app/data/models/user_box.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class SettingController extends GetxController {
@@ -20,6 +24,42 @@ class SettingController extends GetxController {
   double pctHeight(context) =>
       MediaQuery.of(context).size.height / designHeight;
 
+  // Hive box (Store data locally)
+  final _userBox = Hive.box<User>('user');
+  // final _settingBox = Hive.box<Setting>('setting');
+  UserBox hiveUser = UserBox();
+  // SettingBox hiveSetting = SettingBox();
+  Rx<User> user = User(
+    name: "Untitle",
+    avtURL: "#",
+  ).obs;
+  Rx<Setting> setting = Setting(
+    isSundayFirstDayOfWeek: false,
+    isOnNotification: false,
+    isOnPINLock: false,
+    language: 0,
+  ).obs;
+
+  @override
+  void onInit() {
+    /// Create initial data if this is the first-time open
+    /// or load data if this is not the first time.
+    if (_userBox.get("user") == null) {
+      hiveUser.createInitialData();
+    } else {
+      hiveUser.loadData();
+    }
+    /* if (_settingBox.get("setting") == null) {
+      hiveSetting.createInitialData();
+    } else {
+      hiveSetting.loadData();
+    } */
+    // Observe data
+    user = UserBox.user.obs;
+    // setting = SettingBox.setting.obs;
+    super.onInit();
+  }
+
   // Main screen
   TextEditingController nameController = TextEditingController();
   RxString nickname = "cute pie".obs;
@@ -30,14 +70,22 @@ class SettingController extends GetxController {
     Assets.settingUserAvt2,
   ];
 
-  void editAvatar(String url) {
-    avatar(url);
+  void editAvatar(int index) {
+    // avatar(url);
+    user(
+      User(
+        name: user.value.name,
+        avtURL: avatars[index],
+      ),
+    );
+    hiveUser.updateDatabase();
   }
 
   void editNickName() {
     String newName = nameController.text.trim();
     if (newName != "") {
-      nickname(nameController.text.trim());
+      user.value.name = newName;
+      hiveUser.updateDatabase();
     }
     isEditableName(!isEditableName.value);
   }
@@ -97,37 +145,11 @@ class SettingController extends GetxController {
 
   // Manage topics
 
-  // Rx<int> currentIconTopic = 0.obs;
-
   Rx<CardTopic> currentTopic = CardTopic(
     title: "",
     TopicColor: AppColors.lightGreen18.value,
     icons: Icons.work.codePoint,
   ).obs;
-
-  /// action 0 is Renaming topic
-  /// action 1 is Changing topic icon
-  /// action 2 is Changing topic color
-  int actionIndex = 0;
-
-  void actions() {
-    // Store index of current topic selected
-    // int indexCurrentTopic = diaryController.currentTopic.value;
-
-    switch (actionIndex) {
-// Rename
-      case 0:
-        break;
-// Changing topic icon
-      case 1:
-        break;
-// Changing topic color
-      case 2:
-        break;
-      default:
-        break;
-    }
-  }
 
   // Properties of topics button
   List<CardTopic> topicList = [

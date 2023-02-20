@@ -17,21 +17,21 @@ class UserAvatar extends StatelessWidget {
     // Data
     var pctWidth = controller.pctWidth(context);
     var pctHeight = controller.pctHeight(context);
-    var avatarURL = controller.avatar;
     var avatarURLs = controller.avatars;
+    var user = controller.user;
 
     return Stack(children: [
       // User avatar
       Center(
         child: Obx(
-          () => Image.asset(avatarURL.value),
+          () => Image.asset(user.value.avtURL),
         ),
       ),
 
       // Edit button
       // TODO: ----Doing---- Edit-avt function
-      // Update the way of measuring width and height
-      // Update size of avatars
+      // [x] Update the way of measuring width and height
+      // [x] Update size of avatars
       Align(
         alignment: Alignment.topRight,
         child: GestureDetector(
@@ -48,7 +48,9 @@ class UserAvatar extends StatelessWidget {
                     children: List.generate(
                       avatarURLs.length,
                       (index) => GestureDetector(
-                        onTap: () => controller.editAvatar(avatarURLs[index]),
+                        onTap: () {
+                          controller.editAvatar(index);
+                        },
                         child: Container(
                           padding: const EdgeInsets.all(5.0),
                           width: 56 * pctWidth,

@@ -6,7 +6,6 @@ import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/modules/setting/widgets/col_button_list.dart';
 import 'package:remood/app/modules/setting/widgets/stack_user_avt.dart';
-import 'package:remood/app/modules/write_diary/diary_controller.dart';
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({super.key});
@@ -17,6 +16,9 @@ class SettingScreen extends StatelessWidget {
     final SettingController settingController = Get.find();
 
     // Data
+    // TODO: ----Doing---- Store and load data from user box
+    var user = settingController.user;
+    // var setting = settingController.setting;
     var username = settingController.nickname;
     var isEditableName = settingController.isEditableName;
 
@@ -65,9 +67,12 @@ class SettingScreen extends StatelessWidget {
                             child: TextField(
                               controller: settingController.nameController,
                               autofocus: true,
-                              decoration: const InputDecoration(
+                              decoration: InputDecoration(
                                 focusColor: AppColors.mainColor,
                                 hintText: "Enter a nickname",
+                                hintStyle: CustomTextStyle.normalText(
+                                  const Color(0xFF777777),
+                                ),
                               ),
                               onSubmitted: (value) {
                                 settingController.editNickName();
@@ -75,13 +80,14 @@ class SettingScreen extends StatelessWidget {
                             ),
                           )
                         : Text(
-                            username.value,
+                            user.value.name,
                             style: CustomTextStyle.customh2(
                                 AppColors.settingUserName, 20.0),
                           ),
 
                     // Change nickname button
                     // TODO: ----Doing---- Change-nickname function
+                    // [x] Change hintText style
                     !isEditableName.value
                         ? GestureDetector(
                             onTap: () {

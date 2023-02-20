@@ -13,7 +13,6 @@ import 'package:remood/app/data/models/list_topic.dart';
 import 'package:remood/app/data/models/topic.dart';
 import 'package:remood/app/modules/write_diary/widgets/bottom_sheet_add_topic.dart';
 import 'dart:io';
-import 'package:flutter/animation.dart';
 
 class DiaryController extends GetxController {
 // hive box

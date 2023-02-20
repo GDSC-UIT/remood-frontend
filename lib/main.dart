@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:remood/app/data/models/setting.dart';
+import 'package:remood/app/data/models/user.dart';
 import 'package:remood/app/modules/setting/setting_binding.dart';
 import 'package:remood/app/data/models/diary.dart';
 import 'package:remood/app/data/models/topic.dart';
@@ -16,8 +18,12 @@ void main() async {
   await Hive.initFlutter();
   Hive
     ..registerAdapter(DiaryAdapter())
-    ..registerAdapter(CardTopicAdapter());
+    ..registerAdapter(CardTopicAdapter())
+    ..registerAdapter(UserAdapter())
+    ..registerAdapter(SettingAdapter());
   await Hive.openBox<List>('mybox');
+  await Hive.openBox<User>('user');
+  /* await Hive.openBox<Setting>('setting'); */
   initializeDateFormatting();
 
   runApp(const MyApp());

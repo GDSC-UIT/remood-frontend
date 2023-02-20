@@ -144,11 +144,12 @@ class PINLock extends StatelessWidget {
             ),
 
 // Numeric keyboard
-// TODO: ----Done----Chức năng xóa passcode
+// TODO: ----Updated----Chức năng xóa passcode
+// [x] Update condition of delete function
             numpadGrid(),
 
 // Done button
-// TODO: ----Doing----Chức năng lưu passcode
+// TODO: ----Done----Chức năng lưu passcode
             const ConfirmButton(label: "Save"),
             SizedBox(
               height: screenHeight * 0.03,

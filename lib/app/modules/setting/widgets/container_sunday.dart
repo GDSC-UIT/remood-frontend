@@ -13,31 +13,33 @@ class ContainerFirstDaySunday extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(SettingController());
+    final SettingController controller = Get.find();
     String label = 'Sunday';
 
     return GestureDetector(
       onTap: () => controller.onTapSunday(),
-      child: Obx(() => Container(
-            alignment: Alignment.center,
-            width: 268,
-            height: 46,
-            decoration: BoxDecoration(
-              border: Border.all(
-                width: 1.0,
-                color: AppColors.mainColor,
-              ),
-              borderRadius: BorderRadius.circular(16.0),
-              color: controller.getIsSunday
-                  ? AppColors.mainColor
-                  : Colors.transparent,
+      child: Obx(
+        () => Container(
+          alignment: Alignment.center,
+          width: 268,
+          height: 46,
+          decoration: BoxDecoration(
+            border: Border.all(
+              width: 1.0,
+              color: AppColors.mainColor,
             ),
-            child: Text(
-              label,
-              style: CustomTextStyle.h3(
-                  controller.getIsSunday ? Colors.white : AppColors.mainColor),
-            ),
-          )),
+            borderRadius: BorderRadius.circular(16.0),
+            color: controller.getIsSunday
+                ? AppColors.mainColor
+                : Colors.transparent,
+          ),
+          child: Text(
+            label,
+            style: CustomTextStyle.h3(
+                controller.getIsSunday ? Colors.white : AppColors.mainColor),
+          ),
+        ),
+      ),
     );
   }
 }
