@@ -8,6 +8,7 @@ import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/models/language.dart';
 import 'package:remood/app/data/models/setting.dart';
+import 'package:remood/app/data/models/setting_box.dart';
 import 'package:remood/app/data/models/setting_button.dart';
 import 'package:remood/app/data/models/topic.dart';
 import 'package:remood/app/data/models/user.dart';
@@ -26,12 +27,12 @@ class SettingController extends GetxController {
 
   // Hive box (Store data locally)
   final _userBox = Hive.box<User>('user');
-  // final _settingBox = Hive.box<Setting>('setting');
+  final _settingBox = Hive.box<Setting>('setting');
   UserBox hiveUser = UserBox();
-  // SettingBox hiveSetting = SettingBox();
+  SettingBox hiveSetting = SettingBox();
   Rx<User> user = User(
     name: "Untitle",
-    avtURL: "#",
+    avtURL: Assets.settingUserAvt1,
   ).obs;
   Rx<Setting> setting = Setting(
     isSundayFirstDayOfWeek: false,
@@ -49,21 +50,21 @@ class SettingController extends GetxController {
     } else {
       hiveUser.loadData();
     }
-    /* if (_settingBox.get("setting") == null) {
+    if (_settingBox.get("setting") == null) {
       hiveSetting.createInitialData();
     } else {
       hiveSetting.loadData();
-    } */
+    }
     // Observe data
     user = UserBox.user.obs;
-    // setting = SettingBox.setting.obs;
+    setting = SettingBox.setting.obs;
     super.onInit();
   }
 
   // Main screen
   TextEditingController nameController = TextEditingController();
   RxString nickname = "cute pie".obs;
-  RxString avatar = Assets.settingUserAvt1.obs;
+  // RxString avatar = UserBox.user.avtURL.obs;
   RxBool isEditableName = false.obs;
   List<String> avatars = [
     Assets.settingUserAvt1,
@@ -71,13 +72,15 @@ class SettingController extends GetxController {
   ];
 
   void editAvatar(int index) {
-    // avatar(url);
+    // Update UI data
     user(
       User(
         name: user.value.name,
         avtURL: avatars[index],
       ),
     );
+    // Update local data
+    UserBox.user.avtURL = avatars[index];
     hiveUser.updateDatabase();
   }
 
@@ -176,11 +179,7 @@ class SettingController extends GetxController {
   ];
 
   // First day of the week
-  RxBool isSunday = true.obs;
-
-  // Get value of isSunday
-  bool get getIsSunday => isSunday.value;
-  bool get getIsMonday => !isSunday.value;
+  var isSunday = SettingBox.setting.isSundayFirstDayOfWeek.obs;
 
   // Active Sunday button
   void onTapSunday() {
@@ -192,6 +191,24 @@ class SettingController extends GetxController {
   void onTapMonday() {
     isSunday(false);
     log('Monday is the first day');
+  }
+
+  void saveFirstDayOfWeek() {
+    log('Before-setting: ${setting.value.isSundayFirstDayOfWeek}');
+    log('Before-settingBox: ${SettingBox.setting.isSundayFirstDayOfWeek}');
+    // Update UI data
+    setting(
+      Setting(
+        isSundayFirstDayOfWeek: isSunday.value,
+        language: setting.value.language,
+        isOnNotification: setting.value.isOnNotification,
+        isOnPINLock: setting.value.isOnPINLock,
+      ),
+    );
+    // Update local data
+    SettingBox.setting.isSundayFirstDayOfWeek = isSunday.value;
+    hiveSetting.updateDatabase();
+    log("After-setting: ${setting.value.isSundayFirstDayOfWeek}");
   }
 
   // -------------------------------------------

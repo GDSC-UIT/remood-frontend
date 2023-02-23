@@ -23,7 +23,7 @@ void main() async {
     ..registerAdapter(SettingAdapter());
   await Hive.openBox<List>('mybox');
   await Hive.openBox<User>('user');
-  /* await Hive.openBox<Setting>('setting'); */
+  await Hive.openBox<Setting>('setting');
   initializeDateFormatting();
 
   runApp(const MyApp());

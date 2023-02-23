@@ -185,7 +185,6 @@ class CreateNewTopicScreen extends StatelessWidget {
               ),
             ),
 // Save button
-// TODO: ----Done---- Add-new-topic function
             ConfirmButton(
               label: "Save",
               func: diaryController.addCurrentTopic,

@@ -136,7 +136,6 @@ class PINLock extends StatelessWidget {
               height: 25.0,
             ),
 
-// TODO: ----Done---- Chức năng nhập passcode
 // Password (4 characters)
             const FittedboxPasswordDots(),
             const SizedBox(
@@ -144,12 +143,9 @@ class PINLock extends StatelessWidget {
             ),
 
 // Numeric keyboard
-// TODO: ----Updated----Chức năng xóa passcode
-// [x] Update condition of delete function
             numpadGrid(),
 
 // Done button
-// TODO: ----Done----Chức năng lưu passcode
             const ConfirmButton(label: "Save"),
             SizedBox(
               height: screenHeight * 0.03,

@@ -1,7 +1,6 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hive/hive.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
@@ -15,7 +14,10 @@ class ColButtonList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Controller
     final controller = Get.find<SettingController>();
+
+    // Data
     List settingList = list;
     TextStyle settingLabelStyle = controller.settingLabelStyle;
 

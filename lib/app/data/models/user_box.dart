@@ -6,7 +6,7 @@ import 'package:remood/app/data/models/user.dart';
 class UserBox {
   static User user = User(
     name: "Untitled",
-    avtURL: "#",
+    avtURL: Assets.settingUserAvt1,
   );
 
   final _mybox = Hive.box<User>('user');

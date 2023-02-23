@@ -13,8 +13,13 @@ class ContainerFirstDaySunday extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Controller
     final SettingController controller = Get.find();
+
+    // Data
     String label = 'Sunday';
+    var isSunday = controller.isSunday;
+    isSunday(controller.setting.value.isSundayFirstDayOfWeek);
 
     return GestureDetector(
       onTap: () => controller.onTapSunday(),
@@ -29,14 +34,12 @@ class ContainerFirstDaySunday extends StatelessWidget {
               color: AppColors.mainColor,
             ),
             borderRadius: BorderRadius.circular(16.0),
-            color: controller.getIsSunday
-                ? AppColors.mainColor
-                : Colors.transparent,
+            color: isSunday.value ? AppColors.mainColor : Colors.transparent,
           ),
           child: Text(
             label,
             style: CustomTextStyle.h3(
-                controller.getIsSunday ? Colors.white : AppColors.mainColor),
+                isSunday.value ? Colors.white : AppColors.mainColor),
           ),
         ),
       ),

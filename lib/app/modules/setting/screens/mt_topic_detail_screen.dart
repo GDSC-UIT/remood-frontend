@@ -28,7 +28,6 @@ class TopicDetailScreen extends StatelessWidget {
     Rx<CardTopic> currentTopic = settingController.currentTopic;
     double widthValueBox = screenWidth * 0.1;
 
-    // ? TODO: Tại sao lại gán cho biến mới
     ListTopic listTopic = ListTopic();
 
     return Scaffold(

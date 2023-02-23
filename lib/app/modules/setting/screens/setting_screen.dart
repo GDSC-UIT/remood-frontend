@@ -16,7 +16,7 @@ class SettingScreen extends StatelessWidget {
     final SettingController settingController = Get.find();
 
     // Data
-    // TODO: ----Doing---- Store and load data from user box
+    // TODO: ----Done---- Store and load data from user box
     var user = settingController.user;
     // var setting = settingController.setting;
     var username = settingController.nickname;
@@ -40,7 +40,7 @@ class SettingScreen extends StatelessWidget {
                 () => Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // Page name
+// Page name
                     Text(
                       "Settings Page",
                       style: CustomTextStyle.h2(AppColors.settingPageName)
@@ -48,7 +48,7 @@ class SettingScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 10.0),
 
-                    // User avatar
+// User avatar
                     Container(
                       width: 77.26,
                       height: 72.86,
@@ -59,7 +59,7 @@ class SettingScreen extends StatelessWidget {
                       child: const UserAvatar(),
                     ),
 
-                    // User name
+// User name
                     isEditableName.value
                         ? Padding(
                             padding:
@@ -86,7 +86,7 @@ class SettingScreen extends StatelessWidget {
                           ),
 
                     // Change nickname button
-                    // TODO: ----Doing---- Change-nickname function
+                    // TODO: ----Done---- Change-nickname function
                     // [x] Change hintText style
                     !isEditableName.value
                         ? GestureDetector(
