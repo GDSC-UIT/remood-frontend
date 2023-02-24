@@ -19,31 +19,40 @@ class ColTopicList extends StatelessWidget {
   Widget build(BuildContext context) {
     final settingController = Get.find<SettingController>();
     final diaryController = Get.find<DiaryController>();
-    RxList<CardTopic> topicList = list;
     TextStyle topicLabelStyle = settingController.settingLabelStyle;
 
-    return Obx(
-      () => Column(
-        children: List.generate(
-          list.length,
-          (index) => GestureDetector(
-            onTap: () {
-              log(topicList[index].title);
+    return Column(
+      children: List.generate(
+        list.length,
+        (index) => GestureDetector(
+          onTap: () {
+            log(list[index].title);
 
-              // Gán thứ tự topic được chọn
-              settingController.currentTopic(topicList[index]);
-              diaryController.currentTopic(index);
+            // Gán thứ tự topic được chọn
+            settingController.currentTopic(list[index]);
+            settingController.currentTopicIndex(index);
 
-              Get.toNamed(AppRoutes.topicDetail);
-            },
-            child: ListTile(
-              leading: TopicAvatar(
+            log(list[index].icons.toString());
+
+            // Chuyển đến trang "Cài đặt topic"
+            Get.toNamed(AppRoutes.topicDetail);
+          },
+          child: ListTile(
+            // Topic icon
+            leading: Obx(
+              () => TopicAvatar(
                 topic: list[index],
                 index: index,
                 currentIndex: index.obs,
               ),
-              trailing: Image.asset(Assets.arrowRight),
-              title: Text(
+            ),
+
+            // Right-arrow icon
+            trailing: Image.asset(Assets.arrowRight),
+
+            // Topic label
+            title: Obx(
+              () => Text(
                 list[index].title,
                 style: topicLabelStyle,
               ),

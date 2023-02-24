@@ -7,6 +7,9 @@ import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/models/language.dart';
+import 'package:remood/app/data/models/list_selected_color_topic.dart';
+import 'package:remood/app/data/models/list_selected_icons_topic.dart';
+import 'package:remood/app/data/models/list_topic.dart';
 import 'package:remood/app/data/models/setting.dart';
 import 'package:remood/app/data/models/setting_box.dart';
 import 'package:remood/app/data/models/setting_button.dart';
@@ -147,14 +150,21 @@ class SettingController extends GetxController {
   ];
 
   // Manage topics
-
+  TextEditingController topicName = TextEditingController();
+  ListSelectedIcons listSelectedIcons = ListSelectedIcons();
+  ListSelectedColor listSelectedColor = ListSelectedColor();
+  RxInt currentTopicIndex = 0.obs;
+  RxInt currentTopicIcon = 0.obs;
+  RxInt currentTopicColor = 0.obs;
   Rx<CardTopic> currentTopic = CardTopic(
     title: "",
     TopicColor: AppColors.lightGreen18.value,
     icons: Icons.work.codePoint,
   ).obs;
+  int get icon => currentTopic.value.icons;
 
   // Properties of topics button
+  ListTopic hiveBoxTopic = ListTopic();
   List<CardTopic> topicList = [
     CardTopic(
       title: "Work",
@@ -177,6 +187,55 @@ class SettingController extends GetxController {
       icons: Icons.family_restroom.codePoint,
     ),
   ];
+
+// choose topic
+
+  void changeTopic(int index) {
+    currentTopicIndex(index);
+  }
+
+  void changeTopicIconIndex(int index) {
+    currentTopicIcon(index);
+  }
+
+  void changeTopicColorIndex(int index) {
+    currentTopicColor(index);
+  }
+
+  void changeNameTopicSetting() {
+    // Update local data
+    ListTopic.topics[currentTopicIndex.value].title = topicName.text.trim();
+
+    // Update Topic-detail screen
+    currentTopic(ListTopic.topics[currentTopicIndex.value]);
+    hiveBoxTopic.updateDatabase();
+  }
+
+  void changeIconTopicSetting() {
+    // Update local data
+    ListTopic.topics[currentTopicIndex.value].icons =
+        listSelectedIcons.selectedIcons[currentTopicIcon.value].codePoint;
+
+    // Update Topic-detail screen
+    currentTopic(ListTopic.topics[currentTopicIndex.value]);
+
+    // listTopic[currentTopicIndex.value]
+
+    log(currentTopic.value.icons.toString());
+
+    hiveBoxTopic.updateDatabase();
+  }
+
+  void changeColorTopicSetting() {
+    // Update local data
+    ListTopic.topics[currentTopicIndex.value].TopicColor =
+        listSelectedColor.selectedColors[currentTopicColor.value].value;
+
+    // Update UI
+    currentTopic(ListTopic.topics[currentTopicIndex.value]);
+
+    hiveBoxTopic.updateDatabase();
+  }
 
   // First day of the week
   var isSunday = SettingBox.setting.isSundayFirstDayOfWeek.obs;

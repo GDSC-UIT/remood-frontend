@@ -15,14 +15,23 @@ class ChangeIconTopicScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Controller
+    SettingController settingController = Get.find();
+    DiaryController diaryController = Get.find();
+
+    // Data
     String appBarTitle = "Change icon";
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
-    SettingController settingController = Get.find();
-    DiaryController diaryController = Get.find();
     ListSelectedIcons listSelectedIcons = ListSelectedIcons();
-    CardTopic currentTopic = settingController.currentTopic.value;
+    var currentTopic = settingController.currentTopic;
+    var currentIconTopic = settingController.currentTopicIcon;
+    var colorTopic = diaryController.colorTopic;
+
+    // Function
+    var changeIconTopic = settingController.changeTopicIconIndex;
+    var changeIconTopicSetting = settingController.changeIconTopicSetting;
 
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
@@ -49,28 +58,30 @@ class ChangeIconTopicScreen extends StatelessWidget {
                 itemCount: 10,
                 itemBuilder: (context, index) {
                   return GestureDetector(
-                    onTap: (() {
-                      diaryController.changeIconTopic(
-                          index, listSelectedIcons.selectedIcons[index]);
+                    onTap: () {
+                      // Icon được bấm vào được cập nhậ
+                      changeIconTopic(index);
 
-                      // ? TODO: Khởi tạo màu cho currentIconTopic (int - số thứ tự) là màu của currentTopic.icons (int - số codePoint)
+                      // * TODO: Khởi tạo màu cho currentIconTopic (int - số thứ tự) là màu của currentTopic.icons (int - số codePoint)
                       // currentTopic.icons =
                       //     listSelectedIcons.selectedIcons[index].codePoint;
-                    }),
+                    },
                     child: Obx(
                       () => Container(
                         width: screenWidth * 0.093,
                         height: screenHeight * 0.043,
                         decoration: BoxDecoration(
-                          color: diaryController.currentIconTopic.value == index
-                              ? diaryController.colorTopic.value
+                          // Icon được bấm vào thì background của icon được tô màu
+                          color: currentIconTopic.value == index
+                              ? colorTopic.value
                               : Colors.transparent,
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Icon(
                           listSelectedIcons.selectedIcons[index],
-                          color: diaryController.currentIconTopic.value == index
-                              ? diaryController.colorTopic.value.withOpacity(1)
+                          // Icon được bấm vào thì icon được tô màu đậm
+                          color: currentIconTopic.value == index
+                              ? colorTopic.value.withOpacity(1)
                               : AppColors.darkBlue,
                         ),
                       ),
@@ -88,7 +99,7 @@ class ChangeIconTopicScreen extends StatelessWidget {
 // Parent page does not update when Get.back()
             ConfirmButton(
               label: "Save",
-              func: diaryController.changeTopicIconSetting,
+              func: changeIconTopicSetting,
             ),
             SizedBox(
               height: screenHeight * 0.03,

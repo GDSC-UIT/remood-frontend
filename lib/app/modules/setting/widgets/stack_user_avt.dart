@@ -31,7 +31,6 @@ class UserAvatar extends StatelessWidget {
         ),
 
         // Edit button
-        // TODO: ----Doing---- Load local data
         Align(
           alignment: Alignment.topRight,
           child: GestureDetector(

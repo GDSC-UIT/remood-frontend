@@ -10,7 +10,6 @@ import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/modules/setting/widgets/col_topic_avt.dart';
 import 'package:remood/app/modules/setting/widgets/col_topic_list.dart';
 import 'package:remood/app/modules/setting/widgets/stack_setting_appbar.dart';
-import 'package:remood/app/modules/write_diary/diary_controller.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class ManageTopicsScreen extends StatelessWidget {
@@ -18,14 +17,13 @@ class ManageTopicsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SettingController settingController = Get.find();
-    final DiaryController diaryController = Get.find();
+    SettingController settingController = Get.find();
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
     String titleAddButton = "Create new topic";
     TextStyle topicLabelStyle = settingController.settingLabelStyle;
-    RxList<CardTopic> listTopic = ListTopic.topics;
+    var listTopic = ListTopic.topics;
 
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,

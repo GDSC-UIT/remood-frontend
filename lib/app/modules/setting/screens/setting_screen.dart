@@ -16,7 +16,6 @@ class SettingScreen extends StatelessWidget {
     final SettingController settingController = Get.find();
 
     // Data
-    // TODO: ----Done---- Store and load data from user box
     var user = settingController.user;
     // var setting = settingController.setting;
     var username = settingController.nickname;
@@ -86,8 +85,6 @@ class SettingScreen extends StatelessWidget {
                           ),
 
                     // Change nickname button
-                    // TODO: ----Done---- Change-nickname function
-                    // [x] Change hintText style
                     !isEditableName.value
                         ? GestureDetector(
                             onTap: () {

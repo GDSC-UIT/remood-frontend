@@ -5,8 +5,6 @@ import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/models/list_topic.dart';
-import 'package:remood/app/data/models/topic.dart';
-import 'package:remood/app/modules/setting/screens/mt_create_new_topic_screen.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/modules/setting/widgets/confirm_button.dart';
 import 'package:remood/app/modules/setting/widgets/stack_setting_appbar.dart';
@@ -20,15 +18,17 @@ class TopicDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Controller
     final SettingController settingController = Get.find();
     final DiaryController diaryController = Get.find();
+
+    // Data
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-    String appBarTitle = settingController.currentTopic.value.title;
-    Rx<CardTopic> currentTopic = settingController.currentTopic;
     double widthValueBox = screenWidth * 0.1;
-
     ListTopic listTopic = ListTopic();
+
+    var currentTopic = settingController.currentTopic;
 
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
@@ -38,7 +38,7 @@ class TopicDetailScreen extends StatelessWidget {
             Stack(
               children: [
                 StackSettingAppbar(
-                  title: appBarTitle,
+                  title: currentTopic.value.title,
                 ),
 // Delete button
                 GestureDetector(
@@ -64,9 +64,8 @@ class TopicDetailScreen extends StatelessWidget {
 // Rename
             GestureDetector(
               onTap: () {
-                /// Change the text in textEditingController to the current topic's title,
-                /// if not, the text in text field will be keep even when you change the topic.
-                diaryController.topicName.text = currentTopic.value.title;
+                // Change the text in textEditingController to the current topic's title
+                settingController.topicName.text = currentTopic.value.title;
 
                 // Navigate to rename screen
                 Get.toNamed(AppRoutes.renameTopic);
@@ -90,7 +89,7 @@ class TopicDetailScreen extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          // Value
+                          // Name
                           Text(
                             currentTopic.value.title,
                             style: CustomTextStyle.normalText(
@@ -102,6 +101,7 @@ class TopicDetailScreen extends StatelessWidget {
                           const SizedBox(
                             width: 2,
                           ),
+
                           // Arrow-right icon
                           const Icon(Icons.keyboard_arrow_right),
                         ],
@@ -139,16 +139,14 @@ class TopicDetailScreen extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          // Value
-                          Obx(
-                            () => SizedBox(
-                              width: widthValueBox,
-                              child: Icon(
-                                IconData(currentTopic.value.icons,
-                                    fontFamily: "MaterialIcons"),
-                                color: Color(currentTopic.value.TopicColor)
-                                    .withOpacity(1),
-                              ),
+                          // Icon
+                          SizedBox(
+                            width: widthValueBox,
+                            child: Icon(
+                              IconData(currentTopic.value.icons,
+                                  fontFamily: "MaterialIcons"),
+                              color: Color(currentTopic.value.TopicColor)
+                                  .withOpacity(1),
                             ),
                           ),
 
@@ -167,6 +165,8 @@ class TopicDetailScreen extends StatelessWidget {
 // Change color
             GestureDetector(
               onTap: () {
+                // Gán lại giá trị icon hiện tại
+
                 // Navigate to Change-topic-color screen
                 Get.toNamed(AppRoutes.changeColorTopic);
               },
