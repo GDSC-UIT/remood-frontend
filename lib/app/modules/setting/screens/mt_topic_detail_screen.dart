@@ -26,7 +26,7 @@ class TopicDetailScreen extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     double widthValueBox = screenWidth * 0.1;
-    ListTopic listTopic = ListTopic();
+    ListTopic listTopic = settingController.hiveBoxTopic;
 
     var currentTopic = settingController.currentTopic;
 
@@ -43,8 +43,7 @@ class TopicDetailScreen extends StatelessWidget {
 // Delete button
                 GestureDetector(
                   onTap: () {
-                    listTopic.deleteTopic(settingController.currentTopic.value);
-                    log(listTopic.toString());
+                    settingController.deleteTopic();
                     Get.back();
                   },
                   child: Container(
@@ -98,6 +97,7 @@ class TopicDetailScreen extends StatelessWidget {
                                   .withOpacity(1),
                             ),
                           ),
+
                           const SizedBox(
                             width: 2,
                           ),

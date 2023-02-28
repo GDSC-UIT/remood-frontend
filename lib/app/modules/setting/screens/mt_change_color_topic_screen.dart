@@ -47,7 +47,7 @@ class ChangeColorTopicScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
-                      settingController.changeTopicColorIndex(index);
+                      settingController.changeColorIndex(index);
                     },
                     child: Obx(
                       () => Container(

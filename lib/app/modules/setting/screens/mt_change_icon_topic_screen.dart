@@ -30,7 +30,7 @@ class ChangeIconTopicScreen extends StatelessWidget {
     var colorTopic = settingController.colorTopic;
 
     // Function
-    var changeIconTopic = settingController.changeTopicIconIndex;
+    var changeIconTopic = settingController.changeIconIndex;
     var changeIconTopicSetting = settingController.changeIconTopicSetting;
 
     return Scaffold(
@@ -59,7 +59,7 @@ class ChangeIconTopicScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
-                      // Icon được bấm vào được cập nhậ
+                      // Icon được bấm vào được cập nhật
                       changeIconTopic(index);
 
                       // * TODO: Khởi tạo màu cho currentIconTopic (int - số thứ tự) là màu của currentTopic.icons (int - số codePoint)

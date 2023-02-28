@@ -68,7 +68,7 @@ class SettingController extends GetxController {
     }
 
     // Observe data
-    listTopic.value = ListTopic.topics;
+    listTopic = ListTopic.topics;
     user = UserBox.user.obs;
     setting = SettingBox.setting.obs;
     super.onInit();
@@ -173,20 +173,26 @@ class SettingController extends GetxController {
     icons: Icons.work.codePoint,
   ).obs;
 
+  // Add-topic data
+  TextEditingController titleController = TextEditingController();
+  Rx<IconData> addtopicIcon = Icons.search.obs;
+
 // choose topic
 
   void changeTopicIndex(int index) {
     currentTopicIndex(index);
   }
 
-  void changeTopicIconIndex(int index) {
+  void changeIconIndex(int index) {
     currentTopicIcon(index);
+
+    addtopicIcon(listSelectedIcons.selectedIcons[index]);
   }
 
-  void changeTopicColorIndex(int index) {
+  void changeColorIndex(int index) {
     currentTopicColor(index);
 
-    colorTopic.value = listSelectedColor.selectedColors[index];
+    colorTopic(listSelectedColor.selectedColors[index]);
   }
 
   void changeNameTopicSetting() {
@@ -206,8 +212,6 @@ class SettingController extends GetxController {
     // Update Topic-detail screen
     currentTopic(ListTopic.topics[currentTopicIndex.value]);
 
-    // listTopic[currentTopicIndex.value]
-
     log(currentTopic.value.icons.toString());
 
     hiveBoxTopic.updateDatabase();
@@ -222,6 +226,25 @@ class SettingController extends GetxController {
     currentTopic(ListTopic.topics[currentTopicIndex.value]);
 
     hiveBoxTopic.updateDatabase();
+  }
+
+  void addTopicSetting() {
+    CardTopic newTopic = CardTopic(
+      title: titleController.text.trim(),
+      TopicColor: colorTopic.value.value,
+      icons: addtopicIcon.value.codePoint,
+    );
+    ListTopic.topics.add(newTopic);
+
+    // Reset
+    titleController.clear();
+
+    hiveBoxTopic.updateDatabase();
+  }
+
+  void deleteTopic() {
+    hiveBoxTopic.deleteTopic(currentTopic.value);
+    log(listTopic.toString());
   }
 
   // First day of the week
