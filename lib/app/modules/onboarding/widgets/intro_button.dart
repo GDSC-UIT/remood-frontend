@@ -21,7 +21,7 @@ class _OnboardingButtonState extends State<OnboardingButton> {
 
   void nextScreen() {
     if (widget.pageIndex == (controller.contents.length - 1).obs) {
-      Get.offAllNamed(AppRoutes.home);
+      Get.toNamed(AppRoutes.loginScreen);
     }
     pageController.nextPage(
         duration: const Duration(milliseconds: 200), curve: Curves.easeInOut);

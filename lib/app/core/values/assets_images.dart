@@ -44,4 +44,5 @@ class Assets {
   static const String happy = 'assets/icons/happyface.png';
   static const String pinnedDiary = 'assets/icons/pinned.png';
   static const String isPinnedDiary = 'assets/icons/ispinned.png';
+  static const String google = 'assets/images/google.png';
 }

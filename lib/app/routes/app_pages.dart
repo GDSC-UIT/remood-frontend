@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:remood/app/data/models/setting_button.dart';
 import 'package:remood/app/modules/freshmood/happy_screens/happy_screen_binding.dart';
 import 'package:remood/app/modules/freshmood/happy_screens/screens/happy_screen.dart';
 import 'package:remood/app/modules/freshmood/sad_screens/sad_screen_binding.dart';
@@ -7,6 +6,12 @@ import 'package:remood/app/modules/freshmood/sad_screens/screens/choose_screen.d
 import 'package:remood/app/modules/freshmood/sad_screens/screens/final_negative_screen.dart';
 import 'package:remood/app/modules/freshmood/sad_screens/screens/read_diary.dart';
 import 'package:remood/app/modules/freshmood/sad_screens/screens/sad_screen.dart';
+import 'package:remood/app/modules/login_signup/login_binding.dart';
+import 'package:remood/app/modules/login_signup/screens/comfirm_password.dart';
+import 'package:remood/app/modules/login_signup/screens/create_new_account.dart';
+import 'package:remood/app/modules/login_signup/screens/forgot_password.dart';
+import 'package:remood/app/modules/login_signup/screens/login.dart';
+import 'package:remood/app/modules/login_signup/screens/login_screen.dart';
 import 'package:remood/app/modules/read_diary/read_diary_binding.dart';
 import 'package:remood/app/modules/report/report_binding.dart';
 import 'package:remood/app/modules/report/screens/report_screen.dart';
@@ -78,6 +83,31 @@ abstract class AppPages {
       name: AppRoutes.onboarding,
       page: () => const OnboardingScreen(),
       bindings: [OnboardingBinding(), SettingBinding()],
+    ),
+    GetPage(
+      name: AppRoutes.loginScreen,
+      page: () => const LogInScreen(),
+      binding: LogInBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.login,
+      page: () => const LogIn(),
+      binding: LogInBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.createnewAccount,
+      page: () => const CreateNewAccount(),
+      binding: LogInBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.forgotPassword,
+      page: () => const ForgotPassWord(),
+      binding: LogInBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.comfirmPassword,
+      page: () => const ComfirmPassword(),
+      binding: LogInBinding(),
     ),
     GetPage(
       name: AppRoutes.report,

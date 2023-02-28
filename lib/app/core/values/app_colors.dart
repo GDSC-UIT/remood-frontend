@@ -18,6 +18,7 @@ class AppColors {
   static const Color LightPurple22 = Color.fromRGBO(172, 95, 211, 0.22);
   static const Color Greyscale = Color.fromRGBO(229, 228, 227, 1);
   static const Color Grey22 = Color.fromRGBO(179, 177, 176, 0.22);
+  static const Color Grey = Color.fromRGBO(179, 177, 176, 1);
   static const Color DarkBlue = Color.fromRGBO(19, 15, 38, 1);
   static const Color LightPrimary250 = Color.fromRGBO(250, 75, 20, 0.22);
   static const Color LightPrimary204 = Color.fromRGBO(204, 250, 20, 0.22);
@@ -57,15 +58,16 @@ class AppColors {
   static const Color lightprimary255 = Color.fromRGBO(255, 199, 0, 0.22);
   static const Color lightprimary173 = Color.fromRGBO(250, 173, 20, 0.22);
   static const Color textDiaryColor = Color.fromRGBO(92, 87, 87, 1);
-
+  static const Color textlogin = Color.fromRGBO(137, 137, 137, 1);
+  static const Color textForgtPassword = Color.fromRGBO(137, 137, 137, 1);
   static const Color primary = Color.fromRGBO(143, 117, 63, 1);
   static const Color primary60 = Color.fromRGBO(143, 117, 63, 0.6);
   static const Color primary30 = Color.fromRGBO(143, 117, 63, 0.3);
-
+  static const Color lineLogin = Color.fromRGBO(227, 232, 241, 1);
   static const Color tagColors = Color.fromRGBO(247, 201, 109, 1);
   static const Color primary42 = Color.fromRGBO(222, 222, 222, 0.42);
   static const Color darkgrey = Color.fromRGBO(140, 140, 140, 1);
-
+  static const Color googleLogin = Color.fromRGBO(56, 126, 254, 1);
   // Topic
   static const Color topicWork = Color.fromRGBO(28, 73, 30, 1);
   static const Color topicLove = Color.fromRGBO(148, 5, 5, 1);
