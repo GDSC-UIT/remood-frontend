@@ -44,7 +44,7 @@ abstract class AppPages {
         HomeBinding(),
         ReadDiaryBinding(),
         ReportBinding(),
-        SettingBinding()
+        SettingBinding(),
       ],
     ),
     GetPage(

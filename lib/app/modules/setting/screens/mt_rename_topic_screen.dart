@@ -47,7 +47,7 @@ class RenameTopicScreen extends StatelessWidget {
                       color: Colors.blue,
                     ),
                   ),
-                  hintText: settingController.currentTopic.value.title,
+                  hintText: "Enter your new name",
                   hintStyle: CustomTextStyle.normalText(AppColors.grey),
                 ),
                 style: const TextStyle(fontSize: 20),

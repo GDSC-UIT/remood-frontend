@@ -46,23 +46,24 @@ class ChangeColorTopicScreen extends StatelessWidget {
                 itemCount: 12,
                 itemBuilder: (context, index) {
                   return GestureDetector(
-                      onTap: () {
-                        settingController.changeTopicColorIndex(index);
-                      },
-                      child: Obx(
-                        () => Container(
-                          width: screenWidth * 0.093,
-                          height: screenHeight * 0.043,
-                          decoration: BoxDecoration(
-                            color: listSelectedColor.selectedColors[index],
-                            borderRadius: BorderRadius.circular(10),
-                            border: settingController.currentTopicColor.value ==
-                                    index
-                                ? Border.all(color: Colors.black)
-                                : Border.all(color: Colors.transparent),
-                          ),
+                    onTap: () {
+                      settingController.changeTopicColorIndex(index);
+                    },
+                    child: Obx(
+                      () => Container(
+                        width: screenWidth * 0.093,
+                        height: screenHeight * 0.043,
+                        decoration: BoxDecoration(
+                          color: listSelectedColor.selectedColors[index],
+                          borderRadius: BorderRadius.circular(10),
+                          border:
+                              settingController.currentTopicColor.value == index
+                                  ? Border.all(color: Colors.black)
+                                  : Border.all(color: Colors.transparent),
                         ),
-                      ));
+                      ),
+                    ),
+                  );
                 },
               ),
             ),

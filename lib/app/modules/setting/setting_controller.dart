@@ -31,8 +31,11 @@ class SettingController extends GetxController {
   // Hive box (Store data locally)
   final _userBox = Hive.box<User>('user');
   final _settingBox = Hive.box<Setting>('setting');
+  final _topicBox = Hive.box<List>('mybox');
+  ListTopic hiveBoxTopic = ListTopic();
   UserBox hiveUser = UserBox();
   SettingBox hiveSetting = SettingBox();
+  RxList<CardTopic> listTopic = <CardTopic>[].obs;
   Rx<User> user = User(
     name: "Untitle",
     avtURL: Assets.settingUserAvt1,
@@ -45,20 +48,27 @@ class SettingController extends GetxController {
   ).obs;
 
   @override
-  void onInit() {
+  Future onInit() async {
     /// Create initial data if this is the first-time open
     /// or load data if this is not the first time.
+    if (_topicBox.get("topic") == null) {
+      await hiveBoxTopic.createInitialData();
+    } else {
+      await hiveBoxTopic.loadData();
+    }
     if (_userBox.get("user") == null) {
-      hiveUser.createInitialData();
+      await hiveUser.createInitialData();
     } else {
       hiveUser.loadData();
     }
     if (_settingBox.get("setting") == null) {
-      hiveSetting.createInitialData();
+      await hiveSetting.createInitialData();
     } else {
-      hiveSetting.loadData();
+      await hiveSetting.loadData();
     }
+
     // Observe data
+    listTopic.value = ListTopic.topics;
     user = UserBox.user.obs;
     setting = SettingBox.setting.obs;
     super.onInit();
@@ -156,41 +166,16 @@ class SettingController extends GetxController {
   RxInt currentTopicIndex = 0.obs;
   RxInt currentTopicIcon = 0.obs;
   RxInt currentTopicColor = 0.obs;
+  Rx<Color> colorTopic = AppColors.lightprimary250.obs;
   Rx<CardTopic> currentTopic = CardTopic(
     title: "",
     TopicColor: AppColors.lightGreen18.value,
     icons: Icons.work.codePoint,
   ).obs;
-  int get icon => currentTopic.value.icons;
-
-  // Properties of topics button
-  ListTopic hiveBoxTopic = ListTopic();
-  List<CardTopic> topicList = [
-    CardTopic(
-      title: "Work",
-      TopicColor: AppColors.lightGreen18.value,
-      icons: Icons.work.codePoint,
-    ),
-    CardTopic(
-      title: "Love",
-      TopicColor: AppColors.lightRed22.value,
-      icons: Icons.favorite.codePoint,
-    ),
-    CardTopic(
-      title: "Friends",
-      TopicColor: AppColors.lightOrange27.value,
-      icons: Icons.group.codePoint,
-    ),
-    CardTopic(
-      title: "Family",
-      TopicColor: AppColors.lightPurple22.value,
-      icons: Icons.family_restroom.codePoint,
-    ),
-  ];
 
 // choose topic
 
-  void changeTopic(int index) {
+  void changeTopicIndex(int index) {
     currentTopicIndex(index);
   }
 
@@ -200,6 +185,8 @@ class SettingController extends GetxController {
 
   void changeTopicColorIndex(int index) {
     currentTopicColor(index);
+
+    colorTopic.value = listSelectedColor.selectedColors[index];
   }
 
   void changeNameTopicSetting() {

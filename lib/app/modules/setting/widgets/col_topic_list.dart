@@ -18,42 +18,41 @@ class ColTopicList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final settingController = Get.find<SettingController>();
-    final diaryController = Get.find<DiaryController>();
     TextStyle topicLabelStyle = settingController.settingLabelStyle;
+
+    var topicList = list;
 
     return Column(
       children: List.generate(
         list.length,
         (index) => GestureDetector(
           onTap: () {
-            log(list[index].title);
+            log(topicList[index].title);
 
             // Gán thứ tự topic được chọn
             settingController.currentTopic(list[index]);
             settingController.currentTopicIndex(index);
 
-            log(list[index].icons.toString());
+            log(topicList[index].icons.toString());
 
             // Chuyển đến trang "Cài đặt topic"
             Get.toNamed(AppRoutes.topicDetail);
           },
-          child: ListTile(
-            // Topic icon
-            leading: Obx(
-              () => TopicAvatar(
-                topic: list[index],
+          child: Obx(
+            () => ListTile(
+              // Topic icon
+              leading: TopicAvatar(
+                topic: topicList[index],
                 index: index,
                 currentIndex: index.obs,
               ),
-            ),
 
-            // Right-arrow icon
-            trailing: Image.asset(Assets.arrowRight),
+              // Right-arrow icon
+              trailing: Image.asset(Assets.arrowRight),
 
-            // Topic label
-            title: Obx(
-              () => Text(
-                list[index].title,
+              // Topic label
+              title: Text(
+                topicList[index].title,
                 style: topicLabelStyle,
               ),
             ),

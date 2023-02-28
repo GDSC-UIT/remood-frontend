@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
@@ -5,6 +7,8 @@ import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/diary.dart';
 import 'package:remood/app/data/models/list_negative_diary.dart';
 import 'package:remood/app/data/models/list_positive_diary.dart';
+import 'package:remood/app/data/models/list_selected_color_topic.dart';
+import 'package:remood/app/data/models/list_selected_icons_topic.dart';
 import 'package:remood/app/data/models/list_topic.dart';
 import 'package:remood/app/data/models/topic.dart';
 import 'package:remood/app/modules/write_diary/widgets/bottom_sheet_add_topic.dart';
@@ -18,11 +22,11 @@ class DiaryController extends GetxController {
   RxList<CardTopic> listTopic = <CardTopic>[].obs;
   ListTopic hiveBoxTopic = ListTopic();
   @override
-  void onInit() {
+  void onInit() async {
     if (_mybox.get("topic") == null) {
-      hiveBoxTopic.createInitialData();
+      await hiveBoxTopic.createInitialData();
     } else {
-      hiveBoxTopic.loadData();
+      await hiveBoxTopic.loadData();
     }
     listTopic.value = ListTopic.topics;
     super.onInit();
@@ -107,5 +111,43 @@ class DiaryController extends GetxController {
     );
     listTopic.add(newTopic);
     hiveBoxTopic.updateDatabase();
+  }
+
+  // CHANGE TOPICS SETTING
+  TextEditingController topicName = TextEditingController();
+  ListSelectedIcons listSelectedIcons = ListSelectedIcons();
+  ListSelectedColor listSelectedColor = ListSelectedColor();
+
+// Change topic name
+  void changeNameTopicSetting() {
+    // Store index of current topic selected
+    int indexCurrentTopic = currentTopic.value;
+
+    log(topicName.text.trim());
+
+    // Assign text in textfield to title of current topic
+    ListTopic.topics[indexCurrentTopic].title = topicName.text.trim();
+  }
+
+// Change topic icon
+  void changeIconTopicSetting() {
+    // Store index of current topic selected
+    int indexCurrentTopic = currentTopic.value;
+
+    log(currentIconTopic.value.toString());
+    log(indexCurrentTopic.toString());
+
+    // Change the old icon to the selected one
+    ListTopic.topics[indexCurrentTopic].icons =
+        listSelectedIcons.selectedIcons[currentIconTopic.value].codePoint;
+  }
+
+// Change topic color
+  void changeColorTopicSetting() {
+    // Store index of current topic selected
+    int indexCurrentTopic = currentTopic.value;
+
+    // Change old color to the selected one
+    ListTopic.topics[indexCurrentTopic].TopicColor = colorTopic.value.value;
   }
 }

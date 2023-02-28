@@ -10,7 +10,7 @@ class UserBox {
   );
 
   final _mybox = Hive.box<User>('user');
-  void createInitialData() {
+  Future<void> createInitialData() async {
     user = User(
       name: "cute pie",
       avtURL: Assets.settingUserAvt1,

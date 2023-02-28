@@ -27,7 +27,7 @@ class ChangeIconTopicScreen extends StatelessWidget {
     ListSelectedIcons listSelectedIcons = ListSelectedIcons();
     var currentTopic = settingController.currentTopic;
     var currentIconTopic = settingController.currentTopicIcon;
-    var colorTopic = diaryController.colorTopic;
+    var colorTopic = settingController.colorTopic;
 
     // Function
     var changeIconTopic = settingController.changeTopicIconIndex;

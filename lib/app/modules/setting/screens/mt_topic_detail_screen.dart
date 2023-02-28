@@ -211,7 +211,9 @@ class TopicDetailScreen extends StatelessWidget {
               ),
             ),
 // Done button
-            const ConfirmButton(label: "Done"),
+            const ConfirmButton(
+              label: "Done",
+            ),
             SizedBox(
               height: screenHeight * 0.03,
             ),
