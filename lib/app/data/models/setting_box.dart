@@ -10,7 +10,7 @@ class SettingBox {
   );
 
   final _mybox = Hive.box<Setting>('setting');
-  Future<void> createInitialData() async {
+  void createInitialData() {
     setting = Setting(
       isSundayFirstDayOfWeek: false,
       language: 0,
@@ -19,7 +19,7 @@ class SettingBox {
     );
   }
 
-  Future<void> loadData() async {
+  void loadData() {
     setting = _mybox.get("setting")!;
   }
 

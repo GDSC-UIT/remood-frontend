@@ -16,7 +16,6 @@ class CalendarScreen extends StatelessWidget {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
     HomeController calendarController = Get.find();
-
     SettingController settingController = Get.find();
     var setting = settingController.setting;
     // TODO: ----Stuck---- Load start of the week automatically
@@ -28,38 +27,41 @@ class CalendarScreen extends StatelessWidget {
           child: Container(
             width: _screenWidth * 0.87,
             height: _screenHeight * 0.53,
-            child: Obx(
-              () => CalendarCarousel(
-                iconColor: AppColors.mainColor,
-                headerTextStyle: const TextStyle(
-                  color: AppColors.mainColor,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 18,
-                ),
-                weekdayTextStyle: const TextStyle(
-                  color: AppColors.weekendColor,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 16,
-                ),
-                daysTextStyle: const TextStyle(
-                  color: AppColors.weekendColor,
-                  fontWeight: FontWeight.w700,
-                ),
-                weekendTextStyle: const TextStyle(
-                  color: AppColors.weekendColor,
-                  fontWeight: FontWeight.w700,
-                ),
-                todayButtonColor: AppColors.mainColor,
-                todayBorderColor: AppColors.mainColor,
-                firstDayOfWeek: setting.value.isSundayFirstDayOfWeek ? 0 : 1,
-                onDayPressed: (p0, p1) {
-                  calendarController.changedate(p0);
-                  log(setting.value.isSundayFirstDayOfWeek.toString());
-                },
-                selectedDateTime: calendarController.currentdate.value,
-                selectedDayBorderColor: AppColors.mainColor,
-                selectedDayButtonColor: AppColors.mainColor,
-              ),
+            child: GetBuilder<SettingController>(
+              builder: (controller) {
+                return CalendarCarousel(
+                  firstDayOfWeek:
+                      controller.setting.value.isSundayFirstDayOfWeek ? 0 : 1,
+                  iconColor: AppColors.mainColor,
+                  headerTextStyle: const TextStyle(
+                    color: AppColors.mainColor,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 18,
+                  ),
+                  weekdayTextStyle: const TextStyle(
+                    color: AppColors.weekendColor,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 16,
+                  ),
+                  daysTextStyle: const TextStyle(
+                    color: AppColors.weekendColor,
+                    fontWeight: FontWeight.w700,
+                  ),
+                  weekendTextStyle: const TextStyle(
+                    color: AppColors.weekendColor,
+                    fontWeight: FontWeight.w700,
+                  ),
+                  todayButtonColor: AppColors.mainColor,
+                  todayBorderColor: AppColors.mainColor,
+                  onDayPressed: (p0, p1) {
+                    calendarController.changedate(p0);
+                    log(setting.value.isSundayFirstDayOfWeek.toString());
+                  },
+                  selectedDateTime: calendarController.currentdate.value,
+                  selectedDayBorderColor: AppColors.mainColor,
+                  selectedDayButtonColor: AppColors.mainColor,
+                );
+              },
             ),
           ),
         ),

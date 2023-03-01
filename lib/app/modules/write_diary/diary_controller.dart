@@ -22,11 +22,11 @@ class DiaryController extends GetxController {
   RxList<CardTopic> listTopic = <CardTopic>[].obs;
   ListTopic hiveBoxTopic = ListTopic();
   @override
-  void onInit() async {
+  void onInit() {
     if (_mybox.get("topic") == null) {
-      await hiveBoxTopic.createInitialData();
+      hiveBoxTopic.createInitialData();
     } else {
-      await hiveBoxTopic.loadData();
+      hiveBoxTopic.loadData();
     }
     listTopic.value = ListTopic.topics;
     super.onInit();

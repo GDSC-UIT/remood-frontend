@@ -48,23 +48,23 @@ class SettingController extends GetxController {
   ).obs;
 
   @override
-  Future onInit() async {
+  void onInit() {
     /// Create initial data if this is the first-time open
     /// or load data if this is not the first time.
     if (_topicBox.get("topic") == null) {
-      await hiveBoxTopic.createInitialData();
+      hiveBoxTopic.createInitialData();
     } else {
-      await hiveBoxTopic.loadData();
+      hiveBoxTopic.loadData();
     }
     if (_userBox.get("user") == null) {
-      await hiveUser.createInitialData();
+      hiveUser.createInitialData();
     } else {
       hiveUser.loadData();
     }
     if (_settingBox.get("setting") == null) {
-      await hiveSetting.createInitialData();
+      hiveSetting.createInitialData();
     } else {
-      await hiveSetting.loadData();
+      hiveSetting.loadData();
     }
 
     // Observe data
@@ -284,6 +284,9 @@ class SettingController extends GetxController {
     SettingBox.setting.isSundayFirstDayOfWeek = isSunday.value;
     hiveSetting.updateDatabase();
     log("After-setting: ${setting.value.isSundayFirstDayOfWeek}");
+    log("After-settingBox: ${SettingBox.setting.isSundayFirstDayOfWeek}");
+
+    update();
   }
 
   // -------------------------------------------

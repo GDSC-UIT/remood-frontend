@@ -13,7 +13,7 @@ class ListTopic {
     ),
   ].obs;
   final _mybox = Hive.box<List>('mybox');
-  Future<void> createInitialData() async {
+  void createInitialData() {
     topics = [
       // TODO: Thay thế icons = thứ tự của icon trong list-selected-icon-topics
       CardTopic(
@@ -39,7 +39,7 @@ class ListTopic {
     ].obs;
   }
 
-  Future<void> loadData() async {
+  void loadData() {
     topics = _mybox.get("topic")!.cast<CardTopic>().obs;
   }
 
