@@ -293,11 +293,11 @@ class SettingController extends GetxController {
   // Language
 
   // Current language
-  late Language choice;
+  RxInt choice = SettingBox.setting.language.obs;
 
   // Languages list
   var lanList = [
-    Language(label: "English", actived: true.obs),
+    Language(label: "English", actived: false.obs),
     Language(label: "Tiếng Việt", actived: false.obs),
     Language(label: "日本語", actived: false.obs),
   ];
@@ -320,8 +320,14 @@ class SettingController extends GetxController {
       lan.actived(false);
     }
     lanList[index].actived(true);
-    choice = lanList[index];
-    log(choice.label.toString());
+    choice(index);
+    log(lanList[choice.value].label.toString());
+  }
+
+  void saveLanguage() {
+    SettingBox.setting.language = choice.value;
+    hiveSetting.updateDatabase();
+    log(lanList[SettingBox.setting.language].label);
   }
 
   // -------------------------------------------

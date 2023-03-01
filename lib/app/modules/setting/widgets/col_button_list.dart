@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
+import 'package:remood/app/data/models/setting_box.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
+import 'package:remood/app/routes/app_routes.dart';
 
 class ColButtonList extends StatelessWidget {
   const ColButtonList({
@@ -27,7 +29,13 @@ class ColButtonList extends StatelessWidget {
         (index) => GestureDetector(
           onTap: () {
             log(settingList[index].label);
+
+            // Tránh lỗi khi chưa có screen
             if (settingList[index].screen != null) {
+              // Khi vào Language screen, đánh đấu chọn sẵn ngôn ngữ được chọn gần nhất
+              if (settingList[index].screen == AppRoutes.language) {
+                controller.activeLanguage(SettingBox.setting.language);
+              }
               Get.toNamed(settingList[index].screen);
             }
           },
