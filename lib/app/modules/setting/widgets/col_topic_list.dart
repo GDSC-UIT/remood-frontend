@@ -37,22 +37,26 @@ class ColTopicList extends StatelessWidget {
               // Chuyển đến trang "Cài đặt topic"
               Get.toNamed(AppRoutes.topicDetail);
             },
-            child: ListTile(
-              // Topic icon
-              leading: TopicAvatar(
-                topic: list[index],
-                index: index,
-                currentIndex: index.obs,
-              ),
+            child: GetBuilder<SettingController>(
+              builder: (_) {
+                return ListTile(
+                  // Topic icon
+                  leading: TopicAvatar(
+                    topic: list[index],
+                    index: index,
+                    currentIndex: index.obs,
+                  ),
 
-              // Right-arrow icon
-              trailing: Image.asset(Assets.arrowRight),
+                  // Right-arrow icon
+                  trailing: Image.asset(Assets.arrowRight),
 
-              // Topic label
-              title: Text(
-                list[index].title,
-                style: topicLabelStyle,
-              ),
+                  // Topic label
+                  title: Text(
+                    list[index].title,
+                    style: topicLabelStyle,
+                  ),
+                );
+              },
             ),
           ),
         ),

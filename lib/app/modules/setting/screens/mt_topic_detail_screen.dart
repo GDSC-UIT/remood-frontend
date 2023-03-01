@@ -8,7 +8,6 @@ import 'package:remood/app/data/models/list_topic.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/modules/setting/widgets/confirm_button.dart';
 import 'package:remood/app/modules/setting/widgets/stack_setting_appbar.dart';
-import 'package:remood/app/modules/write_diary/diary_controller.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class TopicDetailScreen extends StatelessWidget {
@@ -20,7 +19,6 @@ class TopicDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // Controller
     final SettingController settingController = Get.find();
-    final DiaryController diaryController = Get.find();
 
     // Data
     double screenWidth = MediaQuery.of(context).size.width;
@@ -37,8 +35,12 @@ class TopicDetailScreen extends StatelessWidget {
           children: [
             Stack(
               children: [
-                StackSettingAppbar(
-                  title: currentTopic.value.title,
+                GetBuilder<SettingController>(
+                  builder: (_) {
+                    return StackSettingAppbar(
+                      title: currentTopic.value.title,
+                    );
+                  },
                 ),
 // Delete button
                 GestureDetector(
@@ -89,13 +91,16 @@ class TopicDetailScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           // Name
-                          Text(
-                            currentTopic.value.title,
-                            style: CustomTextStyle.normalText(
-                              Color(settingController
-                                      .currentTopic.value.TopicColor)
-                                  .withOpacity(1),
-                            ),
+                          GetBuilder<SettingController>(
+                            builder: (_) {
+                              return Text(
+                                currentTopic.value.title,
+                                style: CustomTextStyle.normalText(
+                                  Color(currentTopic.value.TopicColor)
+                                      .withOpacity(1),
+                                ),
+                              );
+                            },
                           ),
 
                           const SizedBox(
@@ -142,11 +147,15 @@ class TopicDetailScreen extends StatelessWidget {
                           // Icon
                           SizedBox(
                             width: widthValueBox,
-                            child: Icon(
-                              IconData(currentTopic.value.icons,
-                                  fontFamily: "MaterialIcons"),
-                              color: Color(currentTopic.value.TopicColor)
-                                  .withOpacity(1),
+                            child: GetBuilder<SettingController>(
+                              builder: (_) {
+                                return Icon(
+                                  IconData(currentTopic.value.icons,
+                                      fontFamily: "MaterialIcons"),
+                                  color: Color(currentTopic.value.TopicColor)
+                                      .withOpacity(1),
+                                );
+                              },
                             ),
                           ),
 
@@ -190,15 +199,19 @@ class TopicDetailScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           // Value
-                          Container(
-                            margin:
-                                EdgeInsets.only(right: screenWidth * 0.0267),
-                            height: screenHeight * 0.024,
-                            width: screenWidth * 0.053,
-                            decoration: BoxDecoration(
-                              color: Color(currentTopic.value.TopicColor),
-                              shape: BoxShape.circle,
-                            ),
+                          GetBuilder<SettingController>(
+                            builder: (_) {
+                              return Container(
+                                margin: EdgeInsets.only(
+                                    right: screenWidth * 0.0267),
+                                height: screenHeight * 0.024,
+                                width: screenWidth * 0.053,
+                                decoration: BoxDecoration(
+                                  color: Color(currentTopic.value.TopicColor),
+                                  shape: BoxShape.circle,
+                                ),
+                              );
+                            },
                           ),
 
                           // Arrow-right icon

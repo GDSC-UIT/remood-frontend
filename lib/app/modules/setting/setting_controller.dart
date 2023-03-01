@@ -201,6 +201,10 @@ class SettingController extends GetxController {
 
     // Update Topic-detail screen
     currentTopic(ListTopic.topics[currentTopicIndex.value]);
+    update();
+
+    log(currentTopic.value.title);
+
     hiveBoxTopic.updateDatabase();
   }
 
@@ -211,6 +215,7 @@ class SettingController extends GetxController {
 
     // Update Topic-detail screen
     currentTopic(ListTopic.topics[currentTopicIndex.value]);
+    update();
 
     log(currentTopic.value.icons.toString());
 
@@ -224,6 +229,7 @@ class SettingController extends GetxController {
 
     // Update UI
     currentTopic(ListTopic.topics[currentTopicIndex.value]);
+    update();
 
     hiveBoxTopic.updateDatabase();
   }
