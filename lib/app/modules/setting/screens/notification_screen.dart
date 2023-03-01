@@ -115,18 +115,21 @@ class NotificationScreen extends StatelessWidget {
                         color: AppColors.settingNotificationClockBg,
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child: Obx(() => Text(
-                            "${controller.getHour} : ${controller.getMin}",
-                            style:
-                                CustomTextStyle.normalText(AppColors.mainColor)
-                                    .copyWith(fontSize: 16),
-                          )),
+                      child: Obx(
+                        () => Text(
+                          "${controller.getHour} : ${controller.getMin}",
+                          style: CustomTextStyle.normalText(AppColors.mainColor)
+                              .copyWith(fontSize: 16),
+                        ),
+                      ),
                     ),
                   ),
                 ],
               ),
             ),
-            const ConfirmButton(label: "Save"),
+            const ConfirmButton(
+              label: "Save",
+            ),
             SizedBox(
               height: screenHeight * 0.03,
             ),

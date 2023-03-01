@@ -26,6 +26,8 @@ import 'package:remood/app/modules/setting/screens/security_screen.dart';
 import 'package:remood/app/modules/setting/screens/setting_screen.dart';
 import 'package:remood/app/modules/setting/screens/start_of_the_week_screen.dart';
 import 'package:remood/app/modules/setting/setting_binding.dart';
+import 'package:remood/app/modules/splash/screens/splash_screen.dart';
+import 'package:remood/app/modules/splash/splash_binding.dart';
 import 'package:remood/app/modules/write_diary/diary_binding.dart';
 import 'package:remood/app/modules/write_diary/diary_controller.dart';
 import 'package:remood/app/modules/write_diary/screens/write_diary_screen.dart';
@@ -41,6 +43,17 @@ abstract class AppPages {
       name: AppRoutes.home,
       page: () => const HomeScreen(),
       bindings: [
+        HomeBinding(),
+        ReadDiaryBinding(),
+        ReportBinding(),
+        SettingBinding(),
+      ],
+    ),
+    GetPage(
+      name: AppRoutes.splash,
+      page: () => const SplashScreen(),
+      bindings: [
+        SplashBinding(),
         HomeBinding(),
         ReadDiaryBinding(),
         ReportBinding(),
@@ -68,11 +81,11 @@ abstract class AppPages {
         binding: SadBinding()),
     GetPage(
         name: AppRoutes.readDiaryFreshmood,
-        page: (() => ReadDiaryFreshmood()),
+        page: (() => const ReadDiaryFreshmood()),
         binding: SadBinding()),
     GetPage(
       name: AppRoutes.finalNegativeScreen,
-      page: () => FinalNegativeScreen(),
+      page: () => const FinalNegativeScreen(),
       binding: SadBinding(),
     ),
     GetPage(
@@ -84,6 +97,11 @@ abstract class AppPages {
       name: AppRoutes.report,
       page: () => const ReportScreen(),
       binding: ReportBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.splash,
+      page: () => const SplashScreen(),
+      binding: SplashBinding(),
     ),
     GetPage(
       name: AppRoutes.setting,
