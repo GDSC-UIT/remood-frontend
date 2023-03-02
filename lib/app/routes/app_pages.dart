@@ -70,10 +70,5 @@ abstract class AppPages {
       page: () => const ReportScreen(),
       binding: ReportBinding(),
     ),
-    GetPage(
-      name: AppRoutes.splash,
-      page: () => const SplashScreen(),
-      binding: SplashBinding(),
-    ),
   ];
 }
