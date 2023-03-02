@@ -1,6 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
+import 'package:remood/app/data/models/setting_box.dart';
 import 'package:remood/app/modules/onboarding/onboarding_controller.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/routes/app_routes.dart';
@@ -20,8 +23,23 @@ class _OnboardingButtonState extends State<OnboardingButton> {
   final OnboardingController onboardingController = Get.find();
   final PageController pageController = Get.find();
   final SettingController settingController = Get.find();
+  final localTime = DateTime.now().toLocal();
 
   void nextScreen() {
+    log(widget.pageIndex.toString());
+
+    /// When the next page is setting time one,
+    /// init scroll position with local data
+    if (widget.pageIndex.value == 2) {
+      log(DateTime.now().toString());
+    }
+
+    /// When the current page is setting time one,
+    /// save data locally
+    if (widget.pageIndex.value == 3) {
+      settingController.saveTimeOnboarding();
+    }
+
     if (widget.pageIndex == (onboardingController.contents.length - 1).obs) {
       Get.offAllNamed(AppRoutes.home);
     }

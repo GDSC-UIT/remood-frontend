@@ -23,7 +23,7 @@ class NotificationScreen extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     var saveNotification = controller.saveNotification;
-    var saveTime = controller.saveTime;
+    var saveTime = controller.saveTimeSetting;
 
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,

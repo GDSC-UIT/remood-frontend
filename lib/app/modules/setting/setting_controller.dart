@@ -350,9 +350,9 @@ class SettingController extends GetxController {
   RxBool actived = SettingBox.setting.isOnNotification.obs;
 
   // Hour - minute - AM/PM
-  late RxInt hour = 1.obs;
-  late RxInt minute = 0.obs;
-  late RxInt ampm = 0.obs;
+  RxInt hour = SettingBox.setting.hour.obs;
+  RxInt minute = SettingBox.setting.minute.obs;
+  RxInt ampm = SettingBox.setting.ampm.obs;
 
   // Get hour
   RxString get getHour => (hour < 10 ? '0$hour' : '$hour').obs;
@@ -382,7 +382,7 @@ class SettingController extends GetxController {
     log("ampm: $ampm");
   }
 
-  void saveTime() {
+  void saveTimeSetting() {
     // Save local data
     SettingBox.setting.hour = hour.value;
     SettingBox.setting.minute = minute.value;
@@ -397,6 +397,14 @@ class SettingController extends GetxController {
     log(SettingBox.setting.hour.toString());
     log(SettingBox.setting.minute.toString());
     log(SettingBox.setting.ampm.toString());
+
+    hiveSetting.updateDatabase();
+  }
+
+  void saveTimeOnboarding() {
+    SettingBox.setting.hour = hourController.selectedItem + 1;
+    SettingBox.setting.minute = minuteController.selectedItem;
+    SettingBox.setting.ampm = ampmController.selectedItem;
 
     hiveSetting.updateDatabase();
   }
