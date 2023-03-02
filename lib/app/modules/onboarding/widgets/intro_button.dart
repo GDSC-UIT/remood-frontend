@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/modules/onboarding/onboarding_controller.dart';
+import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class OnboardingButton extends StatefulWidget {
@@ -16,11 +17,12 @@ class OnboardingButton extends StatefulWidget {
 }
 
 class _OnboardingButtonState extends State<OnboardingButton> {
-  final controller = Get.find<OnboardingController>();
-  final pageController = Get.find<PageController>();
+  final OnboardingController onboardingController = Get.find();
+  final PageController pageController = Get.find();
+  final SettingController settingController = Get.find();
 
   void nextScreen() {
-    if (widget.pageIndex == (controller.contents.length - 1).obs) {
+    if (widget.pageIndex == (onboardingController.contents.length - 1).obs) {
       Get.offAllNamed(AppRoutes.home);
     }
     pageController.nextPage(
@@ -35,6 +37,10 @@ class _OnboardingButtonState extends State<OnboardingButton> {
       width: double.infinity,
       child: MaterialButton(
         onPressed: () {
+          var titleNotificationScreen = "Setting notification time";
+          // TODO: If this screen is setting time screen, it will update current time in setting controller
+          if (onboardingController.contents[widget.pageIndex.value].title ==
+              titleNotificationScreen) {}
           nextScreen();
         },
         color: AppColors.mainColor,
@@ -44,7 +50,7 @@ class _OnboardingButtonState extends State<OnboardingButton> {
         ),
         child: Obx(
           () => Text(
-            widget.pageIndex == (controller.contents.length - 1).obs
+            widget.pageIndex == (onboardingController.contents.length - 1).obs
                 ? "Continue"
                 : "Next",
             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),

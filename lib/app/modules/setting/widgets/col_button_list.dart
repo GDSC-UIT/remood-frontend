@@ -32,10 +32,21 @@ class ColButtonList extends StatelessWidget {
 
             // Tránh lỗi khi chưa có screen
             if (settingList[index].screen != null) {
-              // Khi vào Language screen, đánh đấu chọn sẵn ngôn ngữ được chọn gần nhất
+              // LOAD LASTEST DATA
+
+              // Language
               if (settingList[index].screen == AppRoutes.language) {
                 controller.activeLanguage(SettingBox.setting.language);
               }
+
+              // Notification
+              if (settingList[index].screen == AppRoutes.notification) {
+                controller.actived(SettingBox.setting.isOnNotification);
+                controller.hour(SettingBox.setting.hour);
+                controller.minute(SettingBox.setting.minute);
+                controller.ampm(SettingBox.setting.ampm);
+              }
+
               Get.toNamed(settingList[index].screen);
             }
           },

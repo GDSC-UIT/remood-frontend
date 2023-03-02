@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,6 +13,7 @@ class HourPicker extends StatelessWidget {
   }) : super(key: key);
 
   final controller = Get.find<SettingController>();
+  double itemExtent = 40;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,12 @@ class HourPicker extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            log('hour++');
+            log('hour--');
+            controller.hourController.animateTo(
+              controller.hourController.offset - itemExtent,
+              duration: const Duration(milliseconds: 80),
+              curve: Curves.easeInOut,
+            );
           },
           child: Padding(
             padding: const EdgeInsets.all(6.0),
@@ -31,17 +38,17 @@ class HourPicker extends StatelessWidget {
           height: 47,
           width: 36,
           child: ListWheelScrollView.useDelegate(
-            onSelectedItemChanged: (value) {
-              controller.updateHour(value);
-            },
-            itemExtent: 40,
+            controller: controller.hourController,
+            onSelectedItemChanged: (value) {},
+            itemExtent: itemExtent,
             perspective: 0.005,
             physics: const FixedExtentScrollPhysics(),
             childDelegate: ListWheelChildBuilderDelegate(
-              childCount: 24,
+              childCount: 12,
               builder: (context, index) {
+                // hour from 1 to 12 and controller index from 0 to 11
                 return Hours(
-                  hours: index,
+                  hours: index + 1,
                 );
               },
             ),
@@ -49,7 +56,12 @@ class HourPicker extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            log('hour--');
+            log('hour++');
+            controller.hourController.animateTo(
+              controller.hourController.offset + itemExtent,
+              duration: const Duration(milliseconds: 80),
+              curve: Curves.easeInOut,
+            );
           },
           child: Padding(
             padding: const EdgeInsets.all(6.0),

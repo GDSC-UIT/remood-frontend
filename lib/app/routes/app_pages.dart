@@ -54,10 +54,6 @@ abstract class AppPages {
       page: () => const SplashScreen(),
       bindings: [
         SplashBinding(),
-        HomeBinding(),
-        ReadDiaryBinding(),
-        ReportBinding(),
-        SettingBinding(),
       ],
     ),
     GetPage(

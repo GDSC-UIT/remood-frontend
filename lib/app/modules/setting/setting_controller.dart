@@ -43,6 +43,9 @@ class SettingController extends GetxController {
   Rx<Setting> setting = Setting(
     isSundayFirstDayOfWeek: false,
     isOnNotification: false,
+    hour: 0,
+    minute: 0,
+    ampm: 0,
     isOnPINLock: false,
     language: 0,
   ).obs;
@@ -277,6 +280,9 @@ class SettingController extends GetxController {
         isSundayFirstDayOfWeek: isSunday.value,
         language: setting.value.language,
         isOnNotification: setting.value.isOnNotification,
+        hour: setting.value.hour,
+        minute: setting.value.minute,
+        ampm: setting.value.ampm,
         isOnPINLock: setting.value.isOnPINLock,
       ),
     );
@@ -332,20 +338,27 @@ class SettingController extends GetxController {
 
   // -------------------------------------------
   // Notification
+  FixedExtentScrollController hourController =
+      FixedExtentScrollController(initialItem: SettingBox.setting.hour);
+  FixedExtentScrollController minuteController =
+      FixedExtentScrollController(initialItem: SettingBox.setting.minute);
+  FixedExtentScrollController ampmController =
+      FixedExtentScrollController(initialItem: SettingBox.setting.ampm);
+  // ScrollPosition lastestHour
 
   // Active the reminder
-  RxBool actived = false.obs;
+  RxBool actived = SettingBox.setting.isOnNotification.obs;
 
   // Hour - minute - AM/PM
-  late RxInt hour = 0.obs;
+  late RxInt hour = 1.obs;
   late RxInt minute = 0.obs;
   late RxInt ampm = 0.obs;
 
   // Get hour
-  String get getHour => hour.value < 10 ? '0$hour' : '$hour';
+  RxString get getHour => (hour < 10 ? '0$hour' : '$hour').obs;
 
   // Get minute
-  String get getMin => minute.value < 10 ? '0$minute' : '$minute';
+  RxString get getMin => (minute < 10 ? '0$minute' : '$minute').obs;
 
   // Turn on/off the reminder
   void switchOnChange() {
@@ -367,6 +380,33 @@ class SettingController extends GetxController {
     // am is 0, pm is 1
     ampm(value);
     log("ampm: $ampm");
+  }
+
+  void saveTime() {
+    // Save local data
+    SettingBox.setting.hour = hour.value;
+    SettingBox.setting.minute = minute.value;
+    SettingBox.setting.ampm = ampm.value;
+
+    // Update UI
+    // hour from 1 to 12 and controller index from 0 to 11
+    updateHour(hourController.selectedItem + 1);
+    updateMinute(minuteController.selectedItem);
+    updateAmPm(ampmController.selectedItem);
+
+    log(SettingBox.setting.hour.toString());
+    log(SettingBox.setting.minute.toString());
+    log(SettingBox.setting.ampm.toString());
+
+    hiveSetting.updateDatabase();
+  }
+
+  void saveNotification() {
+    SettingBox.setting.isOnNotification = actived.value;
+
+    log(SettingBox.setting.isOnNotification.toString());
+
+    hiveSetting.updateDatabase();
   }
 
   // -------------------------------------------

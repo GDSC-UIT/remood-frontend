@@ -31,11 +31,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Get.find<HomeController>();
-    Get.find<ReadDiaryController>();
-    Get.find<ReportController>();
-    Get.find<SettingController>();
-
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
       body: Center(

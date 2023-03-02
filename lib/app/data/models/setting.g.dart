@@ -20,14 +20,17 @@ class SettingAdapter extends TypeAdapter<Setting> {
       isSundayFirstDayOfWeek: fields[0] as bool,
       language: fields[1] as int,
       isOnNotification: fields[2] as bool,
-      isOnPINLock: fields[3] as bool,
+      hour: fields[3] as int,
+      minute: fields[4] as int,
+      ampm: fields[5] as int,
+      isOnPINLock: fields[6] as bool,
     );
   }
 
   @override
   void write(BinaryWriter writer, Setting obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj.isSundayFirstDayOfWeek)
       ..writeByte(1)
@@ -35,6 +38,12 @@ class SettingAdapter extends TypeAdapter<Setting> {
       ..writeByte(2)
       ..write(obj.isOnNotification)
       ..writeByte(3)
+      ..write(obj.hour)
+      ..writeByte(4)
+      ..write(obj.minute)
+      ..writeByte(5)
+      ..write(obj.ampm)
+      ..writeByte(6)
       ..write(obj.isOnPINLock);
   }
 

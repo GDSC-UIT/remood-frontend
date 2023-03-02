@@ -4,6 +4,7 @@ import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/modules/onboarding/onboarding_controller.dart';
+import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class ActionBar extends StatefulWidget {
@@ -18,11 +19,17 @@ class ActionBar extends StatefulWidget {
 }
 
 class _ActionBarState extends State<ActionBar> {
-  final pageController = Get.find<PageController>();
-  final onboardingController = Get.find<OnboardingController>();
-
   @override
   Widget build(BuildContext context) {
+    // Controller
+    final PageController pageController = Get.find();
+    final OnboardingController onboardingController = Get.find();
+    final SettingController settingController = Get.find();
+
+    // Data
+    var pctWidth = settingController.pctWidth(context);
+    var pctHeight = settingController.pctHeight(context);
+
     return Container(
       color: Colors.transparent,
       child: Stack(
@@ -60,7 +67,11 @@ class _ActionBarState extends State<ActionBar> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(top: 8.0),
-                child: Image.asset(Assets.logoText),
+                child: SizedBox(
+                  width: 103 * pctWidth,
+                  height: 38 * pctHeight,
+                  child: Image.asset(Assets.logoText),
+                ),
               ),
             ],
           ),

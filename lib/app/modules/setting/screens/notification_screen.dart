@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
+import 'package:remood/app/data/models/setting_box.dart';
 import 'package:remood/app/global_widgets/time_picker.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/modules/setting/widgets/confirm_button.dart';
@@ -15,9 +16,14 @@ class NotificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Controller
     final controller = Get.put(SettingController());
+
+    // Data
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+    var saveNotification = controller.saveNotification;
+    var saveTime = controller.saveTime;
 
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
@@ -61,6 +67,13 @@ class NotificationScreen extends StatelessWidget {
                   GestureDetector(
                     onTap: () {
                       log("Show dialog");
+                      // hour from 1 to 12 and controller index from 0 to 11
+                      controller.hourController = FixedExtentScrollController(
+                          initialItem: controller.hour.value - 1);
+                      controller.minuteController = FixedExtentScrollController(
+                          initialItem: controller.minute.value);
+                      controller.ampmController = FixedExtentScrollController(
+                          initialItem: controller.ampm.value);
                       showDialog(
                         context: context,
                         builder: (context) {
@@ -78,9 +91,8 @@ class NotificationScreen extends StatelessWidget {
                                     GestureDetector(
                                       onTap: () {
                                         log("Set up alarm");
-                                        // Chuyển hour và minute từ onboarding -> setting controller
+                                        saveTime();
 
-                                        log("Turn off dialog");
                                         Get.back();
                                       },
                                       child: Container(
@@ -127,8 +139,9 @@ class NotificationScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const ConfirmButton(
+            ConfirmButton(
               label: "Save",
+              func: saveNotification,
             ),
             SizedBox(
               height: screenHeight * 0.03,

@@ -6,6 +6,9 @@ class SettingBox {
     isSundayFirstDayOfWeek: false,
     language: 0,
     isOnNotification: false,
+    hour: 0,
+    minute: 0,
+    ampm: 0,
     isOnPINLock: false,
   );
 
@@ -15,6 +18,9 @@ class SettingBox {
       isSundayFirstDayOfWeek: false,
       language: 0,
       isOnNotification: false,
+      hour: 0,
+      minute: 0,
+      ampm: 0,
       isOnPINLock: false,
     );
   }
