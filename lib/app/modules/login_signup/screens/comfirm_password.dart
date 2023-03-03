@@ -19,66 +19,70 @@ class ComfirmPassword extends StatelessWidget {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       backgroundColor: AppColors.BackgroundColor,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // logibar
-          Padding(
-            padding: EdgeInsets.only(top: 25),
-            child: LoginBar(),
-          ),
-          SizedBox(
-            height: _screenHeight * 0.062,
-          ),
-
-          //title login
-          titleLogin(text: "Forgot      Password"),
-          SizedBox(
-            height: _screenHeight * 0.031,
-          ),
-
-          // slogan
-          const Slogan(),
-          SizedBox(
-            height: _screenHeight * 0.043,
-          ),
-          MyTextField(hintText: "New password", obscureText: false),
-          SizedBox(
-            height: _screenHeight * 0.031,
-          ),
-          MyTextField(hintText: "Comfirm password", obscureText: false),
-          SizedBox(
-            height: _screenHeight * 0.28,
-          ),
-          AccountQuestion(
-              question: "Have an account?",
-              button: "Login",
-              route: AppRoutes.login),
-          SizedBox(
-            height: _screenHeight * 0.02,
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: _screenWidth * 0.059),
-            child: GestureDetector(
-              onTap: () {
-                Get.offAllNamed(AppRoutes.home);
-              },
-              child: Container(
-                  height: _screenHeight * 0.064,
-                  decoration: BoxDecoration(
-                    color: AppColors.MainColor,
-                    borderRadius: BorderRadius.circular(13),
-                  ),
-                  child: Center(
-                    child: Text(
-                      "Reset password",
-                      style: CustomTextStyle.TextLogin(Colors.white),
-                    ),
-                  )),
+      body: SingleChildScrollView(
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // logibar
+            Padding(
+              padding: EdgeInsets.only(top: 25),
+              child: LoginBar(),
             ),
-          ),
-        ],
+            SizedBox(
+              height: _screenHeight * 0.062,
+            ),
+
+            //title login
+            titleLogin(text: "Forgot      Password"),
+            SizedBox(
+              height: _screenHeight * 0.031,
+            ),
+
+            // slogan
+            const Slogan(),
+            SizedBox(
+              height: _screenHeight * 0.043,
+            ),
+            MyTextField(hintText: "New password", obscureText: true),
+            SizedBox(
+              height: _screenHeight * 0.031,
+            ),
+            MyTextField(hintText: "Comfirm password", obscureText: true),
+            SizedBox(
+              height: _screenHeight * 0.28,
+            ),
+            AccountQuestion(
+                question: "Have an account?",
+                button: "Login",
+                route: AppRoutes.login),
+            SizedBox(
+              height: _screenHeight * 0.02,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: _screenWidth * 0.059),
+              child: GestureDetector(
+                onTap: () {
+                  Get.offAllNamed(AppRoutes.home);
+                },
+                child: Container(
+                    height: _screenHeight * 0.064,
+                    decoration: BoxDecoration(
+                      color: AppColors.MainColor,
+                      borderRadius: BorderRadius.circular(13),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Reset password",
+                        style: CustomTextStyle.TextLogin(Colors.white),
+                      ),
+                    )),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

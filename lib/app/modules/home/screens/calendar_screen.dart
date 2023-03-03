@@ -6,7 +6,6 @@ import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/modules/home/home_controller.dart';
 import 'package:remood/app/modules/home/widgets/button_today_diary.dart';
 import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart';
-import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart';
 
 class CalendarScreen extends StatelessWidget {
   const CalendarScreen({super.key});
@@ -46,6 +45,19 @@ class CalendarScreen extends StatelessWidget {
                   selectedDateTime: calendarController.currentdate.value,
                   selectedDayBorderColor: AppColors.mainColor,
                   selectedDayButtonColor: AppColors.mainColor,
+                  showIconBehindDayText: false,
+                  customDayBuilder: (isSelectable,
+                          index,
+                          isSelectedDay,
+                          isToday,
+                          isPrevMonthDay,
+                          textStyle,
+                          isNextMonthDay,
+                          isThisMonthDay,
+                          day) =>
+                      Column(
+                    children: [Text(day.day.toString())],
+                  ),
                 ),
               )),
         ),
