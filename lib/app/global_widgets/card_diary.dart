@@ -47,9 +47,7 @@ class DiaryCard extends StatelessWidget {
                     style: const TextStyle(
                       fontWeight: FontWeight.w600,
                     )),
-                SizedBox(
-                  width: _screenWidth * 0.32,
-                ),
+                const Spacer(),
                 GestureDetector(
                     onTap: () {
                       isPressed.value = !isPressed.value;

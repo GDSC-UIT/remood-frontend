@@ -23,49 +23,46 @@ class CalendarScreen extends StatelessWidget {
           child: Container(
               width: _screenWidth * 0.87,
               height: _screenHeight * 0.594,
-              child: Obx(
-                () => CalendarCarousel(
-                  dayPadding: 0,
-                  iconColor: AppColors.daySelected,
-                  headerTextStyle: const TextStyle(
-                      color: AppColors.daySelected,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 18),
-                  weekdayTextStyle: const TextStyle(
-                      color: AppColors.weekendColor,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 16),
-                  daysTextStyle: CustomTextStyle.dayCalendar(),
-                  weekendTextStyle: TextStyle(
-                      color: AppColors.weekendColor,
-                      fontWeight: FontWeight.w700),
-                  dayButtonColor: AppColors.dayCalendarColor,
-                  todayButtonColor: AppColors.dayCalendarColor,
-                  todayBorderColor: AppColors.daySelected,
-                  showOnlyCurrentMonthDate: true,
-                  childAspectRatio: 0.75,
-                  daysHaveCircularBorder: true,
-                  showIconBehindDayText: false,
-                  customDayBuilder: (isSelectable,
-                          index,
-                          isSelectedDay,
-                          isToday,
-                          isPrevMonthDay,
-                          textStyle,
-                          isNextMonthDay,
-                          isThisMonthDay,
-                          day) =>
-                      Column(
-                    children: [
-                      Text(
-                        day.day.toString(),
-                        style: isToday
-                            ? CustomTextStyle.todayCalendar()
-                            : CustomTextStyle.dayCalendar(),
-                      ),
-                      Container()
-                    ],
-                  ),
+              child: CalendarCarousel(
+                dayPadding: 0,
+                iconColor: AppColors.daySelected,
+                headerTextStyle: const TextStyle(
+                    color: AppColors.daySelected,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 18),
+                weekdayTextStyle: const TextStyle(
+                    color: AppColors.weekendColor,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 16),
+                daysTextStyle: CustomTextStyle.dayCalendar(),
+                weekendTextStyle: TextStyle(
+                    color: AppColors.weekendColor, fontWeight: FontWeight.w700),
+                dayButtonColor: AppColors.dayCalendarColor,
+                todayButtonColor: AppColors.dayCalendarColor,
+                todayBorderColor: AppColors.daySelected,
+                showOnlyCurrentMonthDate: true,
+                childAspectRatio: 0.75,
+                daysHaveCircularBorder: true,
+                showIconBehindDayText: false,
+                customDayBuilder: (isSelectable,
+                        index,
+                        isSelectedDay,
+                        isToday,
+                        isPrevMonthDay,
+                        textStyle,
+                        isNextMonthDay,
+                        isThisMonthDay,
+                        day) =>
+                    Column(
+                  children: [
+                    Text(
+                      day.day.toString(),
+                      style: isToday
+                          ? CustomTextStyle.todayCalendar()
+                          : CustomTextStyle.dayCalendar(),
+                    ),
+                    Container()
+                  ],
                 ),
               )),
         ),

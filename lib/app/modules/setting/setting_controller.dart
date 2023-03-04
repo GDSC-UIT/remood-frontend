@@ -2,18 +2,35 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/core/values/text_style.dart';
+import 'package:remood/app/data/models/diary.dart';
 import 'package:remood/app/data/models/language.dart';
+import 'package:remood/app/data/models/list_pinned_diary.dart';
 import 'package:remood/app/data/models/list_topic.dart';
 import 'package:remood/app/data/models/setting_button.dart';
 import 'package:remood/app/data/models/topic.dart';
 import 'package:remood/app/data/models/topic_button.dart';
+import 'package:remood/app/global_widgets/card_diary.dart';
 import 'package:remood/app/modules/setting/screens/mt_topic_detail_screen.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class SettingController extends GetxController {
+  // hive box pindiary
+  final _mybox = Hive.box<List>('mybox');
+  PinnedDiary hiveBoxPinned = PinnedDiary();
+  @override
+  void onInit() {
+    if (_mybox.get("pinneddiary") == null) {
+      hiveBoxPinned.createInitialData();
+    } else {
+      hiveBoxPinned.loadData();
+    }
+    super.onInit();
+  }
+
   // Main screen
   List<SettingButton> settingList = [
     SettingButton(
