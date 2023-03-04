@@ -135,4 +135,20 @@ class CustomTextStyle extends TextStyle {
       fontSize: 12,
     );
   }
+
+  static TextStyle dayCalendar() {
+    return GoogleFonts.poppins(
+      color: AppColors.dayCalendarColor,
+      fontWeight: FontWeight.w400,
+      fontSize: 10,
+    );
+  }
+
+  static TextStyle todayCalendar() {
+    return GoogleFonts.poppins(
+      color: AppColors.daySelected,
+      fontWeight: FontWeight.w400,
+      fontSize: 10,
+    );
+  }
 }
