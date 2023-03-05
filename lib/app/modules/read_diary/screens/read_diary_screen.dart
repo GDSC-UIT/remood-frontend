@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/modules/read_diary/read_diary_controller.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:remood/app/modules/read_diary/widgets/bottom_sheet_search_diary.dart';
-import 'package:remood/app/global_widgets/card_diary.dart';
 import 'package:remood/app/modules/read_diary/widgets/list_negative_diary_card.dart';
 import 'package:remood/app/modules/read_diary/widgets/list_positive_diary_card.dart';
 

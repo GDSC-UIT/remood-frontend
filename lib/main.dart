@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:remood/app/data/models/setting.dart';
@@ -12,6 +13,15 @@ import '/app/routes/app_pages.dart';
 import '/app/routes/app_routes.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+// Setup local notification
+FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+    FlutterLocalNotificationsPlugin(); // instance of flutterLocalNotificationsPlugin
+const AndroidInitializationSettings androidInitializationSettings =
+    AndroidInitializationSettings('@mipmap/ic_launcher'); // for android
+InitializationSettings initializationSettings = const InitializationSettings(
+  android: androidInitializationSettings,
+);
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
@@ -20,11 +30,15 @@ void main() async {
     ..registerAdapter(CardTopicAdapter())
     ..registerAdapter(UserAdapter())
     ..registerAdapter(SettingAdapter());
-  await Hive.openBox<List>('mybox');
-  await Hive.openBox<User>('user');
-  await Hive.openBox<Setting>('setting');
-  initializeDateFormatting();
+  Future.wait([
+    Hive.openBox<List>('mybox'),
+    Hive.openBox<User>('user'),
+    Hive.openBox<Setting>('setting'),
+  ]);
 
+  // Setup local notification
+  await flutterLocalNotificationsPlugin.initialize(initializationSettings);
+  initializeDateFormatting();
   runApp(const MyApp());
 }
 

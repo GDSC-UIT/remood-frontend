@@ -4,11 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
-import 'package:remood/app/modules/home/home_controller.dart';
-import 'package:remood/app/modules/read_diary/read_diary_controller.dart';
-import 'package:remood/app/modules/report/report_controller.dart';
-import 'package:remood/app/modules/setting/setting_binding.dart';
-import 'package:remood/app/modules/setting/setting_controller.dart';
+import 'package:remood/app/data/services/notification_service.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -21,11 +17,17 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     Timer(
       const Duration(seconds: 2),
       () => Get.toNamed(AppRoutes.onboarding),
+    );
+
+    // Ask for notification permission
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) async {
+        NotificationService.askPermissionFirstTime();
+      },
     );
   }
 

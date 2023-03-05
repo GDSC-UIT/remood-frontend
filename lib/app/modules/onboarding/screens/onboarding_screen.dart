@@ -29,17 +29,21 @@ class OnboardingScreen extends StatelessWidget {
                     // Onboarding content
                     GetBuilder<OnboardingController>(
                       builder: (controller) {
-                        return Expanded(
-                          child: PageView.builder(
-                            controller: pageController,
-                            itemCount: controller.contents.length,
-                            onPageChanged: (value) {
-                              controller.updateIndex(value);
-                            },
-                            itemBuilder: (_, i) {
-                              return OnboardingContent(index: i);
-                            },
-                          ),
+                        return Column(
+                          children: [
+                            Expanded(
+                              child: PageView.builder(
+                                controller: pageController,
+                                itemCount: controller.contents.length,
+                                onPageChanged: (value) {
+                                  controller.updateIndex(value);
+                                },
+                                itemBuilder: (_, i) {
+                                  return OnboardingContent(index: i);
+                                },
+                              ),
+                            ),
+                          ],
                         );
                       },
                     ),

@@ -16,6 +16,7 @@ import 'package:remood/app/data/models/setting_button.dart';
 import 'package:remood/app/data/models/topic.dart';
 import 'package:remood/app/data/models/user.dart';
 import 'package:remood/app/data/models/user_box.dart';
+import 'package:remood/app/data/services/setting_service.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class SettingController extends GetxController {
@@ -39,15 +40,6 @@ class SettingController extends GetxController {
   Rx<User> user = User(
     name: "Untitle",
     avtURL: Assets.settingUserAvt1,
-  ).obs;
-  Rx<Setting> setting = Setting(
-    isSundayFirstDayOfWeek: false,
-    isOnNotification: false,
-    hour: 0,
-    minute: 0,
-    ampm: 0,
-    isOnPINLock: false,
-    language: 0,
   ).obs;
 
   @override
@@ -73,7 +65,7 @@ class SettingController extends GetxController {
     // Observe data
     listTopic = ListTopic.topics;
     user = UserBox.user.obs;
-    setting = SettingBox.setting.obs;
+    SettingService.setting = SettingBox.setting.obs;
     super.onInit();
   }
 
@@ -272,24 +264,23 @@ class SettingController extends GetxController {
   }
 
   void saveFirstDayOfWeek() {
-    log('Before-setting: ${setting.value.isSundayFirstDayOfWeek}');
+    log('Before-setting: ${SettingService.setting.value.isSundayFirstDayOfWeek}');
     log('Before-settingBox: ${SettingBox.setting.isSundayFirstDayOfWeek}');
     // Update UI data
-    setting(
-      Setting(
-        isSundayFirstDayOfWeek: isSunday.value,
-        language: setting.value.language,
-        isOnNotification: setting.value.isOnNotification,
-        hour: setting.value.hour,
-        minute: setting.value.minute,
-        ampm: setting.value.ampm,
-        isOnPINLock: setting.value.isOnPINLock,
-      ),
-    );
+    SettingService.setting = Setting(
+      isSundayFirstDayOfWeek: isSunday.value,
+      language: SettingService.setting.value.language,
+      isOnNotification: SettingService.setting.value.isOnNotification,
+      hour: SettingService.setting.value.hour,
+      minute: SettingService.setting.value.minute,
+      ampm: SettingService.setting.value.ampm,
+      isOnPINLock: SettingService.setting.value.isOnPINLock,
+    ).obs;
+
     // Update local data
     SettingBox.setting.isSundayFirstDayOfWeek = isSunday.value;
     hiveSetting.updateDatabase();
-    log("After-setting: ${setting.value.isSundayFirstDayOfWeek}");
+    log("After-setting: ${SettingService.setting.value.isSundayFirstDayOfWeek}");
     log("After-settingBox: ${SettingBox.setting.isSundayFirstDayOfWeek}");
 
     update();

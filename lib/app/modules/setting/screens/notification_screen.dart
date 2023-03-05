@@ -3,9 +3,10 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
-import 'package:remood/app/data/models/setting_box.dart';
+import 'package:remood/app/data/services/notification_service.dart';
 import 'package:remood/app/global_widgets/time_picker.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/modules/setting/widgets/confirm_button.dart';
@@ -48,8 +49,26 @@ class NotificationScreen extends StatelessWidget {
                     () => CupertinoSwitch(
                       activeColor: AppColors.mainColor,
                       value: controller.actived.value,
-                      onChanged: (_) {
-                        controller.switchOnChange();
+                      onChanged: (_) async {
+                        /// Nếu switch đang tắt,
+                        /// đã có quyền (isGranted = true) thì có thể turn on/off
+                        /// chưa có quyền (isDenied = true) thì askPermissionThen()
+                        /// nếu được cấp quyền thì cập nhật db,
+                        /// không thì không làm gì hết
+                        ///
+                        /// Nếu đang bật, thì có thể turn on/off lun
+                        if (controller.actived.value) {
+                          controller.switchOnChange();
+                        } else {
+                          var status = await Permission.notification.status;
+                          if (status.isDenied) {
+                            // ignore: use_build_context_synchronously
+                            await NotificationService.askPermissionThen(
+                                context);
+                          } else if (status.isGranted) {
+                            controller.switchOnChange();
+                          }
+                        }
                       },
                     ),
                   ),

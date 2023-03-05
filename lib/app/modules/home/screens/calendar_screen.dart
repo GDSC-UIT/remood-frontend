@@ -8,6 +8,8 @@ import 'package:remood/app/modules/home/widgets/button_today_diary.dart';
 import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
 
+import 'package:remood/app/data/services/setting_service.dart';
+
 class CalendarScreen extends StatelessWidget {
   const CalendarScreen({super.key});
 
@@ -17,7 +19,7 @@ class CalendarScreen extends StatelessWidget {
     double _screenHeight = MediaQuery.of(context).size.height;
     HomeController calendarController = Get.find();
     SettingController settingController = Get.find();
-    var setting = settingController.setting;
+    var setting = SettingService.setting;
     // TODO: ----Stuck---- Load start of the week automatically
 
     return Column(
@@ -31,7 +33,9 @@ class CalendarScreen extends StatelessWidget {
               builder: (controller) {
                 return CalendarCarousel(
                   firstDayOfWeek:
-                      controller.setting.value.isSundayFirstDayOfWeek ? 0 : 1,
+                      SettingService.setting.value.isSundayFirstDayOfWeek
+                          ? 0
+                          : 1,
                   iconColor: AppColors.mainColor,
                   headerTextStyle: const TextStyle(
                     color: AppColors.mainColor,

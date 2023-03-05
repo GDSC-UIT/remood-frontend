@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
-import 'package:remood/app/data/models/setting_box.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
+
+import 'package:remood/app/data/services/setting_service.dart';
 
 class ContainerFirstDayMonday extends StatelessWidget {
   const ContainerFirstDayMonday({
@@ -18,7 +19,7 @@ class ContainerFirstDayMonday extends StatelessWidget {
     // Data
     String label = 'Monday';
     var isSunday = controller.isSunday;
-    isSunday(controller.setting.value.isSundayFirstDayOfWeek);
+    isSunday(SettingService.setting.value.isSundayFirstDayOfWeek);
 
     return GestureDetector(
       onTap: () => controller.onTapMonday(),
