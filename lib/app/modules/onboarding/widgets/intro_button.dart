@@ -37,7 +37,7 @@ class _OnboardingButtonState extends State<OnboardingButton> {
     /// When the current page is setting time one,
     /// save data locally
     if (widget.pageIndex.value == 3) {
-      settingController.saveTimeOnboarding();
+      settingController.saveTimeOnboarding(context);
     }
 
     if (widget.pageIndex == (onboardingController.contents.length - 1).obs) {

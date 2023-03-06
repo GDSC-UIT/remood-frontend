@@ -19,7 +19,6 @@ class OnboardingContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final onboardingController = Get.find<OnboardingController>();
-    final settingController = Get.put(SettingController());
     var boxDecoration = BoxDecoration(
       boxShadow: const [
         BoxShadow(

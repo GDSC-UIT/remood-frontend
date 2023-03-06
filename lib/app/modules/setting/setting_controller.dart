@@ -16,6 +16,7 @@ import 'package:remood/app/data/models/setting_button.dart';
 import 'package:remood/app/data/models/topic.dart';
 import 'package:remood/app/data/models/user.dart';
 import 'package:remood/app/data/models/user_box.dart';
+import 'package:remood/app/data/services/notification_service.dart';
 import 'package:remood/app/data/services/setting_service.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
@@ -373,7 +374,7 @@ class SettingController extends GetxController {
     log("ampm: $ampm");
   }
 
-  void saveTimeSetting() {
+  void saveTimeSetting(BuildContext context) {
     // Save local data
     SettingBox.setting.hour = hour.value;
     SettingBox.setting.minute = minute.value;
@@ -389,13 +390,26 @@ class SettingController extends GetxController {
     log(SettingBox.setting.minute.toString());
     log(SettingBox.setting.ampm.toString());
 
+    // Set for notification
+    NotificationService.scheduleDailyAtTimeNotification(
+        context, TimeOfDay(hour: hour.value, minute: minute.value));
+
     hiveSetting.updateDatabase();
   }
 
-  void saveTimeOnboarding() {
+  void saveTimeOnboarding(BuildContext context) {
     SettingBox.setting.hour = hourController.selectedItem + 1;
     SettingBox.setting.minute = minuteController.selectedItem;
     SettingBox.setting.ampm = ampmController.selectedItem;
+
+    /// Set for notification
+    NotificationService.scheduleDailyAtTimeNotification(
+      context,
+      TimeOfDay(
+        hour: SettingBox.setting.hour,
+        minute: SettingBox.setting.minute,
+      ),
+    );
 
     hiveSetting.updateDatabase();
   }

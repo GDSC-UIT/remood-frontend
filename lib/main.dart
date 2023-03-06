@@ -17,7 +17,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin(); // instance of flutterLocalNotificationsPlugin
 const AndroidInitializationSettings androidInitializationSettings =
-    AndroidInitializationSettings('@mipmap/ic_launcher'); // for android
+    AndroidInitializationSettings('app_icon'); // for android
 InitializationSettings initializationSettings = const InitializationSettings(
   android: androidInitializationSettings,
 );

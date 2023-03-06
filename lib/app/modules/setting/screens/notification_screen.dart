@@ -7,6 +7,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/services/notification_service.dart';
+import 'package:remood/app/data/services/permission_service.dart';
 import 'package:remood/app/global_widgets/time_picker.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/modules/setting/widgets/confirm_button.dart';
@@ -63,8 +64,7 @@ class NotificationScreen extends StatelessWidget {
                           var status = await Permission.notification.status;
                           if (status.isDenied) {
                             // ignore: use_build_context_synchronously
-                            await NotificationService.askPermissionThen(
-                                context);
+                            await PermissionService.askPermissionThen(context);
                           } else if (status.isGranted) {
                             controller.switchOnChange();
                           }
@@ -110,7 +110,7 @@ class NotificationScreen extends StatelessWidget {
                                     GestureDetector(
                                       onTap: () {
                                         log("Set up alarm");
-                                        saveTime();
+                                        saveTime(context);
 
                                         Get.back();
                                       },
