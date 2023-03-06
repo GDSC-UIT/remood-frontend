@@ -13,9 +13,14 @@ import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/modules/setting/widgets/confirm_button.dart';
 import 'package:remood/app/modules/setting/widgets/stack_setting_appbar.dart';
 
-class NotificationScreen extends StatelessWidget {
+class NotificationScreen extends StatefulWidget {
   const NotificationScreen({super.key});
 
+  @override
+  State<NotificationScreen> createState() => _NotificationScreenState();
+}
+
+class _NotificationScreenState extends State<NotificationScreen> {
   @override
   Widget build(BuildContext context) {
     // Controller
@@ -64,7 +69,7 @@ class NotificationScreen extends StatelessWidget {
                           var status = await Permission.notification.status;
                           if (status.isDenied) {
                             // ignore: use_build_context_synchronously
-                            await PermissionService.askPermissionThen(context);
+                            await PermissionService.askPermissionThen(context, mounted);
                           } else if (status.isGranted) {
                             controller.switchOnChange();
                           }

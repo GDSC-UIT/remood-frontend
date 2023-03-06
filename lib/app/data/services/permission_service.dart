@@ -15,14 +15,14 @@ class PermissionService {
     }
   }
 
-  static Future<bool> askPermissionThen(BuildContext context) async {
+  static Future<bool> askPermissionThen(BuildContext context, bool mounted) async {
     PermissionStatus noticatePermission = await Permission.notification.status;
 
     if (noticatePermission.isGranted) {
       debugPrint("Permission is granted");
     } else if (noticatePermission.isDenied) {
       debugPrint("Permission is denied");
-      if (!context.mounted) return false;
+      if (!mounted) return false;
       showDialog(
         context: context,
         builder: (context) => AlertDialog(

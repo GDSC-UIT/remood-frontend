@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_native_timezone/flutter_native_timezone.dart';
-import 'package:permission_handler/permission_handler.dart';
 // ignore: depend_on_referenced_packages
 import 'package:timezone/data/latest.dart' as tz;
 // ignore: depend_on_referenced_packages
@@ -16,7 +15,7 @@ class NotificationService {
     _configureLocalTimeZone();
 
     const AndroidInitializationSettings initializationSettingsAndroid =
-        AndroidInitializationSettings("ic_launcher");
+        AndroidInitializationSettings("@mipmap/ic_launcher");
 
     const InitializationSettings initializationSettings =
         InitializationSettings(
