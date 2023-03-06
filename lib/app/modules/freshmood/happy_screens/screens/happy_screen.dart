@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/data/models/quote_model.dart';
+import 'package:remood/app/global_widgets/to_suggestion_button.dart';
+import 'package:remood/app/global_widgets/today_motivation.dart';
 import 'package:remood/app/modules/freshmood/freshmood_widgets/back_button.dart';
 import 'package:remood/app/modules/home/home_controller.dart';
 import 'package:remood/app/modules/home/widgets/floating_action_button.dart';
@@ -45,7 +47,20 @@ class _HappyScreenState extends State<HappyScreen> {
 // back button
           BackButtonContainer(),
           SizedBox(
-            height: _screenHeight * 0.2,
+            height: _screenHeight * 0.11,
+          ),
+// today's motivation
+          Center(
+            child: TodayMotivation(
+              color: changeAsset.valueSlider.value < 60
+                  ? AppColors.normalFace
+                  : changeAsset.valueSlider.value < 80
+                      ? AppColors.smileFace
+                      : AppColors.happyFace,
+            ),
+          ),
+          SizedBox(
+            height: _screenHeight * 0.023,
           ),
 // icon feelings
           Padding(
@@ -126,6 +141,11 @@ class _HappyScreenState extends State<HappyScreen> {
                     );
                   },
                 )),
+          ),
+          const Spacer(),
+          Center(child: SuggestionButton()),
+          SizedBox(
+            height: _screenHeight * 0.04,
           )
         ],
       ),

@@ -48,7 +48,7 @@ class CustomTextStyle extends TextStyle {
     return GoogleFonts.poppins(
       fontSize: 24,
       fontWeight: FontWeight.w600,
-      color: AppColors.mainColor.withOpacity(0.5),
+      color: AppColors.Primary,
     );
   }
 
@@ -149,6 +149,35 @@ class CustomTextStyle extends TextStyle {
       color: AppColors.daySelected,
       fontWeight: FontWeight.w400,
       fontSize: 10,
+    );
+  }
+
+  static TextStyle todayMotivationText(Color color) {
+    return GoogleFonts.poppins(
+        fontSize: 16, color: color, fontWeight: FontWeight.w700);
+  }
+
+  static TextStyle suggestionButtonText() {
+    return GoogleFonts.poppins(
+      fontSize: 15,
+      fontWeight: FontWeight.w600,
+      color: Colors.white,
+    );
+  }
+
+  static TextStyle searchFor() {
+    return GoogleFonts.poppins(
+      color: AppColors.greyscale,
+      fontSize: 14,
+      fontWeight: FontWeight.w500,
+    );
+  }
+
+  static TextStyle textReport() {
+    return GoogleFonts.poppins(
+      color: AppColors.Primary,
+      fontSize: 40,
+      fontWeight: FontWeight.w500,
     );
   }
 }

@@ -19,7 +19,6 @@ void main() async {
     ..registerAdapter(CardTopicAdapter());
   await Hive.openBox<List>('mybox');
   initializeDateFormatting();
-
   runApp(const MyApp());
 }
 
@@ -31,7 +30,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       initialBinding: SettingBinding(),
       title: AppStrings.appName,
-      initialRoute: AppRoutes.onboarding,
+      initialRoute: AppRoutes.home,
       locale: LocalizationService.locale,
       fallbackLocale: LocalizationService.fallbackLocale,
       translations: LocalizationService(),

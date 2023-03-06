@@ -9,6 +9,7 @@ abstract class AppRoutes {
   static const onboarding = '/onboarding';
   static const writediary = '/home/writediary';
   static const happyfreshmood = '/home/happyfreshmood';
+  static const suggestion = '/home/suggestion';
   static const sadfreshmood = '/home/sadfreshmood';
   static const choosefreshmood = '/home/sadfreshmood/choose';
   static const readDiaryFreshmood =

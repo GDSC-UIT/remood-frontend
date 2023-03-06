@@ -31,6 +31,8 @@ import 'package:remood/app/modules/setting/screens/security_screen.dart';
 import 'package:remood/app/modules/setting/screens/setting_screen.dart';
 import 'package:remood/app/modules/setting/screens/start_of_the_week_screen.dart';
 import 'package:remood/app/modules/setting/setting_binding.dart';
+import 'package:remood/app/modules/suggestion/screens/suggestion_screen.dart';
+import 'package:remood/app/modules/suggestion/suggestion_binding.dart';
 import 'package:remood/app/modules/write_diary/diary_binding.dart';
 import 'package:remood/app/modules/write_diary/screens/write_diary_screen.dart';
 import 'package:remood/app/modules/onboarding/onboarding_binding.dart';
@@ -60,6 +62,11 @@ abstract class AppPages {
       name: AppRoutes.happyfreshmood,
       page: () => const HappyScreen(),
       bindings: [HappyBinding(), HomeBinding()],
+    ),
+    GetPage(
+      name: AppRoutes.suggestion,
+      page: () => const SuggestionScreen(),
+      binding: SuggestionBinding(),
     ),
     GetPage(
       name: AppRoutes.sadfreshmood,

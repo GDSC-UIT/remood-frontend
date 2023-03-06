@@ -34,8 +34,7 @@ class Assets {
   static const String onboardingImage3 =
       'assets/images/onboarding_img_report.png';
   static const String onboardingAlarm = 'assets/images/alarm.jpg';
-  static const String reportPercentage =
-      'assets/images/report-percentage-bg.png';
+  static const String reportPercentage = 'assets/images/percentagecircle.png';
   static const String settingUserAvt = 'assets/images/setting_user_avt.png';
   static const String depressed = 'assets/icons/depressedface.png';
   static const String sad = 'assets/icons/sadface.png';
@@ -45,4 +44,6 @@ class Assets {
   static const String pinnedDiary = 'assets/icons/pinned.png';
   static const String isPinnedDiary = 'assets/icons/ispinned.png';
   static const String google = 'assets/images/google.png';
+  static const String remoodSuggestion = 'assets/images/Remoodsuggestions.png';
+  static const String remoodLogo = 'assets/images/remoodlogo.png';
 }
