@@ -3,19 +3,18 @@ import 'package:permission_handler/permission_handler.dart';
 
 class PermissionService {
   static Future askPermissionFirstTime() async {
-    PermissionStatus noticatePermission = await Permission.notification.status;
+    PermissionStatus noticatePermission =
+        await Permission.notification.request();
 
     if (noticatePermission.isGranted) {
       debugPrint("Permission is granted");
     } else if (noticatePermission.isDenied) {
       debugPrint("Permission is denied");
-      if (await Permission.notification.request().isGranted) {
-        debugPrint("Permission is granted");
-      }
     }
   }
 
-  static Future<bool> askPermissionThen(BuildContext context, bool mounted) async {
+  static Future<bool> askPermissionThen(
+      BuildContext context, bool mounted) async {
     PermissionStatus noticatePermission = await Permission.notification.status;
 
     if (noticatePermission.isGranted) {

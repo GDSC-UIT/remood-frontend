@@ -69,7 +69,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
                           var status = await Permission.notification.status;
                           if (status.isDenied) {
                             // ignore: use_build_context_synchronously
-                            await PermissionService.askPermissionThen(context, mounted);
+                            await PermissionService.askPermissionThen(
+                                context, mounted);
                           } else if (status.isGranted) {
                             controller.switchOnChange();
                           }

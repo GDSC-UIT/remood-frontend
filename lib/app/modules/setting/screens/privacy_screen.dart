@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
+import 'package:remood/app/data/services/privacy_service.dart';
 import 'package:remood/app/modules/setting/widgets/stack_setting_appbar.dart';
 
 class PrivacyScreen extends StatelessWidget {
@@ -26,10 +27,30 @@ class PrivacyScreen extends StatelessWidget {
                         .copyWith(color: Colors.black, fontSize: 16),
                   ),
                   const SizedBox(height: 16),
-                  Text(
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum sapien sodales mi sagittis hendrerit. Curabitur ut lectus nec orci cursus rhoncus. Donec a ultrices risus. Mauris ut erat ut urna rhoncus facilisis a eu neque. Ut iaculis viverra laoreet. In interdum, augue non auctor pharetra, felis ante gravida ante, quis mattis quam eros non quam. Vivamus scelerisque ante nec dapibus convallis. Vestibulum quis scelerisque leo. Vestibulum quis porttitor tellus, non finibus nibh. Quisque ut tempor nulla, sed consectetur tortor. Mauris volutpat viverra arcu non laoreet. Duis eu arcu nunc. Pellentesque ultricies facilisis faucibus. Duis magna sem, ultricies sed scelerisque efficitur, hendrerit at arcu.",
-                    style: CustomTextStyle.normalText(const Color(0xFFB3B1B0)),
-                  )
+                  Column(
+                    children: List.generate(
+                      PrivacyService.contents.length,
+                      (index) => Column(
+                        children: [
+                          Text(
+                            PrivacyService.contents[index].heading,
+                            style: CustomTextStyle.normalText(
+                              const Color(0xFFB3B1B0),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 14,
+                          ),
+                          Text(
+                            PrivacyService.contents[index].body,
+                            style: CustomTextStyle.normalText(
+                              const Color(0xFFB3B1B0),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

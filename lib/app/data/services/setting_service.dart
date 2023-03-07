@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-
 import 'package:remood/app/data/models/setting.dart';
 
 class SettingService extends GetxController {

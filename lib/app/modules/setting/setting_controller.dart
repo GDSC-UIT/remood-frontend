@@ -67,6 +67,7 @@ class SettingController extends GetxController {
     listTopic = ListTopic.topics;
     user = UserBox.user.obs;
     SettingService.setting = SettingBox.setting.obs;
+
     super.onInit();
   }
 
@@ -330,8 +331,10 @@ class SettingController extends GetxController {
 
   // -------------------------------------------
   // Notification
+
+  /// hour from 1 to 12 and controller index from 0 to 11
   FixedExtentScrollController hourController =
-      FixedExtentScrollController(initialItem: SettingBox.setting.hour);
+      FixedExtentScrollController(initialItem: SettingBox.setting.hour - 1);
   FixedExtentScrollController minuteController =
       FixedExtentScrollController(initialItem: SettingBox.setting.minute);
   FixedExtentScrollController ampmController =
@@ -374,7 +377,7 @@ class SettingController extends GetxController {
     log("ampm: $ampm");
   }
 
-  void saveTimeSetting(BuildContext context) {
+  void saveTimeSetting(BuildContext context) async {
     // Save local data
     SettingBox.setting.hour = hour.value;
     SettingBox.setting.minute = minute.value;

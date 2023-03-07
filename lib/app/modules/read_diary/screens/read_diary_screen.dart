@@ -125,10 +125,9 @@ class _ReadDiaryScreenState extends State<ReadDiaryScreen>
                 ),
                 child: SizedBox(
                   height: _screenHeight * 0.651,
-                  child: TabBarView(controller: tabController, children: [
-                    Expanded(child: PositiveDiaryList()),
-                    Expanded(child: NegativeDiaryList())
-                  ]),
+                  child: TabBarView(
+                      controller: tabController,
+                      children: [PositiveDiaryList(), NegativeDiaryList()]),
                 ),
               ),
             ),

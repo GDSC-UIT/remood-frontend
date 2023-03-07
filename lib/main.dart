@@ -7,21 +7,13 @@ import 'package:remood/app/data/models/diary.dart';
 import 'package:remood/app/data/models/setting.dart';
 import 'package:remood/app/data/models/topic.dart';
 import 'package:remood/app/data/models/user.dart';
+import 'package:remood/app/data/services/notification_service.dart';
 import 'package:remood/app/modules/setting/setting_binding.dart';
 
 import '/app/core/values/app_strings.dart';
 import '/app/data/services/localization_service.dart';
 import '/app/routes/app_pages.dart';
 import '/app/routes/app_routes.dart';
-
-// Setup local notification
-FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-    FlutterLocalNotificationsPlugin(); // instance of flutterLocalNotificationsPlugin
-const AndroidInitializationSettings androidInitializationSettings =
-    AndroidInitializationSettings('@mipmap/ic_launcher'); // for android
-InitializationSettings initializationSettings = const InitializationSettings(
-  android: androidInitializationSettings,
-);
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,9 +29,20 @@ void main() async {
     Hive.openBox<Setting>('setting'),
   ]);
 
-  // Setup local notification
+  /// Setup local notification
+  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+      FlutterLocalNotificationsPlugin(); // instance of flutterLocalNotificationsPlugin
+  AndroidInitializationSettings androidInitializationSettings =
+      const AndroidInitializationSettings('@mipmap/ic_launcher'); // for android
+  InitializationSettings initializationSettings = InitializationSettings(
+    android: androidInitializationSettings,
+  );
   await flutterLocalNotificationsPlugin.initialize(initializationSettings);
   initializeDateFormatting();
+
+  /// Initialize timezone
+  NotificationService.configureLocalTimeZone();
+
   runApp(const MyApp());
 }
 
