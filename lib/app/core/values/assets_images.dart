@@ -17,6 +17,8 @@ class Assets {
   static const String password = 'assets/icons/password.png';
   static const String calendar = 'assets/icons/calendar.png';
   static const String language = 'assets/icons/language.png';
+  static const String addressMarker = 'assets/icons/address_marker.png';
+  static const String phone = 'assets/icons/phone.png';
 
   // Images
   static const String logoText = 'assets/images/logo-text.png';
