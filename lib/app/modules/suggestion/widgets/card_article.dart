@@ -16,8 +16,6 @@ class CardArticle extends StatelessWidget {
     double _screenHeight = MediaQuery.of(context).size.height;
     return Stack(children: [
       Container(
-        width: _screenWidth * 0.83,
-        height: _screenHeight * 0.21,
         decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(25),
@@ -26,7 +24,7 @@ class CardArticle extends StatelessWidget {
       Positioned(
         bottom: 0,
         child: Container(
-          width: _screenWidth * 0.826,
+          width: _screenWidth * 0.9,
           height: _screenHeight * 0.095,
           decoration: BoxDecoration(
               gradient: LinearGradient(

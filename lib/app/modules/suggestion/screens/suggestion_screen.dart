@@ -39,7 +39,7 @@ class SuggestionScreen extends StatelessWidget {
             ),
             ListCardBlog(),
             SizedBox(
-              height: 45,
+              height: 55,
             )
           ],
         ),
