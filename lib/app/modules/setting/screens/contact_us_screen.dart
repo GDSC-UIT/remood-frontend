@@ -4,6 +4,8 @@ import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/services/contact_service.dart';
 import 'package:remood/app/modules/setting/widgets/stack_setting_appbar.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class ContactUsScreen extends StatelessWidget {
   const ContactUsScreen({super.key});
@@ -11,6 +13,15 @@ class ContactUsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String appBarTitle = "Contact Us";
+
+    // Function
+    Future<void> _launchPhoneCall() async {
+      /// Phone number is invalid
+      if (!await launchUrlString("tel://${ContactService.phoneNumber}")) {
+        throw Exception("Counld not call ${ContactService.phoneNumber}");
+      }
+    }
+
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
       body: SafeArea(
@@ -66,9 +77,12 @@ class ContactUsScreen extends StatelessWidget {
                       const SizedBox(
                         width: 10.0,
                       ),
-                      Text(
-                        ContactService.phoneNumber,
-                        style: CustomTextStyle.normalText(Colors.black),
+                      TextButton(
+                        onPressed: () => _launchPhoneCall(),
+                        child: Text(
+                          ContactService.phoneNumber,
+                          style: CustomTextStyle.normalText(Colors.black),
+                        ),
                       ),
                     ],
                   )
