@@ -21,13 +21,13 @@ class PositiveDiaryListFreshmood extends StatelessWidget {
     return ListView.separated(
       padding: EdgeInsets.zero,
       physics: const BouncingScrollPhysics(),
-      itemCount: ListPositveDiary.listPositiveDiary.length,
+      itemCount: readPositveDiary.positiveDiaryList.length,
       itemBuilder: ((context, index) {
         return GestureDetector(
           onTap: (() {
             readPositveDiary.readDiary(context, index, "Positive diary", 0);
           }),
-          child: DiaryCard(diary: ListPositveDiary.listPositiveDiary[index]),
+          child: DiaryCard(diary: readPositveDiary.positiveDiaryList[index]),
         );
       }),
       separatorBuilder: (context, index) => SizedBox(

@@ -24,10 +24,10 @@ class ReportController extends GetxController {
 
   // Simulate the process of fetching data
   void fetchData() async {
-    // await Future.delayed(
-    //   const Duration(seconds: 1),
-    // );
-    percentage.value = 60;
+    await Future.delayed(
+      const Duration(seconds: 1),
+    );
+    percentage.value = 75;
     avgMood.value = "Happy";
   }
 

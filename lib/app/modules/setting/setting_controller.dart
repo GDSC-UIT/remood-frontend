@@ -6,7 +6,9 @@ import 'package:hive/hive.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/core/values/text_style.dart';
+import 'package:remood/app/data/models/diary.dart';
 import 'package:remood/app/data/models/language.dart';
+import 'package:remood/app/data/models/list_pinned_diary.dart';
 import 'package:remood/app/data/models/list_selected_color_topic.dart';
 import 'package:remood/app/data/models/list_selected_icons_topic.dart';
 import 'package:remood/app/data/models/list_topic.dart';
@@ -17,6 +19,7 @@ import 'package:remood/app/data/models/topic.dart';
 import 'package:remood/app/data/models/user.dart';
 import 'package:remood/app/data/models/user_box.dart';
 import 'package:remood/app/data/services/notification_service.dart';
+import 'package:remood/app/global_widgets/card_diary.dart';
 import 'package:remood/app/data/services/setting_service.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
@@ -34,6 +37,7 @@ class SettingController extends GetxController {
   final _userBox = Hive.box<User>('user');
   final _settingBox = Hive.box<Setting>('setting');
   final _topicBox = Hive.box<List>('mybox');
+  PinnedDiary hiveBoxPinned = PinnedDiary();
   ListTopic hiveBoxTopic = ListTopic();
   UserBox hiveUser = UserBox();
   SettingBox hiveSetting = SettingBox();
@@ -61,6 +65,11 @@ class SettingController extends GetxController {
       hiveSetting.createInitialData();
     } else {
       hiveSetting.loadData();
+    }
+    if (_mybox.get("pinneddiary") == null) {
+      hiveBoxPinned.createInitialData();
+    } else {
+      hiveBoxPinned.loadData();
     }
 
     // Observe data

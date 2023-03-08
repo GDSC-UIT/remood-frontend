@@ -23,13 +23,13 @@ class DiaryAdapter extends TypeAdapter<Diary> {
       icon: fields[2] as int,
       title: fields[4] as String,
       image: fields[5] as String?,
-    );
+    )..isPinned = fields[6] as bool?;
   }
 
   @override
   void write(BinaryWriter writer, Diary obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj.diary)
       ..writeByte(1)
@@ -41,7 +41,9 @@ class DiaryAdapter extends TypeAdapter<Diary> {
       ..writeByte(4)
       ..write(obj.title)
       ..writeByte(5)
-      ..write(obj.image);
+      ..write(obj.image)
+      ..writeByte(6)
+      ..write(obj.isPinned);
   }
 
   @override

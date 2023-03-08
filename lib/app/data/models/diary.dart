@@ -18,6 +18,8 @@ class Diary extends HiveObject {
   String title;
   @HiveField(5)
   String? image;
+  @HiveField(6)
+  bool? isPinned = false;
   Diary({
     required this.diary,
     required this.date,

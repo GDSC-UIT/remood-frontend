@@ -26,6 +26,10 @@ class _OnboardingButtonState extends State<OnboardingButton> {
   final localTime = DateTime.now().toLocal();
 
   void nextScreen() {
+    if (widget.pageIndex == (onboardingController.contents.length - 1).obs) {
+      Get.toNamed(AppRoutes.loginScreen);
+    }
+
     log(widget.pageIndex.toString());
 
     /// When the next page is setting time one,
@@ -38,10 +42,6 @@ class _OnboardingButtonState extends State<OnboardingButton> {
     /// save data locally
     if (widget.pageIndex.value == 3) {
       settingController.saveTimeOnboarding(context);
-    }
-
-    if (widget.pageIndex == (onboardingController.contents.length - 1).obs) {
-      Get.offAllNamed(AppRoutes.home);
     }
     pageController.nextPage(
         duration: const Duration(milliseconds: 200), curve: Curves.easeInOut);

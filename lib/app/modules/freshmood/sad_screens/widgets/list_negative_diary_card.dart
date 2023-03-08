@@ -21,14 +21,14 @@ class NegativeDiaryListFreshmood extends StatelessWidget {
     return ListView.separated(
       padding: EdgeInsets.zero,
       physics: const BouncingScrollPhysics(),
-      itemCount: ListNegativeDiary.listNegativeDiary.length,
+      itemCount: readNegativeDiary.negativeDiarylist.length,
       itemBuilder: ((context, index) {
         return GestureDetector(
             onTap: () {
               readNegativeDiary.readDiary(context, index, "Negative diary", 1);
             },
             child:
-                DiaryCard(diary: ListNegativeDiary.listNegativeDiary[index]));
+                DiaryCard(diary: readNegativeDiary.negativeDiarylist[index]));
       }),
       separatorBuilder: (context, index) => SizedBox(
         height: _screenHeight * 0.0197,

@@ -46,11 +46,14 @@ class SheetReadDiaryFreshmood extends StatelessWidget {
               children: [
 // Icon
                 Icon(
-                  IconData(id == 0
-                      ? ListPositveDiary
-                          .listPositiveDiary[currentDiary.value].icon
-                      : ListNegativeDiary
-                          .listNegativeDiary[currentDiary.value].icon),
+                  IconData(
+                    id == 0
+                        ? ListPositveDiary
+                            .listPositiveDiary[currentDiary.value].icon
+                        : ListNegativeDiary
+                            .listNegativeDiary[currentDiary.value].icon,
+                    fontFamily: 'MaterialIcons',
+                  ),
                   color: id == 0
                       ? Color(ListPositveDiary
                               .listPositiveDiary[currentDiary.value].diaryColor)
