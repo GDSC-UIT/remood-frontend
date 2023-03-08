@@ -21,7 +21,7 @@ class SuggestionButton extends StatelessWidget {
           width: _screenWidth * 0.83,
           height: _screenHeight * 0.058,
           decoration: BoxDecoration(
-              color: AppColors.MainColor,
+              color: AppColors.mainColor,
               borderRadius: BorderRadius.circular(20),
               boxShadow: [BoxShadow(offset: Offset(0, 1))]),
           child: Center(

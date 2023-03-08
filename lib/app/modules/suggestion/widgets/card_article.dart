@@ -52,7 +52,7 @@ class CardArticle extends StatelessWidget {
                 width: _screenWidth * 0.1,
                 height: _screenHeight * 0.05,
                 decoration: BoxDecoration(
-                    color: AppColors.MainColor,
+                    color: AppColors.mainColor,
                     borderRadius: BorderRadius.circular(10)),
               ),
               SizedBox(

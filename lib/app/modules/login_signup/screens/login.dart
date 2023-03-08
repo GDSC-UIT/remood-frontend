@@ -21,7 +21,7 @@ class LogIn extends StatelessWidget {
     double _screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: AppColors.BackgroundColor,
+      backgroundColor: AppColors.backgroundColor,
       body: SingleChildScrollView(
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         child: Column(
@@ -91,7 +91,7 @@ class LogIn extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                    child: Divider(thickness: 0.5, color: AppColors.Grey),
+                    child: Divider(thickness: 0.5, color: AppColors.grey),
                   ),
                   Padding(
                     padding:
@@ -102,7 +102,7 @@ class LogIn extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                    child: Divider(thickness: 0.5, color: AppColors.Grey),
+                    child: Divider(thickness: 0.5, color: AppColors.grey),
                   ),
                 ],
               ),
@@ -157,7 +157,7 @@ class LogIn extends StatelessWidget {
               child: Container(
                   height: _screenHeight * 0.064,
                   decoration: BoxDecoration(
-                    color: AppColors.MainColor,
+                    color: AppColors.mainColor,
                     borderRadius: BorderRadius.circular(13),
                   ),
                   child: Center(

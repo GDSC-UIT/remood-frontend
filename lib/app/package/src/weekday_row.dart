@@ -10,7 +10,7 @@ class WeekdayRow extends StatelessWidget {
       required this.weekdayFormat,
       required this.weekdayMargin,
       required this.weekdayPadding,
-      required this.weekdayBackgroundColor,
+      required this.weekdaybackgroundColor,
       required this.weekdayTextStyle,
       required this.localeDate});
 
@@ -19,7 +19,7 @@ class WeekdayRow extends StatelessWidget {
   final WeekdayFormat weekdayFormat;
   final EdgeInsets weekdayMargin;
   final EdgeInsets weekdayPadding;
-  final Color weekdayBackgroundColor;
+  final Color weekdaybackgroundColor;
   final TextStyle? weekdayTextStyle;
   final DateFormat localeDate;
   final int firstDayOfWeek;
@@ -31,8 +31,8 @@ class WeekdayRow extends StatelessWidget {
         : Expanded(
             child: Container(
             decoration: BoxDecoration(
-              border: Border.all(color: weekdayBackgroundColor),
-              color: weekdayBackgroundColor,
+              border: Border.all(color: weekdaybackgroundColor),
+              color: weekdaybackgroundColor,
             ),
             margin: weekdayMargin,
             padding: weekdayPadding,

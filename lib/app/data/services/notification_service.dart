@@ -90,7 +90,7 @@ class NotificationService {
         matchDateTimeComponents: DateTimeComponents.time,
       );
     } catch (e) {
-      log("Error - scheduleDailyAtTimeNotification():\n\n$e");
+      throw ("Error - scheduleDailyAtTimeNotification():\n\n$e");
     }
   }
 }

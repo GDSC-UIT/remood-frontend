@@ -48,7 +48,7 @@ class CustomTextStyle extends TextStyle {
     return GoogleFonts.poppins(
       fontSize: 24,
       fontWeight: FontWeight.w600,
-      color: AppColors.Primary,
+      color: AppColors.primary,
     );
   }
 
@@ -60,7 +60,7 @@ class CustomTextStyle extends TextStyle {
     return GoogleFonts.poppins(
       fontSize: 40,
       fontWeight: FontWeight.w600,
-      color: AppColors.Primary,
+      color: AppColors.primary,
     );
   }
 
@@ -82,7 +82,7 @@ class CustomTextStyle extends TextStyle {
 
   static TextStyle HintTextLogin() {
     return GoogleFonts.poppins(
-      color: AppColors.Grey,
+      color: AppColors.grey,
       fontWeight: FontWeight.w500,
       fontSize: 14,
     );
@@ -90,7 +90,7 @@ class CustomTextStyle extends TextStyle {
 
   static TextStyle InputTextLogin() {
     return GoogleFonts.poppins(
-      color: AppColors.MainColor,
+      color: AppColors.mainColor,
       fontSize: 14,
       fontWeight: FontWeight.w500,
     );
@@ -106,7 +106,7 @@ class CustomTextStyle extends TextStyle {
 
   static TextStyle OrText() {
     return GoogleFonts.hindSiliguri(
-      color: AppColors.Grey,
+      color: AppColors.grey,
       fontWeight: FontWeight.w400,
       fontSize: 12,
     );
@@ -130,7 +130,7 @@ class CustomTextStyle extends TextStyle {
 
   static TextStyle AccountButton() {
     return GoogleFonts.poppins(
-      color: AppColors.MainColor,
+      color: AppColors.mainColor,
       fontWeight: FontWeight.w700,
       fontSize: 12,
     );
@@ -182,7 +182,7 @@ class CustomTextStyle extends TextStyle {
     return GoogleFonts.poppins(
       fontSize: 14,
       fontWeight: FontWeight.w400,
-      color: AppColors.MainColor,
+      color: AppColors.mainColor,
     );
   }
 
@@ -204,7 +204,7 @@ class CustomTextStyle extends TextStyle {
 
   static TextStyle textReport() {
     return GoogleFonts.poppins(
-      color: AppColors.Primary,
+      color: AppColors.primary,
       fontSize: 40,
       fontWeight: FontWeight.w500,
     );

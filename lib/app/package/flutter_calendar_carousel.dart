@@ -110,7 +110,7 @@ class CalendarCarousel<T extends EventInterface> extends StatefulWidget {
   final EdgeInsets weekDayPadding;
   final WeekdayBuilder? customWeekDayBuilder;
   final DayBuilder? customDayBuilder;
-  final Color weekDayBackgroundColor;
+  final Color weekDaybackgroundColor;
   final bool weekFormat;
   final bool showWeekDays;
   final bool showHeader;
@@ -190,7 +190,7 @@ class CalendarCarousel<T extends EventInterface> extends StatefulWidget {
     this.childAspectRatio = 1.0,
     this.weekDayMargin = const EdgeInsets.only(bottom: 4.0),
     this.weekDayPadding = const EdgeInsets.all(0.0),
-    this.weekDayBackgroundColor = Colors.transparent,
+    this.weekDaybackgroundColor = Colors.transparent,
     this.customWeekDayBuilder,
     this.customDayBuilder,
     this.showWeekDays = true,
@@ -382,7 +382,7 @@ class _CalendarState<T extends EventInterface>
             weekdayFormat: widget.weekDayFormat,
             weekdayMargin: widget.weekDayMargin,
             weekdayPadding: widget.weekDayPadding,
-            weekdayBackgroundColor: widget.weekDayBackgroundColor,
+            weekdaybackgroundColor: widget.weekDaybackgroundColor,
             weekdayTextStyle: widget.weekdayTextStyle,
             localeDate: _localeDate,
           ),

@@ -199,8 +199,8 @@ class SheetReadDiary extends StatelessWidget {
               color: Color(id == 0
                   ? readDiaryController
                       .positiveDiaryList[readDiaryController.currentDiary.value]
-                      .diaryColor)
-                  : Color(readDiaryController
+                      .diaryColor
+                  : readDiaryController
                       .negativeDiaryList[readDiaryController.currentDiary.value]
                       .diaryColor),
             ),

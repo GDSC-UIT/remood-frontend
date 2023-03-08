@@ -19,7 +19,7 @@ class CreateNewAccount extends StatelessWidget {
     double _screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: AppColors.BackgroundColor,
+      backgroundColor: AppColors.backgroundColor,
       body: SingleChildScrollView(
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         child: Column(
@@ -69,7 +69,7 @@ class CreateNewAccount extends StatelessWidget {
               child: Container(
                   height: _screenHeight * 0.064,
                   decoration: BoxDecoration(
-                    color: AppColors.MainColor,
+                    color: AppColors.mainColor,
                     borderRadius: BorderRadius.circular(13),
                   ),
                   child: Center(

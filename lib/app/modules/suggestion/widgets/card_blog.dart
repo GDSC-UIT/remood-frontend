@@ -32,7 +32,7 @@ class CardBlog extends StatelessWidget {
           width: _screenWidth * 0.533,
           height: _screenHeight * 0.128,
           decoration: BoxDecoration(
-            color: AppColors.Grey,
+            color: AppColors.grey,
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(16),
               topRight: Radius.circular(16),

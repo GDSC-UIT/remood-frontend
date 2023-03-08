@@ -32,7 +32,9 @@ class OnboardingContent extends StatelessWidget {
     );
     return Container(
       decoration: OnboardingDecoration.imageBackround(
-          onboardingController.contents[index].background),
+        onboardingController.pageIndex,
+        onboardingController.contents[index].background,
+      ),
       padding: onboardingController.isLastView(index)
           ? const EdgeInsets.all(0.0)
           : const EdgeInsets.all(30.0),

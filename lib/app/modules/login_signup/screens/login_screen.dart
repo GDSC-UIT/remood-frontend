@@ -17,7 +17,7 @@ class LogInScreen extends StatelessWidget {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: AppColors.BackgroundColor,
+      backgroundColor: AppColors.backgroundPage,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -46,7 +46,7 @@ class LogInScreen extends StatelessWidget {
                 width: _screenWidth * 0.88,
                 height: _screenHeight * 0.064,
                 decoration: BoxDecoration(
-                    color: AppColors.MainColor,
+                    color: AppColors.mainColor,
                     borderRadius: BorderRadius.circular(15)),
                 child: Center(
                   child: Text(
@@ -70,12 +70,12 @@ class LogInScreen extends StatelessWidget {
                 width: _screenWidth * 0.88,
                 height: _screenHeight * 0.064,
                 decoration: BoxDecoration(
-                    border: Border.all(color: AppColors.MainColor),
+                    border: Border.all(color: AppColors.mainColor),
                     borderRadius: BorderRadius.circular(15)),
                 child: Center(
                   child: Text(
                     "Use as a guest",
-                    style: CustomTextStyle.TextLogin(AppColors.MainColor),
+                    style: CustomTextStyle.TextLogin(AppColors.mainColor),
                   ),
                 ),
               ),

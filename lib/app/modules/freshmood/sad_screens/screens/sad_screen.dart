@@ -22,7 +22,7 @@ class SadScreen extends StatelessWidget {
     HomeController changeAsset = Get.find();
     SadController changeTopic = Get.find();
     return Scaffold(
-      backgroundColor: AppColors.BackgroundColor,
+      backgroundColor: AppColors.backgroundColor,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
