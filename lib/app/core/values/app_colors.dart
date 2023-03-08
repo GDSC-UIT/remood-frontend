@@ -70,6 +70,7 @@ class AppColors {
   static const Color googleLogin = Color.fromRGBO(56, 126, 254, 1);
   static const Color dayCalendarColor = Color.fromRGBO(218, 218, 218, 1);
   static const Color daySelected = Color.fromRGBO(247, 201, 109, 1);
+  static const Color titleSelected = Color.fromRGBO(247, 201, 109, 1);
   // Topic
   static const Color topicWork = Color.fromRGBO(28, 73, 30, 1);
   static const Color topicLove = Color.fromRGBO(148, 5, 5, 1);
