@@ -165,6 +165,35 @@ class CustomTextStyle extends TextStyle {
     );
   }
 
+  static TextStyle suggestionTitle() {
+    return GoogleFonts.poppins(
+        fontSize: 15, fontWeight: FontWeight.w400, color: Colors.black);
+  }
+
+  static TextStyle suggestionBlogsText() {
+    return GoogleFonts.workSans(
+      fontSize: 20,
+      fontWeight: FontWeight.w500,
+      color: Colors.black,
+    );
+  }
+
+  static TextStyle suggestionViewAllText() {
+    return GoogleFonts.poppins(
+      fontSize: 14,
+      fontWeight: FontWeight.w400,
+      color: AppColors.MainColor,
+    );
+  }
+
+  static TextStyle suggestionTitleArticle() {
+    return GoogleFonts.poppins(
+      fontSize: 16,
+      fontWeight: FontWeight.w500,
+      color: Colors.white,
+    );
+  }
+
   static TextStyle searchFor() {
     return GoogleFonts.poppins(
       color: AppColors.greyscale,
