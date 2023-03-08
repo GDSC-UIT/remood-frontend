@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:remood/app/core/values/app_colors.dart';
+import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/modules/suggestion/widgets/card_article.dart';
 import 'package:remood/app/modules/suggestion/widgets/list_article.dart';
 import 'package:remood/app/modules/suggestion/widgets/list_card_blog.dart';
@@ -22,6 +23,7 @@ class SuggestionScreen extends StatelessWidget {
         right: false,
         left: false,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             StackSearchBar(),
             SizedBox(
@@ -29,7 +31,17 @@ class SuggestionScreen extends StatelessWidget {
             ),
             ListTitle(),
             SizedBox(
-              height: 20,
+              height: 16,
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 35),
+              child: Text(
+                "Top Blogs",
+                style: CustomTextStyle.suggestionBlogsText(),
+              ),
+            ),
+            SizedBox(
+              height: 5,
             ),
             ListArticle(),
             Spacer(),
@@ -39,7 +51,7 @@ class SuggestionScreen extends StatelessWidget {
             ),
             ListCardBlog(),
             SizedBox(
-              height: 55,
+              height: 35,
             )
           ],
         ),

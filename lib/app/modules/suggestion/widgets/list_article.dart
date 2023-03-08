@@ -19,7 +19,6 @@ class ListArticle extends StatelessWidget {
       AppColors.grey,
     ];
     return Swiper(
-      autoplay: true,
       itemCount: 3,
       itemBuilder: (context, index) =>
           Expanded(child: CardArticle(color: colors[index], index: index)),
