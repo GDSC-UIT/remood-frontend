@@ -25,8 +25,11 @@ class UserAvatar extends StatelessWidget {
       children: [
         // User avatar
         Center(
-          child: Obx(
-            () => Image.asset(user.value.avtURL),
+          child: Padding(
+            padding: const EdgeInsets.all(9.0),
+            child: Obx(
+              () => Image.asset(user.value.avtURL),
+            ),
           ),
         ),
 

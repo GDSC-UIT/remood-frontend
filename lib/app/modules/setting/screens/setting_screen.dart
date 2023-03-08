@@ -109,34 +109,32 @@ class SettingScreen extends StatelessWidget {
 
 // Setting Functions
             Expanded(
-              child: Container(
+              child: ListView(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: ListView(
-                  children: [
-                    const SizedBox(
-                      height: 12,
-                    ),
-                    Text(
-                      "Settings",
-                      style: CustomTextStyle.h2(Colors.black),
-                    ),
-                    const SizedBox(
-                      height: 12,
-                    ),
-                    ColButtonList(list: settingController.settingList),
-                    const SizedBox(
-                      height: 12,
-                    ),
-                    Text(
-                      "Help",
-                      style: CustomTextStyle.h2(Colors.black),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    ColButtonList(list: settingController.helpList),
-                  ],
-                ),
+                children: [
+                  const SizedBox(
+                    height: 12,
+                  ),
+                  Text(
+                    "Settings",
+                    style: CustomTextStyle.h2(Colors.black),
+                  ),
+                  const SizedBox(
+                    height: 12,
+                  ),
+                  ColButtonList(list: settingController.settingList),
+                  const SizedBox(
+                    height: 12,
+                  ),
+                  Text(
+                    "Help",
+                    style: CustomTextStyle.h2(Colors.black),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  ColButtonList(list: settingController.helpList),
+                ],
               ),
             ),
           ],

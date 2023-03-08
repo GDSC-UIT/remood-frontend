@@ -16,10 +16,9 @@ class PrivacyScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const StackSettingAppbar(title: "Privacy"),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(24, 24, 24, 0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+            Expanded(
+              child: ListView(
+                padding: const EdgeInsets.fromLTRB(24, 24, 24, 0),
                 children: [
                   Text(
                     "Term of Use",
@@ -27,16 +26,24 @@ class PrivacyScreen extends StatelessWidget {
                         .copyWith(color: Colors.black, fontSize: 16),
                   ),
                   const SizedBox(height: 16),
+                  Text(
+                    PrivacyService.intro,
+                    style: CustomTextStyle.normalText(
+                      const Color(0xFFB3B1B0),
+                    ).copyWith(fontStyle: FontStyle.italic),
+                  ),
+                  const SizedBox(height: 16),
                   Column(
                     children: List.generate(
                       PrivacyService.contents.length,
                       (index) => Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            PrivacyService.contents[index].heading,
+                            "${index + 1}. ${PrivacyService.contents[index].heading}",
                             style: CustomTextStyle.normalText(
                               const Color(0xFFB3B1B0),
-                            ),
+                            ).copyWith(fontWeight: FontWeight.bold),
                           ),
                           const SizedBox(
                             height: 14,
@@ -47,9 +54,21 @@ class PrivacyScreen extends StatelessWidget {
                               const Color(0xFFB3B1B0),
                             ),
                           ),
+                          const SizedBox(
+                            height: 14,
+                          ),
                         ],
                       ),
                     ),
+                  ),
+                  Text(
+                    PrivacyService.conclusion,
+                    style: CustomTextStyle.normalText(
+                      const Color(0xFFB3B1B0),
+                    ).copyWith(fontStyle: FontStyle.italic),
+                  ),
+                  const SizedBox(
+                    height: 24,
                   ),
                 ],
               ),

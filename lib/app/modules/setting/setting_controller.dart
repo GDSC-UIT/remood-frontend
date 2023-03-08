@@ -79,6 +79,9 @@ class SettingController extends GetxController {
   List<String> avatars = [
     Assets.settingUserAvt1,
     Assets.settingUserAvt2,
+    Assets.settingUserAvt3,
+    Assets.settingUserAvt4,
+    Assets.settingUserAvt5,
   ];
 
   void editAvatar(int index) {
