@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/data/models/user_box.dart';
+import 'package:remood/app/data/services/media_query_service.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
 
 class UserAvatar extends StatelessWidget {
@@ -16,8 +17,8 @@ class UserAvatar extends StatelessWidget {
     final SettingController controller = Get.find();
 
     // Data
-    var pctWidth = controller.pctWidth(context);
-    var pctHeight = controller.pctHeight(context);
+    var pctWidth = MediaQueryService.pctWidth(context);
+    var pctHeight = MediaQueryService.pctHeight(context);
     var avatarURLs = controller.avatars;
     var user = controller.user;
 

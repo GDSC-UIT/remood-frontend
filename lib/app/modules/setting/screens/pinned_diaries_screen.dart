@@ -3,10 +3,7 @@ import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/models/list_pinned_diary.dart';
-import 'package:remood/app/global_widgets/back_button.dart';
 import 'package:remood/app/global_widgets/card_diary.dart';
-import 'package:remood/app/modules/setting/setting_controller.dart';
-import 'package:remood/app/modules/setting/widgets/stack_setting_appbar.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class PinnedDiariesScreen extends StatelessWidget {
@@ -16,7 +13,6 @@ class PinnedDiariesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
-    SettingController pinnedDiaryController = Get.find();
     String appBarTitle = "Pinned diaries";
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
@@ -66,9 +62,7 @@ class PinnedDiariesScreen extends StatelessWidget {
             SizedBox(
               height: _screenHeight * 0.037,
             ),
-            Container(
-              width: _screenWidth * 0.83,
-              height: _screenHeight * 0.74,
+            Expanded(
               child: Obx(
                 () => ListView.separated(
                     itemBuilder: ((context, index) =>

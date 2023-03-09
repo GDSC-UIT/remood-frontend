@@ -24,15 +24,6 @@ import 'package:remood/app/data/services/setting_service.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class SettingController extends GetxController {
-  double designWidth = 375;
-  double designHeight = 812;
-
-  /// Percentage of width and height
-  /// of design screen and real screen
-  double pctWidth(context) => MediaQuery.of(context).size.width / designWidth;
-  double pctHeight(context) =>
-      MediaQuery.of(context).size.height / designHeight;
-
   // Hive box (Store data locally)
   final _userBox = Hive.box<User>('user');
   final _settingBox = Hive.box<Setting>('setting');

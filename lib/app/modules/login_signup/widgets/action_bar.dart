@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/assets_images.dart';
+import 'package:remood/app/data/services/media_query_service.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
 
 class LoginBar extends StatelessWidget {
@@ -10,8 +11,8 @@ class LoginBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final SettingController settingController = Get.find();
 
-    var pctWidth = settingController.pctWidth(context);
-    var pctHeight = settingController.pctHeight(context);
+    var pctWidth = MediaQueryService.pctWidth(context);
+    var pctHeight = MediaQueryService.pctHeight(context);
 
     return Container(
       color: Colors.transparent,
