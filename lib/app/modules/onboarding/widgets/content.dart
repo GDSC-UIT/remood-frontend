@@ -63,7 +63,9 @@ class OnboardingContent extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // Intro image
-                Image.asset(onboardingController.contents[index].image),
+                onboardingController.contents[index].image != ""
+                    ? Image.asset(onboardingController.contents[index].image)
+                    : const SizedBox(),
                 const SizedBox(height: 40.0),
 
                 // Intro title

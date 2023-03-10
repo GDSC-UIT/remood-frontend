@@ -55,7 +55,7 @@ class OnboardingController extends GetxController {
             title: "Report",
             content: "Mood meter, measuring happiness"),
         Onboarding(
-            background: "",
+            background: Assets.onboardingBackground,
             image: "",
             title: "Setting notification time",
             content: "This is time setting screen"),

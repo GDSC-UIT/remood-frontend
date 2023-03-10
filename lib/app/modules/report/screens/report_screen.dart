@@ -36,6 +36,7 @@ class ReportScreen extends StatelessWidget {
             SizedBox(
               height: _screenHeight * 0.09,
             ),
+
             // Mood percentage of the day
             MoodPercentage(controller: controller),
 
