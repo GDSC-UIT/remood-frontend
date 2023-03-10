@@ -1,5 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:flutter_native_timezone/flutter_native_timezone.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -9,6 +11,7 @@ import 'package:remood/app/data/models/topic.dart';
 import 'package:remood/app/data/models/user.dart';
 import 'package:remood/app/data/services/notification_service.dart';
 import 'package:remood/app/modules/setting/setting_binding.dart';
+import 'package:timezone/timezone.dart' as tz;
 
 import '/app/core/values/app_strings.dart';
 import '/app/data/services/localization_service.dart';
@@ -29,15 +32,10 @@ void main() async {
     Hive.openBox<Setting>('setting'),
   ]);
 
-  /// Setup local notification
-  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-      FlutterLocalNotificationsPlugin(); // instance of flutterLocalNotificationsPlugin
-  AndroidInitializationSettings androidInitializationSettings =
-      const AndroidInitializationSettings('@mipmap/ic_launcher'); // for android
-  InitializationSettings initializationSettings = InitializationSettings(
-    android: androidInitializationSettings,
-  );
-  await flutterLocalNotificationsPlugin.initialize(initializationSettings);
+  /// Initialize local notification plugin
+  NotificationService().initNotification();
+
+  /// Initialize date formating
   initializeDateFormatting();
 
   /// Initialize timezone

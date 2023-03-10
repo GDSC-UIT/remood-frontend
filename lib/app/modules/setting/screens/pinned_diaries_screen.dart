@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/models/list_pinned_diary.dart';
+import 'package:remood/app/data/services/media_query_service.dart';
 import 'package:remood/app/global_widgets/card_diary.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
@@ -65,6 +66,8 @@ class PinnedDiariesScreen extends StatelessWidget {
             Expanded(
               child: Obx(
                 () => ListView.separated(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: 31 * MediaQueryService.pctWidth(context)),
                     itemBuilder: ((context, index) =>
                         DiaryCard(diary: PinnedDiary.listPinnedDiary[index])),
                     separatorBuilder: (context, index) => SizedBox(

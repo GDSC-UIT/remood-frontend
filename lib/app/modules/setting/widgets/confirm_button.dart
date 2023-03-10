@@ -17,7 +17,6 @@ class ConfirmButton extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-    SettingController settingController = Get.find();
 
     double width = screenWidth * 0.872;
     double height = 60;

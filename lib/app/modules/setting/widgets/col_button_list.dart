@@ -30,7 +30,7 @@ class ColButtonList extends StatelessWidget {
           onTap: () {
             log(settingList[index].label);
 
-            // Tránh lỗi khi chưa có screen
+            // Có screen thì chuyển đến screen đó
             if (settingList[index].screen != null) {
               // LOAD LASTEST DATA
 
@@ -45,6 +45,10 @@ class ColButtonList extends StatelessWidget {
                 controller.hour(SettingBox.setting.hour);
                 controller.minute(SettingBox.setting.minute);
                 controller.ampm(SettingBox.setting.ampm);
+                log("setting");
+                log(SettingBox.setting.hour.toString());
+                log(SettingBox.setting.minute.toString());
+                log(SettingBox.setting.ampm.toString());
               }
 
               Get.toNamed(settingList[index].screen);

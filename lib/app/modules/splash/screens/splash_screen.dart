@@ -23,13 +23,6 @@ class _SplashScreenState extends State<SplashScreen> {
       const Duration(seconds: 2),
       () => Get.toNamed(AppRoutes.onboarding),
     );
-
-    /// Ask for notification permission
-    // WidgetsBinding.instance.addPostFrameCallback(
-    //   (_) async {
-    //     PermissionService.askPermissionFirstTime();
-    //   },
-    // );
   }
 
   @override

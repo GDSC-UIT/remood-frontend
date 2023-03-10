@@ -358,6 +358,11 @@ class SettingController extends GetxController {
   // Get minute
   RxString get getMin => (minute < 10 ? '0$minute' : '$minute').obs;
 
+  // Get am/pm
+  RxString get getAmpm => (ampm.value == 0 ? 'AM' : 'PM').obs;
+
+  int getHour24(int hour, int ampm) => ampm == 0 ? hour : hour + 12;
+
   // Turn on/off the reminder
   void switchOnChange() {
     actived(!actived.value);
@@ -380,11 +385,19 @@ class SettingController extends GetxController {
     log("ampm: $ampm");
   }
 
+  TimeOfDay convertSelectedTime() {
+    return TimeOfDay(
+      hour: getHour24(
+          hourController.selectedItem + 1, ampmController.selectedItem),
+      minute: minuteController.selectedItem,
+    );
+  }
+
   void saveTimeSetting(BuildContext context) async {
     // Save local data
-    SettingBox.setting.hour = hour.value;
-    SettingBox.setting.minute = minute.value;
-    SettingBox.setting.ampm = ampm.value;
+    SettingBox.setting.hour = hourController.selectedItem + 1;
+    SettingBox.setting.minute = minuteController.selectedItem;
+    SettingBox.setting.ampm = ampmController.selectedItem;
 
     // Update UI
     // hour from 1 to 12 and controller index from 0 to 11
@@ -392,29 +405,26 @@ class SettingController extends GetxController {
     updateMinute(minuteController.selectedItem);
     updateAmPm(ampmController.selectedItem);
 
-    log(SettingBox.setting.hour.toString());
-    log(SettingBox.setting.minute.toString());
-    log(SettingBox.setting.ampm.toString());
+    log('----SettingBox_Hour: ${SettingBox.setting.hour.toString()}');
+    log('----SettingBox_Minute: ${SettingBox.setting.minute.toString()}');
+    log('----SettingBox_Ampm: ${SettingBox.setting.ampm.toString()}');
 
     // Set for notification
-    NotificationService.scheduleDailyAtTimeNotification(
-        context, TimeOfDay(hour: hour.value, minute: minute.value));
+    NotificationService().scheduleDailyAtTimeNotification(
+      convertSelectedTime(),
+    );
 
     hiveSetting.updateDatabase();
   }
 
-  void saveTimeOnboarding(BuildContext context) {
+  void saveTimeOnboarding() {
     SettingBox.setting.hour = hourController.selectedItem + 1;
     SettingBox.setting.minute = minuteController.selectedItem;
     SettingBox.setting.ampm = ampmController.selectedItem;
 
     /// Set for notification
-    NotificationService.scheduleDailyAtTimeNotification(
-      context,
-      TimeOfDay(
-        hour: SettingBox.setting.hour,
-        minute: SettingBox.setting.minute,
-      ),
+    NotificationService().scheduleDailyAtTimeNotification(
+      convertSelectedTime(),
     );
 
     hiveSetting.updateDatabase();

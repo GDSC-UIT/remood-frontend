@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
+import 'package:remood/app/data/models/setting_box.dart';
 import 'package:remood/app/data/services/notification_service.dart';
 import 'package:remood/app/data/services/permission_service.dart';
 import 'package:remood/app/global_widgets/time_picker.dart';
@@ -64,14 +65,37 @@ class _NotificationScreenState extends State<NotificationScreen> {
                         ///
                         /// Nếu đang bật, thì có thể turn on/off lun
                         if (controller.actived.value) {
+                          /// Ngăn việc hẹn lịch khi tắt thông báo
+                          NotificationService.actived = false;
+
+                          /// Hủy tất cả các lịch thông báo trước đó
+                          NotificationService().cancelAllNotfication();
+
+                          /// Tắt nút switch
                           controller.switchOnChange();
                         } else {
+                          /// Cho phép hẹn lịch khi bật thông báo
+                          NotificationService.actived = true;
+
+                          /// Hẹn lịch vào khung giờ được lưu hiện tại
+                          NotificationService().scheduleDailyAtTimeNotification(
+                            TimeOfDay(
+                              hour: controller.getHour24(
+                                  SettingBox.setting.hour,
+                                  SettingBox.setting.ampm),
+                              minute: SettingBox.setting.minute,
+                            ),
+                          );
+
+                          /// Yêu cầu cấp quyền thông báo
                           var status = await Permission.notification.status;
                           if (status.isDenied) {
+                            /// Hướng dẫn người dùng cấp quyền
                             // ignore: use_build_context_synchronously
                             await PermissionService.askPermissionThen(
                                 context, mounted);
                           } else if (status.isGranted) {
+                            /// Bật nút switch
                             controller.switchOnChange();
                           }
                         }
@@ -146,15 +170,15 @@ class _NotificationScreenState extends State<NotificationScreen> {
                     },
                     child: Container(
                       alignment: Alignment.center,
+                      width: 94,
                       height: 36,
-                      width: 75,
                       decoration: BoxDecoration(
                         color: AppColors.settingNotificationClockBg,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Obx(
                         () => Text(
-                          "${controller.getHour} : ${controller.getMin}",
+                          "${controller.getHour} : ${controller.getMin} ${controller.getAmpm}",
                           style: CustomTextStyle.normalText(AppColors.mainColor)
                               .copyWith(fontSize: 16),
                         ),

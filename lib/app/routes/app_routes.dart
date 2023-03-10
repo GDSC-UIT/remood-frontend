@@ -1,7 +1,3 @@
-import 'package:remood/app/data/models/language.dart';
-import 'package:remood/app/modules/freshmood/sad_screens/screens/final_negative_screen.dart';
-import 'package:remood/app/modules/login_signup/screens/create_new_account.dart';
-
 abstract class AppRoutes {
   static const home = '/home';
   static const auth = '/auth';

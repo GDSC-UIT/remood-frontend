@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/setting_box.dart';
+import 'package:remood/app/data/services/permission_service.dart';
 import 'package:remood/app/modules/onboarding/onboarding_controller.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/routes/app_routes.dart';
@@ -25,7 +26,7 @@ class _OnboardingButtonState extends State<OnboardingButton> {
   final SettingController settingController = Get.find();
   final localTime = DateTime.now().toLocal();
 
-  void nextScreen() {
+  void nextScreen() async {
     if (widget.pageIndex == (onboardingController.contents.length - 1).obs) {
       Get.toNamed(AppRoutes.loginScreen);
     }
@@ -41,7 +42,9 @@ class _OnboardingButtonState extends State<OnboardingButton> {
     /// When the current page is setting time one,
     /// save data locally
     if (widget.pageIndex.value == 3) {
-      settingController.saveTimeOnboarding(context);
+      /// Ask for notification permission
+      await PermissionService.askPermissionFirstTime();
+      settingController.saveTimeOnboarding();
     }
     pageController.nextPage(
         duration: const Duration(milliseconds: 200), curve: Curves.easeInOut);
