@@ -69,6 +69,7 @@ class UserAvatar extends StatelessWidget {
               );
             },
             child: Container(
+              padding: const EdgeInsets.all(2.0),
               width: 20.83,
               height: 19.65,
               decoration: BoxDecoration(
