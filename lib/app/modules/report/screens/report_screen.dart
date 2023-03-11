@@ -16,16 +16,18 @@ class ReportScreen extends StatelessWidget {
     final controller = Get.put(ReportController());
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // Heading
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
+
+            // Heading
             Text(
               "Report",
               style: CustomTextStyle.reportHeading(),
@@ -44,7 +46,7 @@ class ReportScreen extends StatelessWidget {
             SizedBox(
               height: _screenHeight * 0.145,
             ),
-            Button(),
+            const Button(),
           ],
         ),
       ),
