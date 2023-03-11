@@ -16,6 +16,7 @@ class MinutePicker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double boxSize = 36;
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -28,10 +29,10 @@ class MinutePicker extends StatelessWidget {
               curve: Curves.easeInOut,
             );
           },
-          child: Padding(
-            padding: const EdgeInsets.all(6.0),
-            child: Image.asset(Assets.arrowUpward),
-          ),
+          child: SizedBox(
+              height: boxSize,
+              width: boxSize,
+              child: Image.asset(Assets.arrowUpward)),
         ),
         SizedBox(
           height: 47,
@@ -61,10 +62,10 @@ class MinutePicker extends StatelessWidget {
               curve: Curves.easeInOut,
             );
           },
-          child: Padding(
-            padding: const EdgeInsets.all(6.0),
-            child: Image.asset(Assets.arrowDownaward),
-          ),
+          child: SizedBox(
+              width: boxSize,
+              height: boxSize,
+              child: Image.asset(Assets.arrowDownaward)),
         ),
       ],
     );

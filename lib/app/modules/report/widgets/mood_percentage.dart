@@ -28,7 +28,7 @@ class MoodPercentage extends StatelessWidget {
         Positioned(
           top: _screenHeight * 0.043,
           left: _screenWidth * 0.29,
-          child: Container(
+          child: SizedBox(
               width: _screenWidth * 0.42,
               height: _screenHeight * 0.193,
               child: Image.asset(Assets.reportPercentage)),

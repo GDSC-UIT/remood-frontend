@@ -6,7 +6,6 @@ import 'package:hive/hive.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/core/values/text_style.dart';
-import 'package:remood/app/data/models/diary.dart';
 import 'package:remood/app/data/models/language.dart';
 import 'package:remood/app/data/models/list_pinned_diary.dart';
 import 'package:remood/app/data/models/list_selected_color_topic.dart';
@@ -82,6 +81,7 @@ class SettingController extends GetxController {
     Assets.settingUserAvt3,
     Assets.settingUserAvt4,
     Assets.settingUserAvt5,
+    Assets.settingUserAvt6,
   ];
 
   void editAvatar(int index) {
@@ -337,7 +337,7 @@ class SettingController extends GetxController {
 
   /// hour from 1 to 12 and controller index from 0 to 11
   FixedExtentScrollController hourController =
-      FixedExtentScrollController(initialItem: SettingBox.setting.hour - 1);
+      FixedExtentScrollController(initialItem: SettingBox.setting.hour);
   FixedExtentScrollController minuteController =
       FixedExtentScrollController(initialItem: SettingBox.setting.minute);
   FixedExtentScrollController ampmController =
@@ -409,6 +409,9 @@ class SettingController extends GetxController {
     log('----SettingBox_Minute: ${SettingBox.setting.minute.toString()}');
     log('----SettingBox_Ampm: ${SettingBox.setting.ampm.toString()}');
 
+    /// Cancel the last scheduled notification
+    NotificationService().cancelAllNotfication();
+
     // Set for notification
     NotificationService().scheduleDailyAtTimeNotification(
       convertSelectedTime(),
@@ -421,6 +424,9 @@ class SettingController extends GetxController {
     SettingBox.setting.hour = hourController.selectedItem + 1;
     SettingBox.setting.minute = minuteController.selectedItem;
     SettingBox.setting.ampm = ampmController.selectedItem;
+
+    /// Cancel the last scheduled notification
+    NotificationService().cancelAllNotfication();
 
     /// Set for notification
     NotificationService().scheduleDailyAtTimeNotification(

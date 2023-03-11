@@ -37,13 +37,13 @@ class Assets {
   static const String onboardingImage3 =
       'assets/images/onboarding_img_report.png';
   static const String onboardingAlarm = 'assets/images/alarm.jpg';
-  static const String reportPercentage =
-      'assets/images/report-percentage-bg.png';
+  static const String reportPercentage = 'assets/images/percentagecircle.png';
   static const String settingUserAvt1 = 'assets/images/avt1.png';
   static const String settingUserAvt2 = 'assets/images/avt2.png';
   static const String settingUserAvt3 = 'assets/images/avt3.png';
   static const String settingUserAvt4 = 'assets/images/avt4.png';
   static const String settingUserAvt5 = 'assets/images/avt5.png';
+  static const String settingUserAvt6 = 'assets/images/avt6.png';
   static const String depressed = 'assets/icons/depressedface.png';
   static const String sad = 'assets/icons/sadface.png';
   static const String normal = 'assets/icons/normalface.png';

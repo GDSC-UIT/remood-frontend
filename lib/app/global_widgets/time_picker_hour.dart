@@ -13,10 +13,13 @@ class HourPicker extends StatelessWidget {
   }) : super(key: key);
 
   final controller = Get.find<SettingController>();
-  double itemExtent = 40;
 
   @override
   Widget build(BuildContext context) {
+    /// Data
+    double itemExtent = 40;
+    double boxSize = 36;
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -29,8 +32,9 @@ class HourPicker extends StatelessWidget {
               curve: Curves.easeInOut,
             );
           },
-          child: Padding(
-            padding: const EdgeInsets.all(6.0),
+          child: SizedBox(
+            height: boxSize,
+            width: boxSize,
             child: Image.asset(Assets.arrowUpward),
           ),
         ),
@@ -63,8 +67,9 @@ class HourPicker extends StatelessWidget {
               curve: Curves.easeInOut,
             );
           },
-          child: Padding(
-            padding: const EdgeInsets.all(6.0),
+          child: SizedBox(
+            height: boxSize,
+            width: boxSize,
             child: Image.asset(Assets.arrowDownaward),
           ),
         ),
