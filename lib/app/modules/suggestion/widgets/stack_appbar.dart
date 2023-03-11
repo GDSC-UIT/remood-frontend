@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/core/values/text_style.dart';
@@ -15,7 +12,6 @@ class StackSearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
-    var pctWidth = MediaQueryService().pctWidth(context);
     var pctHeight = MediaQueryService().pctHeight(context);
 
     return Stack(

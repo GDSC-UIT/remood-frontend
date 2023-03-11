@@ -26,7 +26,7 @@ class PinnedDiariesScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 16, left: 24),
                   child: GestureDetector(
                     onTap: () {
-                      Get.toNamed(AppRoutes.home);
+                      Get.back();
                     },
                     child: Container(
                       height: 46,
