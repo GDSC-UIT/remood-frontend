@@ -1,13 +1,6 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
-import 'package:remood/app/data/models/diary.dart';
-import 'package:remood/app/data/models/list_negative_diary.dart';
-import 'package:remood/app/data/models/list_positive_diary.dart';
-import 'package:remood/app/global_widgets/card_diary.dart';
-import 'package:remood/app/modules/home/home_binding.dart';
 import 'package:remood/app/modules/home/home_controller.dart';
 import 'package:remood/app/modules/write_diary/diary_controller.dart';
 import 'package:remood/app/modules/write_diary/widgets/stack_note.dart';
@@ -29,7 +22,7 @@ class WriteDiaryScreen extends StatelessWidget {
     DiaryController diaryController = Get.find();
     return Scaffold(
         resizeToAvoidBottomInset: true,
-        backgroundColor: AppColors.backgroundColor,
+        backgroundColor: AppColors.backgroundPage,
         body: SingleChildScrollView(
           keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
           child: Column(
@@ -37,26 +30,24 @@ class WriteDiaryScreen extends StatelessWidget {
               SizedBox(
                 height: _screenHeight * 0.0542,
               ),
-              Container(
-                child: ListTile(
-                  leading: SizedBox(width: _screenWidth * 0.053),
+              ListTile(
+                leading: SizedBox(width: _screenWidth * 0.053),
 // Date
-                  title: Center(
-                    child: Text(
-                      DateFormat('dd/MM/yyyy')
-                          .format(dateController.currentdate.value),
-                      style:
-                          TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
-                    ),
+                title: Center(
+                  child: Text(
+                    DateFormat('dd/MM/yyyy')
+                        .format(dateController.currentdate.value),
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w700, fontSize: 20),
                   ),
+                ),
 // Close button
-                  trailing: IconButton(
-                    onPressed: () {
-                      // return homepage
-                      Get.toNamed(AppRoutes.home);
-                    },
-                    icon: const Icon(Icons.close),
-                  ),
+                trailing: IconButton(
+                  onPressed: () {
+                    // return homepage
+                    Get.toNamed(AppRoutes.home);
+                  },
+                  icon: const Icon(Icons.close),
                 ),
               ),
               SizedBox(

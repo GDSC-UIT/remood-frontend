@@ -14,8 +14,8 @@ class ListArticle extends StatelessWidget {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
     List<Color> colors = [
-      Color.fromRGBO(248, 225, 178, 1),
-      Color.fromRGBO(254, 201, 96, 1),
+      const Color.fromRGBO(248, 225, 178, 1),
+      const Color.fromRGBO(254, 201, 96, 1),
       AppColors.grey,
     ];
     return Swiper(

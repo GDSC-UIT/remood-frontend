@@ -10,16 +10,16 @@ class ListCardBlog extends StatelessWidget {
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
-    return Container(
+    return SizedBox(
       height: _screenHeight * 0.213,
       child: Expanded(
           child: ListView.separated(
-              padding: EdgeInsets.only(left: 28),
+              padding: const EdgeInsets.only(left: 28),
               scrollDirection: Axis.horizontal,
               itemBuilder: ((context, index) {
-                return CardBlog();
+                return const CardBlog();
               }),
-              separatorBuilder: ((context, index) => SizedBox(
+              separatorBuilder: ((context, index) => const SizedBox(
                     width: 12,
                   )),
               itemCount: 4)),

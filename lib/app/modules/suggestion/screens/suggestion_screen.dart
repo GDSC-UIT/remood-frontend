@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
+import 'package:remood/app/data/services/media_query_service.dart';
 import 'package:remood/app/modules/suggestion/widgets/card_article.dart';
 import 'package:remood/app/modules/suggestion/widgets/list_article.dart';
 import 'package:remood/app/modules/suggestion/widgets/list_card_blog.dart';
@@ -17,6 +18,9 @@ class SuggestionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
+    var pctWidth = MediaQueryService().pctWidth(context);
+    var pctHeight = MediaQueryService().pctHeight(context);
+
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       body: SafeArea(
@@ -25,33 +29,33 @@ class SuggestionScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            StackSearchBar(),
+            const StackSearchBar(),
             SizedBox(
               height: _screenHeight * 0.019,
             ),
-            ListTitle(),
+            const ListTitle(),
             SizedBox(
-              height: 16,
+              height: pctHeight * 16,
             ),
             Padding(
-              padding: EdgeInsets.only(left: 35),
+              padding: EdgeInsets.only(left: pctWidth * 35),
               child: Text(
                 "Top Blogs",
                 style: CustomTextStyle.suggestionBlogsText(),
               ),
             ),
             SizedBox(
-              height: 5,
+              height: pctHeight * 5,
             ),
-            ListArticle(),
-            Spacer(),
-            RowText(),
+            const ListArticle(),
+            const Spacer(),
+            const RowText(),
             SizedBox(
-              height: 9,
+              height: pctHeight * 9,
             ),
-            ListCardBlog(),
+            const ListCardBlog(),
             SizedBox(
-              height: 35,
+              height: pctHeight * 33,
             )
           ],
         ),
