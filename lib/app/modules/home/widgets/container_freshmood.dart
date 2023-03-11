@@ -56,8 +56,9 @@ class _FreshmoodPercentState extends State<FreshmoodPercent> {
                 width: _screenWidth * 0.723,
                 height: _screenHeight * 0.134,
                 decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(16)),
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(16),
+                ),
                 child: Obx(
                   () => Column(
                     children: [

@@ -7,6 +7,7 @@ import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/modules/setting/widgets/col_button_list.dart';
 import 'package:remood/app/modules/setting/widgets/stack_user_avt.dart';
+import 'package:remood/app/modules/write_diary/diary_controller.dart';
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({super.key});
@@ -21,7 +22,6 @@ class SettingScreen extends StatelessWidget {
     // var setting = settingController.setting;
     var username = settingController.nickname;
     var isEditableName = settingController.isEditableName;
-
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
       body: SafeArea(
