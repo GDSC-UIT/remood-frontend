@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_native_timezone/flutter_native_timezone.dart';
@@ -13,6 +11,7 @@ class NotificationService {
   static FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
 
+  /// Initialize notification
   Future<void> initNotification() async {
     final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
         FlutterLocalNotificationsPlugin(); // instance of flutterLocalNotificationsPlugin
@@ -31,12 +30,14 @@ class NotificationService {
     );
   }
 
+  /// Initialize timezone
   static Future<void> configureLocalTimeZone() async {
     tz.initializeTimeZones();
     final String timeZone = await FlutterNativeTimezone.getLocalTimezone();
     tz.setLocalLocation(tz.getLocation(timeZone));
   }
 
+  /// Show status (on/off) of scheduled notification
   static bool actived = SettingBox.setting.isOnNotification;
 
   /// Set right date and time for notifications
@@ -85,8 +86,8 @@ class NotificationService {
     actived
         ? await flutterLocalNotificationsPlugin.zonedSchedule(
             0,
-            'Remood time',
-            'scheduled body',
+            "It's time to check-in!",
+            'Please take a few minutes to prioritize your Mental Health with us',
             convertTime(time),
             await notificationDetails(),
             androidAllowWhileIdle: true,

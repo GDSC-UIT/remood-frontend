@@ -19,17 +19,7 @@ class OnboardingContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final onboardingController = Get.find<OnboardingController>();
-    var boxDecoration = BoxDecoration(
-      boxShadow: const [
-        BoxShadow(
-          spreadRadius: 1,
-          blurRadius: 10.0,
-          color: Color(0xfff2f2f2),
-        ),
-      ],
-      borderRadius: BorderRadius.circular(10.0),
-      color: Colors.white,
-    );
+
     return Container(
       decoration: OnboardingDecoration.imageBackround(
         onboardingController.pageIndex,
@@ -38,50 +28,33 @@ class OnboardingContent extends StatelessWidget {
       padding: onboardingController.isLastView(index)
           ? const EdgeInsets.all(0.0)
           : const EdgeInsets.all(30.0),
-      child: onboardingController.isLastView(index)
-          // Setting time page
-          ? Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Time Setting Title
-                const TimeTitle(),
-                const SizedBox(height: 26.0),
 
-                // Time picker
-                Container(
-                  decoration: boxDecoration,
-                  padding: const EdgeInsets.all(5.0),
-                  height: 139.0,
-                  width: 254.0,
-                  child: const TimePicker(),
-                ),
-                const SizedBox(height: 18.0),
-              ],
-            )
-          // App intro page
-          : Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Intro image
-                onboardingController.contents[index].image != ""
-                    ? Image.asset(onboardingController.contents[index].image)
-                    : const SizedBox(),
-                const SizedBox(height: 40.0),
+      /// App introduction page
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          // Intro image
+          SizedBox(
+              width: 297,
+              height: 293,
+              child: Image.asset(onboardingController.contents[index].image)),
+          const SizedBox(height: 40.0),
 
-                // Intro title
-                Text(
-                  onboardingController.contents[index].title,
-                  style: CustomTextStyle.h1(AppColors.primary),
-                ),
+          // Intro title
+          Text(
+            onboardingController.contents[index].title,
+            style: CustomTextStyle.h1(AppColors.primary).copyWith(height: 1.7),
+          ),
 
-                // Intro paragraph
-                Text(
-                  onboardingController.contents[index].content,
-                  textAlign: TextAlign.center,
-                  style: CustomTextStyle.normalText(AppColors.primary),
-                ),
-              ],
-            ),
+          // Intro paragraph
+          Text(
+            onboardingController.contents[index].content,
+            textAlign: TextAlign.center,
+            style: CustomTextStyle.normalText(AppColors.primary)
+                .copyWith(height: 1.7),
+          ),
+        ],
+      ),
     );
   }
 }

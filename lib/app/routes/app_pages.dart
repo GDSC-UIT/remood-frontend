@@ -12,6 +12,7 @@ import 'package:remood/app/modules/login_signup/screens/create_new_account.dart'
 import 'package:remood/app/modules/login_signup/screens/forgot_password.dart';
 import 'package:remood/app/modules/login_signup/screens/login.dart';
 import 'package:remood/app/modules/login_signup/screens/login_screen.dart';
+import 'package:remood/app/modules/onboarding/screens/setting_time_screen.dart';
 import 'package:remood/app/modules/read_diary/read_diary_binding.dart';
 import 'package:remood/app/modules/report/report_binding.dart';
 import 'package:remood/app/modules/report/screens/report_screen.dart';
@@ -99,6 +100,11 @@ abstract class AppPages {
     GetPage(
       name: AppRoutes.onboarding,
       page: () => const OnboardingScreen(),
+      bindings: [OnboardingBinding(), SettingBinding()],
+    ),
+    GetPage(
+      name: AppRoutes.scheduleNotification,
+      page: () => const SettingTimeScreen(),
       bindings: [OnboardingBinding(), SettingBinding()],
     ),
     GetPage(

@@ -24,8 +24,8 @@ class _FreshmoodPercentState extends State<FreshmoodPercent> {
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
-    var pctWidth = MediaQueryService.pctWidth(context);
-    var pctHeight = MediaQueryService.pctHeight(context);
+    var pctWidth = MediaQueryService().pctWidth(context);
+    var pctHeight = MediaQueryService().pctHeight(context);
     HomeController sliderController = Get.find();
     return Scaffold(
       backgroundColor: AppColors.barrierColor,

@@ -17,8 +17,8 @@ class UserAvatar extends StatelessWidget {
     final SettingController controller = Get.find();
 
     // Data
-    var pctWidth = MediaQueryService.pctWidth(context);
-    var pctHeight = MediaQueryService.pctHeight(context);
+    var pctWidth = MediaQueryService().pctWidth(context);
+    var pctHeight = MediaQueryService().pctHeight(context);
     var avatarURLs = controller.avatars;
     var user = controller.user;
 

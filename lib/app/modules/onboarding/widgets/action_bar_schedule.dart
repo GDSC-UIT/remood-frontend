@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
+import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/services/media_query_service.dart';
-import 'package:remood/app/modules/setting/setting_controller.dart';
+import 'package:remood/app/modules/onboarding/onboarding_controller.dart';
+import 'package:remood/app/routes/app_routes.dart';
 
-class LoginBar extends StatelessWidget {
-  const LoginBar({super.key});
+class ActionBarSchedule extends StatelessWidget {
+  const ActionBarSchedule({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final SettingController settingController = Get.find();
-
+    // Data
     var pctWidth = MediaQueryService().pctWidth(context);
     var pctHeight = MediaQueryService().pctHeight(context);
 
@@ -23,13 +27,26 @@ class LoginBar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              /// Previous button
               IconButton(
                   onPressed: () {
+                    /// Jump back to the last onboarding screen
                     Get.back();
                   },
-                  icon: Image.asset(Assets.arrowBack))
+                  icon: Image.asset(Assets.arrowBack)),
+
+              /// Skip button
+              TextButton(
+                onPressed: () {
+                  Get.offAllNamed(AppRoutes.home);
+                },
+                child: Text("Skip",
+                    style: CustomTextStyle.textButton(
+                        AppColors.onboardingSkipButton)),
+              ),
             ],
           ),
+
           // Logo
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

@@ -55,7 +55,8 @@ class OnboardingScreen extends StatelessWidget {
                       );
                     },
                   ),
-                  ActionBar(pageIndex: controller.pageIndex),
+
+                  /// Page control
                   Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [

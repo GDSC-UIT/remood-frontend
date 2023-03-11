@@ -3,6 +3,7 @@ abstract class AppRoutes {
   static const auth = '/auth';
   static const splash = '/splash';
   static const onboarding = '/onboarding';
+  static const scheduleNotification = '$onboarding/settingtime';
   static const writediary = '/home/writediary';
   static const happyfreshmood = '/home/happyfreshmood';
   static const suggestion = '/home/suggestion';

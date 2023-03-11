@@ -135,7 +135,7 @@ class SettingController extends GetxController {
       screen: AppRoutes.manageTopics,
     ),
     SettingButton(
-      icon: Assets.category,
+      icon: Assets.pin,
       label: "Pinned diaries",
       screen: AppRoutes.pinnedDiaries,
     ),

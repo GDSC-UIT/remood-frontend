@@ -14,8 +14,8 @@ class _FloatingButtonState extends State<FloatingButton> {
 
   @override
   Widget build(BuildContext context) {
-    var pctWidth = MediaQueryService.pctWidth(context);
-    var pctHeight = MediaQueryService.pctHeight(context);
+    var pctWidth = MediaQueryService().pctWidth(context);
+    var pctHeight = MediaQueryService().pctHeight(context);
     void onPressed() {
       setState(() {
         isPressed = !isPressed;
