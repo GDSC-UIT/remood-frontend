@@ -7,6 +7,7 @@ import 'dart:ui' as ui;
 
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
+import 'package:remood/app/data/services/media_query_service.dart';
 import 'package:remood/app/modules/home/home_controller.dart';
 import 'package:remood/app/modules/home/widgets/floating_action_button.dart';
 import 'package:remood/app/routes/app_routes.dart';
@@ -23,6 +24,8 @@ class _FreshmoodPercentState extends State<FreshmoodPercent> {
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
+    var pctWidth = MediaQueryService.pctWidth(context);
+    var pctHeight = MediaQueryService.pctHeight(context);
     HomeController sliderController = Get.find();
     return Scaffold(
       backgroundColor: AppColors.barrierColor,
@@ -59,8 +62,8 @@ class _FreshmoodPercentState extends State<FreshmoodPercent> {
                 child: Obx(
                   () => Column(
                     children: [
-                      SizedBox(
-                        height: 10,
+                      const SizedBox(
+                        height: 9,
                       ),
 // icon feelings
                       GestureDetector(
@@ -71,19 +74,24 @@ class _FreshmoodPercentState extends State<FreshmoodPercent> {
                           sliderController.floatingcontainer.remove();
                           sliderController.ispressed.value = false;
                         }),
-                        child: Image.asset(
-                          sliderController.valueSlider.value < 20
-                              ? Assets.depressed
-                              : sliderController.valueSlider.value < 40
-                                  ? Assets.sad
-                                  : sliderController.valueSlider.value < 60
-                                      ? Assets.normal
-                                      : sliderController.valueSlider.value < 80
-                                          ? Assets.fun
-                                          : Assets.happy,
+                        child: SizedBox(
+                          width: 41.35 * pctWidth,
+                          height: 41.35 * pctHeight,
+                          child: Image.asset(
+                            sliderController.valueSlider.value < 20
+                                ? Assets.depressed
+                                : sliderController.valueSlider.value < 40
+                                    ? Assets.sad
+                                    : sliderController.valueSlider.value < 60
+                                        ? Assets.normal
+                                        : sliderController.valueSlider.value <
+                                                80
+                                            ? Assets.fun
+                                            : Assets.happy,
+                          ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
 // Slider

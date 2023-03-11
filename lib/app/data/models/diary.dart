@@ -27,6 +27,5 @@ class Diary extends HiveObject {
     required this.icon,
     required this.title,
     this.image,
-    this.isPinned,
   });
 }

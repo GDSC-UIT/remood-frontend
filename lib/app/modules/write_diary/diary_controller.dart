@@ -13,7 +13,6 @@ import 'package:remood/app/data/models/list_topic.dart';
 import 'package:remood/app/data/models/topic.dart';
 import 'package:remood/app/modules/write_diary/widgets/bottom_sheet_add_topic.dart';
 import 'dart:io';
-import 'package:flutter/animation.dart';
 
 class DiaryController extends GetxController {
 // hive box
@@ -112,43 +111,5 @@ class DiaryController extends GetxController {
     );
     listTopic.add(newTopic);
     hiveBoxTopic.updateDatabase();
-  }
-
-// MODIFY OLD TOPICs
-  TextEditingController topicName = TextEditingController();
-  ListSelectedIcons listSelectedIcons = ListSelectedIcons();
-  ListSelectedColor listSelectedColor = ListSelectedColor();
-
-// Change topic name
-  void renameTopicSetting() {
-    // Store index of current topic selected
-    int indexCurrentTopic = currentTopic.value;
-
-    log(topicName.text.trim());
-
-    // Assign text in textfield to title of current topic
-    ListTopic.topics[indexCurrentTopic].title = topicName.text.trim();
-  }
-
-// Change topic icon
-  void changeTopicIconSetting() {
-    // Store index of current topic selected
-    int indexCurrentTopic = currentTopic.value;
-
-    log(currentIconTopic.value.toString());
-    log(indexCurrentTopic.toString());
-
-    // Change the old icon to the selected one
-    ListTopic.topics[indexCurrentTopic].icons =
-        listSelectedIcons.selectedIcons[currentIconTopic.value].codePoint;
-  }
-
-// Change topic color
-  void changeTopicColorSetting() {
-    // Store index of current topic selected
-    int indexCurrentTopic = currentTopic.value;
-
-    // Change old color to the selected one
-    ListTopic.topics[indexCurrentTopic].TopicColor = colorTopic.value.value;
   }
 }

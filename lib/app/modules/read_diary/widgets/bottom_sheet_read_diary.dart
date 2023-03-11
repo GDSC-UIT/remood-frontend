@@ -196,11 +196,11 @@ class SheetReadDiary extends StatelessWidget {
             height: _screenHeight * 0.34,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
-              color: id == 0
-                  ? Color(readDiaryController
+              color: Color(id == 0
+                  ? readDiaryController
                       .positiveDiaryList[readDiaryController.currentDiary.value]
-                      .diaryColor)
-                  : Color(readDiaryController
+                      .diaryColor
+                  : readDiaryController
                       .negativeDiaryList[readDiaryController.currentDiary.value]
                       .diaryColor),
             ),

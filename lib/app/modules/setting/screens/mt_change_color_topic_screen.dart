@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/list_selected_color_topic.dart';
+import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/modules/setting/widgets/confirm_button.dart';
 import 'package:remood/app/modules/setting/widgets/stack_setting_appbar.dart';
-import 'package:remood/app/modules/write_diary/diary_controller.dart';
 
 class ChangeColorTopicScreen extends StatelessWidget {
   const ChangeColorTopicScreen({
@@ -17,7 +17,7 @@ class ChangeColorTopicScreen extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
-    DiaryController controller = Get.find();
+    SettingController settingController = Get.find();
     ListSelectedColor listSelectedColor = ListSelectedColor();
 
     return Scaffold(
@@ -45,23 +45,24 @@ class ChangeColorTopicScreen extends StatelessWidget {
                 itemCount: 12,
                 itemBuilder: (context, index) {
                   return GestureDetector(
-                      onTap: () {
-                        controller.changeColorTopic(
-                            index, listSelectedColor.selectedColors[index]);
-                      },
-                      child: Obx(
-                        () => Container(
-                          width: screenWidth * 0.093,
-                          height: screenHeight * 0.043,
-                          decoration: BoxDecoration(
-                            color: listSelectedColor.selectedColors[index],
-                            borderRadius: BorderRadius.circular(10),
-                            border: controller.currentColorTopic.value == index
-                                ? Border.all(color: Colors.black)
-                                : Border.all(color: Colors.transparent),
-                          ),
+                    onTap: () {
+                      settingController.changeColorIndex(index);
+                    },
+                    child: Obx(
+                      () => Container(
+                        width: screenWidth * 0.093,
+                        height: screenHeight * 0.043,
+                        decoration: BoxDecoration(
+                          color: listSelectedColor.selectedColors[index],
+                          borderRadius: BorderRadius.circular(10),
+                          border:
+                              settingController.currentTopicColor.value == index
+                                  ? Border.all(color: Colors.black)
+                                  : Border.all(color: Colors.transparent),
                         ),
-                      ));
+                      ),
+                    ),
+                  );
                 },
               ),
             ),
@@ -74,7 +75,7 @@ class ChangeColorTopicScreen extends StatelessWidget {
 // Parent page does not update when Get.back()
             ConfirmButton(
               label: "Save",
-              func: controller.changeTopicColorSetting,
+              func: settingController.changeColorTopicSetting,
             ),
             SizedBox(
               height: screenHeight * 0.03,

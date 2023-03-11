@@ -2,18 +2,112 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/models/language.dart';
+import 'package:remood/app/data/models/list_pinned_diary.dart';
+import 'package:remood/app/data/models/list_selected_color_topic.dart';
+import 'package:remood/app/data/models/list_selected_icons_topic.dart';
+import 'package:remood/app/data/models/list_topic.dart';
+import 'package:remood/app/data/models/setting.dart';
+import 'package:remood/app/data/models/setting_box.dart';
 import 'package:remood/app/data/models/setting_button.dart';
 import 'package:remood/app/data/models/topic.dart';
+import 'package:remood/app/data/models/user.dart';
+import 'package:remood/app/data/models/user_box.dart';
+import 'package:remood/app/data/services/notification_service.dart';
+import 'package:remood/app/global_widgets/card_diary.dart';
+import 'package:remood/app/data/services/setting_service.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class SettingController extends GetxController {
-  // DiaryController diaryController = Get.find();
+  // Hive box (Store data locally)
+  final _userBox = Hive.box<User>('user');
+  final _settingBox = Hive.box<Setting>('setting');
+  final _myBox = Hive.box<List>('mybox');
+  PinnedDiary hiveBoxPinned = PinnedDiary();
+  ListTopic hiveBoxTopic = ListTopic();
+  UserBox hiveUser = UserBox();
+  SettingBox hiveSetting = SettingBox();
+  RxList<CardTopic> listTopic = <CardTopic>[].obs;
+  Rx<User> user = User(
+    name: "Untitle",
+    avtURL: Assets.settingUserAvt1,
+  ).obs;
+
+  @override
+  void onInit() {
+    /// Create initial data if this is the first-time open
+    /// or load data if this is not the first time.
+    if (_myBox.get("topic") == null) {
+      hiveBoxTopic.createInitialData();
+    } else {
+      hiveBoxTopic.loadData();
+    }
+    if (_userBox.get("user") == null) {
+      hiveUser.createInitialData();
+    } else {
+      hiveUser.loadData();
+    }
+    if (_settingBox.get("setting") == null) {
+      hiveSetting.createInitialData();
+    } else {
+      hiveSetting.loadData();
+    }
+    if (_myBox.get("pinneddiary") == null) {
+      hiveBoxPinned.createInitialData();
+    } else {
+      hiveBoxPinned.loadData();
+    }
+
+    // Observe data
+    listTopic = ListTopic.topics;
+    user = UserBox.user.obs;
+    SettingService.setting = SettingBox.setting.obs;
+
+    super.onInit();
+  }
 
   // Main screen
+  TextEditingController nameController = TextEditingController();
+  RxString nickname = "cute pie".obs;
+  // RxString avatar = UserBox.user.avtURL.obs;
+  RxBool isEditableName = false.obs;
+  List<String> avatars = [
+    Assets.settingUserAvt1,
+    Assets.settingUserAvt2,
+    Assets.settingUserAvt3,
+    Assets.settingUserAvt4,
+    Assets.settingUserAvt5,
+    Assets.settingUserAvt6,
+  ];
+
+  void editAvatar(int index) {
+    // Update UI data
+    user(
+      User(
+        name: user.value.name,
+        avtURL: avatars[index],
+      ),
+    );
+    // Update local data
+    UserBox.user.avtURL = avatars[index];
+    hiveUser.updateDatabase();
+  }
+
+  void editNickName() {
+    String newName = nameController.text.trim();
+    if (newName != "") {
+      user.value.name = newName;
+      hiveUser.updateDatabase();
+    }
+    isEditableName(!isEditableName.value);
+  }
+
+  var settingLabelStyle = CustomTextStyle.normalText(Colors.black);
+
   List<SettingButton> settingList = [
     SettingButton(
       icon: Assets.calendar,
@@ -65,72 +159,102 @@ class SettingController extends GetxController {
     ),
   ];
 
-  var settingLabelStyle = CustomTextStyle.normalText(Colors.black);
-
   // Manage topics
-
-  // Rx<int> currentIconTopic = 0.obs;
-
+  TextEditingController topicName = TextEditingController();
+  ListSelectedIcons listSelectedIcons = ListSelectedIcons();
+  ListSelectedColor listSelectedColor = ListSelectedColor();
+  RxInt currentTopicIndex = 0.obs;
+  RxInt currentTopicIcon = 0.obs;
+  RxInt currentTopicColor = 0.obs;
+  Rx<Color> colorTopic = AppColors.lightprimary250.obs;
   Rx<CardTopic> currentTopic = CardTopic(
     title: "",
     TopicColor: AppColors.lightGreen18.value,
     icons: Icons.work.codePoint,
   ).obs;
 
-  /// action 0 is Renaming topic
-  /// action 1 is Changing topic icon
-  /// action 2 is Changing topic color
-  int actionIndex = 0;
+  // Add-topic data
+  TextEditingController titleController = TextEditingController();
+  Rx<IconData> addtopicIcon = Icons.search.obs;
 
-  void actions() {
-    // Store index of current topic selected
-    // int indexCurrentTopic = diaryController.currentTopic.value;
+// choose topic
 
-    switch (actionIndex) {
-// Rename
-      case 0:
-        break;
-// Changing topic icon
-      case 1:
-        break;
-// Changing topic color
-      case 2:
-        break;
-      default:
-        break;
-    }
+  void changeTopicIndex(int index) {
+    currentTopicIndex(index);
   }
 
-  // Properties of topics button
-  List<CardTopic> topicList = [
-    CardTopic(
-      title: "Work",
-      TopicColor: AppColors.lightGreen18.value,
-      icons: Icons.work.codePoint,
-    ),
-    CardTopic(
-      title: "Love",
-      TopicColor: AppColors.lightRed22.value,
-      icons: Icons.favorite.codePoint,
-    ),
-    CardTopic(
-      title: "Friends",
-      TopicColor: AppColors.lightOrange27.value,
-      icons: Icons.group.codePoint,
-    ),
-    CardTopic(
-      title: "Family",
-      TopicColor: AppColors.lightPurple22.value,
-      icons: Icons.family_restroom.codePoint,
-    ),
-  ];
+  void changeIconIndex(int index) {
+    currentTopicIcon(index);
+
+    addtopicIcon(listSelectedIcons.selectedIcons[index]);
+  }
+
+  void changeColorIndex(int index) {
+    currentTopicColor(index);
+
+    colorTopic(listSelectedColor.selectedColors[index]);
+  }
+
+  void changeNameTopicSetting() {
+    // Update local data
+    ListTopic.topics[currentTopicIndex.value].title = topicName.text.trim();
+
+    // Update Topic-detail screen
+    currentTopic(ListTopic.topics[currentTopicIndex.value]);
+    update();
+
+    log(currentTopic.value.title);
+
+    hiveBoxTopic.updateDatabase();
+  }
+
+  void changeIconTopicSetting() {
+    // Update local data
+    ListTopic.topics[currentTopicIndex.value].icons =
+        listSelectedIcons.selectedIcons[currentTopicIcon.value].codePoint;
+
+    // Update Topic-detail screen
+    currentTopic(ListTopic.topics[currentTopicIndex.value]);
+    update();
+
+    log(currentTopic.value.icons.toString());
+
+    hiveBoxTopic.updateDatabase();
+  }
+
+  void changeColorTopicSetting() {
+    // Update local data
+    ListTopic.topics[currentTopicIndex.value].TopicColor =
+        listSelectedColor.selectedColors[currentTopicColor.value].value;
+
+    // Update UI
+    currentTopic(ListTopic.topics[currentTopicIndex.value]);
+    update();
+
+    hiveBoxTopic.updateDatabase();
+  }
+
+  void addTopicSetting() {
+    CardTopic newTopic = CardTopic(
+      title: titleController.text.trim(),
+      TopicColor: colorTopic.value.value,
+      icons: addtopicIcon.value.codePoint,
+    );
+    ListTopic.topics.add(newTopic);
+
+    // Reset
+    titleController.clear();
+
+    hiveBoxTopic.updateDatabase();
+  }
+
+  void deleteTopic() {
+    hiveBoxTopic.deleteTopic(currentTopic.value);
+    log(listTopic.toString());
+  }
 
   // First day of the week
-  RxBool isSunday = true.obs;
-
-  // Get value of isSunday
-  bool get getIsSunday => isSunday.value;
-  bool get getIsMonday => !isSunday.value;
+  var isSunday = SettingBox.setting.isSundayFirstDayOfWeek.obs;
 
   // Active Sunday button
   void onTapSunday() {
@@ -144,15 +268,38 @@ class SettingController extends GetxController {
     log('Monday is the first day');
   }
 
+  void saveFirstDayOfWeek() {
+    log('Before-setting: ${SettingService.setting.value.isSundayFirstDayOfWeek}');
+    log('Before-settingBox: ${SettingBox.setting.isSundayFirstDayOfWeek}');
+    // Update UI data
+    SettingService.setting = Setting(
+      isSundayFirstDayOfWeek: isSunday.value,
+      language: SettingService.setting.value.language,
+      isOnNotification: SettingService.setting.value.isOnNotification,
+      hour: SettingService.setting.value.hour,
+      minute: SettingService.setting.value.minute,
+      ampm: SettingService.setting.value.ampm,
+      isOnPINLock: SettingService.setting.value.isOnPINLock,
+    ).obs;
+
+    // Update local data
+    SettingBox.setting.isSundayFirstDayOfWeek = isSunday.value;
+    hiveSetting.updateDatabase();
+    log("After-setting: ${SettingService.setting.value.isSundayFirstDayOfWeek}");
+    log("After-settingBox: ${SettingBox.setting.isSundayFirstDayOfWeek}");
+
+    update();
+  }
+
   // -------------------------------------------
   // Language
 
   // Current language
-  late Language choice;
+  RxInt choice = SettingBox.setting.language.obs;
 
   // Languages list
   var lanList = [
-    Language(label: "English", actived: true.obs),
+    Language(label: "English", actived: false.obs),
     Language(label: "Tiếng Việt", actived: false.obs),
     Language(label: "日本語", actived: false.obs),
   ];
@@ -175,26 +322,46 @@ class SettingController extends GetxController {
       lan.actived(false);
     }
     lanList[index].actived(true);
-    choice = lanList[index];
-    log(choice.label.toString());
+    choice(index);
+    log(lanList[choice.value].label.toString());
+  }
+
+  void saveLanguage() {
+    SettingBox.setting.language = choice.value;
+    hiveSetting.updateDatabase();
+    log(lanList[SettingBox.setting.language].label);
   }
 
   // -------------------------------------------
   // Notification
 
+  /// hour from 1 to 12 and controller index from 0 to 11
+  FixedExtentScrollController hourController =
+      FixedExtentScrollController(initialItem: SettingBox.setting.hour);
+  FixedExtentScrollController minuteController =
+      FixedExtentScrollController(initialItem: SettingBox.setting.minute);
+  FixedExtentScrollController ampmController =
+      FixedExtentScrollController(initialItem: SettingBox.setting.ampm);
+  // ScrollPosition lastestHour
+
   // Active the reminder
-  RxBool actived = false.obs;
+  RxBool actived = SettingBox.setting.isOnNotification.obs;
 
   // Hour - minute - AM/PM
-  late RxInt hour = 0.obs;
-  late RxInt minute = 0.obs;
-  late RxInt ampm = 0.obs;
+  RxInt hour = SettingBox.setting.hour.obs;
+  RxInt minute = SettingBox.setting.minute.obs;
+  RxInt ampm = SettingBox.setting.ampm.obs;
 
   // Get hour
-  String get getHour => hour.value < 10 ? '0$hour' : '$hour';
+  RxString get getHour => (hour < 10 ? '0$hour' : '$hour').obs;
 
   // Get minute
-  String get getMin => minute.value < 10 ? '0$minute' : '$minute';
+  RxString get getMin => (minute < 10 ? '0$minute' : '$minute').obs;
+
+  // Get am/pm
+  RxString get getAmpm => (ampm.value == 0 ? 'AM' : 'PM').obs;
+
+  int getHour24(int hour, int ampm) => ampm == 0 ? hour : hour + 12;
 
   // Turn on/off the reminder
   void switchOnChange() {
@@ -218,6 +385,65 @@ class SettingController extends GetxController {
     log("ampm: $ampm");
   }
 
+  TimeOfDay convertSelectedTime() {
+    return TimeOfDay(
+      hour: getHour24(
+          hourController.selectedItem + 1, ampmController.selectedItem),
+      minute: minuteController.selectedItem,
+    );
+  }
+
+  void saveTimeSetting(BuildContext context) async {
+    // Save local data
+    SettingBox.setting.hour = hourController.selectedItem + 1;
+    SettingBox.setting.minute = minuteController.selectedItem;
+    SettingBox.setting.ampm = ampmController.selectedItem;
+
+    // Update UI
+    // hour from 1 to 12 and controller index from 0 to 11
+    updateHour(hourController.selectedItem + 1);
+    updateMinute(minuteController.selectedItem);
+    updateAmPm(ampmController.selectedItem);
+
+    log('----SettingBox_Hour: ${SettingBox.setting.hour.toString()}');
+    log('----SettingBox_Minute: ${SettingBox.setting.minute.toString()}');
+    log('----SettingBox_Ampm: ${SettingBox.setting.ampm.toString()}');
+
+    /// Cancel the last scheduled notification
+    NotificationService().cancelAllNotfication();
+
+    // Set for notification
+    NotificationService().scheduleDailyAtTimeNotification(
+      convertSelectedTime(),
+    );
+
+    hiveSetting.updateDatabase();
+  }
+
+  void saveTimeOnboarding() {
+    SettingBox.setting.hour = hourController.selectedItem + 1;
+    SettingBox.setting.minute = minuteController.selectedItem;
+    SettingBox.setting.ampm = ampmController.selectedItem;
+
+    /// Cancel the last scheduled notification
+    NotificationService().cancelAllNotfication();
+
+    /// Set for notification
+    NotificationService().scheduleDailyAtTimeNotification(
+      convertSelectedTime(),
+    );
+
+    hiveSetting.updateDatabase();
+  }
+
+  void saveNotification() {
+    SettingBox.setting.isOnNotification = actived.value;
+
+    log(SettingBox.setting.isOnNotification.toString());
+
+    hiveSetting.updateDatabase();
+  }
+
   // -------------------------------------------
   // PIN LOCK
   // Passcode is typed
@@ -233,8 +459,9 @@ class SettingController extends GetxController {
   }
 
   void deleteCode(int index, RxList<int> code, RxInt count) {
-    // Nếu bấm nút có giá trị -2, code sẽ xóa đi 1 giá trị
-    if (index == -2) {
+    /// Nếu có ít nhất 1 giá trị passcode và giá trị đó = -2,
+    /// passcode sẽ xóa đi 1 giá trị bên phải
+    if (count > 0 && index == -2) {
       code[--count.value] = -1;
     }
   }

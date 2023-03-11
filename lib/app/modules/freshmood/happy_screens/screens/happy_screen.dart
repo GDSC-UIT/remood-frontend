@@ -7,11 +7,14 @@ import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/data/models/quote_model.dart';
+import 'package:remood/app/global_widgets/to_suggestion_button.dart';
+import 'package:remood/app/global_widgets/today_motivation.dart';
 import 'package:remood/app/modules/freshmood/freshmood_widgets/back_button.dart';
 import 'package:remood/app/modules/home/home_controller.dart';
 import 'package:remood/app/modules/home/widgets/floating_action_button.dart';
 import 'package:remood/app/routes/app_routes.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class HappyScreen extends StatefulWidget {
   const HappyScreen({super.key});
@@ -37,14 +40,27 @@ class _HappyScreenState extends State<HappyScreen> {
     double _screenHeight = MediaQuery.of(context).size.height;
     HomeController changeAsset = Get.find();
     return Scaffold(
-      backgroundColor: AppColors.BackgroundColor,
+      backgroundColor: AppColors.backgroundColor,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
 // back button
           BackButtonContainer(),
           SizedBox(
-            height: _screenHeight * 0.2,
+            height: _screenHeight * 0.11,
+          ),
+// today's motivation
+          Center(
+            child: TodayMotivation(
+              color: changeAsset.valueSlider.value < 60
+                  ? AppColors.normalFace
+                  : changeAsset.valueSlider.value < 80
+                      ? AppColors.smileFace
+                      : AppColors.happyFace,
+            ),
+          ),
+          SizedBox(
+            height: _screenHeight * 0.023,
           ),
 // icon feelings
           Padding(
@@ -115,9 +131,21 @@ class _HappyScreenState extends State<HappyScreen> {
                     } else if (snapshot.hasError) {
                       return Text('${snapshot.error}');
                     }
-                    return CircularProgressIndicator();
+                    return SpinKitFadingCircle(
+                      color: changeAsset.valueSlider.value < 60
+                          ? AppColors.normalFace
+                          : changeAsset.valueSlider.value < 80
+                              ? AppColors.smileFace
+                              : AppColors.happyFace,
+                      size: 50.0,
+                    );
                   },
                 )),
+          ),
+          const Spacer(),
+          Center(child: SuggestionButton()),
+          SizedBox(
+            height: _screenHeight * 0.04,
           )
         ],
       ),

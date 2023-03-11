@@ -17,7 +17,7 @@ class ReadDiaryFreshmood extends StatelessWidget {
     double _screenHeight = MediaQuery.of(context).size.height;
     SadController diaryController = Get.find();
     return Scaffold(
-      backgroundColor: AppColors.BackgroundColor,
+      backgroundColor: AppColors.backgroundColor,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

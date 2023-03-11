@@ -4,11 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
-import 'package:remood/app/data/models/list_topic.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/modules/setting/widgets/confirm_button.dart';
 import 'package:remood/app/modules/setting/widgets/stack_setting_appbar.dart';
-import 'package:remood/app/modules/write_diary/diary_controller.dart';
 
 class RenameTopicScreen extends StatelessWidget {
   const RenameTopicScreen({
@@ -19,7 +17,6 @@ class RenameTopicScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-    DiaryController diaryController = Get.find();
     SettingController settingController = Get.find();
 
     String appBarTitle = "Rename";
@@ -38,7 +35,7 @@ class RenameTopicScreen extends StatelessWidget {
             SizedBox(
               width: screenWidth * 0.872,
               child: TextField(
-                controller: diaryController.topicName,
+                controller: settingController.topicName,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(16),
@@ -52,7 +49,7 @@ class RenameTopicScreen extends StatelessWidget {
                       color: Colors.blue,
                     ),
                   ),
-                  hintText: settingController.currentTopic.value.title,
+                  hintText: "Enter your new name",
                   hintStyle: CustomTextStyle.normalText(AppColors.grey),
                 ),
                 style: const TextStyle(fontSize: 20),
@@ -61,7 +58,7 @@ class RenameTopicScreen extends StatelessWidget {
             // Save button
             ConfirmButton(
               label: "Save",
-              func: diaryController.renameTopicSetting,
+              func: settingController.changeNameTopicSetting,
             ),
             SizedBox(
               height: screenHeight * 0.03,

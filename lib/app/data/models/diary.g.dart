@@ -23,8 +23,7 @@ class DiaryAdapter extends TypeAdapter<Diary> {
       icon: fields[2] as int,
       title: fields[4] as String,
       image: fields[5] as String?,
-      isPinned: fields[6] as bool?,
-    );
+    )..isPinned = fields[6] as bool?;
   }
 
   @override

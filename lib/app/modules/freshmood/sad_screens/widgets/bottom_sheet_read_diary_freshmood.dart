@@ -153,10 +153,10 @@ class SheetReadDiaryFreshmood extends StatelessWidget {
             height: _screenHeight * 0.34,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
-              color: id == 0
-                  ? Color(ListPositveDiary
-                      .listPositiveDiary[currentDiary.value].diaryColor)
-                  : Color(ListNegativeDiary
+              color: Color(id == 0
+                  ? ListPositveDiary
+                      .listPositiveDiary[currentDiary.value].diaryColor
+                  : ListNegativeDiary
                       .listNegativeDiary[currentDiary.value].diaryColor),
             ),
             child: Padding(

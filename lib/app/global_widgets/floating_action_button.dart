@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
+import 'package:remood/app/data/services/media_query_service.dart';
 
 class FloatingButton extends StatefulWidget {
   const FloatingButton({super.key});
@@ -13,8 +14,8 @@ class _FloatingButtonState extends State<FloatingButton> {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    var pctWidth = MediaQueryService.pctWidth(context);
+    var pctHeight = MediaQueryService.pctHeight(context);
     void onPressed() {
       setState(() {
         isPressed = !isPressed;
@@ -22,8 +23,8 @@ class _FloatingButtonState extends State<FloatingButton> {
     }
 
     return SizedBox(
-      width: _screenWidth * 0.19,
-      height: _screenHeight * 0.09,
+      width: 70 * pctWidth,
+      height: 69 * pctHeight,
       child: FittedBox(
         child: FloatingActionButton(
           onPressed: onPressed,

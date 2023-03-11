@@ -27,7 +27,7 @@ class ReportController extends GetxController {
     await Future.delayed(
       const Duration(seconds: 1),
     );
-    percentage.value = 60;
+    percentage.value = 75;
     avgMood.value = "Happy";
   }
 

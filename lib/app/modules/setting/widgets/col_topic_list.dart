@@ -18,8 +18,6 @@ class ColTopicList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final settingController = Get.find<SettingController>();
-    final diaryController = Get.find<DiaryController>();
-    RxList<CardTopic> topicList = list;
     TextStyle topicLabelStyle = settingController.settingLabelStyle;
 
     return Obx(
@@ -28,25 +26,37 @@ class ColTopicList extends StatelessWidget {
           list.length,
           (index) => GestureDetector(
             onTap: () {
-              log(topicList[index].title);
+              log(list[index].title);
 
               // Gán thứ tự topic được chọn
-              settingController.currentTopic(topicList[index]);
-              diaryController.currentTopic(index);
+              settingController.currentTopic(list[index]);
+              settingController.currentTopicIndex(index);
 
+              log(list[index].icons.toString());
+
+              // Chuyển đến trang "Cài đặt topic"
               Get.toNamed(AppRoutes.topicDetail);
             },
-            child: ListTile(
-              leading: TopicAvatar(
-                topic: list[index],
-                index: index,
-                currentIndex: index.obs,
-              ),
-              trailing: Image.asset(Assets.arrowRight),
-              title: Text(
-                list[index].title,
-                style: topicLabelStyle,
-              ),
+            child: GetBuilder<SettingController>(
+              builder: (_) {
+                return ListTile(
+                  // Topic icon
+                  leading: TopicAvatar(
+                    topic: list[index],
+                    index: index,
+                    currentIndex: index.obs,
+                  ),
+
+                  // Right-arrow icon
+                  trailing: Image.asset(Assets.arrowRight),
+
+                  // Topic label
+                  title: Text(
+                    list[index].title,
+                    style: topicLabelStyle,
+                  ),
+                );
+              },
             ),
           ),
         ),
