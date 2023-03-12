@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
+import 'package:remood/app/data/services/media_query_service.dart';
 import 'package:remood/app/data/services/notification_service.dart';
 import 'package:remood/app/data/services/permission_service.dart';
 import 'package:remood/app/routes/app_routes.dart';
@@ -27,6 +28,8 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var pctWidth = MediaQueryService().pctWidth(context);
+    var pctHeight = MediaQueryService().pctHeight(context);
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
       body: Center(
@@ -36,16 +39,19 @@ class _SplashScreenState extends State<SplashScreen> {
           children: [
             Image.asset(
               Assets.logo,
-              height: 211.68,
-              width: 217.2,
+              width: pctWidth * 148,
+              height: pctHeight * 137,
+            ),
+            SizedBox(
+              height: pctHeight * 32,
             ),
             Image.asset(
               Assets.logoText,
-              height: 64,
-              width: 167,
+              width: pctWidth * 167,
+              height: pctHeight * 64,
             ),
             const SizedBox(
-              height: 10.0,
+              height: 15.0,
             ),
             const CircularProgressIndicator(
               color: AppColors.mainColor,

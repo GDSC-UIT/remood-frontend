@@ -20,7 +20,7 @@ class ComfirmPassword extends StatelessWidget {
     double _screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: AppColors.backgroundColor,
+      backgroundColor: AppColors.backgroundPage,
       body: SingleChildScrollView(
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         child: Column(
