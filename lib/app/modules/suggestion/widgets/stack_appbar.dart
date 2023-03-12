@@ -12,6 +12,7 @@ class StackSearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
+    var pctWidth = MediaQueryService().pctWidth(context);
     var pctHeight = MediaQueryService().pctHeight(context);
 
     return Stack(
@@ -43,12 +44,12 @@ class StackSearchBar extends StatelessWidget {
                             fit: BoxFit.fill,
                             child: Image.asset(Assets.remoodSuggestion))),
                     Positioned(
-                      top: pctHeight * -46,
-                      left: _screenWidth * 0.584,
+                      top: -24,
+                      left: _screenWidth * 0.604,
                       child: SizedBox(
-                          width: _screenWidth * 0.432,
-                          height: _screenHeight * 0.195,
-                          child: Image.asset(Assets.remoodLogo)),
+                          width: _screenWidth * 0.29867,
+                          height: _screenHeight * 0.12808,
+                          child: Image.asset(Assets.logo)),
                     ),
                   ],
                 )
