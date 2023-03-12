@@ -29,6 +29,7 @@ abstract class AppRoutes {
   static const security = '$setting/security';
   static const contactUs = '$setting/contactUs';
   static const faq = '$setting/faq';
+  static const feedback = '$setting/feedback';
   static const topicDetail = '$manageTopics/topicDetail';
   static const renameTopic = '$topicDetail/renameTopic';
   static const changeIconTopic = '$topicDetail/changeIconTopic';

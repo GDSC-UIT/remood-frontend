@@ -18,6 +18,7 @@ import 'package:remood/app/modules/report/report_binding.dart';
 import 'package:remood/app/modules/report/screens/report_screen.dart';
 import 'package:remood/app/modules/setting/screens/contact_us_screen.dart';
 import 'package:remood/app/modules/setting/screens/faq_screen.dart';
+import 'package:remood/app/modules/setting/screens/feedback_screen.dart';
 import 'package:remood/app/modules/setting/screens/language_screen.dart';
 import 'package:remood/app/modules/setting/screens/manage_topics_screen.dart';
 import 'package:remood/app/modules/setting/screens/mt_change_color_topic_screen.dart';
@@ -190,6 +191,11 @@ abstract class AppPages {
     GetPage(
       name: AppRoutes.faq,
       page: () => const FAQScreen(),
+      binding: SettingBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.feedback,
+      page: () => const FeedbackScreen(),
       binding: SettingBinding(),
     ),
     GetPage(

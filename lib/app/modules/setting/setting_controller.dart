@@ -157,6 +157,11 @@ class SettingController extends GetxController {
       label: "FAQ",
       screen: AppRoutes.faq,
     ),
+    SettingButton(
+      icon: Assets.chat,
+      label: "Feedback",
+      screen: AppRoutes.feedback,
+    ),
   ];
 
   // Manage topics

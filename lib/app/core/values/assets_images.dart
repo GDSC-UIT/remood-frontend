@@ -20,6 +20,7 @@ class Assets {
   static const String addressMarker = 'assets/icons/address_marker.png';
   static const String phone = 'assets/icons/phone.png';
   static const String pin = 'assets/icons/pinSetting.png';
+  static const String chat = 'assets/icons/chat.png';
 
   // Images
   static const String logoText = 'assets/images/logo-text.png';
