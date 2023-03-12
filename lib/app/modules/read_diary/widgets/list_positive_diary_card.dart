@@ -31,8 +31,11 @@ class PositiveDiaryList extends StatelessWidget {
               ),
               endActionPane: ActionPane(motion: ScrollMotion(), children: [
                 SlidableAction(
-                  onPressed: (context) =>
-                      readPositveDiary.deletePositiveDiary(index),
+                  onPressed: (context) {
+                    readPositveDiary.deletePinnedDiary(
+                        index, readPositveDiary.positiveDiaryList[index]);
+                    readPositveDiary.deletePositiveDiary(index);
+                  },
                   icon: Icons.delete,
                 ),
               ]),

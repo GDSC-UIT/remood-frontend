@@ -94,27 +94,27 @@ abstract class AppPages {
     GetPage(
       name: AppRoutes.loginScreen,
       page: () => const LogInScreen(),
-      binding: LogInBinding(),
+      bindings: [LogInBinding(), HomeBinding()],
     ),
     GetPage(
       name: AppRoutes.login,
       page: () => const LogIn(),
-      binding: LogInBinding(),
+      bindings: [LogInBinding(), HomeBinding()],
     ),
     GetPage(
       name: AppRoutes.createnewAccount,
-      page: () => const CreateNewAccount(),
-      binding: LogInBinding(),
+      page: () => CreateNewAccount(),
+      bindings: [LogInBinding(), HomeBinding()],
     ),
     GetPage(
       name: AppRoutes.forgotPassword,
-      page: () => const ForgotPassWord(),
-      binding: LogInBinding(),
+      page: () => ForgotPassWord(),
+      bindings: [LogInBinding(), HomeBinding()],
     ),
     GetPage(
       name: AppRoutes.comfirmPassword,
-      page: () => const ComfirmPassword(),
-      binding: LogInBinding(),
+      page: () => ComfirmPassword(),
+      bindings: [LogInBinding(), HomeBinding()],
     ),
     GetPage(
       name: AppRoutes.report,

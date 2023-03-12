@@ -8,6 +8,11 @@ import 'package:flutter/material.dart';
 import 'package:remood/app/modules/read_diary/widgets/bottom_sheet_search_diary.dart';
 
 class HomeController extends GetxController {
+  RxString token = "".obs;
+  updateToken({@required token}) {
+    this.token = token;
+  }
+
   RxInt current = 0.obs;
   final Rx<ValueNotifier<int>> currentScreen = ValueNotifier(0).obs;
   void changeBottomScreen(index) {
@@ -31,7 +36,7 @@ class HomeController extends GetxController {
     ispressed.value = !ispressed.value;
   }
 
-  RxDouble valueSlider = 50.0.obs;
+  RxInt valueSlider = 50.obs;
   void onChangeSlider(value) {
     valueSlider.value = value;
   }

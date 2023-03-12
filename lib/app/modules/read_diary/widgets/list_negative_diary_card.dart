@@ -34,8 +34,11 @@ class NegativeDiaryList extends StatelessWidget {
                   DiaryCard(diary: readNegativeDiary.negativeDiaryList[index]),
               endActionPane: ActionPane(motion: ScrollMotion(), children: [
                 SlidableAction(
-                  onPressed: ((context) =>
-                      readNegativeDiary.deleteNegativeDiary(index)),
+                  onPressed: ((context) {
+                    readNegativeDiary.deletePinnedDiary(
+                        index, readNegativeDiary.positiveDiaryList[index]);
+                    readNegativeDiary.deleteNegativeDiary(index);
+                  }),
                   icon: Icons.delete,
                 ),
               ]),

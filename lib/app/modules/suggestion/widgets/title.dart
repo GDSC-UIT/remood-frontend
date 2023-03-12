@@ -9,13 +9,16 @@ import 'package:remood/app/modules/suggestion/suggestion_controller.dart';
 
 class TitleContainer extends StatelessWidget {
   RxInt currentIndex;
+  RxBool isPressed;
   int index;
   String text;
-  TitleContainer(
-      {super.key,
-      required this.text,
-      required this.currentIndex,
-      required this.index});
+  TitleContainer({
+    super.key,
+    required this.text,
+    required this.currentIndex,
+    required this.index,
+    required this.isPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -23,16 +26,23 @@ class TitleContainer extends StatelessWidget {
     double _screenHeight = MediaQuery.of(context).size.height;
     return Obx(
       () => Container(
-        width: _screenWidth * 0.363,
+        width: _screenWidth * 0.6,
         decoration: BoxDecoration(
-            color: currentIndex.value == index
-                ? AppColors.titleSelected
-                : Colors.white,
+            color: isPressed.value == false
+                ? Colors.white
+                : currentIndex.value == index
+                    ? AppColors.titleSelected
+                    : Colors.white,
             borderRadius: BorderRadius.circular(34)),
         child: Center(
-            child: Text(
-          text,
-          style: CustomTextStyle.suggestionTitle(),
+            child: FittedBox(
+          fit: BoxFit.fill,
+          child: Text(
+            text,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 3,
+            style: CustomTextStyle.suggestionTitle(),
+          ),
         )),
       ),
     );

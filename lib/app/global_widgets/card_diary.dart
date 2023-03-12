@@ -55,6 +55,7 @@ class DiaryCard extends StatelessWidget {
                       diary.isPinned == true
                           ? PinnedDiary.listPinnedDiary.add(diary)
                           : PinnedDiary.listPinnedDiary.remove(diary);
+
                       hiveBoxNegative.updateDatabase();
                       hiveBoxPositive.updateDatabase();
                       hiveBoxPinned.updateDatabase();
