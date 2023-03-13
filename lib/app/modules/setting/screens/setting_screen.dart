@@ -28,89 +28,92 @@ class SettingScreen extends StatelessWidget {
         left: false,
         child: Column(
           children: [
-// User info
-            Container(
-              height: 167,
-              width: 375,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(24.0),
-                  color: AppColors.settingUserBg),
-              child: Obx(
-                () => Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-// Page name
-                    Text(
-                      "Settings Page",
-                      style: CustomTextStyle.h2(AppColors.settingPageName)
-                          .copyWith(fontSize: 15),
-                    ),
-                    const SizedBox(height: 10.0),
-
-// User avatar
-                    Container(
-                      width: 77.26,
-                      height: 72.86,
-                      decoration: BoxDecoration(
-                        color: AppColors.settingUserAvtBg,
-                        borderRadius: BorderRadius.circular(50.0),
-                      ),
-                      child: const UserAvatar(),
-                    ),
-
-// User name
-                    isEditableName.value
-                        ? Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 100.0),
-                            child: TextField(
-                              controller: settingController.nameController,
-                              autofocus: true,
-                              decoration: InputDecoration(
-                                focusColor: AppColors.mainColor,
-                                hintText: "Enter a nickname",
-                                hintStyle: CustomTextStyle.normalText(
-                                  const Color(0xFF777777),
-                                ),
-                              ),
-                              onSubmitted: (value) {
-                                settingController.editNickName();
-                              },
-                            ),
-                          )
-                        : Text(
-                            user.value.name,
-                            style: CustomTextStyle.customh2(
-                                AppColors.settingUserName, 20.0),
-                          ),
-
-                    // Change nickname button
-                    !isEditableName.value
-                        ? GestureDetector(
-                            onTap: () {
-                              log("Changed nickname!");
-                              settingController.editNickName();
-                            },
-                            child: Text(
-                              "Change nickname",
-                              style:
-                                  CustomTextStyle.h2(AppColors.settingUserName)
-                                      .copyWith(
-                                          fontSize: 7,
-                                          decoration: TextDecoration.underline),
-                            ),
-                          )
-                        : const SizedBox(),
-                  ],
-                ),
-              ),
-            ),
-
-// Setting Functions
             Expanded(
               child: ListView(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 children: [
+// User info
+                  Container(
+                    height: 167,
+                    width: 375,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(24.0),
+                        color: AppColors.settingUserBg),
+                    child: Obx(
+                      () => Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+// Page name
+                          Text(
+                            "Settings Page",
+                            style: CustomTextStyle.h2(AppColors.settingPageName)
+                                .copyWith(fontSize: 15),
+                          ),
+                          const SizedBox(height: 10.0),
+
+// User avatar
+                          Container(
+                            width: 77.26,
+                            height: 72.86,
+                            decoration: BoxDecoration(
+                              color: AppColors.settingUserAvtBg,
+                              borderRadius: BorderRadius.circular(50.0),
+                            ),
+                            child: const UserAvatar(),
+                          ),
+
+// User name
+                          isEditableName.value
+                              ? Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 100.0),
+                                  child: TextField(
+                                    controller:
+                                        settingController.nameController,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      focusColor: AppColors.mainColor,
+                                      hintText: "Enter a nickname",
+                                      hintStyle: CustomTextStyle.normalText(
+                                        const Color(0xFF777777),
+                                      ),
+                                    ),
+                                    onSubmitted: (value) {
+                                      settingController.editNickName();
+                                    },
+                                  ),
+                                )
+                              : Text(
+                                  user.value.name,
+                                  style: CustomTextStyle.customh2(
+                                      AppColors.settingUserName, 20.0),
+                                ),
+
+                          // Change nickname button
+                          !isEditableName.value
+                              ? GestureDetector(
+                                  onTap: () {
+                                    log("Changed nickname!");
+                                    settingController.editNickName();
+                                  },
+                                  child: Text(
+                                    "Change nickname",
+                                    style: CustomTextStyle.h2(
+                                            AppColors.settingUserName)
+                                        .copyWith(
+                                            fontSize: 7,
+                                            decoration:
+                                                TextDecoration.underline),
+                                  ),
+                                )
+                              : const SizedBox(),
+                        ],
+                      ),
+                    ),
+                  ),
+
+// Setting Functions
+
                   const SizedBox(
                     height: 12,
                   ),
