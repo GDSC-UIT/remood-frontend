@@ -2,11 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
-import 'package:remood/app/data/models/list_topic.dart';
-import 'package:remood/app/data/models/topic.dart';
-import 'package:remood/app/modules/setting/setting_controller.dart';
-import 'package:remood/app/modules/write_diary/diary_controller.dart';
-import 'package:remood/app/routes/app_routes.dart';
 
 class ConfirmButton extends StatelessWidget {
   const ConfirmButton({super.key, required this.label, this.func});

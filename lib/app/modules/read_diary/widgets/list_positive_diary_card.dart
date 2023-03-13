@@ -1,10 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:remood/app/modules/home/home_controller.dart';
 import 'package:remood/app/modules/read_diary/read_diary_controller.dart';
 import 'package:remood/app/global_widgets/card_diary.dart';
-import 'package:remood/app/modules/write_diary/diary_controller.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 class PositiveDiaryList extends StatelessWidget {

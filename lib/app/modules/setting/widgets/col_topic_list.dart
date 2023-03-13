@@ -5,7 +5,6 @@ import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/data/models/topic.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/modules/setting/widgets/col_topic_avt.dart';
-import 'package:remood/app/modules/write_diary/diary_controller.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class ColTopicList extends StatelessWidget {

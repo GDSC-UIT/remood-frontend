@@ -1,12 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:remood/app/data/models/list_negative_diary.dart';
 import 'package:remood/app/modules/freshmood/sad_screens/sad_screen_controller.dart';
-import 'package:remood/app/modules/home/home_controller.dart';
-import 'package:remood/app/modules/read_diary/read_diary_controller.dart';
-
-import 'package:remood/app/modules/write_diary/diary_controller.dart';
 import 'package:remood/app/global_widgets/card_diary.dart';
 import 'package:get/get.dart';
 
