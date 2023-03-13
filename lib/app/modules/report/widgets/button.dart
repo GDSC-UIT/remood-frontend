@@ -18,18 +18,20 @@ class Button extends StatelessWidget {
         Get.toNamed(AppRoutes.suggestion);
       },
       child: Container(
-          width: _screenWidth * 0.517,
-          height: _screenHeight * 0.058,
-          decoration: BoxDecoration(
-              color: AppColors.mainColor,
-              borderRadius: BorderRadius.circular(20),
-              boxShadow: [BoxShadow(offset: Offset(0, 1))]),
-          child: Center(
-            child: Text(
-              "Remood’s suggestion",
-              style: CustomTextStyle.suggestionButtonText(),
-            ),
-          )),
+        width: _screenWidth * 0.517,
+        height: _screenHeight * 0.058,
+        decoration: BoxDecoration(
+            color: AppColors.buttonDiary,
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [BoxShadow(offset: Offset(0, 1))]),
+        child: Center(
+          child: Text(
+            "Remood’s suggestion",
+            style: CustomTextStyle.suggestionButtonText()
+                .copyWith(color: AppColors.primary),
+          ),
+        ),
+      ),
     );
   }
 }
