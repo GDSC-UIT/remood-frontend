@@ -5,8 +5,7 @@ import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/data/services/media_query_service.dart';
-import 'package:remood/app/data/services/notification_service.dart';
-import 'package:remood/app/data/services/permission_service.dart';
+import 'package:remood/app/modules/splash/splash_controller.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -17,12 +16,16 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  final SplashController controller = Get.find<SplashController>();
+
   @override
   void initState() {
     super.initState();
     Timer(
       const Duration(seconds: 2),
-      () => Get.toNamed(AppRoutes.onboarding),
+      () async => Get.offAndToNamed(await controller.isFirstOnboard() == true
+          ? AppRoutes.onboarding
+          : AppRoutes.home),
     );
   }
 

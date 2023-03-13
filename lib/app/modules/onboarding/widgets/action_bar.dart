@@ -50,7 +50,7 @@ class _ActionBarState extends State<ActionBar> {
 
                 // Skip button
                 TextButton(
-                  onPressed: () {
+                  onPressed: () {                    
                     Get.offAllNamed(AppRoutes.home);
                   },
                   child: Text("Skip",

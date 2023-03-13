@@ -65,7 +65,7 @@ class _HappyScreenState extends State<HappyScreen> {
 // icon feelings
           Padding(
             padding: EdgeInsets.only(left: _screenWidth * 0.43),
-            child: Container(
+            child: SizedBox(
               width: 56,
               height: 56,
               child: FittedBox(

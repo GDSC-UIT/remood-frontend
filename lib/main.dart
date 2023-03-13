@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:is_first_run/is_first_run.dart';
 import 'package:remood/app/data/models/diary.dart';
 import 'package:remood/app/data/models/setting.dart';
 import 'package:remood/app/data/models/topic.dart';
@@ -15,6 +16,9 @@ import '/app/routes/app_pages.dart';
 import '/app/routes/app_routes.dart';
 
 void main() async {
+  SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   Hive
@@ -36,6 +40,8 @@ void main() async {
 
   /// Initialize timezone
   NotificationService.configureLocalTimeZone();
+
+  final bool isFirstCall = await IsFirstRun.isFirstRun();
 
   runApp(const MyApp());
 }
