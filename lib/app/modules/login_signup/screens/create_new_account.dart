@@ -1,22 +1,75 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
+import 'package:remood/app/data/models/register_email.dart';
+import 'package:remood/app/modules/login_signup/login_controller.dart';
 import 'package:remood/app/modules/login_signup/widgets/account_question.dart';
 import 'package:remood/app/modules/login_signup/widgets/action_bar.dart';
 import 'package:remood/app/modules/login_signup/widgets/my_textfield.dart';
 import 'package:remood/app/modules/login_signup/widgets/slogan.dart';
 import 'package:remood/app/modules/login_signup/widgets/title.dart';
 import 'package:remood/app/routes/app_routes.dart';
+import 'package:http/http.dart' as http;
 
-class CreateNewAccount extends StatelessWidget {
-  const CreateNewAccount({super.key});
+class CreateNewAccount extends StatefulWidget {
+  CreateNewAccount({super.key});
+
+  @override
+  State<CreateNewAccount> createState() => _CreateNewAccountState();
+}
+
+class _CreateNewAccountState extends State<CreateNewAccount> {
+  TextEditingController emailcontroller = TextEditingController();
+
+  TextEditingController passwordcontroller = TextEditingController();
+
+  TextEditingController usenamecontroller = TextEditingController();
+  LogInController logInController = Get.find<LogInController>();
 
   @override
   Widget build(BuildContext context) {
+    LogInController registerController = LogInController();
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
+    void createNewData(String email, String usename, String password) async {
+      showDialog(
+          context: context,
+          builder: ((context) => Center(
+                child: CircularProgressIndicator(),
+              )));
+      try {
+        final response = await http.post(
+          Uri.parse('https://remood-backend.onrender.com/api/users/'),
+          body: jsonEncode(<String, String>{
+            "username": usename,
+            "email": email,
+            "password": password,
+          }),
+        );
+        print(response.body);
+        if (response.statusCode == 200) {
+          print(response.body);
+          var data = jsonDecode(response.body.toString());
+          RegisterEmail.registerEmail.add(data['data']['user']['email']);
+          print(RegisterEmail.registerEmail);
+          logInController.hiveboxRegisterEmail.updateDatabase();
+          Get.toNamed(AppRoutes.login);
+        } else {
+          Get.back();
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text("Registation failed")));
+        }
+      } catch (e) {
+        print(e);
+      }
+    }
+
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: AppColors.backgroundPage,
@@ -45,15 +98,27 @@ class CreateNewAccount extends StatelessWidget {
             SizedBox(
               height: _screenHeight * 0.043,
             ),
-            MyTextField(hintText: "Usename", obscureText: false),
+            MyTextField(
+              controller: usenamecontroller,
+              hintText: "Usename",
+              obscureText: false,
+            ),
             SizedBox(
               height: _screenHeight * 0.031,
             ),
-            MyTextField(hintText: "Email", obscureText: false),
+            MyTextField(
+              hintText: "Email",
+              obscureText: false,
+              controller: emailcontroller,
+            ),
             SizedBox(
               height: _screenHeight * 0.031,
             ),
-            MyTextField(hintText: "Password", obscureText: true),
+            MyTextField(
+              hintText: "Password",
+              obscureText: true,
+              controller: passwordcontroller,
+            ),
             SizedBox(
               height: _screenHeight * 0.18,
             ),
@@ -66,18 +131,24 @@ class CreateNewAccount extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: _screenWidth * 0.059),
-              child: Container(
-                  height: _screenHeight * 0.064,
-                  decoration: BoxDecoration(
-                    color: AppColors.mainColor,
-                    borderRadius: BorderRadius.circular(13),
-                  ),
-                  child: Center(
-                    child: Text(
-                      "Sign up",
-                      style: CustomTextStyle.TextLogin(Colors.white),
+              child: GestureDetector(
+                onTap: () {
+                  createNewData(emailcontroller.text, usenamecontroller.text,
+                      passwordcontroller.text);
+                },
+                child: Container(
+                    height: _screenHeight * 0.064,
+                    decoration: BoxDecoration(
+                      color: AppColors.MainColor,
+                      borderRadius: BorderRadius.circular(13),
                     ),
-                  )),
+                    child: Center(
+                      child: Text(
+                        "Sign up",
+                        style: CustomTextStyle.TextLogin(Colors.white),
+                      ),
+                    )),
+              ),
             ),
           ],
         ),

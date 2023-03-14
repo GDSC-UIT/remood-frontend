@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -7,10 +10,13 @@ import 'dart:ui' as ui;
 
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
+import 'package:remood/app/data/models/report_controller.dart';
 import 'package:remood/app/data/services/media_query_service.dart';
 import 'package:remood/app/modules/home/home_controller.dart';
 import 'package:remood/app/modules/home/widgets/floating_action_button.dart';
 import 'package:remood/app/routes/app_routes.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class FreshmoodPercent extends StatefulWidget {
   const FreshmoodPercent({super.key});
@@ -20,12 +26,28 @@ class FreshmoodPercent extends StatefulWidget {
 }
 
 class _FreshmoodPercentState extends State<FreshmoodPercent> {
+  HomeController tokenController = Get.find();
+  var url = "https://remood-backend.onrender.com/api/review-notes/";
+
+  createData(int point) async {
+    var response = await http.post(Uri.parse(url),
+        headers: {
+          'Authorization': 'Bearer ${tokenController.token.value}',
+        },
+        body: jsonEncode(<String, dynamic>{
+          'point': point,
+        }));
+    print(response.statusCode);
+    print(response.body);
+  }
+
   @override
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
     var pctWidth = MediaQueryService().pctWidth(context);
     var pctHeight = MediaQueryService().pctHeight(context);
+    Future<reportController>? _futureReport;
     HomeController sliderController = Get.find();
     return Scaffold(
       backgroundColor: AppColors.barrierColor,
@@ -72,6 +94,7 @@ class _FreshmoodPercentState extends State<FreshmoodPercent> {
                               : Get.toNamed(AppRoutes.happyfreshmood);
                           sliderController.floatingcontainer.remove();
                           sliderController.ispressed.value = false;
+                          createData(sliderController.valueSlider.value);
                         }),
                         child: SizedBox(
                           width: 41.35 * pctWidth,
@@ -95,7 +118,7 @@ class _FreshmoodPercentState extends State<FreshmoodPercent> {
                       ),
 // Slider
                       Slider(
-                          value: sliderController.valueSlider.value,
+                          value: sliderController.valueSlider.value.toDouble(),
                           min: 0,
                           max: 100,
                           thumbColor: Colors.white,
@@ -109,7 +132,7 @@ class _FreshmoodPercentState extends State<FreshmoodPercent> {
                                           ? AppColors.smileFace
                                           : AppColors.happyFace,
                           onChanged: ((value) =>
-                              sliderController.onChangeSlider(value))),
+                              sliderController.onChangeSlider(value.toInt()))),
                     ],
                   ),
                 ),
@@ -136,7 +159,9 @@ class _FreshmoodPercentState extends State<FreshmoodPercent> {
         ),
       ),
 //floating button
-      floatingActionButton: const FloatingButton(),
+      floatingActionButton: FloatingButton(
+        onChange: () {},
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 // bottomNavigationBar
       bottomNavigationBar: SizedBox(

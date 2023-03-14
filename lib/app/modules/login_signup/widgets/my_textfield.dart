@@ -6,9 +6,14 @@ import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
 
 class MyTextField extends StatelessWidget {
+  TextEditingController controller = TextEditingController();
   String hintText;
   bool obscureText = false;
-  MyTextField({super.key, required this.hintText, required this.obscureText});
+  MyTextField(
+      {super.key,
+      required this.hintText,
+      required this.obscureText,
+      required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +22,7 @@ class MyTextField extends StatelessWidget {
     return Padding(
         padding: EdgeInsets.symmetric(horizontal: _screenWidth * 0.064),
         child: TextField(
+          controller: controller,
           obscureText: obscureText,
           decoration: InputDecoration(
             enabledBorder: OutlineInputBorder(

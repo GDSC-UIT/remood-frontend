@@ -13,11 +13,11 @@ abstract class AppRoutes {
       '/home/sadfreshmood/choose/readDiaryFreshmood';
   static const finalNegativeScreen =
       '/home/sadfreshmood/choose/readDiaryFreshmood/finalNegativeScreen';
-  static const loginScreen = "/onboarding/login";
-  static const login = "$loginScreen/login";
-  static const forgotPassword = "$login/forgotpassword";
-  static const createnewAccount = "$login/createnewaccount";
-  static const comfirmPassword = "$forgotPassword/comfirmPassword";
+  static const loginScreen = "/login";
+  static const login = "/login/login";
+  static const forgotPassword = "/login/login/forgotpassword";
+  static const createnewAccount = "/login/login/createnewaccount";
+  static const comfirmPassword = "/login/login/forgotpassword/comfirmPassword";
   static const report = '/home/report';
   static const setting = '/home/setting';
   static const starOfTheWeek = '$setting/startOfTheWeek';

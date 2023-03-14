@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
       // floating ActionButton
-      floatingActionButton: const FloatingButton(),
+      floatingActionButton: FloatingButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       // bottom navigation bar
       bottomNavigationBar: const BottomBar(),

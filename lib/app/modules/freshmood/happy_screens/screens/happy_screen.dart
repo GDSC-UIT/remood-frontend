@@ -45,7 +45,34 @@ class _HappyScreenState extends State<HappyScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
 // back button
-          BackButtonContainer(),
+          Padding(
+            padding: EdgeInsets.only(top: 50, left: 22),
+            child: GestureDetector(
+              onTap: () {
+                Get.toNamed(AppRoutes.home);
+              },
+              child: Container(
+                height: 46,
+                width: 46,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: const [
+                      BoxShadow(
+                        blurRadius: 1.0,
+                        offset: Offset(1, 1),
+                      )
+                    ],
+                    borderRadius: BorderRadius.circular(10)),
+                child: const Padding(
+                  padding: EdgeInsets.only(left: 5),
+                  child: Icon(
+                    Icons.arrow_back_ios,
+                    size: 17,
+                  ),
+                ),
+              ),
+            ),
+          ),
           SizedBox(
             height: _screenHeight * 0.11,
           ),

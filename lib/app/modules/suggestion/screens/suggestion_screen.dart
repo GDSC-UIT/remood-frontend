@@ -22,7 +22,8 @@ class SuggestionScreen extends StatelessWidget {
     var pctHeight = MediaQueryService().pctHeight(context);
 
     return Scaffold(
-      backgroundColor: AppColors.backgroundPage,
+      resizeToAvoidBottomInset: false,
+      backgroundColor: AppColors.backgroundColor,
       body: SafeArea(
         right: false,
         left: false,
