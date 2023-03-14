@@ -1,10 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
-import 'package:hive/hive.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/models/register_email.dart';
@@ -18,7 +15,7 @@ import 'package:remood/app/routes/app_routes.dart';
 import 'package:http/http.dart' as http;
 
 class CreateNewAccount extends StatefulWidget {
-  CreateNewAccount({super.key});
+  const CreateNewAccount({super.key});
 
   @override
   State<CreateNewAccount> createState() => _CreateNewAccountState();
@@ -139,7 +136,7 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
                 child: Container(
                     height: _screenHeight * 0.064,
                     decoration: BoxDecoration(
-                      color: AppColors.MainColor,
+                      color: AppColors.mainColor,
                       borderRadius: BorderRadius.circular(13),
                     ),
                     child: Center(

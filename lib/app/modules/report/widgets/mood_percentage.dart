@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -7,7 +6,6 @@ import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/core/values/text_style.dart';
-import 'package:remood/app/data/services/media_query_service.dart';
 import 'package:remood/app/data/models/report_point.dart';
 import 'package:remood/app/modules/home/home_controller.dart';
 import 'package:remood/app/modules/report/report_controller.dart';
@@ -39,8 +37,9 @@ class _MoodPercentageState extends State<MoodPercentage> {
       print(timeStamp);
       print(response.body);
       return reportPoint.fromJson(jsonDecode(response.body));
-    } else
+    } else {
       throw Exception('Failed to load point');
+    }
   }
 
   @override
@@ -48,8 +47,6 @@ class _MoodPercentageState extends State<MoodPercentage> {
     /// Data
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
-    var pctWidth = MediaQueryService().pctWidth(context);
-    var pctHeight = MediaQueryService().pctHeight(context);
 
     return Stack(
       children: [
@@ -91,7 +88,7 @@ class _MoodPercentageState extends State<MoodPercentage> {
               return Positioned(
                   top: _screenHeight * 0.11,
                   left: _screenWidth * 0.43,
-                  child: SpinKitFadingCircle(
+                  child: const SpinKitFadingCircle(
                     color: AppColors.mainColor,
                     size: 50.0,
                   ));
