@@ -14,40 +14,40 @@ class StackNote extends StatelessWidget {
     return Stack(
       clipBehavior: Clip.none,
       children: [
-//         Container(
-//           width: screenWidth * 0.731,
-//           height: screenHeight * 0.236,
-//           decoration: BoxDecoration(
-//               borderRadius: BorderRadius.circular(16),
-//               border: Border.all(color: AppColors.primary)),
-// // contain text field
-//           child: Center(
-//             child: Container(
-//               height: screenHeight * 0.167,
-//               width: screenWidth * 0.621,
-//               decoration: BoxDecoration(
-//                   color: AppColors.primary42,
-//                   borderRadius: BorderRadius.circular(10)),
-//               // text field
-//               child: Padding(
-//                 padding: const EdgeInsets.all(10),
-//                 child: TextField(
-//                   controller: noteController.diaryNote,
-//                   decoration:
-//                       const InputDecoration.collapsed(hintText: 'Add note'),
-//                   style: const TextStyle(fontSize: 10),
-//                   expands: true,
-//                   maxLines: null,
-//                 ),
-//               ),
-//             ),
-//           ),
-//         ),
         Container(
           width: screenWidth * 0.731,
           height: screenHeight * 0.236,
-          color: Colors.red,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(color: AppColors.primary)),
+// contain text field
+          child: Center(
+            child: Container(
+              height: screenHeight * 0.167,
+              width: screenWidth * 0.621,
+              decoration: BoxDecoration(
+                  color: AppColors.primary42,
+                  borderRadius: BorderRadius.circular(10)),
+              // text field
+              child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: TextField(
+                  controller: noteController.diaryNote,
+                  decoration:
+                      const InputDecoration.collapsed(hintText: 'Add note'),
+                  style: const TextStyle(fontSize: 10),
+                  expands: true,
+                  maxLines: null,
+                ),
+              ),
+            ),
+          ),
         ),
+        // Container(
+        //   width: screenWidth * 0.731,
+        //   height: screenHeight * 0.236,
+        //   color: Colors.red,
+        // ),
 // 'Note' container
         Positioned(
           top: -30,
