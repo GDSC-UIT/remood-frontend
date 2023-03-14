@@ -1,9 +1,6 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:remood/app/core/values/text_style.dart';
-import 'package:remood/app/package/classes/marked_date.dart';
-import 'package:remood/app/package/classes/multiple_marked_dates.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/modules/home/home_controller.dart';
@@ -18,8 +15,8 @@ class CalendarScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     HomeController calendarController = Get.find();
     SettingController settingController = Get.find();
     var setting = SettingService.setting;
@@ -28,10 +25,10 @@ class CalendarScreen extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.only(top: 60),
-          child: Container(
-              width: _screenWidth * 0.87,
-              height: _screenHeight * 0.594,
+          padding: const EdgeInsets.only(top: 60),
+          child: SizedBox(
+              width: screenWidth * 0.87,
+              height: screenHeight * 0.594,
               child: CalendarCarousel(
                 firstDayOfWeek:
                     SettingService.setting.value.isSundayFirstDayOfWeek ? 0 : 1,
@@ -46,7 +43,7 @@ class CalendarScreen extends StatelessWidget {
                     fontWeight: FontWeight.w700,
                     fontSize: 16),
                 daysTextStyle: CustomTextStyle.dayCalendar(),
-                weekendTextStyle: TextStyle(
+                weekendTextStyle: const TextStyle(
                     color: AppColors.weekendColor, fontWeight: FontWeight.w700),
                 dayButtonColor: AppColors.dayCalendarColor,
                 todayButtonColor: AppColors.dayCalendarColor,
@@ -78,7 +75,7 @@ class CalendarScreen extends StatelessWidget {
               )),
         ),
         SizedBox(
-          height: _screenHeight * 0.08,
+          height: screenHeight * 0.08,
         ),
 // button (today's diary)
         const ButtonDiary(),

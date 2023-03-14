@@ -15,9 +15,9 @@ class _BottomNavigationState extends State<BottomNavigation> {
   @override
   Widget build(BuildContext context) {
     // double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenHeight = MediaQuery.of(context).size.height;
     return SizedBox(
-      height: _screenHeight * 0.11,
+      height: screenHeight * 0.11,
       child: ClipRRect(
         borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(45), topRight: Radius.circular(45)),

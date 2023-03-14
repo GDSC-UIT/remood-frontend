@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/global_widgets/back_button.dart';
 

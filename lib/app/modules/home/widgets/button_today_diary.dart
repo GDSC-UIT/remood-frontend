@@ -8,13 +8,13 @@ class ButtonDiary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: _screenWidth * 0.277),
+      padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.277),
       child: SizedBox(
-        width: _screenWidth * 0.445,
-        height: _screenHeight * 0.063,
+        width: screenWidth * 0.445,
+        height: screenHeight * 0.063,
         child: ElevatedButton.icon(
           icon: const Icon(
             Icons.edit,

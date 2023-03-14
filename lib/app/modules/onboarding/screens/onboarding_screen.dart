@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:is_first_run/is_first_run.dart';
 import 'package:remood/app/modules/onboarding/onboarding_controller.dart';
 import 'package:remood/app/modules/onboarding/widgets/action_bar.dart';
 import 'package:remood/app/modules/onboarding/widgets/intro_button.dart';

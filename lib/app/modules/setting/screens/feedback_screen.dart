@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
-import 'package:remood/app/global_widgets/back_button.dart';
 import 'package:remood/app/modules/setting/widgets/back_button_feedback.dart';
-import 'package:remood/app/modules/setting/widgets/stack_setting_appbar.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class FeedbackScreen extends StatelessWidget {

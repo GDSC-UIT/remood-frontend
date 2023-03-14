@@ -14,7 +14,7 @@ import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 
 class WriteDiaryScreen extends StatefulWidget {
-  WriteDiaryScreen({super.key});
+  const WriteDiaryScreen({super.key});
 
   @override
   State<WriteDiaryScreen> createState() => _WriteDiaryScreenState();
@@ -24,8 +24,8 @@ class _WriteDiaryScreenState extends State<WriteDiaryScreen> {
   final ValueNotifier<int> currentIndex = ValueNotifier(0);
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     HomeController dateController = Get.find();
     DiaryController diaryController = Get.find();
     void createDiary() async {
@@ -43,10 +43,11 @@ class _WriteDiaryScreenState extends State<WriteDiaryScreen> {
         }),
       );
       print(response.body);
-      if (response.statusCode == 200)
+      if (response.statusCode == 200) {
         print("sucessfull");
-      else
+      } else {
         print("failed");
+      }
     }
 
     return Scaffold(
@@ -57,10 +58,10 @@ class _WriteDiaryScreenState extends State<WriteDiaryScreen> {
           child: Column(
             children: [
               SizedBox(
-                height: _screenHeight * 0.0542,
+                height: screenHeight * 0.0542,
               ),
               ListTile(
-                leading: SizedBox(width: _screenWidth * 0.053),
+                leading: SizedBox(width: screenWidth * 0.053),
 // Date
                 title: Center(
                   child: Text(
@@ -80,30 +81,30 @@ class _WriteDiaryScreenState extends State<WriteDiaryScreen> {
                 ),
               ),
               SizedBox(
-                height: _screenHeight * 0.04,
+                height: screenHeight * 0.04,
               ),
 // Topic list
               const StackTopic(),
               SizedBox(
-                height: _screenHeight * 0.043,
+                height: screenHeight * 0.043,
               ),
 // Tag list
               StackTag(currentIndex: currentIndex),
               SizedBox(
-                height: _screenHeight * 0.043,
+                height: screenHeight * 0.043,
               ),
 // Photo-upload field
               const StackPhotos(),
               SizedBox(
-                height: _screenHeight * 0.043,
+                height: screenHeight * 0.043,
               ),
 // Note field
-              const StackNote(),
+              // const StackNote(),
               SizedBox(
-                height: _screenHeight * 0.02,
+                height: screenHeight * 0.02,
               ),
               SizedBox(
-                width: _screenWidth * 0.88,
+                width: screenWidth * 0.88,
                 child: ElevatedButton(
                   onPressed: () {
                     diaryController.addDate = dateController.currentdate.value;

@@ -14,8 +14,8 @@ class ReportScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(ReportController());
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
@@ -36,7 +36,7 @@ class ReportScreen extends StatelessWidget {
             // The date show data
             ShowDate(controller: controller),
             SizedBox(
-              height: _screenHeight * 0.09,
+              height: screenHeight * 0.09,
             ),
 
             // Mood percentage of the day
@@ -44,7 +44,7 @@ class ReportScreen extends StatelessWidget {
 
             // Average mood of the day
             SizedBox(
-              height: _screenHeight * 0.145,
+              height: screenHeight * 0.145,
             ),
             const Button(),
           ],

@@ -4,12 +4,12 @@ import 'package:remood/app/global_widgets/card_diary.dart';
 import 'package:get/get.dart';
 
 class NegativeDiaryListFreshmood extends StatelessWidget {
-  NegativeDiaryListFreshmood({super.key});
+  const NegativeDiaryListFreshmood({super.key});
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     SadController readNegativeDiary = Get.find();
     return ListView.separated(
       padding: EdgeInsets.zero,
@@ -24,7 +24,7 @@ class NegativeDiaryListFreshmood extends StatelessWidget {
                 DiaryCard(diary: readNegativeDiary.negativeDiarylist[index]));
       }),
       separatorBuilder: (context, index) => SizedBox(
-        height: _screenHeight * 0.0197,
+        height: screenHeight * 0.0197,
       ),
     );
   }

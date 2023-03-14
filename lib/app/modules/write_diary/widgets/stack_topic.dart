@@ -10,31 +10,31 @@ class StackTopic extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ListTopic _ListTopics = ListTopic();
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    ListTopic ListTopics = ListTopic();
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     DiaryController topicController = Get.find();
     return Stack(
       clipBehavior: Clip.none,
       children: [
         Container(
-          width: _screenWidth * 0.731,
-          height: _screenHeight * 0.115,
+          width: screenWidth * 0.731,
+          height: screenHeight * 0.115,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               border: Border.all(color: AppColors.primary)),
           child: Padding(
             padding: EdgeInsets.only(
-              top: _screenHeight * 0.038,
-              bottom: _screenHeight * 0.0172,
-              left: _screenWidth * 0.0773,
-              right: _screenWidth * 0.0773,
+              top: screenHeight * 0.038,
+              bottom: screenHeight * 0.0172,
+              left: screenWidth * 0.0773,
+              right: screenWidth * 0.0773,
             ),
             child: Row(
               children: [
 // list topic
                 SizedBox(
-                  width: _screenWidth * 0.44,
+                  width: screenWidth * 0.44,
                   child: Obx(
                     () => ListView.separated(
                       physics: const BouncingScrollPhysics(),
@@ -45,10 +45,11 @@ class StackTopic extends StatelessWidget {
                               topicController.changeTopic(index);
 
                               // Change the current icon
-                              topicController.iconTopic.value = IconData(
-                                ListTopic.topics[index].icons,
-                                fontFamily: 'MaterialIcons',
-                              );
+                              // topicController.iconTopic.value = IconData(
+                              //   ListTopic.topics[index].icons,
+                              //   fontFamily: 'MaterialIcons',
+                              // );
+                              topicController.iconTopic.value = Icons.abc;
 
                               // Change the current color
                               topicController.colorDiary.value =
@@ -65,19 +66,19 @@ class StackTopic extends StatelessWidget {
                             ),
                           )),
                       separatorBuilder: ((context, index) => SizedBox(
-                            width: _screenWidth * 0.024,
+                            width: screenWidth * 0.024,
                           )),
                       itemCount: topicController.listTopic.length,
                     ),
                   ),
                 ),
                 SizedBox(
-                  width: _screenWidth * 0.024,
+                  width: screenWidth * 0.024,
                 ),
 // Add button
                 SizedBox(
-                  width: _screenWidth * 0.093,
-                  height: _screenHeight * 0.059,
+                  width: screenWidth * 0.093,
+                  height: screenHeight * 0.059,
                   child: Column(
                     children: [
                       GestureDetector(
@@ -87,8 +88,8 @@ class StackTopic extends StatelessWidget {
                         }),
                         child: Container(
                           alignment: Alignment.topCenter,
-                          height: _screenHeight * 0.043,
-                          width: _screenWidth * 0.093,
+                          height: screenHeight * 0.043,
+                          width: screenWidth * 0.093,
                           decoration: BoxDecoration(
                             color: AppColors.primary13,
                             borderRadius: BorderRadius.circular(10),
@@ -114,8 +115,8 @@ class StackTopic extends StatelessWidget {
           top: -30,
           left: -26,
           child: Container(
-            width: _screenWidth * 0.224,
-            height: _screenHeight * 0.061,
+            width: screenWidth * 0.224,
+            height: screenHeight * 0.061,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),

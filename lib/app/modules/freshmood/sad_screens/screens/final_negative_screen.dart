@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/modules/freshmood/freshmood_widgets/back_button.dart';
@@ -11,8 +9,8 @@ class FinalNegativeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
       body: Column(
@@ -20,7 +18,7 @@ class FinalNegativeScreen extends StatelessWidget {
         children: [
           const BackButtonContainer(),
           SizedBox(
-            height: _screenHeight * 0.28,
+            height: screenHeight * 0.28,
           ),
           const Center(
               child: Text(
@@ -31,7 +29,7 @@ class FinalNegativeScreen extends StatelessWidget {
                 fontWeight: FontWeight.w700,
                 fontSize: 25),
           )),
-          SizedBox(
+          const SizedBox(
             height: 27,
           ),
           Center(
@@ -40,12 +38,12 @@ class FinalNegativeScreen extends StatelessWidget {
                 Get.toNamed(AppRoutes.home);
               },
               child: Container(
-                width: _screenWidth * 0.84,
+                width: screenWidth * 0.84,
                 height: 50,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(23),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(blurRadius: 1, offset: Offset(1, 1))
                     ]),
                 child: const Center(
