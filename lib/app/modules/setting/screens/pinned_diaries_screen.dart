@@ -5,15 +5,14 @@ import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/models/list_pinned_diary.dart';
 import 'package:remood/app/data/services/media_query_service.dart';
 import 'package:remood/app/global_widgets/card_diary.dart';
-import 'package:remood/app/routes/app_routes.dart';
 
 class PinnedDiariesScreen extends StatelessWidget {
   const PinnedDiariesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     String appBarTitle = "Pinned diaries";
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
@@ -61,7 +60,7 @@ class PinnedDiariesScreen extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: _screenHeight * 0.037,
+              height: screenHeight * 0.037,
             ),
             Expanded(
               child: Obx(
@@ -71,7 +70,7 @@ class PinnedDiariesScreen extends StatelessWidget {
                     itemBuilder: ((context, index) =>
                         DiaryCard(diary: PinnedDiary.listPinnedDiary[index])),
                     separatorBuilder: (context, index) => SizedBox(
-                          height: _screenHeight * 0.0197,
+                          height: screenHeight * 0.0197,
                         ),
                     itemCount: PinnedDiary.listPinnedDiary.length),
               ),

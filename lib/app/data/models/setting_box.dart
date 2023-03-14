@@ -1,5 +1,4 @@
 import 'package:hive/hive.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:remood/app/data/models/setting.dart';
 
 class SettingBox {

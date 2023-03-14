@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/app_strings.dart';
@@ -13,8 +11,8 @@ class ChooseScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     SadController sadController = Get.find();
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
@@ -24,7 +22,7 @@ class ChooseScreen extends StatelessWidget {
 // back button
           const BackButtonContainer(),
           SizedBox(
-            height: _screenHeight * 0.281,
+            height: screenHeight * 0.281,
           ),
           const Center(
             child: Text(
@@ -36,12 +34,12 @@ class ChooseScreen extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: _screenHeight * 0.03,
+            height: screenHeight * 0.03,
           ),
 // choice freshmood
           Expanded(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
               child: ListView.separated(
                   itemBuilder: ((context, index) => GestureDetector(
                         onTap: () {
@@ -50,7 +48,7 @@ class ChooseScreen extends StatelessWidget {
                         },
                         child: Obx(
                           () => Container(
-                            height: _screenHeight * 0.07,
+                            height: screenHeight * 0.07,
                             decoration: BoxDecoration(
                                 color:
                                     sadController.currentChoice.value == index

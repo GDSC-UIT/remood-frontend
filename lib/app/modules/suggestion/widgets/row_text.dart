@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/widgets/container.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/services/media_query_service.dart';
 

@@ -13,8 +13,8 @@ class ReadDiaryFreshmood extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     SadController diaryController = Get.find();
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
@@ -22,12 +22,12 @@ class ReadDiaryFreshmood extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const BackButtonContainer(),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Center(
             child: Container(
-              width: _screenWidth * 0.355,
+              width: screenWidth * 0.355,
               height: 37,
               decoration: BoxDecoration(
                   color: AppColors.tagColors,
@@ -35,30 +35,30 @@ class ReadDiaryFreshmood extends StatelessWidget {
               child: Center(
                 child: Text(
                   AppStrings.nameTagDiary[diaryController.currentChoice.value],
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.white, fontWeight: FontWeight.w500),
                 ),
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           Center(
             child: Container(
-              width: _screenWidth * 0.84,
-              height: _screenHeight * 0.65,
+              width: screenWidth * 0.84,
+              height: screenHeight * 0.65,
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(16)),
               child: Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: diaryController.currentChoice == 0
-                    ? Expanded(
+                    ? const Expanded(
                         child: Center(
                           child: PositiveDiaryListFreshmood(),
                         ),
                       )
-                    : Expanded(
+                    : const Expanded(
                         child: Center(
                           child: NegativeDiaryListFreshmood(),
                         ),
@@ -66,11 +66,11 @@ class ReadDiaryFreshmood extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 19,
           ),
           Padding(
-            padding: EdgeInsets.only(left: _screenWidth * 0.67),
+            padding: EdgeInsets.only(left: screenWidth * 0.67),
             child: GestureDetector(
               onTap: () {
                 // next
@@ -79,11 +79,11 @@ class ReadDiaryFreshmood extends StatelessWidget {
                     : Get.toNamed(AppRoutes.finalNegativeScreen);
               },
               child: Container(
-                width: _screenWidth * 0.253,
-                height: _screenHeight * 0.05,
+                width: screenWidth * 0.253,
+                height: screenHeight * 0.05,
                 decoration: BoxDecoration(
                     color: Colors.white,
-                    boxShadow: [BoxShadow(blurRadius: 1, offset: Offset(1, 1))],
+                    boxShadow: const [BoxShadow(blurRadius: 1, offset: Offset(1, 1))],
                     borderRadius: BorderRadius.circular(23)),
                 child: const Center(
                   child: Text(

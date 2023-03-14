@@ -10,8 +10,8 @@ class StackSearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     var pctWidth = MediaQueryService().pctWidth(context);
     var pctHeight = MediaQueryService().pctHeight(context);
 
@@ -19,10 +19,10 @@ class StackSearchBar extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         Container(
-          height: _screenHeight * 0.303,
+          height: screenHeight * 0.303,
         ),
         Container(
-          height: _screenHeight * 0.255,
+          height: screenHeight * 0.255,
           decoration: const BoxDecoration(
             color: AppColors.suggestionSearchBar,
             borderRadius: BorderRadius.only(
@@ -38,17 +38,17 @@ class StackSearchBar extends StatelessWidget {
                   clipBehavior: Clip.none,
                   children: [
                     SizedBox(
-                        width: _screenWidth * 0.64,
-                        height: _screenHeight * 0.08743,
+                        width: screenWidth * 0.64,
+                        height: screenHeight * 0.08743,
                         child: FittedBox(
                             fit: BoxFit.fill,
                             child: Image.asset(Assets.remoodSuggestion))),
                     Positioned(
                       top: -24,
-                      left: _screenWidth * 0.604,
+                      left: screenWidth * 0.604,
                       child: SizedBox(
-                          width: _screenWidth * 0.29867,
-                          height: _screenHeight * 0.12808,
+                          width: screenWidth * 0.29867,
+                          height: screenHeight * 0.12808,
                           child: Image.asset(Assets.logo)),
                     ),
                   ],
@@ -57,14 +57,14 @@ class StackSearchBar extends StatelessWidget {
             ),
           ),
         ),
-        BackButtonContainer(),
+        const BackButtonContainer(),
         // search bar
         Positioned(
           bottom: 0,
-          left: _screenWidth * 0.064,
+          left: screenWidth * 0.064,
           child: Container(
-            width: _screenWidth * 0.872,
-            height: _screenHeight * 0.073,
+            width: screenWidth * 0.872,
+            height: screenHeight * 0.073,
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(30)),
             child: Center(
@@ -78,7 +78,7 @@ class StackSearchBar extends StatelessWidget {
                   hintText: "Search for...",
                   hintStyle: CustomTextStyle.searchFor(),
                 ),
-                style: TextStyle(fontSize: 20),
+                style: const TextStyle(fontSize: 20),
               ),
             ),
           ),

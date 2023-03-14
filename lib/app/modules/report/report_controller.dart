@@ -16,8 +16,6 @@ class ReportController extends GetxController {
   // The average mood
   RxString avgMood = "0".obs;
 
-  // String get avgMoodText => ()
-
   @override
   void onInit() {
     super.onInit();

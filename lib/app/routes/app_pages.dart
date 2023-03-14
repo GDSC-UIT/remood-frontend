@@ -66,7 +66,7 @@ abstract class AppPages {
     ),
     GetPage(
       name: AppRoutes.writediary,
-      page: () => WriteDiaryScreen(),
+      page: () => const WriteDiaryScreen(),
       binding: DiaryBinding(),
     ),
     GetPage(
@@ -119,17 +119,17 @@ abstract class AppPages {
     ),
     GetPage(
       name: AppRoutes.createnewAccount,
-      page: () => CreateNewAccount(),
+      page: () => const CreateNewAccount(),
       bindings: [LogInBinding(), HomeBinding()],
     ),
     GetPage(
       name: AppRoutes.forgotPassword,
-      page: () => ForgotPassWord(),
+      page: () => const ForgotPassWord(),
       bindings: [LogInBinding(), HomeBinding()],
     ),
     GetPage(
       name: AppRoutes.comfirmPassword,
-      page: () => ComfirmPassword(),
+      page: () => const ComfirmPassword(),
       bindings: [LogInBinding(), HomeBinding()],
     ),
     GetPage(

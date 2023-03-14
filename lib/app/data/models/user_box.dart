@@ -1,6 +1,5 @@
 import 'package:hive/hive.dart';
 import 'package:remood/app/core/values/assets_images.dart';
-import 'package:remood/app/data/models/setting.dart';
 import 'package:remood/app/data/models/user.dart';
 
 class UserBox {

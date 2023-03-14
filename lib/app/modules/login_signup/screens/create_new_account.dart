@@ -32,12 +32,12 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
   @override
   Widget build(BuildContext context) {
     LogInController registerController = LogInController();
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     void createNewData(String email, String usename, String password) async {
       showDialog(
           context: context,
-          builder: ((context) => Center(
+          builder: ((context) => const Center(
                 child: CircularProgressIndicator(),
               )));
       try {
@@ -60,7 +60,7 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
         } else {
           Get.back();
           ScaffoldMessenger.of(context)
-              .showSnackBar(SnackBar(content: Text("Registation failed")));
+              .showSnackBar(const SnackBar(content: Text("Registation failed")));
         }
       } catch (e) {
         print(e);
@@ -76,24 +76,24 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // logibar
-            Padding(
+            const Padding(
               padding: EdgeInsets.only(top: 25),
               child: LoginBar(),
             ),
             SizedBox(
-              height: _screenHeight * 0.062,
+              height: screenHeight * 0.062,
             ),
 
             //title login
             titleLogin(text: "Create new account"),
             SizedBox(
-              height: _screenHeight * 0.031,
+              height: screenHeight * 0.031,
             ),
 
             // slogan
             const Slogan(),
             SizedBox(
-              height: _screenHeight * 0.043,
+              height: screenHeight * 0.043,
             ),
             MyTextField(
               controller: usenamecontroller,
@@ -101,7 +101,7 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
               obscureText: false,
             ),
             SizedBox(
-              height: _screenHeight * 0.031,
+              height: screenHeight * 0.031,
             ),
             MyTextField(
               hintText: "Email",
@@ -109,7 +109,7 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
               controller: emailcontroller,
             ),
             SizedBox(
-              height: _screenHeight * 0.031,
+              height: screenHeight * 0.031,
             ),
             MyTextField(
               hintText: "Password",
@@ -117,24 +117,24 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
               controller: passwordcontroller,
             ),
             SizedBox(
-              height: _screenHeight * 0.18,
+              height: screenHeight * 0.18,
             ),
             AccountQuestion(
                 question: "Have an account?",
                 button: "Login",
                 route: AppRoutes.login),
             SizedBox(
-              height: _screenHeight * 0.02,
+              height: screenHeight * 0.02,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: _screenWidth * 0.059),
+              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.059),
               child: GestureDetector(
                 onTap: () {
                   createNewData(emailcontroller.text, usenamecontroller.text,
                       passwordcontroller.text);
                 },
                 child: Container(
-                    height: _screenHeight * 0.064,
+                    height: screenHeight * 0.064,
                     decoration: BoxDecoration(
                       color: AppColors.mainColor,
                       borderRadius: BorderRadius.circular(13),

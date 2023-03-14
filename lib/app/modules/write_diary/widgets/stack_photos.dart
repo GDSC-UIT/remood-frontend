@@ -30,60 +30,63 @@ class _StackPhotosState extends State<StackPhotos> {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Stack(
       clipBehavior: Clip.none,
       children: [
         Container(
-            width: _screenWidth * 0.731,
-            height: _screenHeight * 0.174,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: AppColors.primary)),
-            child: Center(
-              child: GestureDetector(
-                onTap: () {
-                  //select photos
-                  pickImage();
-                },
-                child: Expanded(
-                  child: Container(
-                      width: _screenWidth * 0.413,
-                      height: _screenHeight * 0.124,
-                      decoration: BoxDecoration(
-                        color: AppColors.primary42,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: photoController.image != null
-                          ? Image.file(
-                              photoController.image!,
-                              width: 151,
+          width: screenWidth * 0.731,
+          height: screenHeight * 0.174,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(color: AppColors.primary)),
+          child: Center(
+            child: GestureDetector(
+              onTap: () {
+                //select photos
+                // pickImage();
+                Get.defaultDialog(
+                  content: Text(
+                      "width: ${(screenWidth * 0.413)} \n height: ${screenHeight * 0.124}"),
+                );
+              },
+              child: Container(
+                  width: screenWidth * 0.413,
+                  height: screenHeight * 0.124,
+                  decoration: BoxDecoration(
+                    color: AppColors.primary42,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: photoController.image != null
+                      ? Image.file(
+                          photoController.image!,
+                          width: 151,
+                        )
+                      : Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(
+                              Icons.camera_alt,
+                              color: AppColors.darkgrey,
+                            ),
+                            Text(
+                              'Select photos',
+                              style: TextStyle(
+                                  fontSize: 10, color: AppColors.darkgrey),
                             )
-                          : Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
-                                Icon(
-                                  Icons.camera_alt,
-                                  color: AppColors.darkgrey,
-                                ),
-                                Text(
-                                  'Select photos',
-                                  style: TextStyle(
-                                      fontSize: 10, color: AppColors.darkgrey),
-                                )
-                              ],
-                            )),
-                ),
-              ),
-            )),
+                          ],
+                        )),
+            ),
+          ),
+        ),
 // 'Photos' Tag
         Positioned(
           top: -30,
           left: -26,
           child: Container(
-            width: _screenWidth * 0.224,
-            height: _screenHeight * 0.061,
+            width: screenWidth * 0.224,
+            height: screenHeight * 0.061,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),

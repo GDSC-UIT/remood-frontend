@@ -5,12 +5,12 @@ import 'package:remood/app/global_widgets/card_diary.dart';
 import 'package:get/get.dart';
 
 class NegativeDiaryList extends StatelessWidget {
-  NegativeDiaryList({super.key});
+  const NegativeDiaryList({super.key});
 
   @override
   Widget build(BuildContext context) {
     // double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenHeight = MediaQuery.of(context).size.height;
     ReadDiaryController readNegativeDiary = Get.find();
     return Obx(
       () => ListView.separated(
@@ -23,9 +23,7 @@ class NegativeDiaryList extends StatelessWidget {
               readNegativeDiary.readDiary(context, index, "Negative diary", 1);
             },
             child: Slidable(
-              child:
-                  DiaryCard(diary: readNegativeDiary.negativeDiaryList[index]),
-              endActionPane: ActionPane(motion: ScrollMotion(), children: [
+              endActionPane: ActionPane(motion: const ScrollMotion(), children: [
                 SlidableAction(
                   onPressed: ((context) {
                     readNegativeDiary.deletePinnedDiary(
@@ -35,11 +33,13 @@ class NegativeDiaryList extends StatelessWidget {
                   icon: Icons.delete,
                 ),
               ]),
+              child:
+                  DiaryCard(diary: readNegativeDiary.negativeDiaryList[index]),
             ),
           );
         }),
         separatorBuilder: (context, index) => SizedBox(
-          height: _screenHeight * 0.0197,
+          height: screenHeight * 0.0197,
         ),
       ),
     );
