@@ -99,7 +99,7 @@ class _WriteDiaryScreenState extends State<WriteDiaryScreen> {
                 height: screenHeight * 0.043,
               ),
 // Note field
-              // const StackNote(),
+              const StackNote(),
               SizedBox(
                 height: screenHeight * 0.02,
               ),
