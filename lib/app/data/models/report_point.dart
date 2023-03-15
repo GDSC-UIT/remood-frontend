@@ -45,7 +45,7 @@ class Data {
 class DayReview {
   String? userId;
   int? date;
-  double? point;
+  num? point;
 
   DayReview({this.userId, this.date, this.point});
 
