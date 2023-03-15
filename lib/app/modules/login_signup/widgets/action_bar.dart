@@ -1,8 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/data/services/media_query_service.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
+import 'package:remood/app/routes/app_routes.dart';
 
 class LoginBar extends StatelessWidget {
   const LoginBar({super.key});
@@ -18,18 +21,20 @@ class LoginBar extends StatelessWidget {
       color: Colors.transparent,
       child: Stack(
         children: [
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              IconButton(
-                  onPressed: () {
-                    Get.back();
-                  },
-                  icon: Image.asset(Assets.arrowBack))
-            ],
-          ),
+          Get.currentRoute != AppRoutes.loginScreen
+              ? Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    IconButton(
+                        onPressed: () {
+                          Get.back();
+                        },
+                        icon: Image.asset(Assets.arrowBack))
+                  ],
+                )
+              : const SizedBox(),
           // Logo
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

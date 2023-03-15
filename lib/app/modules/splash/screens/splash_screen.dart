@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
@@ -16,7 +15,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  final SplashController controller = Get.find<SplashController>();
+  final SplashController controller = Get.find();
 
   @override
   void initState() {
@@ -25,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
       const Duration(seconds: 2),
       () async => Get.offAndToNamed(await controller.isFirstOnboard() == true
           ? AppRoutes.onboarding
-          : AppRoutes.home),
+          : AppRoutes.loginScreen),
     );
   }
 

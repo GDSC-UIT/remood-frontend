@@ -52,31 +52,32 @@ class _StackPhotosState extends State<StackPhotos> {
                 );
               },
               child: Container(
-                  width: screenWidth * 0.413,
-                  height: screenHeight * 0.124,
-                  decoration: BoxDecoration(
-                    color: AppColors.primary42,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: photoController.image != null
-                      ? Image.file(
-                          photoController.image!,
-                          width: 151,
-                        )
-                      : Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Icon(
-                              Icons.camera_alt,
-                              color: AppColors.darkgrey,
-                            ),
-                            Text(
-                              'Select photos',
-                              style: TextStyle(
-                                  fontSize: 10, color: AppColors.darkgrey),
-                            )
-                          ],
-                        )),
+                width: screenWidth * 0.413,
+                height: screenHeight * 0.124,
+                decoration: BoxDecoration(
+                  color: AppColors.primary42,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: photoController.image != null
+                    ? Image.file(
+                        photoController.image!,
+                        width: 151,
+                      )
+                    : Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Icon(
+                            Icons.camera_alt,
+                            color: AppColors.darkgrey,
+                          ),
+                          Text(
+                            'Select photos',
+                            style: TextStyle(
+                                fontSize: 10, color: AppColors.darkgrey),
+                          )
+                        ],
+                      ),
+              ),
             ),
           ),
         ),
