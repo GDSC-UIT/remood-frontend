@@ -38,8 +38,7 @@ class ListCardBlog extends StatelessWidget {
 
     return SizedBox(
       height: screenHeight * 0.213,
-      child: Expanded(
-          child: Obx(
+      child: Obx(
         () => FutureBuilder(
             future: articleController.isPressedTitle.value == -1
                 ? fetchAllApiArticle()
@@ -68,7 +67,7 @@ class ListCardBlog extends StatelessWidget {
               }
               return const CircularProgressIndicator();
             })),
-      )),
+      ),
     );
   }
 }

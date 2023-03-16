@@ -205,33 +205,31 @@ class SheetReadDiary extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(15),
               child: Obx(
-                () => Expanded(
-                  child: readDiaryController.isPressed.value == true
-                      ? TextField(
-                          controller: readDiaryController.editingController,
-                          decoration:
-                              const InputDecoration.collapsed(hintText: ''),
-                          expands: true,
-                          maxLines: null,
-                        )
-                      : SingleChildScrollView(
-                          child: Text(
-                            id == 0
-                                ? readDiaryController
-                                    .positiveDiaryList[
-                                        readDiaryController.currentDiary.value]
-                                    .diary
-                                : readDiaryController
-                                    .negativeDiaryList[
-                                        readDiaryController.currentDiary.value]
-                                    .diary,
-                            style: const TextStyle(
-                                fontWeight: FontWeight.w400,
-                                color: AppColors.textDiaryColor,
-                                fontSize: 15),
-                          ),
+                () => readDiaryController.isPressed.value == true
+                    ? TextField(
+                        controller: readDiaryController.editingController,
+                        decoration:
+                            const InputDecoration.collapsed(hintText: ''),
+                        expands: true,
+                        maxLines: null,
+                      )
+                    : SingleChildScrollView(
+                        child: Text(
+                          id == 0
+                              ? readDiaryController
+                                  .positiveDiaryList[
+                                      readDiaryController.currentDiary.value]
+                                  .diary
+                              : readDiaryController
+                                  .negativeDiaryList[
+                                      readDiaryController.currentDiary.value]
+                                  .diary,
+                          style: const TextStyle(
+                              fontWeight: FontWeight.w400,
+                              color: AppColors.textDiaryColor,
+                              fontSize: 15),
                         ),
-                ),
+                      ),
               ),
             ),
           ),

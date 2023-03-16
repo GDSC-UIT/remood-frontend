@@ -38,8 +38,7 @@ class ListArticle extends StatelessWidget {
           if (snapshot.hasData) {
             return Swiper(
               itemCount: 10,
-              itemBuilder: (context, index) => Expanded(
-                  child: InkWell(
+              itemBuilder: (context, index) => InkWell(
                 onTap: (() => launchUrl(
                     Uri.parse(snapshot.data!.data!.articles![index].url!))),
                 child: CardArticle(
@@ -47,7 +46,7 @@ class ListArticle extends StatelessWidget {
                   image: snapshot.data!.data!.articles![index].image!,
                   title: snapshot.data!.data!.articles![index].title!,
                 ),
-              )),
+              ),
               layout: SwiperLayout.TINDER,
               itemHeight: screenHeight * 0.23,
               itemWidth: screenWidth * 0.9,

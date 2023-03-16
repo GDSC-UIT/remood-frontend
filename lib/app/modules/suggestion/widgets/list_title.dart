@@ -27,36 +27,34 @@ class ListTitle extends StatelessWidget {
 
     return SizedBox(
       height: screenHeight * 0.057,
-      child: Expanded(
-        child: FutureBuilder<TopicApi>(
-          future: getAllTopic(),
-          builder: ((context, snapshot) {
-            if (snapshot.hasData) {
-              return ListView.separated(
-                  padding: const EdgeInsets.only(left: 25),
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: ((context, index) {
-                    return GestureDetector(
-                      onTap: (() {
-                        titleController.pressTitle(
-                            index, snapshot.data!.data!.topics![index]);
-                      }),
-                      child: TitleContainer(
-                        text: snapshot.data!.data!.topics![index],
-                        currentIndex: titleController.isPressedTitle,
-                        index: index,
-                        isPressed: titleController.isPressed,
-                      ),
-                    );
-                  }),
-                  separatorBuilder: ((context, index) => const SizedBox(
-                        width: 6,
-                      )),
-                  itemCount: snapshot.data!.data!.topics!.length);
-            }
-            return const CircularProgressIndicator();
-          }),
-        ),
+      child: FutureBuilder<TopicApi>(
+        future: getAllTopic(),
+        builder: ((context, snapshot) {
+          if (snapshot.hasData) {
+            return ListView.separated(
+                padding: const EdgeInsets.only(left: 25),
+                scrollDirection: Axis.horizontal,
+                itemBuilder: ((context, index) {
+                  return GestureDetector(
+                    onTap: (() {
+                      titleController.pressTitle(
+                          index, snapshot.data!.data!.topics![index]);
+                    }),
+                    child: TitleContainer(
+                      text: snapshot.data!.data!.topics![index],
+                      currentIndex: titleController.isPressedTitle,
+                      index: index,
+                      isPressed: titleController.isPressed,
+                    ),
+                  );
+                }),
+                separatorBuilder: ((context, index) => const SizedBox(
+                      width: 6,
+                    )),
+                itemCount: snapshot.data!.data!.topics!.length);
+          }
+          return const CircularProgressIndicator();
+        }),
       ),
     );
   }
