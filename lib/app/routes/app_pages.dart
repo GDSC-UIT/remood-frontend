@@ -15,6 +15,7 @@ import 'package:remood/app/modules/login_signup/screens/login_screen.dart';
 import 'package:remood/app/modules/read_diary/read_diary_binding.dart';
 import 'package:remood/app/modules/report/report_binding.dart';
 import 'package:remood/app/modules/report/screens/report_screen.dart';
+import 'package:remood/app/modules/setting/screens/change_password.dart';
 import 'package:remood/app/modules/setting/screens/contact_us_screen.dart';
 import 'package:remood/app/modules/setting/screens/faq_screen.dart';
 import 'package:remood/app/modules/setting/screens/language_screen.dart';
@@ -196,5 +197,9 @@ abstract class AppPages {
       page: () => const ChangeColorTopicScreen(),
       bindings: [SettingBinding(), DiaryBinding()],
     ),
+    GetPage(
+        name: AppRoutes.changePassword,
+        page: (() => const ChangePassword()),
+        bindings: [SettingBinding(), HomeBinding()]),
   ];
 }
