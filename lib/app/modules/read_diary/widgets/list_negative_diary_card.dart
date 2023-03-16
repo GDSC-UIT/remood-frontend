@@ -27,7 +27,8 @@ class NegativeDiaryList extends StatelessWidget {
         itemBuilder: ((context, index) {
           return GestureDetector(
             onTap: () {
-              readNegativeDiary.readDiary(context, index, "Negative diary", 1);
+              readNegativeDiary.readDiary(context, index, "Negative diary",
+                  readNegativeDiary.negativeDiaryList[index], 1);
             },
             child: Slidable(
               child:
@@ -36,7 +37,7 @@ class NegativeDiaryList extends StatelessWidget {
                 SlidableAction(
                   onPressed: ((context) {
                     readNegativeDiary.deletePinnedDiary(
-                        index, readNegativeDiary.positiveDiaryList[index]);
+                        index, readNegativeDiary.negativeDiaryList[index]);
                     readNegativeDiary.deleteNegativeDiary(index);
                   }),
                   icon: Icons.delete,

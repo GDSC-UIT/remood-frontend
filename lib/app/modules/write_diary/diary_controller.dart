@@ -58,7 +58,7 @@ class DiaryController extends GetxController {
 // add diary
   Rx<IconData> iconTopic = Icons.work.obs;
   Rx<Color> colorDiary = AppColors.lightGreen18.obs;
-  Rx<String> titleDiary = "".obs;
+  Rx<String> titleDiary = "Work".obs;
   TextEditingController diaryNote = TextEditingController();
   File? image;
   late DateTime addDate;

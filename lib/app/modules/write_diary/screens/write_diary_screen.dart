@@ -36,7 +36,7 @@ class _WriteDiaryScreenState extends State<WriteDiaryScreen> {
     DiaryController diaryController = Get.find();
     int timeStamp = (DateTime.now().millisecondsSinceEpoch).toInt();
     final Storage storage = Storage();
-    void createDiary(String imageUrl) async {
+    void createDiary(String imageUrl, String text) async {
       print(dateController.token);
       final response = await http.post(
         Uri.parse("https://remood-backend.onrender.com/api/diary-notes/"),
@@ -44,15 +44,21 @@ class _WriteDiaryScreenState extends State<WriteDiaryScreen> {
         body: jsonEncode(<String, dynamic>{
           "tag": diaryController.current.value == 0 ? "positive" : "negative",
           "topic": diaryController.titleDiary.value.trim(),
-          "content": diaryController.diaryNote.text.trim(),
-          "media": [imageUrl],
+          "content": text,
+          "media": [diaryController.image == null ? null : imageUrl],
+          "icon_color": diaryController.colorDiary.value.value,
+          "icon": diaryController.iconTopic.value.codePoint,
         }),
       );
       print(response.body);
       if (response.statusCode == 200)
         print("sucessfull");
-      else
+      else {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text("Invalid image")));
+        Get.back();
         print("failed");
+      }
     }
 
     return Scaffold(
@@ -118,11 +124,18 @@ class _WriteDiaryScreenState extends State<WriteDiaryScreen> {
                     if (diaryController.diaryNote.text.isEmpty) {
                       Get.back();
                     } else {
-                      diaryController.addDiary();
-                      await storage.uploadFile(
-                          diaryController.image!.path, filename);
-                      createDiary(await storage.downloadUrl(filename));
-                      diaryController.image = null;
+                      if (diaryController.image == null) {
+                        createDiary("", diaryController.diaryNote.text);
+                        diaryController.addDiary();
+                      } else {
+                        await storage.uploadFile(
+                            diaryController.image!.path, filename);
+                        createDiary(await storage.downloadUrl(filename),
+                            diaryController.diaryNote.text);
+                        diaryController.image = null;
+                        diaryController.addDiary();
+                      }
+
                       Get.toNamed(AppRoutes.home);
                     }
                   },
