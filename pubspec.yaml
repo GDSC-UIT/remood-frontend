@@ -57,6 +57,7 @@ dependencies:
   is_first_run: ^1.0.0
   firebase_storage: ^11.0.15
   firebase_core: ^2.7.1
+  percent_indicator: ^4.2.3
 dev_dependencies:
   flutter_test:
     sdk: flutter
