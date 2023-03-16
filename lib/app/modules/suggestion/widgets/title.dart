@@ -22,7 +22,7 @@ class TitleContainer extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     return Obx(
       () => Container(
-        width: _screenWidth * 0.6,
+        width: screenWidth * 0.6,
         decoration: BoxDecoration(
             color: isPressed.value == false
                 ? Colors.white

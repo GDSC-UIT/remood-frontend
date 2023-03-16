@@ -1,7 +1,5 @@
 import 'dart:convert';
-import 'dart:io';
 
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,7 +12,6 @@ import 'package:remood/app/modules/home/home_controller.dart';
 import 'package:remood/app/modules/home/widgets/floating_action_button.dart';
 import 'package:remood/app/routes/app_routes.dart';
 import 'package:http/http.dart' as http;
-import 'dart:convert';
 
 class FreshmoodPercent extends StatefulWidget {
   const FreshmoodPercent({super.key});

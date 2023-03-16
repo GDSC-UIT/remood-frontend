@@ -11,7 +11,7 @@ import 'package:remood/app/modules/login_signup/widgets/title.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class ComfirmPassword extends StatefulWidget {
-  ComfirmPassword({super.key});
+  const ComfirmPassword({super.key});
 
   @override
   State<ComfirmPassword> createState() => _ComfirmPasswordState();

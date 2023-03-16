@@ -3,10 +3,7 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
-<<<<<<< HEAD
   permission_handler_windows
-=======
->>>>>>> function
   url_launcher_windows
 )
 

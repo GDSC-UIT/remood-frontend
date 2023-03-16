@@ -48,7 +48,7 @@ class _StackPhotosState extends State<StackPhotos> {
                 pickImage();
                 // Get.defaultDialog(
                 //   content: Text(
-                //       "width: ${(screenWidth * 0.413)} \n height: ${screenHeight * 0.124}"),
+                //       "width: ${(_screenWidth * 0.413)} \n height: ${_screenHeight * 0.124}"),
                 // );
               },
               child: Container(

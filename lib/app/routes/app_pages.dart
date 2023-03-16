@@ -119,7 +119,7 @@ abstract class AppPages {
     ),
     GetPage(
       name: AppRoutes.createnewAccount,
-      page: () => CreateNewAccount(),
+      page: () => const CreateNewAccount(),
       bindings: [LogInBinding(), HomeBinding()],
     ),
     GetPage(

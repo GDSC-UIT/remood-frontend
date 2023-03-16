@@ -83,7 +83,9 @@ class ReadDiaryFreshmood extends StatelessWidget {
                 height: screenHeight * 0.05,
                 decoration: BoxDecoration(
                     color: Colors.white,
-                    boxShadow: const [BoxShadow(blurRadius: 1, offset: Offset(1, 1))],
+                    boxShadow: const [
+                      BoxShadow(blurRadius: 1, offset: Offset(1, 1))
+                    ],
                     borderRadius: BorderRadius.circular(23)),
                 child: const Center(
                   child: Text(

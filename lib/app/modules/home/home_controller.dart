@@ -26,7 +26,7 @@ class HomeController extends GetxController {
     if (ispressed.value) {
       floatingcontainer.remove();
     } else {
-      Overlay.of(context)?.insert(floatingcontainer);
+      Overlay.of(context).insert(floatingcontainer);
     }
     ispressed.value = !ispressed.value;
   }

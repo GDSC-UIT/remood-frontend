@@ -42,7 +42,7 @@ class _HappyScreenState extends State<HappyScreen> {
         children: [
 // back button
           Padding(
-            padding: EdgeInsets.only(top: 50, left: 22),
+            padding: const EdgeInsets.only(top: 50, left: 22),
             child: GestureDetector(
               onTap: () {
                 Get.toNamed(AppRoutes.home);
@@ -133,7 +133,8 @@ class _HappyScreenState extends State<HappyScreen> {
                           ),
                           const SizedBox(height: 8),
                           Padding(
-                            padding: EdgeInsets.only(left: screenWidth * 0.323),
+                            padding:
+                                EdgeInsets.only(left: screenWidth * 0.323),
                             child: Text(
                               "-${snapshot.data!.data!.quotes![0].author}-",
                               style: TextStyle(
