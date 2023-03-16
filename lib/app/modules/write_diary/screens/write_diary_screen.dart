@@ -75,7 +75,7 @@ class _WriteDiaryScreenState extends State<WriteDiaryScreen> {
                 trailing: IconButton(
                   onPressed: () {
                     // return homepage
-                    Get.toNamed(AppRoutes.home);
+                    Get.back();
                   },
                   icon: const Icon(Icons.close),
                 ),
