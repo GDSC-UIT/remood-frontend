@@ -10,9 +10,9 @@ class reportController {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['point'] = point;
-    data['topic'] = topic;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['point'] = this.point;
+    data['topic'] = this.topic;
     return data;
   }
 }

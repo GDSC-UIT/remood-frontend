@@ -8,13 +8,13 @@ class DiaryNoteApi {
   DiaryNoteApi.fromJson(Map<String, dynamic> json) {
     message = json['message'];
     error = json['error'];
-    data = json['data'] != null ? Data.fromJson(json['data']) : null;
+    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['message'] = message;
-    data['error'] = error;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['message'] = this.message;
+    data['error'] = this.error;
     if (this.data != null) {
       data['data'] = this.data!.toJson();
     }
@@ -29,14 +29,14 @@ class Data {
 
   Data.fromJson(Map<String, dynamic> json) {
     diaryNote = json['diary_note'] != null
-        ? DiaryNote.fromJson(json['diary_note'])
+        ? new DiaryNote.fromJson(json['diary_note'])
         : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    if (diaryNote != null) {
-      data['diary_note'] = diaryNote!.toJson();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    if (this.diaryNote != null) {
+      data['diary_note'] = this.diaryNote!.toJson();
     }
     return data;
   }
@@ -74,15 +74,15 @@ class DiaryNote {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['created_at'] = createdAt;
-    data['updated_at'] = updatedAt;
-    data['_id'] = sId;
-    data['user_id'] = userId;
-    data['topic'] = topic;
-    data['tag'] = tag;
-    data['content'] = content;
-    data['media'] = media;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['created_at'] = this.createdAt;
+    data['updated_at'] = this.updatedAt;
+    data['_id'] = this.sId;
+    data['user_id'] = this.userId;
+    data['topic'] = this.topic;
+    data['tag'] = this.tag;
+    data['content'] = this.content;
+    data['media'] = this.media;
     return data;
   }
 }

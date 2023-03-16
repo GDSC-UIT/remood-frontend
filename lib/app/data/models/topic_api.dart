@@ -8,13 +8,13 @@ class TopicApi {
   TopicApi.fromJson(Map<String, dynamic> json) {
     message = json['message'];
     error = json['error'];
-    data = json['data'] != null ? Data.fromJson(json['data']) : null;
+    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['message'] = message;
-    data['error'] = error;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['message'] = this.message;
+    data['error'] = this.error;
     if (this.data != null) {
       data['data'] = this.data!.toJson();
     }
@@ -32,8 +32,8 @@ class Data {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['topics'] = topics;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['topics'] = this.topics;
     return data;
   }
 }

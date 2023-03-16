@@ -1,7 +1,10 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/models/register_email.dart';
@@ -15,7 +18,7 @@ import 'package:remood/app/routes/app_routes.dart';
 import 'package:http/http.dart' as http;
 
 class CreateNewAccount extends StatefulWidget {
-  const CreateNewAccount({super.key});
+  CreateNewAccount({super.key});
 
   @override
   State<CreateNewAccount> createState() => _CreateNewAccountState();
@@ -32,12 +35,12 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
   @override
   Widget build(BuildContext context) {
     LogInController registerController = LogInController();
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
+    double _screenWidth = MediaQuery.of(context).size.width;
+    double _screenHeight = MediaQuery.of(context).size.height;
     void createNewData(String email, String usename, String password) async {
       showDialog(
           context: context,
-          builder: ((context) => const Center(
+          builder: ((context) => Center(
                 child: CircularProgressIndicator(),
               )));
       try {
@@ -60,7 +63,7 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
         } else {
           Get.back();
           ScaffoldMessenger.of(context)
-              .showSnackBar(const SnackBar(content: Text("Registation failed")));
+              .showSnackBar(SnackBar(content: Text("Registation failed")));
         }
       } catch (e) {
         print(e);
@@ -100,6 +103,11 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
               hintText: "Usename",
               obscureText: false,
             ),
+            MyTextField(
+              controller: usenamecontroller,
+              hintText: "Usename",
+              obscureText: false,
+            ),
             SizedBox(
               height: screenHeight * 0.031,
             ),
@@ -108,8 +116,18 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
               obscureText: false,
               controller: emailcontroller,
             ),
+            MyTextField(
+              hintText: "Email",
+              obscureText: false,
+              controller: emailcontroller,
+            ),
             SizedBox(
               height: screenHeight * 0.031,
+            ),
+            MyTextField(
+              hintText: "Password",
+              obscureText: true,
+              controller: passwordcontroller,
             ),
             MyTextField(
               hintText: "Password",
@@ -127,16 +145,16 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
               height: screenHeight * 0.02,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.059),
+              padding: EdgeInsets.symmetric(horizontal: _screenWidth * 0.059),
               child: GestureDetector(
                 onTap: () {
                   createNewData(emailcontroller.text, usenamecontroller.text,
                       passwordcontroller.text);
                 },
                 child: Container(
-                    height: screenHeight * 0.064,
+                    height: _screenHeight * 0.064,
                     decoration: BoxDecoration(
-                      color: AppColors.mainColor,
+                      color: AppColors.MainColor,
                       borderRadius: BorderRadius.circular(13),
                     ),
                     child: Center(

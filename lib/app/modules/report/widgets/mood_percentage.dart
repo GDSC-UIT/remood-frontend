@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -27,7 +28,7 @@ class _MoodPercentageState extends State<MoodPercentage> {
   HomeController tokenController = Get.find();
 
   Future<reportPoint> fetchApi() async {
-    int timeStamp = (DateTime.now().millisecondsSinceEpoch) ~/ 1000;
+    int timeStamp = ((DateTime.now().millisecondsSinceEpoch) / 1000).toInt();
 
     var response = await http.get(
         Uri.parse(
@@ -37,9 +38,8 @@ class _MoodPercentageState extends State<MoodPercentage> {
       print(timeStamp);
       print(response.body);
       return reportPoint.fromJson(jsonDecode(response.body));
-    } else {
+    } else
       throw Exception('Failed to load point');
-    }
   }
 
   @override
@@ -69,8 +69,8 @@ class _MoodPercentageState extends State<MoodPercentage> {
             builder: ((context, snapshot) {
               if (snapshot.hasData) {
                 return Positioned(
-                  top: screenHeight * 0.05,
-                  left: screenWidth * 0.3,
+                  top: _screenHeight * 0.05,
+                  left: _screenWidth * 0.3,
                   child: Container(
                     alignment: Alignment.center,
                     width: 151,
@@ -86,10 +86,10 @@ class _MoodPercentageState extends State<MoodPercentage> {
                 return Text("${snapshot.error}");
               }
               return Positioned(
-                  top: screenHeight * 0.11,
-                  left: screenWidth * 0.43,
-                  child: const SpinKitFadingCircle(
-                    color: AppColors.mainColor,
+                  top: _screenHeight * 0.11,
+                  left: _screenWidth * 0.43,
+                  child: SpinKitFadingCircle(
+                    color: AppColors.MainColor,
                     size: 50.0,
                   ));
             })),

@@ -8,13 +8,13 @@ class ArticleApi {
   ArticleApi.fromJson(Map<String, dynamic> json) {
     message = json['message'];
     error = json['error'];
-    data = json['data'] != null ? Data.fromJson(json['data']) : null;
+    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['message'] = message;
-    data['error'] = error;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['message'] = this.message;
+    data['error'] = this.error;
     if (this.data != null) {
       data['data'] = this.data!.toJson();
     }
@@ -31,15 +31,15 @@ class Data {
     if (json['articles'] != null) {
       articles = <Articles>[];
       json['articles'].forEach((v) {
-        articles!.add(Articles.fromJson(v));
+        articles!.add(new Articles.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    if (articles != null) {
-      data['articles'] = articles!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    if (this.articles != null) {
+      data['articles'] = this.articles!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -77,15 +77,15 @@ class Articles {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['created_at'] = createdAt;
-    data['updated_at'] = updatedAt;
-    data['_id'] = sId;
-    data['url'] = url;
-    data['title'] = title;
-    data['topic'] = topic;
-    data['author'] = author;
-    data['image'] = image;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['created_at'] = this.createdAt;
+    data['updated_at'] = this.updatedAt;
+    data['_id'] = this.sId;
+    data['url'] = this.url;
+    data['title'] = this.title;
+    data['topic'] = this.topic;
+    data['author'] = this.author;
+    data['image'] = this.image;
     return data;
   }
 }

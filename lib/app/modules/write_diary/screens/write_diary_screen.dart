@@ -3,6 +3,12 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
+import 'package:remood/app/data/models/diary.dart';
+import 'package:remood/app/data/models/list_negative_diary.dart';
+import 'package:remood/app/data/models/list_positive_diary.dart';
+import 'package:remood/app/data/services/firebase_service.dart';
+import 'package:remood/app/global_widgets/card_diary.dart';
+import 'package:remood/app/modules/home/home_binding.dart';
 import 'package:remood/app/modules/home/home_controller.dart';
 import 'package:remood/app/modules/write_diary/diary_controller.dart';
 import 'package:remood/app/modules/write_diary/widgets/stack_note.dart';
@@ -14,7 +20,7 @@ import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 
 class WriteDiaryScreen extends StatefulWidget {
-  const WriteDiaryScreen({super.key});
+  WriteDiaryScreen({super.key});
 
   @override
   State<WriteDiaryScreen> createState() => _WriteDiaryScreenState();
@@ -28,7 +34,9 @@ class _WriteDiaryScreenState extends State<WriteDiaryScreen> {
     double screenHeight = MediaQuery.of(context).size.height;
     HomeController dateController = Get.find();
     DiaryController diaryController = Get.find();
-    void createDiary() async {
+    int timeStamp = (DateTime.now().millisecondsSinceEpoch).toInt();
+    final Storage storage = Storage();
+    void createDiary(String imageUrl) async {
       print(dateController.token);
       final response = await http.post(
         Uri.parse("https://remood-backend.onrender.com/api/diary-notes/"),
@@ -37,17 +45,14 @@ class _WriteDiaryScreenState extends State<WriteDiaryScreen> {
           "tag": diaryController.current.value == 0 ? "positive" : "negative",
           "topic": diaryController.titleDiary.value.trim(),
           "content": diaryController.diaryNote.text.trim(),
-          "media": [
-            diaryController.image == null ? null : diaryController.image!.path
-          ],
+          "media": [imageUrl],
         }),
       );
       print(response.body);
-      if (response.statusCode == 200) {
+      if (response.statusCode == 200)
         print("sucessfull");
-      } else {
+      else
         print("failed");
-      }
     }
 
     return Scaffold(
@@ -106,7 +111,15 @@ class _WriteDiaryScreenState extends State<WriteDiaryScreen> {
               SizedBox(
                 width: screenWidth * 0.88,
                 child: ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
+                    String filename = timeStamp.toString();
+                    showDialog(
+                        context: context,
+                        builder: ((context) {
+                          return Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        }));
                     diaryController.addDate = dateController.currentdate.value;
                     if (diaryController.diaryNote.text.isEmpty) {
                       Get.back();
@@ -114,6 +127,10 @@ class _WriteDiaryScreenState extends State<WriteDiaryScreen> {
                       diaryController.image = null;
                       createDiary();
                       diaryController.addDiary();
+                      await storage.uploadFile(
+                          diaryController.image!.path, filename);
+                      createDiary(await storage.downloadUrl(filename));
+                      diaryController.image = null;
                       Get.toNamed(AppRoutes.home);
                     }
                   },

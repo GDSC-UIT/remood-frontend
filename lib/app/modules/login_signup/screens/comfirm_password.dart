@@ -11,7 +11,7 @@ import 'package:remood/app/modules/login_signup/widgets/title.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class ComfirmPassword extends StatefulWidget {
-  const ComfirmPassword({super.key});
+  ComfirmPassword({super.key});
 
   @override
   State<ComfirmPassword> createState() => _ComfirmPasswordState();
@@ -60,8 +60,18 @@ class _ComfirmPasswordState extends State<ComfirmPassword> {
               obscureText: true,
               controller: passwordcontroller,
             ),
+            MyTextField(
+              hintText: "New password",
+              obscureText: true,
+              controller: passwordcontroller,
+            ),
             SizedBox(
               height: screenHeight * 0.031,
+            ),
+            MyTextField(
+              hintText: "Comfirm password",
+              obscureText: true,
+              controller: comfirmpasswordcontroller,
             ),
             MyTextField(
               hintText: "Comfirm password",

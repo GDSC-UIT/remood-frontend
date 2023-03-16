@@ -8,13 +8,13 @@ class reportPoint {
   reportPoint.fromJson(Map<String, dynamic> json) {
     message = json['message'];
     error = json['error'];
-    data = json['data'] != null ? Data.fromJson(json['data']) : null;
+    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['message'] = message;
-    data['error'] = error;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['message'] = this.message;
+    data['error'] = this.error;
     if (this.data != null) {
       data['data'] = this.data!.toJson();
     }
@@ -29,14 +29,14 @@ class Data {
 
   Data.fromJson(Map<String, dynamic> json) {
     dayReview = json['day_review'] != null
-        ? DayReview.fromJson(json['day_review'])
+        ? new DayReview.fromJson(json['day_review'])
         : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    if (dayReview != null) {
-      data['day_review'] = dayReview!.toJson();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    if (this.dayReview != null) {
+      data['day_review'] = this.dayReview!.toJson();
     }
     return data;
   }
@@ -56,10 +56,10 @@ class DayReview {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['user_id'] = userId;
-    data['date'] = date;
-    data['point'] = point;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['user_id'] = this.userId;
+    data['date'] = this.date;
+    data['point'] = this.point;
     return data;
   }
 }
