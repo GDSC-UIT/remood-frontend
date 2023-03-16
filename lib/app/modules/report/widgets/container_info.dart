@@ -34,8 +34,7 @@ class ContainerInfo extends StatelessWidget {
           ),
           Expanded(
             child: Text(
-              "Hey there! It looks like you haven't used this feature on Remood yet. "
-              "Give it a try and let us know what you think!",
+              "It looks like you haven't used this feature on Remood yet. Give it a try now!",
               style: CustomTextStyle.normalText(Colors.white),
             ),
           ),
