@@ -188,4 +188,24 @@ class ReadDiaryController extends GetxController {
       Get.back();
     }
   }
+
+  RxBool isPinPressed = false.obs;
+
+  void pressPin(Diary diary) {
+    isPinPressed(diary.isPinned == null ? false : diary.isPinned!);
+  }
+
+  void setPinMark(Diary diary) {
+    isPinPressed(!isPinPressed.value);
+    diary.isPinned = isPinPressed.value;
+    diary.isPinned == true
+        ? PinnedDiary.listPinnedDiary.add(diary)
+        : PinnedDiary.listPinnedDiary.remove(diary);
+
+    update();
+
+    hiveBoxNegative.updateDatabase();
+    hiveBoxPositive.updateDatabase();
+    hiveBoxPinned.updateDatabase();
+  }
 }

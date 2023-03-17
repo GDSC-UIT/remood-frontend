@@ -100,6 +100,7 @@ class _LogInState extends State<LogIn> {
             SizedBox(
               height: screenHeight * 0.031,
             ),
+
             //textfield password
             MyTextField(
               controller: passwordcontroller,
@@ -109,6 +110,7 @@ class _LogInState extends State<LogIn> {
             const SizedBox(
               height: 4,
             ),
+
             // forgot password
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -187,6 +189,7 @@ class _LogInState extends State<LogIn> {
             SizedBox(
               height: screenHeight * 0.11,
             ),
+
             // Account question
             AccountQuestion(
               question: "Don’t have an account?",
@@ -196,7 +199,8 @@ class _LogInState extends State<LogIn> {
             SizedBox(
               height: screenHeight * 0.02,
             ),
-            //log in button
+
+            // Log in button
             Padding(
               padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.059),
               child: GestureDetector(
