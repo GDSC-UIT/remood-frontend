@@ -72,80 +72,97 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
       backgroundColor: AppColors.backgroundPage,
       body: SingleChildScrollView(
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Stack(
           children: [
-            // logibar
-            const Padding(
-              padding: EdgeInsets.only(top: 25),
-              child: LoginBar(),
-            ),
-            SizedBox(
-              height: screenHeight * 0.062,
-            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // logibar
+                const Padding(
+                  padding: EdgeInsets.only(top: 25),
+                  child: LoginBar(),
+                ),
+                SizedBox(
+                  height: screenHeight * 0.062,
+                ),
 
-            //title login
-            titleLogin(text: "Create new account"),
-            SizedBox(
-              height: screenHeight * 0.031,
-            ),
+                //title login
+                titleLogin(text: "Create new account"),
+                SizedBox(
+                  height: screenHeight * 0.031,
+                ),
 
-            // slogan
-            const Slogan(),
+                // slogan
+                const Slogan(),
+                SizedBox(
+                  height: screenHeight * 0.043,
+                ),
+                MyTextField(
+                  controller: usenamecontroller,
+                  hintText: "Usename",
+                  obscureText: false,
+                ),
+                SizedBox(
+                  height: screenHeight * 0.031,
+                ),
+                MyTextField(
+                  hintText: "Email",
+                  obscureText: false,
+                  controller: emailcontroller,
+                ),
+                SizedBox(
+                  height: screenHeight * 0.031,
+                ),
+                MyTextField(
+                  hintText: "Password",
+                  obscureText: true,
+                  controller: passwordcontroller,
+                ),
+                SizedBox(
+                  height: screenHeight * 0.18,
+                ),
+              ],
+            ),
             SizedBox(
-              height: screenHeight * 0.043,
-            ),
-            MyTextField(
-              controller: usenamecontroller,
-              hintText: "Usename",
-              obscureText: false,
-            ),
-            SizedBox(
-              height: screenHeight * 0.031,
-            ),
-            MyTextField(
-              hintText: "Email",
-              obscureText: false,
-              controller: emailcontroller,
-            ),
-            SizedBox(
-              height: screenHeight * 0.031,
-            ),
-            MyTextField(
-              hintText: "Password",
-              obscureText: true,
-              controller: passwordcontroller,
-            ),
-            SizedBox(
-              height: screenHeight * 0.18,
-            ),
-            AccountQuestion(
-                question: "Have an account?",
-                button: "Login",
-                route: AppRoutes.login),
-            SizedBox(
-              height: screenHeight * 0.02,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.059),
-              child: GestureDetector(
-                onTap: () {
-                  createNewData(emailcontroller.text, usenamecontroller.text,
-                      passwordcontroller.text);
-                },
-                child: Container(
-                  height: screenHeight * 0.064,
-                  decoration: BoxDecoration(
-                    color: AppColors.mainColor,
-                    borderRadius: BorderRadius.circular(13),
+              width: screenWidth,
+              height: screenHeight,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  AccountQuestion(
+                      question: "Have an account?",
+                      button: "Login",
+                      route: AppRoutes.login),
+                  SizedBox(
+                    height: screenHeight * 0.02,
                   ),
-                  child: Center(
-                    child: Text(
-                      "Sign up",
-                      style: CustomTextStyle.TextLogin(Colors.white),
+                  Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: screenWidth * 0.059),
+                    child: GestureDetector(
+                      onTap: () {
+                        createNewData(emailcontroller.text,
+                            usenamecontroller.text, passwordcontroller.text);
+                      },
+                      child: Container(
+                        height: screenHeight * 0.064,
+                        decoration: BoxDecoration(
+                          color: AppColors.mainColor,
+                          borderRadius: BorderRadius.circular(13),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Sign up",
+                            style: CustomTextStyle.TextLogin(Colors.white),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
-                ),
+                  SizedBox(
+                    height: screenHeight * 0.0197,
+                  )
+                ],
               ),
             ),
           ],
