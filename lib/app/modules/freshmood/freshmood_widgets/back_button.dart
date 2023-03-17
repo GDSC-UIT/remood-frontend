@@ -1,9 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
-import 'package:remood/app/routes/app_routes.dart';
 
 class BackButtonContainer extends StatelessWidget {
   const BackButtonContainer({super.key});
@@ -11,7 +7,7 @@ class BackButtonContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 50, left: 22),
+      padding: const EdgeInsets.only(top: 50, left: 22),
       child: GestureDetector(
         onTap: () {
           Get.back();

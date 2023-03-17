@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/core/values/text_style.dart';
@@ -12,16 +9,16 @@ class StackSearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Stack(
       clipBehavior: Clip.none,
       children: [
         Container(
-          height: _screenHeight * 0.303,
+          height: screenHeight * 0.303,
         ),
         Container(
-          height: _screenHeight * 0.255,
+          height: screenHeight * 0.255,
           decoration: const BoxDecoration(
             color: AppColors.suggestionSearchBar,
             borderRadius: BorderRadius.only(
@@ -30,24 +27,24 @@ class StackSearchBar extends StatelessWidget {
             ),
           ),
           child: Padding(
-            padding: EdgeInsets.only(top: 10),
+            padding: const EdgeInsets.only(top: 10),
             child: Row(
               children: [
                 Stack(
                   clipBehavior: Clip.none,
                   children: [
-                    Container(
-                        width: _screenWidth * 0.64,
-                        height: _screenHeight * 0.08743,
+                    SizedBox(
+                        width: screenWidth * 0.64,
+                        height: screenHeight * 0.08743,
                         child: FittedBox(
                             fit: BoxFit.fill,
                             child: Image.asset(Assets.remoodSuggestion))),
                     Positioned(
                       top: -46,
-                      left: _screenWidth * 0.584,
-                      child: Container(
-                          width: _screenWidth * 0.432,
-                          height: _screenHeight * 0.195,
+                      left: screenWidth * 0.584,
+                      child: SizedBox(
+                          width: screenWidth * 0.432,
+                          height: screenHeight * 0.195,
                           child: Image.asset(Assets.remoodLogo)),
                     ),
                   ],
@@ -56,14 +53,14 @@ class StackSearchBar extends StatelessWidget {
             ),
           ),
         ),
-        BackButtonContainer(),
+        const BackButtonContainer(),
         // search bar
         Positioned(
           bottom: 0,
-          left: _screenWidth * 0.064,
+          left: screenWidth * 0.064,
           child: Container(
-            width: _screenWidth * 0.872,
-            height: _screenHeight * 0.073,
+            width: screenWidth * 0.872,
+            height: screenHeight * 0.073,
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(30)),
             child: Center(
@@ -77,7 +74,7 @@ class StackSearchBar extends StatelessWidget {
                   hintText: "Search for...",
                   hintStyle: CustomTextStyle.searchFor(),
                 ),
-                style: TextStyle(fontSize: 20),
+                style: const TextStyle(fontSize: 20),
               ),
             ),
           ),

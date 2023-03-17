@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -7,8 +6,6 @@ import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/diary.dart';
 import 'package:remood/app/data/models/list_negative_diary.dart';
 import 'package:remood/app/data/models/list_positive_diary.dart';
-import 'package:remood/app/data/models/list_selected_color_topic.dart';
-import 'package:remood/app/data/models/list_selected_icons_topic.dart';
 import 'package:remood/app/data/models/list_topic.dart';
 import 'package:remood/app/data/models/topic.dart';
 import 'package:remood/app/modules/write_diary/widgets/bottom_sheet_add_topic.dart';

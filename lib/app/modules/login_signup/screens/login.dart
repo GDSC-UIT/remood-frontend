@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
@@ -17,8 +15,8 @@ class LogIn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: AppColors.backgroundColor,
@@ -28,24 +26,24 @@ class LogIn extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // logibar
-            Padding(
+            const Padding(
               padding: EdgeInsets.only(top: 25),
               child: LoginBar(),
             ),
             SizedBox(
-              height: _screenHeight * 0.062,
+              height: screenHeight * 0.062,
             ),
 
             //title login
             titleLogin(text: "Welcome to Remood!"),
             SizedBox(
-              height: _screenHeight * 0.031,
+              height: screenHeight * 0.031,
             ),
 
             // slogan
             const Slogan(),
             SizedBox(
-              height: _screenHeight * 0.043,
+              height: screenHeight * 0.043,
             ),
 
             // textfield usename
@@ -54,14 +52,14 @@ class LogIn extends StatelessWidget {
               obscureText: false,
             ),
             SizedBox(
-              height: _screenHeight * 0.031,
+              height: screenHeight * 0.031,
             ),
             //textfield password
             MyTextField(
               hintText: "Password",
               obscureText: true,
             ),
-            SizedBox(
+            const SizedBox(
               height: 4,
             ),
             // forgot password
@@ -69,7 +67,7 @@ class LogIn extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Padding(
-                  padding: EdgeInsets.only(right: _screenWidth * 0.088),
+                  padding: EdgeInsets.only(right: screenWidth * 0.088),
                   child: GestureDetector(
                     onTap: (() {
                       Get.toNamed(AppRoutes.forgotPassword);
@@ -83,53 +81,53 @@ class LogIn extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: _screenHeight * 0.025,
+              height: screenHeight * 0.025,
             ),
             // OR
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: _screenWidth * 0.096),
+              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.096),
               child: Row(
                 children: [
-                  Expanded(
+                  const Expanded(
                     child: Divider(thickness: 0.5, color: AppColors.grey),
                   ),
                   Padding(
                     padding:
-                        EdgeInsets.symmetric(horizontal: _screenWidth * 0.093),
+                        EdgeInsets.symmetric(horizontal: screenWidth * 0.093),
                     child: Text(
                       "or",
                       style: CustomTextStyle.OrText(),
                     ),
                   ),
-                  Expanded(
+                  const Expanded(
                     child: Divider(thickness: 0.5, color: AppColors.grey),
                   ),
                 ],
               ),
             ),
             SizedBox(
-              height: _screenHeight * 0.029,
+              height: screenHeight * 0.029,
             ),
 
             // Google Login
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: _screenWidth * 0.114),
+              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.114),
               child: Container(
-                height: _screenHeight * 0.064,
+                height: screenHeight * 0.064,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(16)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
+                    SizedBox(
                       width: 26,
                       height: 26,
                       child: FittedBox(
                           fit: BoxFit.fill, child: Image.asset(Assets.google)),
                     ),
                     SizedBox(
-                      width: _screenWidth * 0.051,
+                      width: screenWidth * 0.051,
                     ),
                     Text(
                       "Continue with Google",
@@ -140,7 +138,7 @@ class LogIn extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: _screenHeight * 0.11,
+              height: screenHeight * 0.11,
             ),
             // Account question
             AccountQuestion(
@@ -149,13 +147,13 @@ class LogIn extends StatelessWidget {
               route: AppRoutes.createnewAccount,
             ),
             SizedBox(
-              height: _screenHeight * 0.02,
+              height: screenHeight * 0.02,
             ),
             //log in button
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: _screenWidth * 0.059),
+              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.059),
               child: Container(
-                  height: _screenHeight * 0.064,
+                  height: screenHeight * 0.064,
                   decoration: BoxDecoration(
                     color: AppColors.mainColor,
                     borderRadius: BorderRadius.circular(13),

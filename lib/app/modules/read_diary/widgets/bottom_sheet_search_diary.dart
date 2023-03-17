@@ -8,11 +8,11 @@ class SheetSearchDiary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     ReadDiaryController searchDiary = Get.find();
     return Container(
-      height: _screenHeight * 0.82,
+      height: screenHeight * 0.82,
       decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
@@ -26,8 +26,8 @@ class SheetSearchDiary extends StatelessWidget {
 // "Diary"
           Padding(
             padding: EdgeInsets.only(
-              top: _screenHeight * 0.039,
-              left: _screenWidth * 0.064,
+              top: screenHeight * 0.039,
+              left: screenWidth * 0.064,
             ),
             child: const Text(
               "Diary",
@@ -43,7 +43,7 @@ class SheetSearchDiary extends StatelessWidget {
 // Textfield search
           Center(
             child: SizedBox(
-              width: _screenWidth * 0.872,
+              width: screenWidth * 0.872,
               child: TextField(
                 onChanged: (value) => searchDiary.searchTitleDiary(value),
                 controller: searchDiary.searchController,
@@ -66,7 +66,7 @@ class SheetSearchDiary extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 24,
           ),
 // underline
@@ -79,12 +79,12 @@ class SheetSearchDiary extends StatelessWidget {
           ),
 // done button
           SizedBox(
-            height: _screenHeight * 0.55,
+            height: screenHeight * 0.55,
           ),
 // done button
           Center(
             child: SizedBox(
-              width: _screenWidth * 0.88,
+              width: screenWidth * 0.88,
               child: ElevatedButton(
                 onPressed: () {
                   Get.back();

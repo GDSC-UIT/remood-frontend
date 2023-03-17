@@ -36,7 +36,6 @@ import 'package:remood/app/modules/splash/splash_binding.dart';
 import 'package:remood/app/modules/suggestion/screens/suggestion_screen.dart';
 import 'package:remood/app/modules/suggestion/suggestion_binding.dart';
 import 'package:remood/app/modules/write_diary/diary_binding.dart';
-import 'package:remood/app/modules/write_diary/diary_controller.dart';
 import 'package:remood/app/modules/write_diary/screens/write_diary_screen.dart';
 import 'package:remood/app/modules/onboarding/onboarding_binding.dart';
 import 'package:remood/app/modules/onboarding/screens/onboarding_screen.dart';

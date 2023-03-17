@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,7 +7,6 @@ import 'package:remood/app/data/models/list_topic.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/modules/setting/widgets/confirm_button.dart';
 import 'package:remood/app/modules/setting/widgets/stack_setting_appbar.dart';
-import 'package:remood/app/modules/write_diary/diary_controller.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class TopicDetailScreen extends StatelessWidget {

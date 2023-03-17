@@ -10,27 +10,27 @@ class StackTag extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     DiaryController changTag = Get.find();
     return Stack(
       clipBehavior: Clip.none,
       children: [
         Container(
-          width: _screenWidth * 0.731,
-          height: _screenHeight * 0.09,
+          width: screenWidth * 0.731,
+          height: screenHeight * 0.09,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               border: Border.all(color: AppColors.primary)),
 // Positve \ Negative tag
           child: Padding(
             padding: EdgeInsets.only(
-                left: _screenWidth * 0.048,
-                top: _screenHeight * 0.034,
-                bottom: _screenHeight * 0.025),
+                left: screenWidth * 0.048,
+                top: screenHeight * 0.034,
+                bottom: screenHeight * 0.025),
             child: ListView.separated(
               separatorBuilder: (context, index) => SizedBox(
-                width: _screenWidth * 0.048,
+                width: screenWidth * 0.048,
               ),
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
@@ -42,8 +42,8 @@ class StackTag extends StatelessWidget {
                   },
                   child: Obx(
                     () => Container(
-                      width: _screenWidth * 0.293,
-                      height: _screenHeight * 0.031,
+                      width: screenWidth * 0.293,
+                      height: screenHeight * 0.031,
                       decoration: BoxDecoration(
                         color: changTag.current.value == index
                             ? AppColors.mainColor
@@ -75,8 +75,8 @@ class StackTag extends StatelessWidget {
           top: -30,
           left: -26,
           child: Container(
-            width: _screenWidth * 0.224,
-            height: _screenHeight * 0.061,
+            width: screenWidth * 0.224,
+            height: screenHeight * 0.061,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),

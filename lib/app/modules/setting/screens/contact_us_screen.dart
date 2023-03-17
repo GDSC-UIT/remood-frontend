@@ -4,7 +4,6 @@ import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/services/contact_service.dart';
 import 'package:remood/app/modules/setting/widgets/stack_setting_appbar.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class ContactUsScreen extends StatelessWidget {

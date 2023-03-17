@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
@@ -11,19 +9,19 @@ class SuggestionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return GestureDetector(
       onTap: () {
         Get.toNamed(AppRoutes.suggestion);
       },
       child: Container(
-          width: _screenWidth * 0.83,
-          height: _screenHeight * 0.058,
+          width: screenWidth * 0.83,
+          height: screenHeight * 0.058,
           decoration: BoxDecoration(
               color: AppColors.mainColor,
               borderRadius: BorderRadius.circular(20),
-              boxShadow: [BoxShadow(offset: Offset(0, 1))]),
+              boxShadow: const [BoxShadow(offset: Offset(0, 1))]),
           child: Center(
             child: Text(
               "Remood’s suggestion",

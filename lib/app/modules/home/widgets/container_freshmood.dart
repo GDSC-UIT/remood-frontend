@@ -1,9 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
-import 'dart:ui' as ui;
 
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
@@ -22,27 +18,27 @@ class FreshmoodPercent extends StatefulWidget {
 class _FreshmoodPercentState extends State<FreshmoodPercent> {
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     var pctWidth = MediaQueryService.pctWidth(context);
     var pctHeight = MediaQueryService.pctHeight(context);
     HomeController sliderController = Get.find();
     return Scaffold(
       backgroundColor: AppColors.barrierColor,
       body: Padding(
-        padding: EdgeInsets.only(bottom: _screenHeight * 0.063),
+        padding: EdgeInsets.only(bottom: screenHeight * 0.063),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
 //"How was your day ?"
             const DefaultTextStyle(
-              child: Text(
-                "How was your day ?",
-              ),
               style: TextStyle(
                   fontWeight: FontWeight.w700,
                   fontSize: 16,
                   color: Colors.white),
+              child: Text(
+                "How was your day ?",
+              ),
             ),
             const SizedBox(
               height: 10,
@@ -53,8 +49,8 @@ class _FreshmoodPercentState extends State<FreshmoodPercent> {
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Container(
-                width: _screenWidth * 0.723,
-                height: _screenHeight * 0.134,
+                width: screenWidth * 0.723,
+                height: screenHeight * 0.134,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(16),
@@ -141,7 +137,7 @@ class _FreshmoodPercentState extends State<FreshmoodPercent> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 // bottomNavigationBar
       bottomNavigationBar: SizedBox(
-        height: _screenHeight * 0.11,
+        height: screenHeight * 0.11,
         child: ClipRRect(
           borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(45), topRight: Radius.circular(45)),

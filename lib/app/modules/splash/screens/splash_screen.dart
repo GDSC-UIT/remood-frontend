@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
-import 'package:remood/app/data/services/notification_service.dart';
-import 'package:remood/app/data/services/permission_service.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class SplashScreen extends StatefulWidget {

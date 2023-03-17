@@ -15,27 +15,27 @@ class MoodPercentage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Stack(
       children: [
         Container(
-          height: _screenHeight * 0.34,
+          height: screenHeight * 0.34,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(36),
               color: AppColors.reportContainer),
         ),
         Positioned(
-          top: _screenHeight * 0.043,
-          left: _screenWidth * 0.29,
+          top: screenHeight * 0.043,
+          left: screenWidth * 0.29,
           child: SizedBox(
-              width: _screenWidth * 0.42,
-              height: _screenHeight * 0.193,
+              width: screenWidth * 0.42,
+              height: screenHeight * 0.193,
               child: Image.asset(Assets.reportPercentage)),
         ),
         Positioned(
-          top: _screenHeight * 0.05,
-          left: _screenWidth * 0.3,
+          top: screenHeight * 0.05,
+          left: screenWidth * 0.3,
           child: Container(
             alignment: Alignment.center,
             width: 151,
@@ -48,7 +48,7 @@ class MoodPercentage extends StatelessWidget {
         ),
         Positioned(
           bottom: 7,
-          left: _screenWidth * 0.323,
+          left: screenWidth * 0.323,
           child: Obx(() => Text(
                 '${controller.avgMood}',
                 style: CustomTextStyle.textReport(),

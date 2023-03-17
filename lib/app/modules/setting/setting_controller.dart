@@ -18,7 +18,6 @@ import 'package:remood/app/data/models/topic.dart';
 import 'package:remood/app/data/models/user.dart';
 import 'package:remood/app/data/models/user_box.dart';
 import 'package:remood/app/data/services/notification_service.dart';
-import 'package:remood/app/global_widgets/card_diary.dart';
 import 'package:remood/app/data/services/setting_service.dart';
 import 'package:remood/app/routes/app_routes.dart';
 

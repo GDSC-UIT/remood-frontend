@@ -1,6 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:remood/app/core/values/text_style.dart';
 
 class RowText extends StatelessWidget {
@@ -10,19 +8,19 @@ class RowText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        SizedBox(
+        const SizedBox(
           width: 35,
         ),
         Text(
           "Blogs",
           style: CustomTextStyle.suggestionBlogsText(),
         ),
-        Spacer(),
+        const Spacer(),
         Text(
           "View all",
           style: CustomTextStyle.suggestionViewAllText(),
         ),
-        SizedBox(
+        const SizedBox(
           width: 11,
         ),
       ],

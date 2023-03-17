@@ -1,7 +1,5 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_native_timezone/flutter_native_timezone.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -11,7 +9,6 @@ import 'package:remood/app/data/models/topic.dart';
 import 'package:remood/app/data/models/user.dart';
 import 'package:remood/app/data/services/notification_service.dart';
 import 'package:remood/app/modules/setting/setting_binding.dart';
-import 'package:timezone/timezone.dart' as tz;
 
 import '/app/core/values/app_strings.dart';
 import '/app/data/services/localization_service.dart';

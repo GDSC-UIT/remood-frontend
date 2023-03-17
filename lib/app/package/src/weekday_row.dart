@@ -5,8 +5,8 @@ import 'package:remood/app/package/src/default_styles.dart'
 import 'package:intl/intl.dart';
 
 class WeekdayRow extends StatelessWidget {
-  WeekdayRow(this.firstDayOfWeek, this.customWeekdayBuilder,
-      {required this.showWeekdays,
+  const WeekdayRow(this.firstDayOfWeek, this.customWeekdayBuilder,
+      {super.key, required this.showWeekdays,
       required this.weekdayFormat,
       required this.weekdayMargin,
       required this.weekdayPadding,

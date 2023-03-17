@@ -13,15 +13,15 @@ class DiaryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     ListNegativeDiary hiveBoxNegative = ListNegativeDiary();
     ListPositveDiary hiveBoxPositive = ListPositveDiary();
     PinnedDiary hiveBoxPinned = PinnedDiary();
     RxBool isPressed = diary.isPinned == null ? false.obs : diary.isPinned!.obs;
     return Container(
-      width: _screenWidth * 0.723,
-      height: _screenHeight * 0.167,
+      width: screenWidth * 0.723,
+      height: screenHeight * 0.167,
       decoration: BoxDecoration(
         color: Color(diary.diaryColor),
         borderRadius: BorderRadius.circular(16),

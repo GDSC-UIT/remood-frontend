@@ -1,10 +1,7 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/topic.dart';
-import 'package:remood/app/modules/write_diary/diary_controller.dart';
 
 class TopicCard extends StatelessWidget {
   CardTopic topic;
@@ -19,18 +16,18 @@ class TopicCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return SizedBox(
-      width: _screenWidth * 0.093,
-      height: _screenHeight * 0.059,
+      width: screenWidth * 0.093,
+      height: screenHeight * 0.059,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Obx(
             () => Container(
-              height: _screenHeight * 0.043,
-              width: _screenWidth * 0.093,
+              height: screenHeight * 0.043,
+              width: screenWidth * 0.093,
               decoration: BoxDecoration(
                 color: currentIndex.value == index
                     ? Color(topic.TopicColor)

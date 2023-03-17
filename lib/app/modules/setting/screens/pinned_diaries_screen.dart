@@ -12,8 +12,8 @@ class PinnedDiariesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     String appBarTitle = "Pinned diaries";
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
@@ -61,7 +61,7 @@ class PinnedDiariesScreen extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: _screenHeight * 0.037,
+              height: screenHeight * 0.037,
             ),
             Expanded(
               child: Obx(
@@ -71,7 +71,7 @@ class PinnedDiariesScreen extends StatelessWidget {
                     itemBuilder: ((context, index) =>
                         DiaryCard(diary: PinnedDiary.listPinnedDiary[index])),
                     separatorBuilder: (context, index) => SizedBox(
-                          height: _screenHeight * 0.0197,
+                          height: screenHeight * 0.0197,
                         ),
                     itemCount: PinnedDiary.listPinnedDiary.length),
               ),
