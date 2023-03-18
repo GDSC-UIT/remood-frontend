@@ -11,6 +11,7 @@ import 'dart:ui' as ui;
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/data/models/report_controller.dart';
+import 'package:remood/app/data/models/report_point.dart';
 import 'package:remood/app/modules/home/home_controller.dart';
 import 'package:remood/app/modules/home/widgets/floating_action_button.dart';
 import 'package:remood/app/routes/app_routes.dart';
@@ -26,20 +27,6 @@ class FreshmoodPercent extends StatefulWidget {
 
 class _FreshmoodPercentState extends State<FreshmoodPercent> {
   HomeController tokenController = Get.find();
-  var url = "https://remood-backend.onrender.com/api/review-notes/";
-
-  createData(int point) async {
-    var response = await http.post(Uri.parse(url),
-        headers: {
-          'Authorization': 'Bearer ${tokenController.token.value}',
-        },
-        body: jsonEncode(<String, dynamic>{
-          'point': point,
-        }));
-    print(response.statusCode);
-    print(response.body);
-  }
-
   @override
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
@@ -91,7 +78,10 @@ class _FreshmoodPercentState extends State<FreshmoodPercent> {
                               : Get.toNamed(AppRoutes.happyfreshmood);
                           sliderController.floatingcontainer.remove();
                           sliderController.ispressed.value = false;
-                          createData(sliderController.valueSlider.value);
+                          reportPoint.point
+                              .add(sliderController.valueSlider.value);
+                          reportPoint.caculateFeeling(
+                              sliderController.valueSlider.value);
                         }),
                         child: Image.asset(
                           sliderController.valueSlider.value < 20

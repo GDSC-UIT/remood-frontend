@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:remood/app/data/models/report_point.dart';
 
 class ReportController extends GetxController {
   // The current date
@@ -18,8 +19,8 @@ class ReportController extends GetxController {
 
   @override
   void onInit() {
-    super.onInit();
     fetchData();
+    super.onInit();
   }
 
   // Simulate the process of fetching data
@@ -27,7 +28,17 @@ class ReportController extends GetxController {
     await Future.delayed(
       const Duration(seconds: 1),
     );
-    percentage.value = 75;
+    num t = 0;
+    num m = 0;
+    if (reportPoint.point.length == 0) {
+      percentage.value = 0;
+    } else {
+      for (int i = 0; i < reportPoint.point.length; i++) {
+        t = t + reportPoint.point[i] * reportPoint.weight[i];
+        m = m + reportPoint.weight[i];
+      }
+      percentage.value = (t / m).round();
+    }
     avgMood.value = "Happy";
   }
 

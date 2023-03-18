@@ -26,20 +26,10 @@ class MoodPercentage extends StatefulWidget {
 
 class _MoodPercentageState extends State<MoodPercentage> {
   HomeController tokenController = Get.find();
-
-  Future<reportPoint> fetchApi() async {
-    int timeStamp = ((DateTime.now().millisecondsSinceEpoch) / 1000).toInt();
-
-    var response = await http.get(
-        Uri.parse(
-            'https://remood-backend.onrender.com/api/day-reviews/day?day=$timeStamp'),
-        headers: {'Authorization': 'Bearer ${tokenController.token.value}'});
-    if (response.statusCode == 200) {
-      print(timeStamp);
-      print(response.body);
-      return reportPoint.fromJson(jsonDecode(response.body));
-    } else
-      throw Exception('Failed to load point');
+  @override
+  void initState() {
+    widget.controller.fetchData();
+    super.initState();
   }
 
   @override
@@ -62,35 +52,21 @@ class _MoodPercentageState extends State<MoodPercentage> {
               height: _screenHeight * 0.193,
               child: Image.asset(Assets.reportPercentage)),
         ),
-        FutureBuilder(
-            future: fetchApi(),
-            builder: ((context, snapshot) {
-              if (snapshot.hasData) {
-                return Positioned(
-                  top: _screenHeight * 0.05,
-                  left: _screenWidth * 0.3,
-                  child: Container(
-                    alignment: Alignment.center,
-                    width: 151,
-                    height: 146,
-                    child: Text(
-                      "${snapshot.data!.data!.dayReview!.point!.toInt()}%",
-                      style:
-                          CustomTextStyle.customh2(const Color(0xFF8F753F), 48),
-                    ),
-                  ),
-                );
-              } else if (snapshot.hasError) {
-                return Text("${snapshot.error}");
-              }
-              return Positioned(
-                  top: _screenHeight * 0.11,
-                  left: _screenWidth * 0.43,
-                  child: SpinKitFadingCircle(
-                    color: AppColors.MainColor,
-                    size: 50.0,
-                  ));
-            })),
+        Positioned(
+          top: _screenHeight * 0.05,
+          left: _screenWidth * 0.3,
+          child: Container(
+            alignment: Alignment.center,
+            width: 151,
+            height: 146,
+            child: Obx(
+              () => Text(
+                "${widget.controller.percentage.value}%",
+                style: CustomTextStyle.customh2(const Color(0xFF8F753F), 48),
+              ),
+            ),
+          ),
+        ),
         Positioned(
           bottom: 7,
           left: _screenWidth * 0.323,
