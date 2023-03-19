@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:remood/app/data/models/list_report_point.dart';
@@ -18,12 +17,22 @@ class ReportController extends GetxController {
   RxInt percentage = 0.obs;
   int percent = 0;
   // The average mood
-  RxString avgMood = "0".obs;
+  RxString avgMood = "".obs;
+  String get getAvgMood => percentage.value < 20
+      ? "Despressed"
+      : percentage.value < 40
+          ? "Sad"
+          : percentage.value < 60
+              ? "Normal"
+              : percentage.value < 80
+                  ? "Happy"
+                  : percentage.value <= 100
+                      ? "Verry happy"
+                      : "Undefined";
 
-  @override
-  void onInit() {
-    super.onInit();
-  }
+  // Show that report fetch API successfully or not
+  RxBool isResponse200 = true.obs;
+
 
   // Simulate the process of fetching data
   void fetchData(context) async {
@@ -44,8 +53,8 @@ class ReportController extends GetxController {
     }
     num t = 0;
     num m = 0;
-    if (reportPoint.point.length == 0) {
-      percent = 0;
+    if (reportPoint.point.isEmpty) {
+      percentage.value = 0;
     } else {
       for (int i = 0; i < reportPoint.point.length; i++) {
         t = t + reportPoint.point[i] * reportPoint.weight[i];
@@ -53,7 +62,10 @@ class ReportController extends GetxController {
       }
       percent = (t / m).round();
     }
-    avgMood.value = "Happy";
+
+    // Set average mood text
+    avgMood(getAvgMood);
+
     int flag = 0;
     for (int i = 0; i < ListReportPoint.listReportPoint.length; i++) {
       if (ListReportPoint.listReportPoint[i][0].day == DateTime.now().day &&

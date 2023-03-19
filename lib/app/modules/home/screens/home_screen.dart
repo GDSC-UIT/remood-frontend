@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/list_bottom_screen.dart';
-import 'package:remood/app/data/models/list_positive_diary.dart';
-import 'package:remood/app/data/models/report_point.dart';
 import 'package:remood/app/modules/home/home_controller.dart';
 import 'package:remood/app/modules/home/widgets/bottom_bar.dart';
-import 'package:remood/app/modules/home/widgets/container_freshmood.dart';
 import 'package:remood/app/modules/home/widgets/floating_action_button.dart';
 import 'package:get/get.dart';
 
@@ -22,9 +18,9 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     HomeController changeScreen = Get.find();
     int currentIndex = 0;
-    Screens _listScreens = Screens();
-    // double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    Screens listScreens = Screens();
+    // double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
@@ -39,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Obx(
         () => IndexedStack(
           index: changeScreen.current.value,
-          children: _listScreens.ListScreens,
+          children: listScreens.ListScreens,
         ),
       ),
     );

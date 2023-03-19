@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,14 +16,29 @@ class PINLock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+// Controller
     final controller = Get.find<SettingController>();
+
+// Size of widgets
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
+// Data
     /// -1 is whitespace
     /// -2 is delete button
     /// the others is numpad data
     var numpadData = [1, 2, 3, 4, 5, 6, 7, 8, 9, -1, 0, -2];
+
+    // Passcode is typed
+    var code = controller.code;
+
+    // Number of code was typed
+    var count = controller.count;
+
+// Function
+    var deleteCode = controller.deleteCode;
+
+    var enterCode = controller.enterCode;
 
     Widget numpadButton(int index) {
       double width = 66;
@@ -43,15 +60,25 @@ class PINLock extends StatelessWidget {
         );
         boxColor = Colors.transparent;
       }
-      return Container(
-        alignment: Alignment.center,
-        width: width,
-        height: height,
-        decoration: BoxDecoration(
-          color: boxColor,
-          borderRadius: BorderRadius.circular(borderRadius),
+      return GestureDetector(
+        onTap: () {
+// Enter-passcode function
+          enterCode(index, code, count);
+
+// Delete-passcode function
+          deleteCode(index, code, count);
+          log(code.toString());
+        },
+        child: Container(
+          alignment: Alignment.center,
+          width: width,
+          height: height,
+          decoration: BoxDecoration(
+            color: boxColor,
+            borderRadius: BorderRadius.circular(borderRadius),
+          ),
+          child: child,
         ),
-        child: child,
       );
     }
 
@@ -74,6 +101,7 @@ class PINLock extends StatelessWidget {
       );
     }
 
+// MAIN CODE
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
       body: SafeArea(
@@ -81,10 +109,10 @@ class PINLock extends StatelessWidget {
           children: [
             Stack(
               children: [
-                // Appbar
+// Appbar
                 const StackSettingAppbar(title: "PIN lock"),
 
-                // Switch button
+// Switch button
                 Container(
                   padding: EdgeInsets.only(
                     top: screenHeight * 0.021,
@@ -99,7 +127,7 @@ class PINLock extends StatelessWidget {
               height: 17,
             ),
 
-            // Title
+// Title
             Text(
               "Enter your PIN",
               style: CustomTextStyle.normalText(Colors.black),
@@ -108,16 +136,16 @@ class PINLock extends StatelessWidget {
               height: 25.0,
             ),
 
-            // Password (4 characters)
+// Password (4 characters)
             const FittedboxPasswordDots(),
             const SizedBox(
               height: 48,
             ),
 
-            // Numeric keyboard
+// Numeric keyboard
             numpadGrid(),
 
-            // Done button
+// Done button
             const ConfirmButton(label: "Save"),
             SizedBox(
               height: screenHeight * 0.03,

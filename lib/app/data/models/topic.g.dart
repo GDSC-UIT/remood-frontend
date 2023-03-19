@@ -18,8 +18,8 @@ class CardTopicAdapter extends TypeAdapter<CardTopic> {
     };
     return CardTopic(
       title: fields[0] as String,
-      TopicColor: fields[2] as int,
       icons: fields[1] as int,
+      TopicColor: fields[2] as int,
     );
   }
 

@@ -11,9 +11,13 @@ class LanguageScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(SettingController());
+    // Controller
+    final SettingController controller = Get.find();
+
+    // Data
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+    var saveLanguage = controller.saveLanguage;
 
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
@@ -22,14 +26,19 @@ class LanguageScreen extends StatelessWidget {
           children: [
             const StackSettingAppbar(title: "Select language"),
             const SizedBox(height: 16.0),
-            // English
-            const ListTileLaguage(index: 0),
-            // Vietnamese
-            const ListTileLaguage(index: 1),
-            // Japanese
-            const ListTileLaguage(index: 2),
+            // Languages
+            Column(
+              children: List.generate(
+                controller.lanList.length,
+                (index) => ListTileLaguage(index: index),
+              ),
+            ),
             // Save button
-            const ConfirmButton(label: "Save"),
+            // TODO: Save the current selected value - Language choice
+            ConfirmButton(
+              label: "Save",
+              func: saveLanguage,
+            ),
             SizedBox(
               height: screenHeight * 0.03,
             ),

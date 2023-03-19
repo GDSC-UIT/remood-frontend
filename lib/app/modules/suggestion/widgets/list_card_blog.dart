@@ -1,9 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/data/models/article_api.dart';
 import 'package:remood/app/modules/suggestion/suggestion_controller.dart';
@@ -16,31 +13,32 @@ class ListCardBlog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     SuggestionController articleController = Get.find();
     Future<ArticleApi> fetchApiArticle(String topic) async {
       final response = await http.get(Uri.parse(
           "https://remood-backend.onrender.com/api/articles/all/topics?topics=$topic"));
-      if (response.statusCode == 200)
+      if (response.statusCode == 200) {
         return ArticleApi.fromJson(jsonDecode(response.body));
-      else
+      } else {
         throw Exception("failed to load data");
+      }
     }
 
     Future<ArticleApi> fetchAllApiArticle() async {
       final response = await http.get(
           Uri.parse('https://remood-backend.onrender.com/api/articles/all'));
-      if (response.statusCode == 200)
+      if (response.statusCode == 200) {
         return ArticleApi.fromJson(jsonDecode(response.body));
-      else
+      } else {
         throw Exception("failed to load data");
+      }
     }
 
-    return Container(
-      height: _screenHeight * 0.213,
-      child: Expanded(
-          child: Obx(
+    return SizedBox(
+      height: screenHeight * 0.213,
+      child: Obx(
         () => FutureBuilder(
             future: articleController.isPressedTitle.value == -1
                 ? fetchAllApiArticle()
@@ -48,7 +46,7 @@ class ListCardBlog extends StatelessWidget {
             builder: ((context, snapshot) {
               if (snapshot.hasData) {
                 return ListView.separated(
-                    padding: EdgeInsets.only(left: 28),
+                    padding: const EdgeInsets.only(left: 28),
                     scrollDirection: Axis.horizontal,
                     itemBuilder: ((context, index) {
                       return InkWell(
@@ -60,15 +58,16 @@ class ListCardBlog extends StatelessWidget {
                         ),
                       );
                     }),
-                    separatorBuilder: ((context, index) => SizedBox(
+                    separatorBuilder: ((context, index) => const SizedBox(
                           width: 12,
                         )),
                     itemCount: snapshot.data!.data!.articles!.length);
-              } else
+              } else {
                 print("failed");
-              return CircularProgressIndicator();
+              }
+              return const CircularProgressIndicator();
             })),
-      )),
+      ),
     );
   }
 }

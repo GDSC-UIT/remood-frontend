@@ -12,29 +12,35 @@ class MinutePicker extends StatelessWidget {
   }) : super(key: key);
 
   final controller = Get.find<SettingController>();
+  double itemExtent = 40;
 
   @override
   Widget build(BuildContext context) {
+    double boxSize = 36;
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         GestureDetector(
           onTap: () {
-            log('minute++');
+            log('minute--');
+            controller.minuteController.animateTo(
+              controller.minuteController.offset - itemExtent,
+              duration: const Duration(milliseconds: 80),
+              curve: Curves.easeInOut,
+            );
           },
-          child: Padding(
-            padding: const EdgeInsets.all(6.0),
-            child: Image.asset(Assets.arrowUpward),
-          ),
+          child: SizedBox(
+              height: boxSize,
+              width: boxSize,
+              child: Image.asset(Assets.arrowUpward)),
         ),
         SizedBox(
           height: 47,
           width: 36,
           child: ListWheelScrollView.useDelegate(
-            onSelectedItemChanged: (value) {
-              controller.updateMinute(value);
-            },
-            itemExtent: 40,
+            controller: controller.minuteController,
+            onSelectedItemChanged: (value) {},
+            itemExtent: itemExtent,
             perspective: 0.005,
             physics: const FixedExtentScrollPhysics(),
             childDelegate: ListWheelChildBuilderDelegate(
@@ -49,12 +55,17 @@ class MinutePicker extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            log('minute--');
+            log('minute++');
+            controller.minuteController.animateTo(
+              controller.minuteController.offset + itemExtent,
+              duration: const Duration(milliseconds: 80),
+              curve: Curves.easeInOut,
+            );
           },
-          child: Padding(
-            padding: const EdgeInsets.all(6.0),
-            child: Image.asset(Assets.arrowDownaward),
-          ),
+          child: SizedBox(
+              width: boxSize,
+              height: boxSize,
+              child: Image.asset(Assets.arrowDownaward)),
         ),
       ],
     );

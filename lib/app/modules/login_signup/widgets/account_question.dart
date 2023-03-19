@@ -1,6 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/text_style.dart';
 
@@ -23,7 +21,7 @@ class AccountQuestion extends StatelessWidget {
           question,
           style: CustomTextStyle.AccountQuestion(),
         ),
-        SizedBox(
+        const SizedBox(
           width: 2,
         ),
         GestureDetector(

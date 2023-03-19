@@ -10,13 +10,13 @@ class FloatingButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     HomeController pressButton = Get.find();
 
-    return Container(
-      width: _screenWidth * 0.19,
-      height: _screenHeight * 0.09,
+    return SizedBox(
+      width: screenWidth * 0.19,
+      height: screenHeight * 0.09,
       child: FittedBox(
         child: Obx(
           () => FloatingActionButton(

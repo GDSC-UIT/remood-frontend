@@ -15,7 +15,7 @@ class SecurityScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(SettingController());
+    final controller = Get.find<SettingController>();
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
       body: SafeArea(
@@ -33,7 +33,16 @@ class SecurityScreen extends StatelessWidget {
                   Get.to(const PINLock());
                 },
                 child: ListTile(
-                  leading: Image.asset(Assets.password),
+                  leading: Container(
+                    padding: const EdgeInsets.all(10.0),
+                    width: 42,
+                    height: 42,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: AppColors.settingIconBg,
+                    ),
+                    child: Image.asset(Assets.password),
+                  ),
                   trailing: Image.asset(Assets.arrowRight),
                   title: Text(
                     'PIN lock',
@@ -42,7 +51,7 @@ class SecurityScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             Padding(
@@ -53,7 +62,7 @@ class SecurityScreen extends StatelessWidget {
                   Get.toNamed(AppRoutes.changePassword);
                 },
                 child: ListTile(
-                  leading: Container(
+                  leading: SizedBox(
                       width: 24, height: 24, child: Image.asset(Assets.lock)),
                   trailing: Image.asset(Assets.arrowRight),
                   title: Text(

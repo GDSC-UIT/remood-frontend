@@ -1,6 +1,3 @@
-import 'package:flutter/cupertino.dart';
-
-import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 part 'diary.g.dart';
 

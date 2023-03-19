@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
 
@@ -17,10 +14,10 @@ class MyTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Padding(
-        padding: EdgeInsets.symmetric(horizontal: _screenWidth * 0.064),
+        padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.064),
         child: TextField(
           controller: controller,
           obscureText: obscureText,
@@ -34,7 +31,7 @@ class MyTextField extends StatelessWidget {
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
               borderSide: const BorderSide(
-                color: AppColors.MainColor,
+                color: AppColors.mainColor,
               ),
             ),
             hintText: hintText,

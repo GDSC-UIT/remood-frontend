@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
-import 'package:remood/app/core/values/text_style.dart';
+import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/modules/setting/widgets/confirm_button.dart';
 import 'package:remood/app/modules/setting/widgets/container_monday.dart';
 import 'package:remood/app/modules/setting/widgets/container_sunday.dart';
@@ -11,8 +12,13 @@ class StartOfTheWeekScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Controller
+    final SettingController controller = Get.find();
+
+// Data
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+    Function saveData = controller.saveFirstDayOfWeek;
 
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
@@ -30,7 +36,12 @@ class StartOfTheWeekScreen extends StatelessWidget {
             const ContainerFirstDayMonday(),
 
             // Save button
-            const ConfirmButton(label: "Save"),
+// TODO: Save the selected value - first day of the week
+            /// Just save data into local storage when user tap Save button
+            ConfirmButton(
+              label: "Save",
+              func: saveData,
+            ),
             SizedBox(
               height: screenHeight * 0.03,
             ),

@@ -3,8 +3,8 @@ import 'default_styles.dart' show defaultHeaderTextStyle;
 
 class CalendarHeader extends StatelessWidget {
   /// Passing in values for [leftButtonIcon] or [rightButtonIcon] will override [headerIconColor]
-  CalendarHeader(
-      {required this.headerTitle,
+  const CalendarHeader(
+      {super.key, required this.headerTitle,
       this.headerMargin,
       required this.showHeader,
       this.headerTextStyle,

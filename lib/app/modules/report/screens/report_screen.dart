@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hive/hive.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/models/list_report_point.dart';
@@ -21,8 +20,18 @@ class _ReportScreenState extends State<ReportScreen> {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(ReportController());
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+    ListReportPoint hiveBox = ListReportPoint();
+    /* @override
+    void initState() {
+    if (_mybox.get("listreportpoint") == null) {
+        hiveBox.createInitialize();
+      } else {
+        hiveBox.loadData();
+      }
+      super.initState();
+    }*/
 
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
@@ -30,28 +39,35 @@ class _ReportScreenState extends State<ReportScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // Heading
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Text(
-              "Report",
-              style: CustomTextStyle.reportHeading(),
+            Column(
+              children: [
+                // Heading
+                Text(
+                  "Report",
+                  style: CustomTextStyle.reportHeading(),
+                ),
+
+                // The date show data
+                ShowDate(controller: controller),
+              ],
             ),
 
-            // The date show data
-            ShowDate(controller: controller),
             SizedBox(
-              height: _screenHeight * 0.09,
+              height: screenHeight * 0.09,
             ),
+
             // Mood percentage of the day
-            MoodPercentage(controller: controller),
-
-            // Average mood of the day
-            SizedBox(
-              height: _screenHeight * 0.145,
+            MoodPercentage(
+              controller: controller,
             ),
-            Button(),
+
+            SizedBox(
+              height: screenHeight * 0.145,
+            ),
+            const Button(),
           ],
         ),
       ),

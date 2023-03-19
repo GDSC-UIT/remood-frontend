@@ -15,15 +15,25 @@ class HourPicker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// Data
+    double itemExtent = 40;
+    double boxSize = 36;
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         GestureDetector(
           onTap: () {
-            log('hour++');
+            log('hour--');
+            controller.hourController.animateTo(
+              controller.hourController.offset - itemExtent,
+              duration: const Duration(milliseconds: 80),
+              curve: Curves.easeInOut,
+            );
           },
-          child: Padding(
-            padding: const EdgeInsets.all(6.0),
+          child: SizedBox(
+            height: boxSize,
+            width: boxSize,
             child: Image.asset(Assets.arrowUpward),
           ),
         ),
@@ -31,17 +41,17 @@ class HourPicker extends StatelessWidget {
           height: 47,
           width: 36,
           child: ListWheelScrollView.useDelegate(
-            onSelectedItemChanged: (value) {
-              controller.updateHour(value);
-            },
-            itemExtent: 40,
+            controller: controller.hourController,
+            onSelectedItemChanged: (value) {},
+            itemExtent: itemExtent,
             perspective: 0.005,
             physics: const FixedExtentScrollPhysics(),
             childDelegate: ListWheelChildBuilderDelegate(
-              childCount: 24,
+              childCount: 12,
               builder: (context, index) {
+                // hour from 1 to 12 and controller index from 0 to 11
                 return Hours(
-                  hours: index,
+                  hours: index + 1,
                 );
               },
             ),
@@ -49,10 +59,16 @@ class HourPicker extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            log('hour--');
+            log('hour++');
+            controller.hourController.animateTo(
+              controller.hourController.offset + itemExtent,
+              duration: const Duration(milliseconds: 80),
+              curve: Curves.easeInOut,
+            );
           },
-          child: Padding(
-            padding: const EdgeInsets.all(6.0),
+          child: SizedBox(
+            height: boxSize,
+            width: boxSize,
             child: Image.asset(Assets.arrowDownaward),
           ),
         ),

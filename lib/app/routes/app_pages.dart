@@ -12,12 +12,14 @@ import 'package:remood/app/modules/login_signup/screens/create_new_account.dart'
 import 'package:remood/app/modules/login_signup/screens/forgot_password.dart';
 import 'package:remood/app/modules/login_signup/screens/login.dart';
 import 'package:remood/app/modules/login_signup/screens/login_screen.dart';
+import 'package:remood/app/modules/onboarding/screens/setting_time_screen.dart';
 import 'package:remood/app/modules/read_diary/read_diary_binding.dart';
 import 'package:remood/app/modules/report/report_binding.dart';
 import 'package:remood/app/modules/report/screens/report_screen.dart';
 import 'package:remood/app/modules/setting/screens/change_password.dart';
 import 'package:remood/app/modules/setting/screens/contact_us_screen.dart';
 import 'package:remood/app/modules/setting/screens/faq_screen.dart';
+import 'package:remood/app/modules/setting/screens/feedback_screen.dart';
 import 'package:remood/app/modules/setting/screens/language_screen.dart';
 import 'package:remood/app/modules/setting/screens/manage_topics_screen.dart';
 import 'package:remood/app/modules/setting/screens/mt_change_color_topic_screen.dart';
@@ -32,6 +34,8 @@ import 'package:remood/app/modules/setting/screens/security_screen.dart';
 import 'package:remood/app/modules/setting/screens/setting_screen.dart';
 import 'package:remood/app/modules/setting/screens/start_of_the_week_screen.dart';
 import 'package:remood/app/modules/setting/setting_binding.dart';
+import 'package:remood/app/modules/splash/screens/splash_screen.dart';
+import 'package:remood/app/modules/splash/splash_binding.dart';
 import 'package:remood/app/modules/suggestion/screens/suggestion_screen.dart';
 import 'package:remood/app/modules/suggestion/suggestion_binding.dart';
 import 'package:remood/app/modules/write_diary/diary_binding.dart';
@@ -51,12 +55,19 @@ abstract class AppPages {
         HomeBinding(),
         ReadDiaryBinding(),
         ReportBinding(),
-        SettingBinding()
+        SettingBinding(),
+      ],
+    ),
+    GetPage(
+      name: AppRoutes.splash,
+      page: () => const SplashScreen(),
+      bindings: [
+        SplashBinding(),
       ],
     ),
     GetPage(
       name: AppRoutes.writediary,
-      page: () => WriteDiaryScreen(),
+      page: () => const WriteDiaryScreen(),
       binding: DiaryBinding(),
     ),
     GetPage(
@@ -80,16 +91,21 @@ abstract class AppPages {
         binding: SadBinding()),
     GetPage(
         name: AppRoutes.readDiaryFreshmood,
-        page: (() => ReadDiaryFreshmood()),
+        page: (() => const ReadDiaryFreshmood()),
         binding: SadBinding()),
     GetPage(
       name: AppRoutes.finalNegativeScreen,
-      page: () => FinalNegativeScreen(),
+      page: () => const FinalNegativeScreen(),
       binding: SadBinding(),
     ),
     GetPage(
       name: AppRoutes.onboarding,
       page: () => const OnboardingScreen(),
+      bindings: [OnboardingBinding(), SettingBinding()],
+    ),
+    GetPage(
+      name: AppRoutes.scheduleNotification,
+      page: () => const SettingTimeScreen(),
       bindings: [OnboardingBinding(), SettingBinding()],
     ),
     GetPage(
@@ -104,17 +120,17 @@ abstract class AppPages {
     ),
     GetPage(
       name: AppRoutes.createnewAccount,
-      page: () => CreateNewAccount(),
+      page: () => const CreateNewAccount(),
       bindings: [LogInBinding(), HomeBinding()],
     ),
     GetPage(
       name: AppRoutes.forgotPassword,
-      page: () => ForgotPassWord(),
+      page: () => const ForgotPassWord(),
       bindings: [LogInBinding(), HomeBinding()],
     ),
     GetPage(
       name: AppRoutes.comfirmPassword,
-      page: () => ComfirmPassword(),
+      page: () => const ComfirmPassword(),
       bindings: [LogInBinding(), HomeBinding()],
     ),
     GetPage(
@@ -123,9 +139,14 @@ abstract class AppPages {
       binding: ReportBinding(),
     ),
     GetPage(
+      name: AppRoutes.splash,
+      page: () => const SplashScreen(),
+      binding: SplashBinding(),
+    ),
+    GetPage(
       name: AppRoutes.setting,
       page: () => const SettingScreen(),
-      binding: SettingBinding(),
+      bindings: [SettingBinding(), DiaryBinding()],
     ),
     GetPage(
       name: AppRoutes.language,
@@ -150,7 +171,7 @@ abstract class AppPages {
     GetPage(
       name: AppRoutes.manageTopics,
       page: () => const ManageTopicsScreen(),
-      binding: SettingBinding(),
+      bindings: [SettingBinding(), DiaryBinding()],
     ),
     GetPage(
       name: AppRoutes.pinnedDiaries,
@@ -173,9 +194,14 @@ abstract class AppPages {
       binding: SettingBinding(),
     ),
     GetPage(
+      name: AppRoutes.feedback,
+      page: () => const FeedbackScreen(),
+      binding: SettingBinding(),
+    ),
+    GetPage(
       name: AppRoutes.topicDetail,
       page: () => const TopicDetailScreen(),
-      binding: SettingBinding(),
+      bindings: [SettingBinding(), DiaryBinding()],
     ),
     GetPage(
       name: AppRoutes.createNewTopic,
