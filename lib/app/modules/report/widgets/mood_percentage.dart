@@ -67,16 +67,18 @@ class _MoodPercentageState extends State<MoodPercentage> {
         Positioned(
           top: screenHeight * 0.043,
           left: screenWidth * 0.29,
-          child: CircularPercentIndicator(
-            radius: 80,
-            lineWidth: 16.0,
-            animation: true,
-            progressColor: AppColors.mainColor,
-            percent: widget.controller.percentage.value / 100.0,
-            center: Obx(
-              () => Text(
-                "${widget.controller.percentage.value}%",
-                style: CustomTextStyle.customh2(const Color(0xFF8F753F), 40),
+          child: Obx(
+            () => CircularPercentIndicator(
+              radius: 80,
+              lineWidth: 16.0,
+              animation: true,
+              progressColor: AppColors.mainColor,
+              percent: widget.controller.percentage.value / 100.0,
+              center: Obx(
+                () => Text(
+                  "${widget.controller.percentage.value}%",
+                  style: CustomTextStyle.customh2(const Color(0xFF8F753F), 40),
+                ),
               ),
             ),
           ),

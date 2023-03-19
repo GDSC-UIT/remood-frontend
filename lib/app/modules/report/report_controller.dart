@@ -33,7 +33,6 @@ class ReportController extends GetxController {
   // Show that report fetch API successfully or not
   RxBool isResponse200 = true.obs;
 
-
   // Simulate the process of fetching data
   void fetchData(context) async {
     await Future.delayed(
@@ -64,7 +63,6 @@ class ReportController extends GetxController {
     }
 
     // Set average mood text
-    avgMood(getAvgMood);
 
     int flag = 0;
     for (int i = 0; i < ListReportPoint.listReportPoint.length; i++) {
@@ -87,6 +85,7 @@ class ReportController extends GetxController {
         DateTime.now().year == now.year) {
       percentage.value = percent;
     }
+    avgMood(getAvgMood);
   }
 
   // Previous date
@@ -105,7 +104,7 @@ class ReportController extends GetxController {
       }
     }
     if (flag == 0) percentage.value = 0;
-
+    avgMood(getAvgMood);
     log('previous date: $date & $now');
     return date;
   }
@@ -126,6 +125,7 @@ class ReportController extends GetxController {
       }
     }
     if (flag == 0) percentage.value = 0;
+    avgMood(getAvgMood);
     log('next date: $date & $now');
     return date;
   }
