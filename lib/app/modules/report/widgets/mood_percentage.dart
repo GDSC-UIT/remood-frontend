@@ -8,6 +8,7 @@ import 'package:hive/hive.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/core/values/text_style.dart';
+import 'package:remood/app/data/models/list_report_point.dart';
 import 'package:remood/app/data/models/report_point.dart';
 import 'package:remood/app/modules/home/home_controller.dart';
 import 'package:remood/app/modules/report/report_controller.dart';
@@ -30,6 +31,7 @@ class _MoodPercentageState extends State<MoodPercentage> {
   final _mybox = Hive.box<List>('mybox');
   final _mybox2 = Hive.box<DateTime>('mybox2');
   reportPoint hiveBox = reportPoint();
+  ListReportPoint hiveBoxPoint = ListReportPoint();
   @override
   void initState() {
     if (_mybox.get("point") == null || _mybox.get("weight") == null) {
@@ -42,6 +44,11 @@ class _MoodPercentageState extends State<MoodPercentage> {
     } else {
       hiveBox.loadDataDatetime();
     }
+    /*   if (_mybox.get("listreportpoint") == null) {
+      hiveBoxPoint.createInitialize();
+    } else {
+      hiveBoxPoint.loadData();
+    }*/
     widget.controller.fetchData();
     super.initState();
   }

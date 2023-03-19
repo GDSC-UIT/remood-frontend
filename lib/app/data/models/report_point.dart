@@ -1,9 +1,17 @@
 import 'package:hive/hive.dart';
+part 'report_point.g.dart';
 
+@HiveType(typeId: 2)
 class reportPoint {
   static List<int> point = [];
   static List<num> weight = [];
   static DateTime checkDate = DateTime.utc(1, 1, 1970);
+  @HiveField(0)
+  int? percentage;
+  @HiveField(1)
+  DateTime? date;
+  reportPoint({this.date, this.percentage});
+
   static void caculateFeeling(int value) {
     num s = 0.0036 * value * value - 0.36 * value + 10;
     weight.add(s);
