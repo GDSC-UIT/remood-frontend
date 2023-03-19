@@ -25,7 +25,7 @@ class OnboardingButtonSchedule extends StatelessWidget {
       /// Save data locally
       settingController.saveTimeOnboarding();
 
-      Get.toNamed(AppRoutes.loginScreen);
+      Get.toNamed(AppRoutes.home);
     }
 
     return Container(

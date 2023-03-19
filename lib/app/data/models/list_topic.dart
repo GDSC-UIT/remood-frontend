@@ -40,7 +40,7 @@ class ListTopic {
   }
 
   void loadData() {
-    topics = _mybox.get("topic")!.cast<CardTopic>().obs;
+    topics.value = _mybox.get("topic")!.cast<CardTopic>();
   }
 
   void updateDatabase() {

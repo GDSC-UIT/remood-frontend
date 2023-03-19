@@ -3,7 +3,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:hive/hive.dart';
 import 'package:remood/app/modules/home/screens/home_screen.dart';
-import 'package:remood/app/modules/login_signup/screens/login_screen.dart';
+import 'package:remood/app/modules/onboarding/onboarding_controller.dart';
+import 'package:remood/app/modules/onboarding/screens/onboarding_screen.dart';
 import 'package:remood/app/modules/splash/screens/splash_screen.dart';
 
 class Homepage extends StatefulWidget {
@@ -38,7 +39,7 @@ class _HomepageState extends State<Homepage> {
               return Center(child: Text('Error:\n\n ${snapshot.error}'));
             } else {
               // success, continue with app
-              return const LogInScreen();
+              return const HomeScreen();
             }
           }
         },

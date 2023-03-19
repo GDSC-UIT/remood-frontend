@@ -80,6 +80,7 @@ class AppColors {
   static const Color settingTopicProps = settingUserAvtBg;
   static const Color settingTextHint = grey;
   static const Color settingFaqAnswer = grey;
+  static const Color faqAnswer = Color.fromRGBO(227, 226, 222, 1);
   // suggestion
   static const Color suggestionSearchBar = Color.fromRGBO(250, 173, 20, 0.3);
   // report
