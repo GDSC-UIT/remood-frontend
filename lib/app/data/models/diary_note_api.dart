@@ -1,11 +1,11 @@
-class DiaryNoteApi {
+class GetDiaryNote {
   String? message;
   bool? error;
   Data? data;
 
-  DiaryNoteApi({this.message, this.error, this.data});
+  GetDiaryNote({this.message, this.error, this.data});
 
-  DiaryNoteApi.fromJson(Map<String, dynamic> json) {
+  GetDiaryNote.fromJson(Map<String, dynamic> json) {
     message = json['message'];
     error = json['error'];
     data = json['data'] != null ? Data.fromJson(json['data']) : null;
@@ -49,6 +49,8 @@ class DiaryNote {
   String? userId;
   String? topic;
   String? tag;
+  int? icon;
+  int? iconColor;
   String? content;
   List<String>? media;
 
@@ -59,6 +61,8 @@ class DiaryNote {
       this.userId,
       this.topic,
       this.tag,
+      this.icon,
+      this.iconColor,
       this.content,
       this.media});
 
@@ -69,6 +73,8 @@ class DiaryNote {
     userId = json['user_id'];
     topic = json['topic'];
     tag = json['tag'];
+    icon = json['icon'];
+    iconColor = json['icon_color'];
     content = json['content'];
     media = json['media'].cast<String>();
   }
@@ -81,6 +87,8 @@ class DiaryNote {
     data['user_id'] = userId;
     data['topic'] = topic;
     data['tag'] = tag;
+    data['icon'] = icon;
+    data['icon_color'] = iconColor;
     data['content'] = content;
     data['media'] = media;
     return data;

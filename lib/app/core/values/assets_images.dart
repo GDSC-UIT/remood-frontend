@@ -21,7 +21,7 @@ class Assets {
   static const String phone = 'assets/icons/phone.png';
   static const String pin = 'assets/icons/pinSetting.png';
   static const String chat = 'assets/icons/chat.png';
-
+  static const String lock = "assets/icons/Lock.png";
   // Images
   static const String logoText = 'assets/images/logo-text.png';
   static const String logo = 'assets/images/logo.png';

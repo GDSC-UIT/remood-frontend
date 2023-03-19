@@ -3,7 +3,7 @@ import 'package:hive/hive.dart';
 import 'package:remood/app/data/models/register_email.dart';
 
 class LogInController extends GetxController {
-  final _mybox = Hive.box<List>('mybox');
+  final _mybox = Hive.box('mybox');
   RegisterEmail hiveboxRegisterEmail = RegisterEmail();
   @override
   void onInit() {

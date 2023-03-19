@@ -5,7 +5,7 @@ import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/modules/login_signup/login_controller.dart';
 import 'package:remood/app/modules/login_signup/widgets/account_question.dart';
 import 'package:remood/app/modules/login_signup/widgets/action_bar.dart';
-import 'package:remood/app/modules/login_signup/widgets/my_textfield.dart';
+import 'package:remood/app/global_widgets/my_textfield.dart';
 import 'package:remood/app/modules/login_signup/widgets/slogan.dart';
 import 'package:remood/app/modules/login_signup/widgets/title.dart';
 import 'package:remood/app/routes/app_routes.dart';
@@ -82,45 +82,39 @@ class _ForgotPassWordState extends State<ForgotPassWord> {
                 ),
               ],
             ),
+            MyTextField(
+              hintText: "Email",
+              obscureText: false,
+              controller: emailController,
+            ),
             SizedBox(
-              width: screenWidth,
-              height: screenHeight,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  AccountQuestion(
-                      question: "Have an account?",
-                      button: "Login",
-                      route: AppRoutes.login),
-                  SizedBox(
-                    height: screenHeight * 0.02,
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: screenWidth * 0.059),
-                    child: GestureDetector(
-                      onTap: () {
-                        resetPassword(emailController.text.trim());
-                      },
-                      child: Container(
-                        height: screenHeight * 0.064,
-                        decoration: BoxDecoration(
-                          color: AppColors.mainColor,
-                          borderRadius: BorderRadius.circular(13),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "Next",
-                            style: CustomTextStyle.TextLogin(Colors.white),
-                          ),
-                        ),
-                      ),
+              height: screenHeight * 0.37,
+            ),
+            AccountQuestion(
+                question: "Have an account?",
+                button: "Login",
+                route: AppRoutes.login),
+            SizedBox(
+              height: screenHeight * 0.02,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.059),
+              child: GestureDetector(
+                onTap: () {
+                  resetPassword(emailController.text.trim());
+                },
+                child: Container(
+                    height: screenHeight * 0.064,
+                    decoration: BoxDecoration(
+                      color: AppColors.mainColor,
+                      borderRadius: BorderRadius.circular(13),
                     ),
-                  ),
-                  SizedBox(
-                    height: screenHeight * 0.0197,
-                  ),
-                ],
+                    child: Center(
+                      child: Text(
+                        "Next",
+                        style: CustomTextStyle.TextLogin(Colors.white),
+                      ),
+                    )),
               ),
             ),
           ],

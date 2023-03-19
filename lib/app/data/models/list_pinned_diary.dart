@@ -4,13 +4,13 @@ import 'package:get/get.dart';
 
 class PinnedDiary {
   static RxList<Diary> listPinnedDiary = <Diary>[].obs;
-  final _mybox = Hive.box<List>('mybox');
+  final _mybox = Hive.box('mybox');
   void createInitialData() {
     listPinnedDiary = <Diary>[].obs;
   }
 
   void loadData() {
-    listPinnedDiary = _mybox.get("pinneddiary")!.cast<Diary>().obs;
+    listPinnedDiary.value = _mybox.get("pinneddiary")!.cast<Diary>();
   }
 
   void updateDatabase() {
