@@ -5,7 +5,7 @@ import 'package:remood/app/data/models/diary.dart';
 
 class ListPositveDiary {
   static List<Diary> listPositiveDiary = [];
-  final _mybox = Hive.box<List>('mybox');
+  final _mybox = Hive.box('mybox');
   void createInitialData() {
     listPositiveDiary = [
       Diary(

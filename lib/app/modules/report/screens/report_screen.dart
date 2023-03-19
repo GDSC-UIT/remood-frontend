@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hive/hive.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/models/list_report_point.dart';
 import 'package:remood/app/modules/report/report_controller.dart';
 import 'package:remood/app/modules/report/widgets/button.dart';
-import 'package:remood/app/modules/report/widgets/container_info.dart';
 import 'package:remood/app/modules/report/widgets/mood_percentage.dart';
 
 import 'package:remood/app/modules/report/widgets/show_date.dart';
@@ -24,17 +22,16 @@ class _ReportScreenState extends State<ReportScreen> {
     final controller = Get.put(ReportController());
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-    final mybox = Hive.box<List>('mybox');
     ListReportPoint hiveBox = ListReportPoint();
-    @override
+    /* @override
     void initState() {
-      if (mybox.get("listreportpoint") == null) {
+    if (_mybox.get("listreportpoint") == null) {
         hiveBox.createInitialize();
       } else {
         hiveBox.loadData();
       }
       super.initState();
-    }
+    }*/
 
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,

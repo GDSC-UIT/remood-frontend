@@ -138,7 +138,7 @@ class _LogInState extends State<LogIn> {
                       EdgeInsets.symmetric(horizontal: screenWidth * 0.096),
                   child: Row(
                     children: [
-                      Expanded(
+                      const Expanded(
                         child: Divider(thickness: 0.5, color: AppColors.grey),
                       ),
                       Padding(
@@ -149,7 +149,7 @@ class _LogInState extends State<LogIn> {
                           style: CustomTextStyle.OrText(),
                         ),
                       ),
-                      Expanded(
+                      const Expanded(
                         child: Divider(thickness: 0.5, color: AppColors.grey),
                       ),
                     ],

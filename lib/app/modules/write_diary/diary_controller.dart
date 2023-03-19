@@ -13,7 +13,7 @@ import 'dart:io';
 
 class DiaryController extends GetxController {
 // hive box
-  final _mybox = Hive.box<List>('mybox');
+  final _mybox = Hive.box('mybox');
   ListNegativeDiary hiveBoxNegative = ListNegativeDiary();
   ListPositveDiary hiveBoxPositive = ListPositveDiary();
   RxList<CardTopic> listTopic = <CardTopic>[].obs;

@@ -5,7 +5,7 @@ import 'package:remood/app/core/values/app_colors.dart';
 
 class ListNegativeDiary {
   static List<Diary> listNegativeDiary = [];
-  final _mybox = Hive.box<List>('mybox');
+  final _mybox = Hive.box('mybox');
   void createInitialData() {
     listNegativeDiary = [
       Diary(

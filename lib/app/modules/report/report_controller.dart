@@ -77,7 +77,7 @@ class ReportController extends GetxController {
           ListReportPoint.listReportPoint[i].date!.month == now.month &&
           ListReportPoint.listReportPoint[i].date!.year == now.year) {
         ListReportPoint.listReportPoint[i].percentage = percentage.value;
-        hiveBoxPoint.updateDatabase();
+        //   hiveBoxPoint.updateDatabase();
         print(ListReportPoint.listReportPoint[i].percentage);
         flag = 1;
       }
@@ -85,7 +85,7 @@ class ReportController extends GetxController {
     if (flag == 0) {
       ListReportPoint.listReportPoint
           .add(reportPoint(date: DateTime.now(), percentage: percentage.value));
-      hiveBoxPoint.updateDatabase();
+      //  hiveBoxPoint.updateDatabase();
     }
   }
 

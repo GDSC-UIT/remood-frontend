@@ -1,14 +1,12 @@
 import 'package:hive/hive.dart';
-part 'report_point.g.dart';
 
-@HiveType(typeId: 2)
 class reportPoint {
   static List<int> point = [];
   static List<num> weight = [];
   static DateTime checkDate = DateTime.utc(1, 1, 1970);
-  @HiveField(0)
+
   int? percentage;
-  @HiveField(1)
+
   DateTime? date;
   reportPoint({this.date, this.percentage});
 
@@ -19,8 +17,7 @@ class reportPoint {
     print(weight.length);
   }
 
-  final _mybox = Hive.box<List>('mybox');
-  final _mybox2 = Hive.box<DateTime>('mybox2');
+  final _mybox = Hive.box('mybox');
   void creatInitialList() {
     point = [];
     weight = [];
@@ -31,12 +28,12 @@ class reportPoint {
   }
 
   void loadDataList() {
-    point = _mybox.get("point")!.cast<int>();
+    point = _mybox.get("point")!;
     weight = _mybox.get("weight")!.cast<num>();
   }
 
   void loadDataDatetime() {
-    checkDate = _mybox2.get("checkdate")!;
+    checkDate = _mybox.get("checkdate")!;
   }
 
   void updateDatabaseList() {
@@ -45,6 +42,6 @@ class reportPoint {
   }
 
   void updateDatabaseDatetime() {
-    _mybox2.put("checkdate", checkDate);
+    _mybox.put("checkdate", checkDate);
   }
 }

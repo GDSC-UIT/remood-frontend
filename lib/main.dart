@@ -3,12 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:remood/app/data/models/report_point.dart';
-import 'package:is_first_run/is_first_run.dart';
 import 'package:remood/app/data/models/diary.dart';
-import 'package:remood/app/data/models/setting.dart';
 import 'package:remood/app/data/models/topic.dart';
-import 'package:remood/app/data/models/user.dart';
 import 'package:remood/app/data/services/notification_service.dart';
 import 'package:remood/app/modules/setting/setting_binding.dart';
 import 'package:flutter/services.dart';
@@ -26,16 +22,9 @@ void main() async {
   await Hive.initFlutter();
   Hive
     ..registerAdapter(DiaryAdapter())
-    ..registerAdapter(CardTopicAdapter())
-    ..registerAdapter(UserAdapter())
-    ..registerAdapter(SettingAdapter())
-    ..registerAdapter(reportPointAdapter());
-  Future.wait([
-    Hive.openBox<List>('mybox'),
-    Hive.openBox<DateTime>('mybox2'),
-    Hive.openBox<User>('user'),
-    Hive.openBox<Setting>('setting'),
-  ]);
+    ..registerAdapter(CardTopicAdapter());
+  //..registerAdapter(reportPointAdapter());
+  await Hive.openBox('mybox');
 
   /// Initialize local notification plugin
   NotificationService().initNotification();

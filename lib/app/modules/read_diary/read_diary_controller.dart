@@ -10,7 +10,7 @@ import 'package:remood/app/modules/read_diary/widgets/bottom_sheet_search_diary.
 
 class ReadDiaryController extends GetxController {
 // hive box
-  final _mybox = Hive.box<List>('mybox');
+  final _mybox = Hive.box('mybox');
   RxList<Diary> positiveDiaryList = <Diary>[].obs;
   RxList<Diary> negativeDiaryList = <Diary>[].obs;
   ListNegativeDiary hiveBoxNegative = ListNegativeDiary();

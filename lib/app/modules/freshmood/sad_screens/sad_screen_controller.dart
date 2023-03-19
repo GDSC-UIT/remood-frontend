@@ -8,7 +8,7 @@ import 'package:remood/app/data/models/list_topic.dart';
 import 'package:remood/app/modules/freshmood/sad_screens/widgets/bottom_sheet_read_diary_freshmood.dart';
 
 class SadController extends GetxController {
-  final _mybox = Hive.box<List>('mybox');
+  final _mybox = Hive.box('mybox');
   ListTopic hiveBoxListTopic = ListTopic();
   ListNegativeDiary hiveBoxListNegative = ListNegativeDiary();
   ListPositveDiary hiveBoxListPositive = ListPositveDiary();

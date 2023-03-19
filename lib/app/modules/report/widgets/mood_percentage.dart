@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
@@ -24,8 +23,7 @@ class MoodPercentage extends StatefulWidget {
 
 class _MoodPercentageState extends State<MoodPercentage> {
   HomeController tokenController = Get.find();
-  final _mybox = Hive.box<List>('mybox');
-  final _mybox2 = Hive.box<DateTime>('mybox2');
+  final _mybox = Hive.box('mybox');
   reportPoint hiveBox = reportPoint();
   ListReportPoint hiveBoxPoint = ListReportPoint();
   @override
@@ -35,7 +33,7 @@ class _MoodPercentageState extends State<MoodPercentage> {
     } else {
       hiveBox.loadDataList();
     }
-    if (_mybox2.get("checkdate") == null) {
+    if (_mybox.get("checkdate") == null) {
       hiveBox.createInitialDatetime();
     } else {
       hiveBox.loadDataDatetime();
