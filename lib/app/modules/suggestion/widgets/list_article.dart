@@ -16,6 +16,8 @@ class ListArticle extends StatelessWidget {
     super.key,
   });
 
+  @override
+  @override
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
@@ -29,8 +31,8 @@ class ListArticle extends StatelessWidget {
     }
 
     List<Color> colors = [
-      Color.fromRGBO(248, 225, 178, 1),
-      Color.fromRGBO(254, 201, 96, 1),
+      const Color.fromRGBO(248, 225, 178, 1),
+      const Color.fromRGBO(254, 201, 96, 1),
       AppColors.grey,
     ];
     return FutureBuilder<ArticleApi>(
@@ -39,8 +41,7 @@ class ListArticle extends StatelessWidget {
           if (snapshot.hasData) {
             return Swiper(
               itemCount: 10,
-              itemBuilder: (context, index) => Expanded(
-                  child: InkWell(
+              itemBuilder: (context, index) => InkWell(
                 onTap: (() => launchUrl(
                     Uri.parse(snapshot.data!.data!.articles![index].url!))),
                 child: CardArticle(
@@ -48,13 +49,13 @@ class ListArticle extends StatelessWidget {
                   image: snapshot.data!.data!.articles![index].image!,
                   title: snapshot.data!.data!.articles![index].title!,
                 ),
-              )),
+              ),
               layout: SwiperLayout.TINDER,
-              itemHeight: _screenHeight * 0.23,
-              itemWidth: _screenWidth * 0.9,
+              itemHeight: screenHeight * 0.23,
+              itemWidth: screenWidth * 0.9,
             );
           }
-          return CircularProgressIndicator();
+          return const CircularProgressIndicator();
         }));
   }
 }

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -13,17 +12,17 @@ class CardBlog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Stack(
       children: [
         Container(
-          width: _screenWidth * 0.533,
-          height: _screenHeight * 0.213,
+          width: screenWidth * 0.533,
+          height: screenHeight * 0.213,
           decoration: BoxDecoration(
               color: Colors.white, borderRadius: BorderRadius.circular(16)),
           child: Padding(
-            padding: EdgeInsets.only(top: _screenHeight * 0.144),
+            padding: EdgeInsets.only(top: screenHeight * 0.144),
             child: Text(
               title,
               style: CustomTextStyle.suggestionTitle(),
@@ -34,13 +33,13 @@ class CardBlog extends StatelessWidget {
           ),
         ),
         Container(
-          width: _screenWidth * 0.533,
-          height: _screenHeight * 0.128,
+          width: screenWidth * 0.533,
+          height: screenHeight * 0.128,
           decoration: BoxDecoration(
             image:
                 DecorationImage(image: NetworkImage(image), fit: BoxFit.fill),
-            color: AppColors.Grey,
-            borderRadius: BorderRadius.only(
+            color: AppColors.grey,
+            borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(16),
               topRight: Radius.circular(16),
             ),

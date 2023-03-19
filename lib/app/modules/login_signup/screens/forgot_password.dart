@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
@@ -41,31 +39,48 @@ class _ForgotPassWordState extends State<ForgotPassWord> {
     LogInController logInController = Get.find<LogInController>();
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: AppColors.BackgroundColor,
+      backgroundColor: AppColors.backgroundPage,
       body: SingleChildScrollView(
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Stack(
           children: [
-            // logibar
-            Padding(
-              padding: EdgeInsets.only(top: 25),
-              child: LoginBar(),
-            ),
-            SizedBox(
-              height: _screenHeight * 0.062,
-            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // logibar
+                const Padding(
+                  padding: EdgeInsets.only(top: 25),
+                  child: LoginBar(),
+                ),
+                SizedBox(
+                  height: screenHeight * 0.062,
+                ),
 
-            //title login
-            titleLogin(text: "Forgot\nPassword"),
-            SizedBox(
-              height: _screenHeight * 0.031,
-            ),
+                //title login
+                titleLogin(text: "Forgot\nPassword"),
+                SizedBox(
+                  height: _screenHeight * 0.031,
+                ),
 
-            // slogan
-            const Slogan(),
-            SizedBox(
-              height: _screenHeight * 0.043,
+                // slogan
+                const Slogan(),
+                SizedBox(
+                  height: screenHeight * 0.043,
+                ),
+                MyTextField(
+                  hintText: "Email",
+                  obscureText: false,
+                  controller: emailController,
+                ),
+                MyTextField(
+                  hintText: "Email",
+                  obscureText: false,
+                  controller: emailController,
+                ),
+                SizedBox(
+                  height: screenHeight * 0.37,
+                ),
+              ],
             ),
             MyTextField(
               hintText: "Email",

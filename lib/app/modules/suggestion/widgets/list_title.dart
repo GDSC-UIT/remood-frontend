@@ -15,50 +15,49 @@ class ListTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     SuggestionController titleController = Get.find();
     Future<TopicApi> getAllTopic() async {
       final response = await http.get(
           Uri.parse('https://remood-backend.onrender.com/api/articles/topics'));
-      if (response.statusCode == 200)
+      if (response.statusCode == 200) {
         return TopicApi.fromJson(jsonDecode(response.body));
-      else
+      } else {
         throw Exception("Failed to load data");
+      }
     }
 
-    return Container(
-      height: _screenHeight * 0.057,
-      child: Expanded(
-        child: FutureBuilder<TopicApi>(
-          future: getAllTopic(),
-          builder: ((context, snapshot) {
-            if (snapshot.hasData) {
-              return ListView.separated(
-                  padding: EdgeInsets.only(left: 25),
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: ((context, index) {
-                    return GestureDetector(
-                      onTap: (() {
-                        titleController.pressTitle(
-                            index, snapshot.data!.data!.topics![index]);
-                      }),
-                      child: TitleContainer(
-                        text: snapshot.data!.data!.topics![index],
-                        currentIndex: titleController.isPressedTitle,
-                        index: index,
-                        isPressed: titleController.isPressed,
-                      ),
-                    );
-                  }),
-                  separatorBuilder: ((context, index) => SizedBox(
-                        width: 6,
-                      )),
-                  itemCount: snapshot.data!.data!.topics!.length);
-            }
-            return CircularProgressIndicator();
-          }),
-        ),
+    return SizedBox(
+      height: screenHeight * 0.057,
+      child: FutureBuilder<TopicApi>(
+        future: getAllTopic(),
+        builder: ((context, snapshot) {
+          if (snapshot.hasData) {
+            return ListView.separated(
+                padding: const EdgeInsets.only(left: 25),
+                scrollDirection: Axis.horizontal,
+                itemBuilder: ((context, index) {
+                  return GestureDetector(
+                    onTap: (() {
+                      titleController.pressTitle(
+                          index, snapshot.data!.data!.topics![index]);
+                    }),
+                    child: TitleContainer(
+                      text: snapshot.data!.data!.topics![index],
+                      currentIndex: titleController.isPressedTitle,
+                      index: index,
+                      isPressed: titleController.isPressed,
+                    ),
+                  );
+                }),
+                separatorBuilder: ((context, index) => const SizedBox(
+                      width: 6,
+                    )),
+                itemCount: snapshot.data!.data!.topics!.length);
+          }
+          return const CircularProgressIndicator();
+        }),
       ),
     );
   }

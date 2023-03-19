@@ -72,26 +72,28 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: AppColors.BackgroundColor,
+      backgroundColor: AppColors.backgroundPage,
       body: SingleChildScrollView(
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Stack(
           children: [
-            // logibar
-            Padding(
-              padding: EdgeInsets.only(top: 25),
-              child: LoginBar(),
-            ),
-            SizedBox(
-              height: _screenHeight * 0.062,
-            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // logibar
+                const Padding(
+                  padding: EdgeInsets.only(top: 25),
+                  child: LoginBar(),
+                ),
+                SizedBox(
+                  height: screenHeight * 0.062,
+                ),
 
-            //title login
-            titleLogin(text: "Create new account"),
-            SizedBox(
-              height: _screenHeight * 0.031,
-            ),
+                //title login
+                titleLogin(text: "Create new account"),
+                SizedBox(
+                  height: screenHeight * 0.031,
+                ),
 
             // slogan
             const Slogan(),

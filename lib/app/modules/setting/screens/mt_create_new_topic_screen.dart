@@ -4,17 +4,23 @@ import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/models/list_selected_color_topic.dart';
 import 'package:remood/app/data/models/list_selected_icons_topic.dart';
+import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/modules/setting/widgets/confirm_button.dart';
 import 'package:remood/app/modules/setting/widgets/stack_setting_appbar.dart';
-import 'package:remood/app/modules/write_diary/diary_controller.dart';
-import 'package:remood/app/modules/write_diary/widgets/bottom_sheet_add_topic.dart';
+
+
 
 class CreateNewTopicScreen extends StatelessWidget {
   const CreateNewTopicScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    DiaryController controller = Get.find();
+
+    // Controller
+    SettingController settingController = Get.find();
+
+    // Data
+
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     ListSelectedIcons listSelectedIcons = ListSelectedIcons();
@@ -24,7 +30,6 @@ class CreateNewTopicScreen extends StatelessWidget {
     double px11h = screenHeight * 0.0135;
 
     String appBarTitle = "Create new topic";
-    String name;
 
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
@@ -52,7 +57,9 @@ class CreateNewTopicScreen extends StatelessWidget {
                   SizedBox(
                     width: screenWidth * 0.872,
                     child: TextField(
-                      controller: controller.titleController,
+
+                      controller: settingController.titleController,
+
                       decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),
@@ -105,26 +112,34 @@ class CreateNewTopicScreen extends StatelessWidget {
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: (() {
-                            controller.changeIconTopic(
-                                index, listSelectedIcons.selectedIcons[index]);
+
+                            settingController.changeIconIndex(index);
+
                           }),
                           child: Obx(
                             () => Container(
                               width: screenWidth * 0.093,
                               height: screenHeight * 0.043,
                               decoration: BoxDecoration(
+
                                 color:
-                                    controller.currentIconTopic.value == index
-                                        ? controller.colorTopic.value
+                                    settingController.currentTopicIcon.value ==
+                                            index
+                                        ? settingController.colorTopic.value
                                         : AppColors.grey22,
+
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Icon(
                                 listSelectedIcons.selectedIcons[index],
-                                color: controller.currentIconTopic.value ==
-                                        index
-                                    ? controller.colorTopic.value.withOpacity(1)
-                                    : AppColors.darkBlue,
+
+                                color:
+                                    settingController.currentTopicIcon.value ==
+                                            index
+                                        ? settingController.colorTopic.value
+                                            .withOpacity(1)
+                                        : AppColors.darkBlue,
+
                               ),
                             ),
                           ),
@@ -155,25 +170,27 @@ class CreateNewTopicScreen extends StatelessWidget {
                       itemCount: 12,
                       itemBuilder: (context, index) {
                         return GestureDetector(
-                            onTap: () {
-                              controller.changeColorTopic(index,
-                                  listSelectedColor.selectedColors[index]);
-                            },
-                            child: Obx(
-                              () => Container(
-                                width: screenWidth * 0.093,
-                                height: screenHeight * 0.043,
-                                decoration: BoxDecoration(
-                                  color:
-                                      listSelectedColor.selectedColors[index],
-                                  borderRadius: BorderRadius.circular(10),
-                                  border: controller.currentColorTopic.value ==
-                                          index
-                                      ? Border.all(color: Colors.black)
-                                      : Border.all(color: Colors.transparent),
-                                ),
+
+                          onTap: () {
+                            settingController.changeColorIndex(index);
+                          },
+                          child: Obx(
+                            () => Container(
+                              width: screenWidth * 0.093,
+                              height: screenHeight * 0.043,
+                              decoration: BoxDecoration(
+                                color: listSelectedColor.selectedColors[index],
+                                borderRadius: BorderRadius.circular(10),
+                                border:
+                                    settingController.currentTopicColor.value ==
+                                            index
+                                        ? Border.all(color: Colors.black)
+                                        : Border.all(color: Colors.transparent),
+
                               ),
-                            ));
+                            ),
+                          ),
+                        );
                       },
                     ),
                   ),
@@ -184,7 +201,12 @@ class CreateNewTopicScreen extends StatelessWidget {
               ),
             ),
 // Save button
-            const ConfirmButton(label: "Save"),
+
+            ConfirmButton(
+              label: "Save",
+              func: settingController.addTopicSetting,
+
+            ),
             SizedBox(
               height: screenHeight * 0.03,
             ),

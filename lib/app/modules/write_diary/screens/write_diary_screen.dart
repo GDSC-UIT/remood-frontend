@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -30,8 +31,8 @@ class _WriteDiaryScreenState extends State<WriteDiaryScreen> {
   final ValueNotifier<int> currentIndex = ValueNotifier(0);
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     HomeController dateController = Get.find();
     DiaryController diaryController = Get.find();
     int timeStamp = (DateTime.now().millisecondsSinceEpoch).toInt();
@@ -63,53 +64,59 @@ class _WriteDiaryScreenState extends State<WriteDiaryScreen> {
 
     return Scaffold(
         resizeToAvoidBottomInset: true,
-        backgroundColor: AppColors.BackgroundColor,
+        backgroundColor: AppColors.backgroundPage,
         body: SingleChildScrollView(
           keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
           child: Column(
             children: [
               SizedBox(
-                height: _screenHeight * 0.0542,
+                height: screenHeight * 0.0542,
               ),
-              Container(
-                child: ListTile(
-                  leading: SizedBox(width: _screenWidth * 0.053),
-                  title: Center(
-                      child: Text(
+              ListTile(
+                leading: SizedBox(width: screenWidth * 0.053),
+// Date
+                title: Center(
+                  child: Text(
                     DateFormat('dd/MM/yyyy')
                         .format(dateController.currentdate.value),
-                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
-                  )),
-                  trailing: IconButton(
-                    onPressed: () {
-                      // return homepage
-                      Get.toNamed(AppRoutes.home);
-                    },
-                    icon: const Icon(Icons.close),
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w700, fontSize: 20),
                   ),
+                ),
+// Close button
+                trailing: IconButton(
+                  onPressed: () {
+                    // return homepage
+                    Get.back();
+                  },
+                  icon: const Icon(Icons.close),
                 ),
               ),
               SizedBox(
-                height: _screenHeight * 0.04,
+                height: screenHeight * 0.04,
               ),
+// Topic list
               const StackTopic(),
               SizedBox(
-                height: _screenHeight * 0.043,
+                height: screenHeight * 0.043,
               ),
+// Tag list
               StackTag(currentIndex: currentIndex),
               SizedBox(
-                height: _screenHeight * 0.043,
+                height: screenHeight * 0.043,
               ),
+// Photo-upload field
               const StackPhotos(),
               SizedBox(
-                height: _screenHeight * 0.043,
+                height: screenHeight * 0.043,
               ),
+// Note field
               const StackNote(),
               SizedBox(
-                height: _screenHeight * 0.02,
+                height: screenHeight * 0.02,
               ),
               SizedBox(
-                width: _screenWidth * 0.88,
+                width: screenWidth * 0.88,
                 child: ElevatedButton(
                   onPressed: () async {
                     String filename = timeStamp.toString();

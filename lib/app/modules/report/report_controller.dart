@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -17,7 +18,10 @@ class ReportController extends GetxController {
   RxInt percentage = 0.obs;
 
   // The average mood
-  RxString avgMood = "0".obs;
+  RxString avgMood = "".obs;
+
+  // Show that report fetch API successfully or not
+  RxBool isResponse200 = true.obs;
 
   @override
   void onInit() {

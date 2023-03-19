@@ -1,12 +1,9 @@
-import 'package:remood/app/data/models/language.dart';
-import 'package:remood/app/modules/freshmood/sad_screens/screens/final_negative_screen.dart';
-import 'package:remood/app/modules/login_signup/screens/create_new_account.dart';
-
 abstract class AppRoutes {
   static const home = '/home';
   static const auth = '/auth';
   static const splash = '/splash';
   static const onboarding = '/onboarding';
+  static const scheduleNotification = '$onboarding/settingtime';
   static const writediary = '/home/writediary';
   static const happyfreshmood = '/home/happyfreshmood';
   static const suggestion = '/home/suggestion';
@@ -33,6 +30,7 @@ abstract class AppRoutes {
   static const changePassword = '$security/changepassword';
   static const contactUs = '$setting/contactUs';
   static const faq = '$setting/faq';
+  static const feedback = '$setting/feedback';
   static const topicDetail = '$manageTopics/topicDetail';
   static const renameTopic = '$topicDetail/renameTopic';
   static const changeIconTopic = '$topicDetail/changeIconTopic';

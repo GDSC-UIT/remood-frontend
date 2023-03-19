@@ -3,10 +3,10 @@ import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:remood/app/core/values/app_colors.dart';
-import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/models/list_report_point.dart';
 import 'package:remood/app/data/models/report_point.dart';
@@ -55,46 +55,82 @@ class _MoodPercentageState extends State<MoodPercentage> {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    /// Data
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Stack(
       children: [
         Container(
-          height: _screenHeight * 0.34,
+          height: screenHeight * 0.34,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(36),
               color: AppColors.reportContainer),
         ),
-        Positioned(
-          top: _screenHeight * 0.043,
-          left: _screenWidth * 0.29,
-          child: Container(
-              width: _screenWidth * 0.42,
-              height: _screenHeight * 0.193,
-              child: Image.asset(Assets.reportPercentage)),
-        ),
-        Positioned(
-          top: _screenHeight * 0.05,
-          left: _screenWidth * 0.3,
-          child: Container(
-            alignment: Alignment.center,
-            width: 151,
-            height: 146,
-            child: Obx(
-              () => Text(
-                "${widget.controller.percentage.value}%",
-                style: CustomTextStyle.customh2(const Color(0xFF8F753F), 48),
+
+        /// Average mood percentage
+        FutureBuilder(
+          future: widget.fetchAPI(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return Positioned(
+                top: screenHeight * 0.043,
+                left: screenWidth * 0.29,
+                child: CircularPercentIndicator(
+                  radius: 80,
+                  lineWidth: 16.0,
+                  animation: true,
+                  progressColor: AppColors.mainColor,
+                  percent: reportController.percentage.value / 100.0,
+                  center: Text(
+                    "${reportController.percentage.value}%",
+                    style:
+                        CustomTextStyle.customh2(const Color(0xFF8F753F), 40),
+                  ),
+                ),
+              );
+            } else if (snapshot.hasError) {
+              return Positioned(
+                top: screenHeight * 0.043,
+                left: screenWidth * 0.29,
+                child: CircularPercentIndicator(
+                  radius: 80,
+                  lineWidth: 16.0,
+                  animation: true,
+                  progressColor: AppColors.mainColor,
+                  percent: 0,
+                ),
+              );
+            }
+            return Positioned(
+              top: screenHeight * 0.11,
+              left: screenWidth * 0.43,
+              child: const SpinKitFadingCircle(
+                color: AppColors.mainColor,
+                size: 50.0,
               ),
-            ),
-          ),
+            );
+          },
         ),
+
+        /// Mood average text
         Positioned(
           bottom: 7,
-          left: _screenWidth * 0.323,
-          child: Obx(() => Text(
-                '${widget.controller.avgMood}',
-                style: CustomTextStyle.textReport(),
-              )),
+          width: screenWidth,
+          // left: screenWidth * 0.323,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Obx(
+                () => Text(
+                  '${reportController.avgMood}',
+                  style: CustomTextStyle.textReport(),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     );

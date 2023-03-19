@@ -7,18 +7,20 @@ class EventList<T> {
 
   void add(DateTime date, T event) {
     final eventsOfDate = events[date];
-    if (eventsOfDate == null)
+    if (eventsOfDate == null) {
       events[date] = [event];
-    else
+    } else {
       eventsOfDate.add(event);
+    }
   }
 
   void addAll(DateTime date, List<T> events) {
     final eventsOfDate = this.events[date];
-    if (eventsOfDate == null)
+    if (eventsOfDate == null) {
       this.events[date] = events;
-    else
+    } else {
       eventsOfDate.addAll(events);
+    }
   }
 
   bool remove(DateTime date, T event) {

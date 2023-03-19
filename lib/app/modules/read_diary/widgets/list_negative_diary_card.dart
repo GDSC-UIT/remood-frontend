@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -7,18 +6,16 @@ import 'package:remood/app/data/services/http_service.dart';
 import 'package:remood/app/modules/home/home_controller.dart';
 import 'package:remood/app/modules/read_diary/read_diary_controller.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:remood/app/modules/write_diary/diary_controller.dart';
 import 'package:remood/app/global_widgets/card_diary.dart';
 import 'package:get/get.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 
 class NegativeDiaryList extends StatelessWidget {
-  NegativeDiaryList({super.key});
+  const NegativeDiaryList({super.key});
 
   @override
   Widget build(BuildContext context) {
     // double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenHeight = MediaQuery.of(context).size.height;
     ReadDiaryController readNegativeDiary = Get.find();
     HttpService httpList = HttpService();
     return Obx(
@@ -33,9 +30,8 @@ class NegativeDiaryList extends StatelessWidget {
                   readNegativeDiary.negativeDiaryList[index], 1);
             },
             child: Slidable(
-              child:
-                  DiaryCard(diary: readNegativeDiary.negativeDiaryList[index]),
-              endActionPane: ActionPane(motion: ScrollMotion(), children: [
+              endActionPane:
+                  ActionPane(motion: const ScrollMotion(), children: [
                 SlidableAction(
                   onPressed: ((context) {
                     readNegativeDiary.deletePinnedDiary(
@@ -45,11 +41,13 @@ class NegativeDiaryList extends StatelessWidget {
                   icon: Icons.delete,
                 ),
               ]),
+              child:
+                  DiaryCard(diary: readNegativeDiary.negativeDiaryList[index]),
             ),
           );
         }),
         separatorBuilder: (context, index) => SizedBox(
-          height: _screenHeight * 0.0197,
+          height: screenHeight * 0.0197,
         ),
       ),
     );

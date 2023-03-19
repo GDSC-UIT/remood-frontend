@@ -24,12 +24,10 @@ class SadController extends GetxController {
         .where((element) =>
             element.icon.toString().contains(iconSelected.toString()))
         .toList();
-    ;
     negativeDiarylist = ListNegativeDiary.listNegativeDiary
         .where((element) =>
             element.icon.toString().contains(iconSelected.toString()))
         .toList();
-    ;
     super.onInit();
   }
 
