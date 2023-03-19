@@ -43,12 +43,13 @@ class _MoodPercentageState extends State<MoodPercentage> {
     } else {
       hiveBox.loadDataDatetime();
     }
-    /*   if (_mybox.get("listreportpoint") == null) {
+    if (_mybox.get("listreportpoint") == null) {
       hiveBoxPoint.createInitialize();
     } else {
       hiveBoxPoint.loadData();
-    }*/
-    widget.controller.fetchData();
+      print(ListReportPoint.listReportPoint);
+    }
+    widget.controller.fetchData(context);
     super.initState();
   }
 

@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:remood/app/data/models/list_report_point.dart';
@@ -15,18 +16,17 @@ class ReportController extends GetxController {
   RxString date = DateFormat('dd/MM/yyyy').format(DateTime.now()).obs;
   // The mood percentage
   RxInt percentage = 0.obs;
-
+  int percent = 0;
   // The average mood
   RxString avgMood = "0".obs;
 
   @override
   void onInit() {
-    fetchData();
     super.onInit();
   }
 
   // Simulate the process of fetching data
-  void fetchData() async {
+  void fetchData(context) async {
     await Future.delayed(
       const Duration(seconds: 1),
     );
@@ -45,30 +45,35 @@ class ReportController extends GetxController {
     num t = 0;
     num m = 0;
     if (reportPoint.point.length == 0) {
-      percentage.value = 0;
+      percent = 0;
     } else {
       for (int i = 0; i < reportPoint.point.length; i++) {
         t = t + reportPoint.point[i] * reportPoint.weight[i];
         m = m + reportPoint.weight[i];
       }
-      percentage.value = (t / m).round();
+      percent = (t / m).round();
     }
     avgMood.value = "Happy";
     int flag = 0;
     for (int i = 0; i < ListReportPoint.listReportPoint.length; i++) {
-      if (ListReportPoint.listReportPoint[i].date!.day == now.day &&
-          ListReportPoint.listReportPoint[i].date!.month == now.month &&
-          ListReportPoint.listReportPoint[i].date!.year == now.year) {
-        ListReportPoint.listReportPoint[i].percentage = percentage.value;
-        //   hiveBoxPoint.updateDatabase();
-        print(ListReportPoint.listReportPoint[i].percentage);
+      if (ListReportPoint.listReportPoint[i][0].day == DateTime.now().day &&
+          ListReportPoint.listReportPoint[i][0].month == DateTime.now().month &&
+          ListReportPoint.listReportPoint[i][0].year == DateTime.now().year) {
+        ListReportPoint.listReportPoint[i][1] = percent;
+        hiveBoxPoint.updateDatabase();
+        print(ListReportPoint.listReportPoint[i][1]);
         flag = 1;
       }
     }
     if (flag == 0) {
-      ListReportPoint.listReportPoint
-          .add(reportPoint(date: DateTime.now(), percentage: percentage.value));
-      //  hiveBoxPoint.updateDatabase();
+      ListReportPoint.listReportPoint.add([DateTime.now(), percent]);
+      print(ListReportPoint.listReportPoint);
+      hiveBoxPoint.updateDatabase();
+    }
+    if (DateTime.now().day == now.day &&
+        DateTime.now().month == now.month &&
+        DateTime.now().year == now.year) {
+      percentage.value = percent;
     }
   }
 
@@ -78,10 +83,10 @@ class ReportController extends GetxController {
     date(DateFormat('dd/MM/yyyy').format(now));
     int flag = 0;
     for (int i = 0; i < ListReportPoint.listReportPoint.length; i++) {
-      if (ListReportPoint.listReportPoint[i].date!.day == now.day &&
-          ListReportPoint.listReportPoint[i].date!.month == now.month &&
-          ListReportPoint.listReportPoint[i].date!.year == now.year) {
-        percentage.value = ListReportPoint.listReportPoint[i].percentage!;
+      if (ListReportPoint.listReportPoint[i][0].day == now.day &&
+          ListReportPoint.listReportPoint[i][0].month == now.month &&
+          ListReportPoint.listReportPoint[i][0].year == now.year) {
+        percentage.value = ListReportPoint.listReportPoint[i][1];
 
         flag = 1;
         break;
@@ -99,10 +104,10 @@ class ReportController extends GetxController {
     date(DateFormat('dd/MM/yyyy').format(now));
     int flag = 0;
     for (int i = 0; i < ListReportPoint.listReportPoint.length; i++) {
-      if (ListReportPoint.listReportPoint[i].date!.day == now.day &&
-          ListReportPoint.listReportPoint[i].date!.month == now.month &&
-          ListReportPoint.listReportPoint[i].date!.year == now.year) {
-        percentage.value = ListReportPoint.listReportPoint[i].percentage!;
+      if (ListReportPoint.listReportPoint[i][0].day == now.day &&
+          ListReportPoint.listReportPoint[i][0].month == now.month &&
+          ListReportPoint.listReportPoint[i][0].year == now.year) {
+        percentage.value = ListReportPoint.listReportPoint[i][1];
 
         flag = 1;
         break;
