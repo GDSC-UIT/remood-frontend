@@ -16,9 +16,6 @@ class CalendarScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-    HomeController calendarController = Get.find();
-    SettingController settingController = Get.find();
-    var setting = SettingService.setting;
     // TODO: ----Stuck---- Load start of the week automatically
 
     return Column(

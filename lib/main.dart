@@ -18,13 +18,15 @@ void main() async {
       const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
 
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
   await Hive.initFlutter();
   Hive
     ..registerAdapter(DiaryAdapter())
     ..registerAdapter(CardTopicAdapter());
-  //..registerAdapter(reportPointAdapter());
-  await Hive.openBox('mybox');
+
+  // ! Move this to splash screen
+  // await Hive.openBox('mybox');
+
+  await Firebase.initializeApp();
 
   /// Initialize local notification plugin
   NotificationService().initNotification();
@@ -51,7 +53,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       initialBinding: SettingBinding(),
       title: AppStrings.appName,
-      initialRoute: AppRoutes.splash,
+      initialRoute: AppRoutes.homepage,
       locale: LocalizationService.locale,
       fallbackLocale: LocalizationService.fallbackLocale,
       translations: LocalizationService(),
