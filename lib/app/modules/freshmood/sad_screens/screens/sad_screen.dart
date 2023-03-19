@@ -19,7 +19,7 @@ class SadScreen extends StatelessWidget {
     HomeController changeAsset = Get.find();
     SadController changeTopic = Get.find();
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor,
+      backgroundColor: AppColors.backgroundPage,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -115,7 +115,9 @@ class SadScreen extends StatelessWidget {
               height: screenHeight * 0.134,
               decoration: BoxDecoration(
                 color: Colors.white,
-                boxShadow: const [BoxShadow(blurRadius: 1, offset: Offset(1, 1))],
+                boxShadow: const [
+                  BoxShadow(blurRadius: 1, offset: Offset(1, 1))
+                ],
                 borderRadius: BorderRadius.circular(23),
               ),
 // list topic
@@ -179,7 +181,9 @@ class SadScreen extends StatelessWidget {
                 height: screenHeight * 0.05,
                 decoration: BoxDecoration(
                     color: Colors.white,
-                    boxShadow: const [BoxShadow(blurRadius: 1, offset: Offset(1, 1))],
+                    boxShadow: const [
+                      BoxShadow(blurRadius: 1, offset: Offset(1, 1))
+                    ],
                     borderRadius: BorderRadius.circular(23)),
                 child: const Center(
                   child: Text(

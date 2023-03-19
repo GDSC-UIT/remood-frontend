@@ -45,10 +45,11 @@ class StackTopic extends StatelessWidget {
                               topicController.changeTopic(index);
 
                               // Change the current icon
-                              topicController.iconTopic.value = IconData(
-                                ListTopic.topics[index].icons,
-                                fontFamily: 'MaterialIcons',
-                              );
+                              // topicController.iconTopic.value = IconData(
+                              //   ListTopic.topics[index].icons,
+                              //   fontFamily: 'MaterialIcons',
+                              // );
+                              topicController.iconTopic.value = Icons.abc;
 
                               // Change the current color
                               topicController.colorDiary.value =

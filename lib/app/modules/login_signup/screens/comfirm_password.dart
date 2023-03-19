@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
+import 'package:remood/app/modules/login_signup/login_controller.dart';
 import 'package:remood/app/modules/login_signup/widgets/account_question.dart';
 import 'package:remood/app/modules/login_signup/widgets/action_bar.dart';
 import 'package:remood/app/modules/login_signup/widgets/my_textfield.dart';
@@ -9,16 +10,25 @@ import 'package:remood/app/modules/login_signup/widgets/slogan.dart';
 import 'package:remood/app/modules/login_signup/widgets/title.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
-class ComfirmPassword extends StatelessWidget {
+class ComfirmPassword extends StatefulWidget {
   const ComfirmPassword({super.key});
 
+  @override
+  State<ComfirmPassword> createState() => _ComfirmPasswordState();
+}
+
+class _ComfirmPasswordState extends State<ComfirmPassword> {
+  TextEditingController passwordcontroller = TextEditingController();
+
+  TextEditingController comfirmpasswordcontroller = TextEditingController();
+  LogInController logInController = Get.find<LogInController>();
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: AppColors.backgroundColor,
+      backgroundColor: AppColors.backgroundPage,
       body: SingleChildScrollView(
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         child: Column(
@@ -34,7 +44,7 @@ class ComfirmPassword extends StatelessWidget {
             ),
 
             //title login
-            titleLogin(text: "Forgot      Password"),
+            titleLogin(text: "Forgot\nPassword"),
             SizedBox(
               height: screenHeight * 0.031,
             ),
@@ -44,11 +54,29 @@ class ComfirmPassword extends StatelessWidget {
             SizedBox(
               height: screenHeight * 0.043,
             ),
-            MyTextField(hintText: "New password", obscureText: true),
+            MyTextField(
+              hintText: "New password",
+              obscureText: true,
+              controller: passwordcontroller,
+            ),
+            MyTextField(
+              hintText: "New password",
+              obscureText: true,
+              controller: passwordcontroller,
+            ),
             SizedBox(
               height: screenHeight * 0.031,
             ),
-            MyTextField(hintText: "Comfirm password", obscureText: true),
+            MyTextField(
+              hintText: "Comfirm password",
+              obscureText: true,
+              controller: comfirmpasswordcontroller,
+            ),
+            MyTextField(
+              hintText: "Comfirm password",
+              obscureText: true,
+              controller: comfirmpasswordcontroller,
+            ),
             SizedBox(
               height: screenHeight * 0.28,
             ),

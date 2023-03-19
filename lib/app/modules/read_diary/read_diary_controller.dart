@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:remood/app/data/models/diary.dart';
 import 'package:remood/app/data/models/list_negative_diary.dart';
+import 'package:remood/app/data/models/list_pinned_diary.dart';
 import 'package:remood/app/data/models/list_positive_diary.dart';
 import 'package:remood/app/modules/read_diary/widgets/bottom_sheet_read_diary.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ class ReadDiaryController extends GetxController {
   RxList<Diary> negativeDiaryList = <Diary>[].obs;
   ListNegativeDiary hiveBoxNegative = ListNegativeDiary();
   ListPositveDiary hiveBoxPositive = ListPositveDiary();
+  PinnedDiary hiveBoxPinned = PinnedDiary();
   @override
   void onInit() {
     if (_mybox.get("positivediary") == null) {
@@ -137,6 +139,11 @@ class ReadDiaryController extends GetxController {
     hiveBoxNegative.updateDatabase();
   }
 
+  void deletePinnedDiary(index, diary) {
+    PinnedDiary.listPinnedDiary.remove(diary);
+    hiveBoxPinned.updateDatabase();
+  }
+
 // edit diary
   RxBool isPressed = false.obs;
   TextEditingController editingController = TextEditingController();
@@ -180,5 +187,25 @@ class ReadDiaryController extends GetxController {
     } else {
       Get.back();
     }
+  }
+
+  RxBool isPinPressed = false.obs;
+
+  void pressPin(Diary diary) {
+    isPinPressed(diary.isPinned == null ? false : diary.isPinned!);
+  }
+
+  void setPinMark(Diary diary) {
+    isPinPressed(!isPinPressed.value);
+    diary.isPinned = isPinPressed.value;
+    diary.isPinned == true
+        ? PinnedDiary.listPinnedDiary.add(diary)
+        : PinnedDiary.listPinnedDiary.remove(diary);
+
+    update();
+
+    hiveBoxNegative.updateDatabase();
+    hiveBoxPositive.updateDatabase();
+    hiveBoxPinned.updateDatabase();
   }
 }

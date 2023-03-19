@@ -19,13 +19,14 @@ class SuggestionButton extends StatelessWidget {
           width: screenWidth * 0.83,
           height: screenHeight * 0.058,
           decoration: BoxDecoration(
-              color: AppColors.mainColor,
+              color: AppColors.buttonDiary,
               borderRadius: BorderRadius.circular(20),
               boxShadow: const [BoxShadow(offset: Offset(0, 1))]),
           child: Center(
             child: Text(
               "Remood’s suggestion",
-              style: CustomTextStyle.suggestionButtonText(),
+              style: CustomTextStyle.suggestionButtonText()
+                  .copyWith(color: AppColors.primary),
             ),
           )),
     );

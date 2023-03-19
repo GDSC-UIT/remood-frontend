@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
@@ -148,8 +147,9 @@ class TopicDetailScreen extends StatelessWidget {
                             child: GetBuilder<SettingController>(
                               builder: (_) {
                                 return Icon(
-                                  IconData(currentTopic.value.icons,
-                                      fontFamily: "MaterialIcons"),
+                                  // IconData(currentTopic.value.icons,
+                                  //     fontFamily: "MaterialIcons"),
+                                  Icons.abc,
                                   color: Color(currentTopic.value.TopicColor)
                                       .withOpacity(1),
                                 );

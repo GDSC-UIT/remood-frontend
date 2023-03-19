@@ -26,8 +26,8 @@ class _ActionBarState extends State<ActionBar> {
     final OnboardingController onboardingController = Get.find();
 
     // Data
-    var pctWidth = MediaQueryService.pctWidth(context);
-    var pctHeight = MediaQueryService.pctHeight(context);
+    var pctWidth = MediaQueryService().pctWidth(context);
+    var pctHeight = MediaQueryService().pctHeight(context);
 
     return Container(
       color: Colors.transparent,
@@ -50,7 +50,7 @@ class _ActionBarState extends State<ActionBar> {
 
                 // Skip button
                 TextButton(
-                  onPressed: () {
+                  onPressed: () {                    
                     Get.offAllNamed(AppRoutes.home);
                   },
                   child: Text("Skip",

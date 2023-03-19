@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:remood/app/modules/freshmood/sad_screens/sad_screen_controller.dart';
-
 import 'package:remood/app/global_widgets/card_diary.dart';
 import 'package:get/get.dart';
 

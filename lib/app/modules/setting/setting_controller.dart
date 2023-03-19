@@ -134,7 +134,7 @@ class SettingController extends GetxController {
       screen: AppRoutes.manageTopics,
     ),
     SettingButton(
-      icon: Assets.category,
+      icon: Assets.pin,
       label: "Pinned diaries",
       screen: AppRoutes.pinnedDiaries,
     ),
@@ -155,6 +155,11 @@ class SettingController extends GetxController {
       icon: Assets.document,
       label: "FAQ",
       screen: AppRoutes.faq,
+    ),
+    SettingButton(
+      icon: Assets.chat,
+      label: "Feedback",
+      screen: AppRoutes.feedback,
     ),
   ];
 

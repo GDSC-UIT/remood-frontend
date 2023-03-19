@@ -1,15 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:remood/app/core/values/text_style.dart';
+import 'package:remood/app/data/services/media_query_service.dart';
 
 class RowText extends StatelessWidget {
   const RowText({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var pctWidth = MediaQueryService().pctWidth(context);
+
     return Row(
       children: [
-        const SizedBox(
-          width: 35,
+        SizedBox(
+          width: pctWidth * 35,
         ),
         Text(
           "Blogs",
@@ -20,8 +23,8 @@ class RowText extends StatelessWidget {
           "View all",
           style: CustomTextStyle.suggestionViewAllText(),
         ),
-        const SizedBox(
-          width: 11,
+        SizedBox(
+          width: pctWidth * 11,
         ),
       ],
     );

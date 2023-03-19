@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
@@ -41,23 +40,26 @@ class OnboardingController extends GetxController {
             image: Assets.onboardingImage1,
             title: "Diary",
             content:
-                "Journal your thoughts and feelings with REMOOD’s diary for deeper self-awareness"),
+                "Journal your thoughts and feelings with REMOOD’s diary for deeper \n"
+                "self-awareness"),
         Onboarding(
             background: Assets.onboardingBackground2,
             image: Assets.onboardingImage2,
             title: "Freshmood",
-            content:
-                "Evaluate and boost your mood with Freshmood - Personalized diary journey and mood enhancing tips"),
+            content: "Evaluate and boost your mood with "
+                "Freshmood - Personalized diary journey and "
+                "mood enhancing tips"),
         Onboarding(
             background: Assets.onboardingBackground3,
             image: Assets.onboardingImage3,
             title: "Report",
             content: "Mood meter, measuring happiness"),
         Onboarding(
-            background: Assets.onboardingBackground,
-            image: "",
-            title: "Setting notification time",
-            content: "This is time setting screen"),
+            background: Assets.onboardingBackground4,
+            image: Assets.onboardingImage4,
+            title: "Suggestion",
+            content: "Explore a collection of Mental health \n"
+                "resources with Remood's Suggestion feature"),
       ];
 
   Obx buildDots(RxInt currentIndex, int index) {

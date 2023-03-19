@@ -10,7 +10,7 @@ class OnboardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.find<OnboardingController>();
+    Get.find<OnboardingController>();
     final pageController = Get.put(PageController());
 
     return Scaffold(
@@ -52,7 +52,8 @@ class OnboardingScreen extends StatelessWidget {
                       );
                     },
                   ),
-                  ActionBar(pageIndex: controller.pageIndex),
+
+                  /// Page control
                   Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [

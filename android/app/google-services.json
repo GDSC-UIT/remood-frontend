@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "376967546795",
+    "project_id": "remood-177f5",
+    "storage_bucket": "remood-177f5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:376967546795:android:9a7701c49795b36b4b74ee",
+        "android_client_info": {
+          "package_name": "com.example.remood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "376967546795-kpi4nlh6amfhgo47vbl64vj45kd4hhjh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-qSK9Igee0WVzVpGJHB5klUd0tVDdnAI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "376967546795-kpi4nlh6amfhgo47vbl64vj45kd4hhjh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -36,47 +36,47 @@ class _StackPhotosState extends State<StackPhotos> {
       clipBehavior: Clip.none,
       children: [
         Container(
-            width: screenWidth * 0.731,
-            height: screenHeight * 0.174,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: AppColors.primary)),
-            child: Center(
-              child: GestureDetector(
-                onTap: () {
-                  //select photos
-                  pickImage();
-                },
-                child: Expanded(
-                  child: Container(
-                      width: screenWidth * 0.413,
-                      height: screenHeight * 0.124,
-                      decoration: BoxDecoration(
-                        color: AppColors.primary42,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: photoController.image != null
-                          ? Image.file(
-                              photoController.image!,
-                              width: 151,
-                            )
-                          : Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
-                                Icon(
-                                  Icons.camera_alt,
-                                  color: AppColors.darkgrey,
-                                ),
-                                Text(
-                                  'Select photos',
-                                  style: TextStyle(
-                                      fontSize: 10, color: AppColors.darkgrey),
-                                )
-                              ],
-                            )),
+          width: screenWidth * 0.731,
+          height: screenHeight * 0.174,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(color: AppColors.primary)),
+          child: Center(
+            child: GestureDetector(
+              onTap: () {
+                //select photos
+                pickImage();
+              },
+              child: Container(
+                width: screenWidth * 0.413,
+                height: screenHeight * 0.124,
+                decoration: BoxDecoration(
+                  color: AppColors.primary42,
+                  borderRadius: BorderRadius.circular(10),
                 ),
+                child: photoController.image != null
+                    ? Image.file(
+                        photoController.image!,
+                        width: 151,
+                      )
+                    : Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Icon(
+                            Icons.camera_alt,
+                            color: AppColors.darkgrey,
+                          ),
+                          Text(
+                            'Select photos',
+                            style: TextStyle(
+                                fontSize: 10, color: AppColors.darkgrey),
+                          )
+                        ],
+                      ),
               ),
-            )),
+            ),
+          ),
+        ),
 // 'Photos' Tag
         Positioned(
           top: -30,

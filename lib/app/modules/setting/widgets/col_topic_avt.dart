@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
@@ -19,6 +18,7 @@ class TopicAvatar extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+
     return SizedBox(
       width: screenWidth * 0.093,
       height: screenHeight * 0.059,
@@ -37,10 +37,11 @@ class TopicAvatar extends StatelessWidget {
               ),
               child: Center(
                 child: Icon(
-                  IconData(
-                    topic.icons,
-                    fontFamily: 'MaterialIcons',
-                  ),
+                  // IconData(
+                  //   topic.icons,
+                  //   fontFamily: 'MaterialIcons',
+                  // ),
+                  Icons.abc,
                   color: currentIndex.value == index
                       ? Color(topic.TopicColor).withOpacity(1)
                       : AppColors.darkBlue,

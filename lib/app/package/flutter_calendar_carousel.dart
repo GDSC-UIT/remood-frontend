@@ -338,7 +338,8 @@ class _CalendarState<T extends EventInterface>
           CalendarHeader(
             showHeader: widget.showHeader,
             headerMargin: widget.headerMargin,
-            headerTitle: headerText ?? (widget.weekFormat
+            headerTitle: headerText ??
+                (widget.weekFormat
                     ? _localeDate.format(this._weeks[this._pageNum].first)
                     : _localeDate.format(this._dates[this._pageNum])),
             headerTextStyle: widget.headerTextStyle,
@@ -980,7 +981,8 @@ class _CalendarState<T extends EventInterface>
         });
 
         _controller.animateToPage(page,
-            duration: const Duration(milliseconds: 1), curve: const Threshold(0.0));
+            duration: const Duration(milliseconds: 1),
+            curve: const Threshold(0.0));
       } else {
         setState(() {
           this._pageNum = page;
@@ -989,7 +991,8 @@ class _CalendarState<T extends EventInterface>
           _endWeekday = _lastDayOfWeek(_dates[page]).weekday - firstDayOfWeek;
         });
         _controller.animateToPage(page,
-            duration: const Duration(milliseconds: 1), curve: const Threshold(0.0));
+            duration: const Duration(milliseconds: 1),
+            curve: const Threshold(0.0));
       }
 
       //call callback
@@ -1073,11 +1076,11 @@ class _CalendarState<T extends EventInterface>
                   padding: const EdgeInsets.all(4.0),
                   width: markedDateMoreShowTotal ? 18 : null,
                   height: markedDateMoreShowTotal ? 18 : null,
-                  decoration: markedDateMoreCustomDecoration ?? const BoxDecoration(
-                          color: Colors.red,
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(1000.0)),
-                        ),
+                  decoration: markedDateMoreCustomDecoration ??
+                      const BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.all(Radius.circular(1000.0)),
+                      ),
                   child: Center(
                     child: Text(
                       markedDateMoreShowTotal
@@ -1086,7 +1089,8 @@ class _CalendarState<T extends EventInterface>
                       semanticsLabel: markedDateMoreShowTotal
                           ? (count + markedDateIconMaxShown).toString()
                           : ('$count+'),
-                      style: markedDateMoreCustomTextStyle ?? const TextStyle(
+                      style: markedDateMoreCustomTextStyle ??
+                          const TextStyle(
                               fontSize: 9.0,
                               color: Colors.white,
                               fontWeight: FontWeight.normal),

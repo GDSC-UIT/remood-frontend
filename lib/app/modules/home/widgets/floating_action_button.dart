@@ -5,7 +5,8 @@ import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/modules/home/home_controller.dart';
 
 class FloatingButton extends StatelessWidget {
-  const FloatingButton({super.key});
+  Function? onChange;
+  FloatingButton({super.key, this.onChange});
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +20,10 @@ class FloatingButton extends StatelessWidget {
       child: FittedBox(
         child: Obx(
           () => FloatingActionButton(
-            onPressed: (() {
+            onPressed: () {
+              onChange;
               pressButton.onPressedButton(context);
-            }),
+            },
             backgroundColor: pressButton.ispressed.value
                 ? AppColors.mainColor
                 : Colors.white,

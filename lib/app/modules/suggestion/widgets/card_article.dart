@@ -5,8 +5,14 @@ import 'package:remood/app/core/values/text_style.dart';
 
 class CardArticle extends StatelessWidget {
   Color color;
-  int index;
-  CardArticle({super.key, required this.color, required this.index});
+  String image;
+  String title;
+  CardArticle({
+    super.key,
+    required this.image,
+    required this.title,
+    required this.color,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +21,7 @@ class CardArticle extends StatelessWidget {
     return Stack(children: [
       Container(
         decoration: BoxDecoration(
-          color: color,
+          image: DecorationImage(image: NetworkImage(image), fit: BoxFit.fill),
           borderRadius: BorderRadius.circular(25),
         ),
       ),
@@ -62,7 +68,7 @@ class CardArticle extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(top: 6),
                     child: Text(
-                      "[Tittle] Lorem ipsum dolor sit amet consectetur.",
+                      title,
                       style: CustomTextStyle.suggestionTitleArticle(),
                     ),
                   )),

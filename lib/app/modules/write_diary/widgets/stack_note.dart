@@ -31,19 +31,19 @@ class StackNote extends StatelessWidget {
               // text field
               child: Padding(
                 padding: const EdgeInsets.all(10),
-                child: Expanded(
-                  child: TextField(
-                    controller: noteController.diaryNote,
-                    decoration: const InputDecoration.collapsed(hintText: 'Add note'),
-                    style: const TextStyle(fontSize: 10),
-                    expands: true,
-                    maxLines: null,
-                  ),
+                child: TextField(
+                  controller: noteController.diaryNote,
+                  decoration:
+                      const InputDecoration.collapsed(hintText: 'Add note'),
+                  style: const TextStyle(fontSize: 10),
+                  expands: true,
+                  maxLines: null,
                 ),
               ),
             ),
           ),
         ),
+
 // 'Note' container
         Positioned(
           top: -30,

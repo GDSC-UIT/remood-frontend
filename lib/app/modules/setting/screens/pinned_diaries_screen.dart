@@ -5,7 +5,6 @@ import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/models/list_pinned_diary.dart';
 import 'package:remood/app/data/services/media_query_service.dart';
 import 'package:remood/app/global_widgets/card_diary.dart';
-import 'package:remood/app/routes/app_routes.dart';
 
 class PinnedDiariesScreen extends StatelessWidget {
   const PinnedDiariesScreen({super.key});
@@ -26,7 +25,7 @@ class PinnedDiariesScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 16, left: 24),
                   child: GestureDetector(
                     onTap: () {
-                      Get.toNamed(AppRoutes.home);
+                      Get.back();
                     },
                     child: Container(
                       height: 46,
@@ -67,7 +66,7 @@ class PinnedDiariesScreen extends StatelessWidget {
               child: Obx(
                 () => ListView.separated(
                     padding: EdgeInsets.symmetric(
-                        horizontal: 31 * MediaQueryService.pctWidth(context)),
+                        horizontal: 31 * MediaQueryService().pctWidth(context)),
                     itemBuilder: ((context, index) =>
                         DiaryCard(diary: PinnedDiary.listPinnedDiary[index])),
                     separatorBuilder: (context, index) => SizedBox(

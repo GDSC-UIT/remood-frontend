@@ -17,7 +17,7 @@ class ReadDiaryFreshmood extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     SadController diaryController = Get.find();
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor,
+      backgroundColor: AppColors.backgroundPage,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -83,7 +83,9 @@ class ReadDiaryFreshmood extends StatelessWidget {
                 height: screenHeight * 0.05,
                 decoration: BoxDecoration(
                     color: Colors.white,
-                    boxShadow: const [BoxShadow(blurRadius: 1, offset: Offset(1, 1))],
+                    boxShadow: const [
+                      BoxShadow(blurRadius: 1, offset: Offset(1, 1))
+                    ],
                     borderRadius: BorderRadius.circular(23)),
                 child: const Center(
                   child: Text(

@@ -36,10 +36,11 @@ class TopicCard extends StatelessWidget {
               ),
               child: Center(
                 child: Icon(
-                  IconData(
-                    topic.icons,
-                    fontFamily: 'MaterialIcons',
-                  ),
+                  // IconData(
+                  //   topic.icons,
+                  //   fontFamily: 'MaterialIcons',
+                  // ),
+                  Icons.abc,
                   color: currentIndex.value == index
                       ? Color(topic.TopicColor).withOpacity(1)
                       : AppColors.darkBlue,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
+import 'package:remood/app/modules/login_signup/login_controller.dart';
 import 'package:remood/app/modules/login_signup/widgets/action_bar.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/modules/login_signup/widgets/slogan.dart';
@@ -14,6 +15,7 @@ class LogInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+    LogInController logInController = Get.find<LogInController>();
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
       body: Column(

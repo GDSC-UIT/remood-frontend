@@ -3,7 +3,9 @@ import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
 
 class CardBlog extends StatelessWidget {
-  const CardBlog({super.key});
+  String image;
+  String title;
+  CardBlog({super.key, required this.image, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +21,10 @@ class CardBlog extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.only(top: screenHeight * 0.144),
             child: Text(
-              "Lorem ipsum dolor sit amet consectetur.",
+              title,
               style: CustomTextStyle.suggestionTitle(),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
               textAlign: TextAlign.center,
             ),
           ),
@@ -28,9 +32,11 @@ class CardBlog extends StatelessWidget {
         Container(
           width: screenWidth * 0.533,
           height: screenHeight * 0.128,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
+            image:
+                DecorationImage(image: NetworkImage(image), fit: BoxFit.fill),
             color: AppColors.grey,
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(16),
               topRight: Radius.circular(16),
             ),
