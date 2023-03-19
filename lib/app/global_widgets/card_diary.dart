@@ -34,11 +34,10 @@ class DiaryCard extends StatelessWidget {
             Row(
               children: [
                 Icon(
-                  // IconData(
-                  //   diary.icon,
-                  //   fontFamily: 'MaterialIcons',
-                  // ),
-                  Icons.abc,
+                  IconData(
+                    diary.icon,
+                    fontFamily: 'MaterialIcons',
+                  ),
                   color: Color(diary.diaryColor).withOpacity(1),
                 ),
                 const SizedBox(

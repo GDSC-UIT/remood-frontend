@@ -147,9 +147,8 @@ class TopicDetailScreen extends StatelessWidget {
                             child: GetBuilder<SettingController>(
                               builder: (_) {
                                 return Icon(
-                                  // IconData(currentTopic.value.icons,
-                                  //     fontFamily: "MaterialIcons"),
-                                  Icons.abc,
+                                  IconData(currentTopic.value.icons,
+                                      fontFamily: "MaterialIcons"),
                                   color: Color(currentTopic.value.TopicColor)
                                       .withOpacity(1),
                                 );
