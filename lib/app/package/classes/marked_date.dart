@@ -33,6 +33,10 @@ class MarkedDate implements MarkedDateInterface {
   @override
   TextStyle? getTextStyle() => textStyle;
 
+
+
+
+
 }
 
 abstract class MarkedDateInterface {

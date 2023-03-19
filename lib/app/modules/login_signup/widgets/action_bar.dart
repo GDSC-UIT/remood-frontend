@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/assets_images.dart';
@@ -11,8 +10,6 @@ class LoginBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SettingController settingController = Get.find();
-
     var pctWidth = MediaQueryService().pctWidth(context);
     var pctHeight = MediaQueryService().pctHeight(context);
 
@@ -20,8 +17,9 @@ class LoginBar extends StatelessWidget {
       color: Colors.transparent,
       child: Stack(
         children: [
-          Get.currentRoute != AppRoutes.loginScreen
-              ? Row(
+          Get.currentRoute == AppRoutes.homepage
+              ? const SizedBox()
+              : Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -32,8 +30,7 @@ class LoginBar extends StatelessWidget {
                         },
                         icon: Image.asset(Assets.arrowBack))
                   ],
-                )
-              : const SizedBox(),
+                ),
           // Logo
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
