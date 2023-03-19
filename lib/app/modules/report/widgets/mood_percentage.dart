@@ -4,6 +4,7 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/core/values/text_style.dart';
@@ -26,8 +27,21 @@ class MoodPercentage extends StatefulWidget {
 
 class _MoodPercentageState extends State<MoodPercentage> {
   HomeController tokenController = Get.find();
+  final _mybox = Hive.box<List>('mybox');
+  final _mybox2 = Hive.box<DateTime>('mybox2');
+  reportPoint hiveBox = reportPoint();
   @override
   void initState() {
+    if (_mybox.get("point") == null || _mybox.get("weight") == null) {
+      hiveBox.creatInitialList();
+    } else {
+      hiveBox.loadDataList();
+    }
+    if (_mybox2.get("checkdate") == null) {
+      hiveBox.createInitialDatetime();
+    } else {
+      hiveBox.loadDataDatetime();
+    }
     widget.controller.fetchData();
     super.initState();
   }

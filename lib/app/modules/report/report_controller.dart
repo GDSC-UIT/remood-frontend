@@ -2,9 +2,11 @@ import 'dart:developer';
 
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:remood/app/data/models/list_report_point.dart';
 import 'package:remood/app/data/models/report_point.dart';
 
 class ReportController extends GetxController {
+  reportPoint hiveBox = reportPoint();
   // The current date
   DateTime now = DateTime.now();
 
@@ -28,6 +30,18 @@ class ReportController extends GetxController {
     await Future.delayed(
       const Duration(seconds: 1),
     );
+    bool isToday = reportPoint.checkDate.day == DateTime.now().day &&
+        reportPoint.checkDate.month == DateTime.now().month &&
+        reportPoint.checkDate.year == DateTime.now().year;
+
+    if (!isToday) {
+      reportPoint.point.clear();
+      reportPoint.weight.clear();
+      reportPoint.checkDate = DateTime.now();
+      hiveBox.updateDatabaseDatetime();
+      hiveBox.updateDatabaseList();
+      print(reportPoint.checkDate);
+    }
     num t = 0;
     num m = 0;
     if (reportPoint.point.length == 0) {
@@ -40,12 +54,28 @@ class ReportController extends GetxController {
       percentage.value = (t / m).round();
     }
     avgMood.value = "Happy";
+/*  int flag = 0;
+    for (int i = 0; i < ListReportPoint.listReportPoint.length; i++) {
+      if (ListReportPoint.listReportPoint[i].date == DateTime.now()) {
+        ListReportPoint.listReportPoint[i].percentage = percentage.value;
+        flag = 1;
+      }
+    }
+    if (flag == 0) {
+      ListReportPoint.listReportPoint
+          .add(reportPoint(date: DateTime.now(), percentage: percentage.value));
+    }*/
   }
 
   // Previous date
   RxString previousDate() {
     now = now.subtract(const Duration(days: 1));
     date(DateFormat('dd/MM/yyyy').format(now));
+    /* for (int i = 0; i < ListReportPoint.listReportPoint.length; i++) {
+      if (ListReportPoint.listReportPoint[i].date == now) {
+        percentage.value = ListReportPoint.listReportPoint[i].percentage;
+      }
+    }*/
     log('previous date: $date & $now');
     return date;
   }

@@ -31,6 +31,7 @@ class _FreshmoodPercentState extends State<FreshmoodPercent> {
   Widget build(BuildContext context) {
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
+    reportPoint hiveBox = reportPoint();
     Future<reportController>? _futureReport;
     HomeController sliderController = Get.find();
     return Scaffold(
@@ -82,6 +83,7 @@ class _FreshmoodPercentState extends State<FreshmoodPercent> {
                               .add(sliderController.valueSlider.value);
                           reportPoint.caculateFeeling(
                               sliderController.valueSlider.value);
+                          hiveBox.updateDatabaseList();
                         }),
                         child: Image.asset(
                           sliderController.valueSlider.value < 20

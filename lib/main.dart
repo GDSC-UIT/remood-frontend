@@ -19,7 +19,9 @@ void main() async {
   Hive
     ..registerAdapter(DiaryAdapter())
     ..registerAdapter(CardTopicAdapter());
+  await Hive.openBox<DateTime>('mybox2');
   await Hive.openBox<List>('mybox');
+
   initializeDateFormatting();
   runApp(const MyApp());
 }
