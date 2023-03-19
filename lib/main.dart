@@ -46,8 +46,6 @@ void main() async {
   /// Initialize timezone
   NotificationService.configureLocalTimeZone();
 
-  final bool isFirstCall = await IsFirstRun.isFirstRun();
-
   runApp(const MyApp());
 }
 

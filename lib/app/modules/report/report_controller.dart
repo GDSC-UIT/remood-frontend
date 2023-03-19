@@ -18,6 +18,17 @@ class ReportController extends GetxController {
 
   // The average mood
   RxString avgMood = "".obs;
+  String get getAvgMood => percentage.value < 20
+      ? "Despressed"
+      : percentage.value < 40
+          ? "Sad"
+          : percentage.value < 60
+              ? "Normal"
+              : percentage.value < 80
+                  ? "Happy"
+                  : percentage.value <= 100
+                      ? "Verry happy"
+                      : "Undefined";
 
   // Show that report fetch API successfully or not
   RxBool isResponse200 = true.obs;
@@ -56,7 +67,10 @@ class ReportController extends GetxController {
       }
       percentage.value = (t / m).round();
     }
-    avgMood.value = "Happy";
+
+    // Set average mood text
+    avgMood(getAvgMood);
+
     int flag = 0;
     for (int i = 0; i < ListReportPoint.listReportPoint.length; i++) {
       if (ListReportPoint.listReportPoint[i].date!.day == now.day &&

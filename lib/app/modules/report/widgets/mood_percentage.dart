@@ -74,9 +74,11 @@ class _MoodPercentageState extends State<MoodPercentage> {
             animation: true,
             progressColor: AppColors.mainColor,
             percent: widget.controller.percentage.value / 100.0,
-            center: Text(
-              "${widget.controller.percentage.value}%",
-              style: CustomTextStyle.customh2(const Color(0xFF8F753F), 40),
+            center: Obx(
+              () => Text(
+                "${widget.controller.percentage.value}%",
+                style: CustomTextStyle.customh2(const Color(0xFF8F753F), 40),
+              ),
             ),
           ),
         ),
