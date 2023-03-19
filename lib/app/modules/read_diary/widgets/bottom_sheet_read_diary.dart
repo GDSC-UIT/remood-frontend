@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/diary.dart';
-import 'package:remood/app/data/models/list_negative_diary.dart';
-import 'package:remood/app/data/models/list_positive_diary.dart';
 import 'package:intl/intl.dart';
 import 'package:remood/app/modules/read_diary/read_diary_controller.dart';
 import 'dart:io';
@@ -111,8 +109,8 @@ class SheetReadDiary extends StatelessWidget {
           ),
 // image
           Container(
-              width: _screenWidth * 0.771,
-              height: _screenHeight * 0.232,
+              width: screenWidth * 0.771,
+              height: screenHeight * 0.232,
               decoration: BoxDecoration(
                 color: AppColors.primary42,
                 borderRadius: BorderRadius.circular(10),
@@ -144,7 +142,8 @@ class SheetReadDiary extends StatelessWidget {
                   child: readDiaryController.isPressed.value == true
                       ? TextField(
                           controller: readDiaryController.editingController,
-                          decoration: InputDecoration.collapsed(hintText: ''),
+                          decoration:
+                              const InputDecoration.collapsed(hintText: ''),
                           expands: true,
                           maxLines: null,
                         )

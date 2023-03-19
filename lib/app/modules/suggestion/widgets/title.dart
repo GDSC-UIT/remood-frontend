@@ -6,16 +6,8 @@ import 'package:remood/app/core/values/text_style.dart';
 class TitleContainer extends StatelessWidget {
   RxInt currentIndex;
   RxBool isPressed;
-  RxBool isPressed;
   int index;
   String text;
-  TitleContainer({
-    super.key,
-    required this.text,
-    required this.currentIndex,
-    required this.index,
-    required this.isPressed,
-  });
   TitleContainer({
     super.key,
     required this.text,

@@ -8,7 +8,7 @@ part of 'report_point.dart';
 
 class reportPointAdapter extends TypeAdapter<reportPoint> {
   @override
-  final int typeId = 2;
+  final int typeId = 4;
 
   @override
   reportPoint read(BinaryReader reader) {

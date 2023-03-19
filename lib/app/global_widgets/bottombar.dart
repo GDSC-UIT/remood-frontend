@@ -14,7 +14,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
   int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
-    // double _screenWidth = MediaQuery.of(context).size.width;
+    // double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return SizedBox(
       height: screenHeight * 0.11,

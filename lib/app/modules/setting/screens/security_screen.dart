@@ -51,7 +51,7 @@ class SecurityScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             Padding(
@@ -62,7 +62,7 @@ class SecurityScreen extends StatelessWidget {
                   Get.toNamed(AppRoutes.changePassword);
                 },
                 child: ListTile(
-                  leading: Container(
+                  leading: SizedBox(
                       width: 24, height: 24, child: Image.asset(Assets.lock)),
                   trailing: Image.asset(Assets.arrowRight),
                   title: Text(

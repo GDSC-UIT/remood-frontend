@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/global_widgets/my_textfield.dart';
 import 'package:remood/app/modules/home/home_controller.dart';
-import 'package:remood/app/modules/setting/widgets/confirm_button.dart';
 import 'package:remood/app/modules/setting/widgets/stack_setting_appbar.dart';
 import 'package:http/http.dart' as http;
 import 'package:remood/app/routes/app_routes.dart';
@@ -30,7 +27,7 @@ class ChangePassword extends StatelessWidget {
       showDialog(
           context: context,
           builder: ((context) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           }));
@@ -44,12 +41,13 @@ class ChangePassword extends StatelessWidget {
         print(response.body);
         Get.back();
         Get.toNamed(AppRoutes.home);
-      } else
+      } else {
         print("Failed");
+      }
     }
 
     return Scaffold(
-      backgroundColor: AppColors.BackgroundColor,
+      backgroundColor: AppColors.backgroundColor,
       body: SafeArea(
         child: Column(
           children: [
@@ -61,14 +59,14 @@ class ChangePassword extends StatelessWidget {
                 hintText: "Old password",
                 obscureText: true,
                 controller: oldPassword),
-            SizedBox(
+            const SizedBox(
               height: 24,
             ),
             MyTextField(
                 hintText: "New password",
                 obscureText: true,
                 controller: newPassword),
-            Spacer(),
+            const Spacer(),
             Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -95,7 +93,7 @@ class ChangePassword extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 24,
             )
           ],

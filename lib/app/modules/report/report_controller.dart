@@ -1,5 +1,4 @@
 import 'dart:developer';
-import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -48,7 +47,7 @@ class ReportController extends GetxController {
     }
     num t = 0;
     num m = 0;
-    if (reportPoint.point.length == 0) {
+    if (reportPoint.point.isEmpty) {
       percentage.value = 0;
     } else {
       for (int i = 0; i < reportPoint.point.length; i++) {

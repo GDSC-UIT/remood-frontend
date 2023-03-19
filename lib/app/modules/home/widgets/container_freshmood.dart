@@ -1,7 +1,3 @@
-import 'dart:convert';
-import 'dart:io';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,8 +9,6 @@ import 'package:remood/app/data/services/media_query_service.dart';
 import 'package:remood/app/modules/home/home_controller.dart';
 import 'package:remood/app/modules/home/widgets/floating_action_button.dart';
 import 'package:remood/app/routes/app_routes.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
 
 class FreshmoodPercent extends StatefulWidget {
   const FreshmoodPercent({super.key});
@@ -27,10 +21,13 @@ class _FreshmoodPercentState extends State<FreshmoodPercent> {
   HomeController tokenController = Get.find();
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+    var pctWidth = MediaQueryService().pctWidth(context);
+    var pctHeight = MediaQueryService().pctHeight(context);
+
     reportPoint hiveBox = reportPoint();
-    Future<reportController>? _futureReport;
+    Future<reportController>? futureReport;
     HomeController sliderController = Get.find();
     return Scaffold(
       backgroundColor: AppColors.barrierColor,

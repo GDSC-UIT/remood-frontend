@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
     HomeController changeScreen = Get.find();
     int currentIndex = 0;
     Screens listScreens = Screens();
-    // double _screenWidth = MediaQuery.of(context).size.width;
+    // double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(

@@ -8,21 +8,13 @@ packages:
       sha256: "98d1d33ed129b372846e862de23a0fc365745f4d7b5e786ce667fcbbb7ac5c07"
       url: "https://pub.dev"
     source: hosted
-<<<<<<< HEAD
-    version: "50.0.0"
-=======
     version: "55.0.0"
->>>>>>> main
   _flutterfire_internals:
     dependency: transitive
     description:
       name: _flutterfire_internals
-<<<<<<< HEAD
-      url: "https://pub.dartlang.org"
-=======
       sha256: cb3a948a1eebbf8efd987c43f95418269930e912a88bc7b6a5a7658423133635
       url: "https://pub.dev"
->>>>>>> main
     source: hosted
     version: "1.0.17"
   analyzer:
@@ -253,72 +245,48 @@ packages:
     dependency: "direct main"
     description:
       name: firebase_core
-<<<<<<< HEAD
-      url: "https://pub.dartlang.org"
-=======
       sha256: "1c121a478af23755b0b93fd4aa70d3bd32a587dd51ef0a3979091ac0d2317d32"
       url: "https://pub.dev"
->>>>>>> main
     source: hosted
     version: "2.7.1"
   firebase_core_platform_interface:
     dependency: transitive
     description:
       name: firebase_core_platform_interface
-<<<<<<< HEAD
-      url: "https://pub.dartlang.org"
-=======
       sha256: "5615b30c36f55b2777d0533771deda7e5730e769e5d3cb7fda79e9bed86cfa55"
       url: "https://pub.dev"
->>>>>>> main
     source: hosted
     version: "4.5.3"
   firebase_core_web:
     dependency: transitive
     description:
       name: firebase_core_web
-<<<<<<< HEAD
-      url: "https://pub.dartlang.org"
-=======
       sha256: "0c1cf1f1022d2245ac117443bb95207952ca770281524d2908e323bc063fb8ff"
       url: "https://pub.dev"
->>>>>>> main
     source: hosted
     version: "2.2.2"
   firebase_storage:
     dependency: "direct main"
     description:
       name: firebase_storage
-<<<<<<< HEAD
-      url: "https://pub.dartlang.org"
-=======
       sha256: f19205107b521752384497024b3554ecfecd5d142ad08b522dff1f81dd81efc4
       url: "https://pub.dev"
->>>>>>> main
     source: hosted
     version: "11.0.15"
   firebase_storage_platform_interface:
     dependency: transitive
     description:
       name: firebase_storage_platform_interface
-<<<<<<< HEAD
-      url: "https://pub.dartlang.org"
-=======
       sha256: "818e64f900401b6553184c9e1ca9ac057029d75d85f07f974f155b6e019699d6"
       url: "https://pub.dev"
->>>>>>> main
     source: hosted
     version: "4.1.31"
   firebase_storage_web:
     dependency: transitive
     description:
       name: firebase_storage_web
-<<<<<<< HEAD
-      url: "https://pub.dartlang.org"
-=======
       sha256: "1244fb06db0f5a28a20057919c3e45bd745b9bc37feb5a25ba2aaa4b4947dd74"
       url: "https://pub.dev"
->>>>>>> main
     source: hosted
     version: "3.3.24"
   fixnum:
@@ -1001,96 +969,64 @@ packages:
     dependency: "direct main"
     description:
       name: url_launcher
-<<<<<<< HEAD
-      url: "https://pub.dartlang.org"
-=======
       sha256: "75f2846facd11168d007529d6cd8fcb2b750186bea046af9711f10b907e1587e"
       url: "https://pub.dev"
->>>>>>> main
     source: hosted
     version: "6.1.10"
   url_launcher_android:
     dependency: transitive
     description:
       name: url_launcher_android
-<<<<<<< HEAD
-      url: "https://pub.dartlang.org"
-=======
       sha256: "845530e5e05db5500c1a4c1446785d60cbd8f9bd45e21e7dd643a3273bb4bbd1"
       url: "https://pub.dev"
->>>>>>> main
     source: hosted
     version: "6.0.25"
   url_launcher_ios:
     dependency: transitive
     description:
       name: url_launcher_ios
-<<<<<<< HEAD
-      url: "https://pub.dartlang.org"
-=======
       sha256: "7ab1e5b646623d6a2537aa59d5d039f90eebef75a7c25e105f6f75de1f7750c3"
       url: "https://pub.dev"
->>>>>>> main
     source: hosted
     version: "6.1.2"
   url_launcher_linux:
     dependency: transitive
     description:
       name: url_launcher_linux
-<<<<<<< HEAD
-      url: "https://pub.dartlang.org"
-=======
       sha256: "206fb8334a700ef7754d6a9ed119e7349bc830448098f21a69bf1b4ed038cabc"
       url: "https://pub.dev"
->>>>>>> main
     source: hosted
     version: "3.0.4"
   url_launcher_macos:
     dependency: transitive
     description:
       name: url_launcher_macos
-<<<<<<< HEAD
-      url: "https://pub.dartlang.org"
-=======
       sha256: "0ef2b4f97942a16523e51256b799e9aa1843da6c60c55eefbfa9dbc2dcb8331a"
       url: "https://pub.dev"
->>>>>>> main
     source: hosted
     version: "3.0.4"
   url_launcher_platform_interface:
     dependency: transitive
     description:
       name: url_launcher_platform_interface
-<<<<<<< HEAD
-      url: "https://pub.dartlang.org"
-=======
       sha256: "6c9ca697a5ae218ce56cece69d46128169a58aa8653c1b01d26fcd4aad8c4370"
       url: "https://pub.dev"
->>>>>>> main
     source: hosted
     version: "2.1.2"
   url_launcher_web:
     dependency: transitive
     description:
       name: url_launcher_web
-<<<<<<< HEAD
-      url: "https://pub.dartlang.org"
-=======
       sha256: "81fe91b6c4f84f222d186a9d23c73157dc4c8e1c71489c4d08be1ad3b228f1aa"
       url: "https://pub.dev"
->>>>>>> main
     source: hosted
     version: "2.0.16"
   url_launcher_windows:
     dependency: transitive
     description:
       name: url_launcher_windows
-<<<<<<< HEAD
-      url: "https://pub.dartlang.org"
-=======
       sha256: a83ba3607a507758669cfafb03f9de09bf6e6280c14d9b9cb18f013e406dcacd
       url: "https://pub.dev"
->>>>>>> main
     source: hosted
     version: "3.0.5"
   vector_math:
@@ -1182,9 +1118,5 @@ packages:
     source: hosted
     version: "3.1.1"
 sdks:
-<<<<<<< HEAD
-  dart: ">=2.18.5 <3.0.0"
-=======
   dart: ">=2.19.0 <4.0.0"
->>>>>>> main
   flutter: ">=3.3.0"

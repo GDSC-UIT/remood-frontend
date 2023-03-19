@@ -112,27 +112,25 @@ abstract class AppPages {
       name: AppRoutes.loginScreen,
       page: () => const LogInScreen(),
       bindings: [LogInBinding(), HomeBinding()],
-      bindings: [LogInBinding(), HomeBinding()],
     ),
     GetPage(
       name: AppRoutes.login,
       page: () => const LogIn(),
       bindings: [LogInBinding(), HomeBinding()],
-      bindings: [LogInBinding(), HomeBinding()],
     ),
     GetPage(
       name: AppRoutes.createnewAccount,
-      page: () => CreateNewAccount(),
+      page: () => const CreateNewAccount(),
       bindings: [LogInBinding(), HomeBinding()],
     ),
     GetPage(
       name: AppRoutes.forgotPassword,
-      page: () => ForgotPassWord(),
+      page: () => const ForgotPassWord(),
       bindings: [LogInBinding(), HomeBinding()],
     ),
     GetPage(
       name: AppRoutes.comfirmPassword,
-      page: () => ComfirmPassword(),
+      page: () => const ComfirmPassword(),
       bindings: [LogInBinding(), HomeBinding()],
     ),
     GetPage(

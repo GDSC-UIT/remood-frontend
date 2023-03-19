@@ -1,18 +1,14 @@
-import 'dart:convert';
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/models/list_report_point.dart';
 import 'package:remood/app/data/models/report_point.dart';
 import 'package:remood/app/modules/home/home_controller.dart';
 import 'package:remood/app/modules/report/report_controller.dart';
-import 'package:http/http.dart' as http;
 
 class MoodPercentage extends StatefulWidget {
   const MoodPercentage({
@@ -69,48 +65,20 @@ class _MoodPercentageState extends State<MoodPercentage> {
         ),
 
         /// Average mood percentage
-        FutureBuilder(
-          future: widget.fetchAPI(),
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return Positioned(
-                top: screenHeight * 0.043,
-                left: screenWidth * 0.29,
-                child: CircularPercentIndicator(
-                  radius: 80,
-                  lineWidth: 16.0,
-                  animation: true,
-                  progressColor: AppColors.mainColor,
-                  percent: reportController.percentage.value / 100.0,
-                  center: Text(
-                    "${reportController.percentage.value}%",
-                    style:
-                        CustomTextStyle.customh2(const Color(0xFF8F753F), 40),
-                  ),
-                ),
-              );
-            } else if (snapshot.hasError) {
-              return Positioned(
-                top: screenHeight * 0.043,
-                left: screenWidth * 0.29,
-                child: CircularPercentIndicator(
-                  radius: 80,
-                  lineWidth: 16.0,
-                  animation: true,
-                  progressColor: AppColors.mainColor,
-                  percent: 0,
-                ),
-              );
-            }
-            return Positioned(
-              top: screenHeight * 0.11,
-              left: screenWidth * 0.43,
-              child: const SpinKitFadingCircle(
-                color: AppColors.mainColor,
-                size: 50.0,
-              ),
-            );
-          },
+        Positioned(
+          top: screenHeight * 0.043,
+          left: screenWidth * 0.29,
+          child: CircularPercentIndicator(
+            radius: 80,
+            lineWidth: 16.0,
+            animation: true,
+            progressColor: AppColors.mainColor,
+            percent: widget.controller.percentage.value / 100.0,
+            center: Text(
+              "${widget.controller.percentage.value}%",
+              style: CustomTextStyle.customh2(const Color(0xFF8F753F), 40),
+            ),
+          ),
         ),
 
         /// Mood average text
@@ -124,7 +92,7 @@ class _MoodPercentageState extends State<MoodPercentage> {
             children: [
               Obx(
                 () => Text(
-                  '${reportController.avgMood}',
+                  '${widget.controller.avgMood}',
                   style: CustomTextStyle.textReport(),
                   textAlign: TextAlign.center,
                 ),
