@@ -4,7 +4,9 @@ import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:remood/app/data/models/diary.dart';
+import 'package:remood/app/data/models/setting.dart';
 import 'package:remood/app/data/models/topic.dart';
+import 'package:remood/app/data/models/user.dart';
 import 'package:remood/app/data/services/notification_service.dart';
 import 'package:remood/app/modules/setting/setting_binding.dart';
 import 'package:flutter/services.dart';
@@ -21,12 +23,17 @@ void main() async {
   await Hive.initFlutter();
   Hive
     ..registerAdapter(DiaryAdapter())
-    ..registerAdapter(CardTopicAdapter());
+    ..registerAdapter(CardTopicAdapter())
+    ..registerAdapter(UserAdapter())
+    ..registerAdapter(SettingAdapter());
 
   // ! Move this to splash screen
   // await Hive.openBox('mybox');
 
   await Firebase.initializeApp();
+  // hive box
+  await Hive.openBox<User>('user');
+  await Hive.openBox<Setting>('setting');
 
   /// Initialize local notification plugin
   NotificationService().initNotification();
