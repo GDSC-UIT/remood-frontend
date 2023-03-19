@@ -1,8 +1,9 @@
+import 'package:hive/hive.dart';
 import 'package:remood/app/data/models/report_point.dart';
 
 class ListReportPoint {
-  static List<reportPoint> listReportPoint = [];
-  /*final _mybox = Hive.box('mybox');
+  static List listReportPoint = [];
+  final _mybox = Hive.box('mybox');
   void createInitialize() {
     listReportPoint = [];
   }
@@ -13,5 +14,5 @@ class ListReportPoint {
 
   void updateDatabase() {
     _mybox.put("listreportpoint", listReportPoint);
-  }*/
+  }
 }

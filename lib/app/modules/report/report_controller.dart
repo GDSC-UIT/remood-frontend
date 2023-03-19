@@ -15,7 +15,7 @@ class ReportController extends GetxController {
   RxString date = DateFormat('dd/MM/yyyy').format(DateTime.now()).obs;
   // The mood percentage
   RxInt percentage = 0.obs;
-
+  int percent = 0;
   // The average mood
   RxString avgMood = "".obs;
   String get getAvgMood => percentage.value < 20
@@ -33,14 +33,9 @@ class ReportController extends GetxController {
   // Show that report fetch API successfully or not
   RxBool isResponse200 = true.obs;
 
-  @override
-  void onInit() {
-    fetchData();
-    super.onInit();
-  }
 
   // Simulate the process of fetching data
-  void fetchData() async {
+  void fetchData(context) async {
     await Future.delayed(
       const Duration(seconds: 1),
     );
@@ -65,7 +60,7 @@ class ReportController extends GetxController {
         t = t + reportPoint.point[i] * reportPoint.weight[i];
         m = m + reportPoint.weight[i];
       }
-      percentage.value = (t / m).round();
+      percent = (t / m).round();
     }
 
     // Set average mood text
@@ -73,19 +68,24 @@ class ReportController extends GetxController {
 
     int flag = 0;
     for (int i = 0; i < ListReportPoint.listReportPoint.length; i++) {
-      if (ListReportPoint.listReportPoint[i].date!.day == now.day &&
-          ListReportPoint.listReportPoint[i].date!.month == now.month &&
-          ListReportPoint.listReportPoint[i].date!.year == now.year) {
-        ListReportPoint.listReportPoint[i].percentage = percentage.value;
-        //   hiveBoxPoint.updateDatabase();
-        print(ListReportPoint.listReportPoint[i].percentage);
+      if (ListReportPoint.listReportPoint[i][0].day == DateTime.now().day &&
+          ListReportPoint.listReportPoint[i][0].month == DateTime.now().month &&
+          ListReportPoint.listReportPoint[i][0].year == DateTime.now().year) {
+        ListReportPoint.listReportPoint[i][1] = percent;
+        hiveBoxPoint.updateDatabase();
+        print(ListReportPoint.listReportPoint[i][1]);
         flag = 1;
       }
     }
     if (flag == 0) {
-      ListReportPoint.listReportPoint
-          .add(reportPoint(date: DateTime.now(), percentage: percentage.value));
-      //  hiveBoxPoint.updateDatabase();
+      ListReportPoint.listReportPoint.add([DateTime.now(), percent]);
+      print(ListReportPoint.listReportPoint);
+      hiveBoxPoint.updateDatabase();
+    }
+    if (DateTime.now().day == now.day &&
+        DateTime.now().month == now.month &&
+        DateTime.now().year == now.year) {
+      percentage.value = percent;
     }
   }
 
@@ -95,10 +95,10 @@ class ReportController extends GetxController {
     date(DateFormat('dd/MM/yyyy').format(now));
     int flag = 0;
     for (int i = 0; i < ListReportPoint.listReportPoint.length; i++) {
-      if (ListReportPoint.listReportPoint[i].date!.day == now.day &&
-          ListReportPoint.listReportPoint[i].date!.month == now.month &&
-          ListReportPoint.listReportPoint[i].date!.year == now.year) {
-        percentage.value = ListReportPoint.listReportPoint[i].percentage!;
+      if (ListReportPoint.listReportPoint[i][0].day == now.day &&
+          ListReportPoint.listReportPoint[i][0].month == now.month &&
+          ListReportPoint.listReportPoint[i][0].year == now.year) {
+        percentage.value = ListReportPoint.listReportPoint[i][1];
 
         flag = 1;
         break;
@@ -116,10 +116,10 @@ class ReportController extends GetxController {
     date(DateFormat('dd/MM/yyyy').format(now));
     int flag = 0;
     for (int i = 0; i < ListReportPoint.listReportPoint.length; i++) {
-      if (ListReportPoint.listReportPoint[i].date!.day == now.day &&
-          ListReportPoint.listReportPoint[i].date!.month == now.month &&
-          ListReportPoint.listReportPoint[i].date!.year == now.year) {
-        percentage.value = ListReportPoint.listReportPoint[i].percentage!;
+      if (ListReportPoint.listReportPoint[i][0].day == now.day &&
+          ListReportPoint.listReportPoint[i][0].month == now.month &&
+          ListReportPoint.listReportPoint[i][0].year == now.year) {
+        percentage.value = ListReportPoint.listReportPoint[i][1];
 
         flag = 1;
         break;
