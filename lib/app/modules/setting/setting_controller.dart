@@ -19,7 +19,7 @@ import 'package:remood/app/routes/app_routes.dart';
 
 class SettingController extends GetxController {
   // hive box pindiary
-  final _mybox = Hive.box<List>('mybox');
+  final _mybox = Hive.box('mybox');
   PinnedDiary hiveBoxPinned = PinnedDiary();
   @override
   void onInit() {

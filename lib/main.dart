@@ -19,10 +19,9 @@ void main() async {
   await Hive.initFlutter();
   Hive
     ..registerAdapter(DiaryAdapter())
-    ..registerAdapter(CardTopicAdapter())
-    ..registerAdapter(reportPointAdapter());
-  await Hive.openBox<DateTime>('mybox2');
-  await Hive.openBox<List>('mybox');
+    ..registerAdapter(CardTopicAdapter());
+  //..registerAdapter(reportPointAdapter());
+  await Hive.openBox('mybox');
   initializeDateFormatting();
   runApp(const MyApp());
 }

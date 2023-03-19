@@ -15,7 +15,7 @@ import 'package:remood/app/routes/app_routes.dart';
 
 class ReadDiaryController extends GetxController {
 // hive box
-  final _mybox = Hive.box<List>('mybox');
+  final _mybox = Hive.box('mybox');
   RxList<Diary> positiveDiaryList = <Diary>[].obs;
   RxList<Diary> negativeDiaryList = <Diary>[].obs;
   ListNegativeDiary hiveBoxNegative = ListNegativeDiary();

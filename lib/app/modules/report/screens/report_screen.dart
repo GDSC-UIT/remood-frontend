@@ -23,17 +23,16 @@ class _ReportScreenState extends State<ReportScreen> {
     final controller = Get.put(ReportController());
     double _screenWidth = MediaQuery.of(context).size.width;
     double _screenHeight = MediaQuery.of(context).size.height;
-    final _mybox = Hive.box<List>('mybox');
     ListReportPoint hiveBox = ListReportPoint();
-    @override
+    /* @override
     void initState() {
-      if (_mybox.get("listreportpoint") == null) {
+    if (_mybox.get("listreportpoint") == null) {
         hiveBox.createInitialize();
       } else {
         hiveBox.loadData();
       }
       super.initState();
-    }
+    }*/
 
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,

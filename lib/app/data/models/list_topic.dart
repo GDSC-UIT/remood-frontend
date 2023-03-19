@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/topic.dart';
+import 'package:remood/app/global_widgets/card_topic.dart';
 
 class ListTopic {
   static List<CardTopic> topics = [];
-  final _mybox = Hive.box<List>('mybox');
+  final _mybox = Hive.box('mybox');
   void createInitialData() {
     topics = [
       CardTopic(

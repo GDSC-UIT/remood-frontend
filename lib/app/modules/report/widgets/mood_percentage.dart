@@ -28,8 +28,7 @@ class MoodPercentage extends StatefulWidget {
 
 class _MoodPercentageState extends State<MoodPercentage> {
   HomeController tokenController = Get.find();
-  final _mybox = Hive.box<List>('mybox');
-  final _mybox2 = Hive.box<DateTime>('mybox2');
+  final _mybox = Hive.box('mybox');
   reportPoint hiveBox = reportPoint();
   ListReportPoint hiveBoxPoint = ListReportPoint();
   @override
@@ -39,7 +38,7 @@ class _MoodPercentageState extends State<MoodPercentage> {
     } else {
       hiveBox.loadDataList();
     }
-    if (_mybox2.get("checkdate") == null) {
+    if (_mybox.get("checkdate") == null) {
       hiveBox.createInitialDatetime();
     } else {
       hiveBox.loadDataDatetime();
