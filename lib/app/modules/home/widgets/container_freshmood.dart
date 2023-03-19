@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -73,8 +72,9 @@ class _FreshmoodPercentState extends State<FreshmoodPercent> {
                 width: screenWidth * 0.723,
                 height: screenHeight * 0.134,
                 decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(16)),
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(16),
+                ),
                 child: Obx(
                   () => Column(
                     children: [

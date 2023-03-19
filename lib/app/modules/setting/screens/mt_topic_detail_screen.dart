@@ -104,7 +104,6 @@ class TopicDetailScreen extends StatelessWidget {
                           const SizedBox(
                             width: 2,
                           ),
-
                           // Arrow-right icon
                           const Icon(Icons.keyboard_arrow_right),
                         ],
@@ -173,8 +172,6 @@ class TopicDetailScreen extends StatelessWidget {
 // Change color
             GestureDetector(
               onTap: () {
-                // Gán lại giá trị icon hiện tại
-
                 // Navigate to Change-topic-color screen
                 Get.toNamed(AppRoutes.changeColorTopic);
               },

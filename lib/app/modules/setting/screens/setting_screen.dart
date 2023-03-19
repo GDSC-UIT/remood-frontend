@@ -20,7 +20,6 @@ class SettingScreen extends StatelessWidget {
     // var setting = settingController.setting;
     var username = settingController.nickname;
     var isEditableName = settingController.isEditableName;
-
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
       body: SafeArea(

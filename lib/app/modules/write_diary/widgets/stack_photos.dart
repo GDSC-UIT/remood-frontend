@@ -46,10 +46,6 @@ class _StackPhotosState extends State<StackPhotos> {
               onTap: () {
                 //select photos
                 pickImage();
-                // Get.defaultDialog(
-                //   content: Text(
-                //       "width: ${(_screenWidth * 0.413)} \n height: ${_screenHeight * 0.124}"),
-                // );
               },
               child: Container(
                 width: screenWidth * 0.413,
