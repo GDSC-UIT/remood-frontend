@@ -1,3 +1,5 @@
+import 'package:hive/hive.dart';
+import 'package:remood/app/data/models/report_point.dart';
 
 class ListReportPoint {
   static List listReportPoint = [];
