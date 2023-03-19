@@ -43,11 +43,7 @@ class StackNote extends StatelessWidget {
             ),
           ),
         ),
-        // Container(
-        //   width: _screenWidth * 0.731,
-        //   height: _screenHeight * 0.236,
-        //   color: Colors.red,
-        // ),
+
 // 'Note' container
         Positioned(
           top: -30,
