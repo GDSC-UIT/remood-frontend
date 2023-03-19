@@ -50,6 +50,7 @@ abstract class AppPages {
         HomeBinding(),
         SplashBinding(),
         ReadDiaryBinding(),
+        OnboardingBinding(),
       ],
     ),
     GetPage(

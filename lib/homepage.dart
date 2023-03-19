@@ -39,7 +39,7 @@ class _HomepageState extends State<Homepage> {
               return Center(child: Text('Error:\n\n ${snapshot.error}'));
             } else {
               // success, continue with app
-              return const HomeScreen();
+              return const OnboardingScreen();
             }
           }
         },

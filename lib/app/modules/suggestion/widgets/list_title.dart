@@ -16,8 +16,8 @@ class ListTitle extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     SuggestionController titleController = Get.find();
     Future<TopicApi> getAllTopic() async {
-      final response = await http.get(
-          Uri.parse('https://remood-backend.onrender.com/api/articles/topics'));
+      final response = await http.get(Uri.parse(
+          'https://remood-oze7nwnjba-as.a.run.app/api/articles/topics'));
       if (response.statusCode == 200) {
         return TopicApi.fromJson(jsonDecode(response.body));
       } else {
