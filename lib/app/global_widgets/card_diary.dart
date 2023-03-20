@@ -17,7 +17,7 @@ class DiaryCard extends StatelessWidget {
     // Data
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-    controller.pressPin(diary);
+    RxBool isPressed = diary.isPinned == null ? false.obs : diary.isPinned!.obs;
 
     return Container(
       width: screenWidth * 0.723,
