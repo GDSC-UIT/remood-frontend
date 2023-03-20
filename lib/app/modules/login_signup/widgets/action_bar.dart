@@ -16,7 +16,7 @@ class LoginBar extends StatelessWidget {
       color: Colors.transparent,
       child: Stack(
         children: [
-          Get.currentRoute == AppRoutes.homepage
+          Get.currentRoute == AppRoutes.loginScreen
               ? const SizedBox()
               : Row(
                   mainAxisSize: MainAxisSize.max,

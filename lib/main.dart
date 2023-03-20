@@ -4,7 +4,9 @@ import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:remood/app/data/models/diary.dart';
+import 'package:remood/app/data/models/setting.dart';
 import 'package:remood/app/data/models/topic.dart';
+import 'package:remood/app/data/models/user.dart';
 import 'package:remood/app/data/services/notification_service.dart';
 import 'package:remood/app/modules/setting/setting_binding.dart';
 import 'package:flutter/services.dart';
@@ -21,10 +23,15 @@ void main() async {
   await Hive.initFlutter();
   Hive
     ..registerAdapter(DiaryAdapter())
-    ..registerAdapter(CardTopicAdapter());
+    ..registerAdapter(CardTopicAdapter())
+    ..registerAdapter(UserAdapter())
+    ..registerAdapter(SettingAdapter());
 
-  // ! Move this to splash screen
-  // await Hive.openBox('mybox');
+  Future.wait([
+    Hive.openBox('mybox'),
+    Hive.openBox<User>('user'),
+    Hive.openBox<Setting>('setting'),
+  ]);
 
   await Firebase.initializeApp();
 
@@ -53,7 +60,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       initialBinding: SettingBinding(),
       title: AppStrings.appName,
-      initialRoute: AppRoutes.homepage,
+      initialRoute: AppRoutes.splash,
       locale: LocalizationService.locale,
       fallbackLocale: LocalizationService.fallbackLocale,
       translations: LocalizationService(),

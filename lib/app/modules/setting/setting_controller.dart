@@ -24,6 +24,8 @@ import 'package:remood/app/routes/app_routes.dart';
 class SettingController extends GetxController {
   // hive box pindiary
   final _mybox = Hive.box('mybox');
+  final _userbox = Hive.box<User>('user');
+  final _settingbox = Hive.box<Setting>('setting');
   PinnedDiary hiveBoxPinned = PinnedDiary();
   ListTopic hiveBoxTopic = ListTopic();
   UserBox hiveUser = UserBox();
@@ -32,6 +34,15 @@ class SettingController extends GetxController {
   Rx<User> user = User(
     name: "Untitle",
     avtURL: Assets.settingUserAvt1,
+  ).obs;
+  Rx<Setting> setting = Setting(
+    isSundayFirstDayOfWeek: false,
+    language: 0,
+    isOnNotification: false,
+    hour: 0,
+    minute: 0,
+    ampm: 0,
+    isOnPINLock: false,
   ).obs;
 
   @override
@@ -48,11 +59,21 @@ class SettingController extends GetxController {
     } else {
       hiveBoxPinned.loadData();
     }
+    if (_userbox.get("user") == null) {
+      hiveUser.createInitialData();
+    } else {
+      hiveBoxTopic.loadData();
+    }
+    if (_settingbox.get("setting") == null) {
+      hiveSetting.createInitialData();
+    } else {
+      hiveBoxPinned.loadData();
+    }
 
     // Observe data
     listTopic = ListTopic.topics;
     user = UserBox.user.obs;
-    SettingService.setting = SettingBox.setting.obs;
+    setting = SettingBox.setting.obs;
 
     super.onInit();
   }
