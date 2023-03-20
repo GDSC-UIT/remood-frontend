@@ -82,37 +82,38 @@ class _ForgotPassWordState extends State<ForgotPassWord> {
                 ),
               ],
             ),
-            MyTextField(
-              hintText: "Email",
-              obscureText: false,
-              controller: emailController,
-            ),
             SizedBox(
-              height: screenHeight * 0.37,
-            ),
-            AccountQuestion(
-                question: "Have an account?",
-                button: "Login",
-                route: AppRoutes.login),
-            SizedBox(
-              height: screenHeight * 0.02,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.059),
-              child: GestureDetector(
-                onTap: () {
-                  resetPassword(emailController.text.trim());
-                },
-                child: Container(
-                    height: screenHeight * 0.064,
-                    decoration: BoxDecoration(
-                      color: AppColors.mainColor,
-                      borderRadius: BorderRadius.circular(13),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Next",
-                        style: CustomTextStyle.TextLogin(Colors.white),
+              width: screenWidth,
+              height: screenHeight,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  AccountQuestion(
+                      question: "Have an account?",
+                      button: "Login",
+                      route: AppRoutes.login),
+                  SizedBox(
+                    height: screenHeight * 0.02,
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: screenWidth * 0.059),
+                    child: GestureDetector(
+                      onTap: () {
+                        resetPassword(emailController.text.trim());
+                      },
+                      child: Container(
+                        height: screenHeight * 0.064,
+                        decoration: BoxDecoration(
+                          color: AppColors.mainColor,
+                          borderRadius: BorderRadius.circular(13),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Next",
+                            style: CustomTextStyle.TextLogin(Colors.white),
+                          ),
+                        ),
                       ),
                     )),
               ),

@@ -121,22 +121,30 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
                 SizedBox(
                   height: screenHeight * 0.18,
                 ),
-                AccountQuestion(
-                    question: "Have an account?",
-                    button: "Login",
-                    route: AppRoutes.login),
-                SizedBox(
-                  height: screenHeight * 0.02,
-                ),
-                Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: screenWidth * 0.059),
-                  child: GestureDetector(
-                    onTap: () {
-                      createNewData(emailcontroller.text,
-                          usenamecontroller.text, passwordcontroller.text);
-                    },
-                    child: Container(
+              ],
+            ),
+            SizedBox(
+              width: screenWidth,
+              height: screenHeight,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  AccountQuestion(
+                      question: "Have an account?",
+                      button: "Login",
+                      route: AppRoutes.login),
+                  SizedBox(
+                    height: screenHeight * 0.02,
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: screenWidth * 0.059),
+                    child: GestureDetector(
+                      onTap: () {
+                        createNewData(emailcontroller.text,
+                            usenamecontroller.text, passwordcontroller.text);
+                      },
+                      child: Container(
                         height: screenHeight * 0.064,
                         decoration: BoxDecoration(
                           color: AppColors.mainColor,
