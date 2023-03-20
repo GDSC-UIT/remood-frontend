@@ -1,9 +1,7 @@
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
-import 'package:remood/app/data/services/firebase_service.dart';
 import 'package:remood/app/modules/home/home_controller.dart';
 import 'package:remood/app/modules/write_diary/diary_controller.dart';
 import 'package:remood/app/modules/write_diary/widgets/stack_note.dart';
@@ -12,7 +10,6 @@ import 'package:remood/app/modules/write_diary/widgets/stack_tag.dart';
 import 'package:remood/app/modules/write_diary/widgets/stack_topic.dart';
 import 'package:remood/app/routes/app_routes.dart';
 import 'package:intl/intl.dart';
-import 'package:http/http.dart' as http;
 
 class WriteDiaryScreen extends StatefulWidget {
   const WriteDiaryScreen({super.key});

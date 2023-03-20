@@ -52,7 +52,7 @@ class FAQScreen extends StatelessWidget {
             StackSettingAppbar(
               title: appBarTitle,
             ),
-            SizedBox(height: 13),
+            const SizedBox(height: 13),
 // FAQs
             Expanded(
               child: ListView(
@@ -73,7 +73,7 @@ class FAQScreen extends StatelessWidget {
                                 decoration: BoxDecoration(
                                     color: AppColors.faqAnswer,
                                     borderRadius: faqList[index].isRead.value
-                                        ? BorderRadius.only(
+                                        ? const BorderRadius.only(
                                             topLeft: Radius.circular(10),
                                             topRight: Radius.circular(10),
                                           )
@@ -81,7 +81,7 @@ class FAQScreen extends StatelessWidget {
                                 // padding:
                                 //     EdgeInsets.fromLTRB(px24w, px24h, px24w, 0),
                                 child: Padding(
-                                  padding: EdgeInsets.symmetric(
+                                  padding: const EdgeInsets.symmetric(
                                       vertical: 12, horizontal: 11),
                                   child: Row(
                                     mainAxisAlignment:
@@ -109,16 +109,16 @@ class FAQScreen extends StatelessWidget {
                             // Ansqer
                             faqList[index].isRead.value
                                 ? Container(
-                                    padding: EdgeInsets.symmetric(
+                                    padding: const EdgeInsets.symmetric(
                                       horizontal: 11,
                                     ),
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                         color: AppColors.faqAnswer,
                                         borderRadius: BorderRadius.only(
                                             bottomLeft: Radius.circular(10),
                                             bottomRight: Radius.circular(10))),
                                     child: Padding(
-                                      padding: EdgeInsets.only(bottom: 15),
+                                      padding: const EdgeInsets.only(bottom: 15),
                                       child: Text(
                                         faqList[index].answer,
                                         style: CustomTextStyle.normalText(

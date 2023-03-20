@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:hive/hive.dart';
-import 'package:remood/app/modules/home/screens/home_screen.dart';
-import 'package:remood/app/modules/onboarding/onboarding_controller.dart';
 import 'package:remood/app/modules/onboarding/screens/onboarding_screen.dart';
 import 'package:remood/app/modules/splash/screens/splash_screen.dart';
 

@@ -42,7 +42,7 @@ class _MoodPercentageState extends State<MoodPercentage> {
       hiveBoxPoint.createInitialize();
     } else {
       hiveBoxPoint.loadData();
-      print(ListReportPoint.listReportPoint);
+      debugPrint("\n${ListReportPoint.listReportPoint}\n");
     }
     widget.controller.fetchData(context);
     super.initState();

@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:remood/app/core/values/text_style.dart';
-import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
-import 'package:remood/app/modules/home/home_controller.dart';
 import 'package:remood/app/modules/home/widgets/button_today_diary.dart';
 import 'package:remood/app/package/flutter_calendar_carousel.dart';
-import 'package:remood/app/modules/setting/setting_controller.dart';
 
 import 'package:remood/app/data/services/setting_service.dart';
 
