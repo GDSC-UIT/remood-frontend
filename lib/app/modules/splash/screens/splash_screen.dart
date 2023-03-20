@@ -6,7 +6,6 @@ import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/data/services/media_query_service.dart';
 import 'package:remood/app/modules/splash/splash_controller.dart';
-import 'package:remood/app/routes/app_routes.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
