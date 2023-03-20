@@ -145,20 +145,21 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
                             usenamecontroller.text, passwordcontroller.text);
                       },
                       child: Container(
-                        height: screenHeight * 0.064,
-                        decoration: BoxDecoration(
-                          color: AppColors.mainColor,
-                          borderRadius: BorderRadius.circular(13),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "Sign up",
-                            style: CustomTextStyle.TextLogin(Colors.white),
+                          height: screenHeight * 0.064,
+                          decoration: BoxDecoration(
+                            color: AppColors.mainColor,
+                            borderRadius: BorderRadius.circular(13),
                           ),
-                        )),
+                          child: Center(
+                            child: Text(
+                              "Sign up",
+                              style: CustomTextStyle.TextLogin(Colors.white),
+                            ),
+                          )),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ],
         ),
