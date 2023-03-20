@@ -27,8 +27,11 @@ void main() async {
     ..registerAdapter(UserAdapter())
     ..registerAdapter(SettingAdapter());
 
-  // ! Move this to splash screen
-  // await Hive.openBox('mybox');
+  Future.wait([
+    Hive.openBox('mybox'),
+    Hive.openBox<User>('user'),
+    Hive.openBox<Setting>('setting'),
+  ]);
 
   await Firebase.initializeApp();
   // hive box
@@ -60,7 +63,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       initialBinding: SettingBinding(),
       title: AppStrings.appName,
-      initialRoute: AppRoutes.homepage,
+      initialRoute: AppRoutes.splash,
       locale: LocalizationService.locale,
       fallbackLocale: LocalizationService.fallbackLocale,
       translations: LocalizationService(),

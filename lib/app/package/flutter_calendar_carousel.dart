@@ -340,8 +340,8 @@ class _CalendarState<T extends EventInterface>
             headerMargin: widget.headerMargin,
             headerTitle: headerText ??
                 (widget.weekFormat
-                    ? _localeDate.format(_weeks[_pageNum].first)
-                    : _localeDate.format(_dates[_pageNum])),
+                    ? _localeDate.format(this._weeks[this._pageNum].first)
+                    : _localeDate.format(this._dates[this._pageNum])),
             headerTextStyle: widget.headerTextStyle,
             showHeaderButtons: widget.showHeaderButton,
             headerIconColor: widget.iconColor,
@@ -393,8 +393,7 @@ class _CalendarState<T extends EventInterface>
           Expanded(
               child: Container(
             child: PageView.builder(
-              itemCount:
-                  widget.weekFormat ? _weeks.length : _dates.length,
+              itemCount: widget.weekFormat ? _weeks.length : _dates.length,
               physics: widget.isScrollable
                   ? widget.pageScrollPhysics
                   : const NeverScrollableScrollPhysics(),
@@ -931,8 +930,7 @@ class _CalendarState<T extends EventInterface>
       date.add(DateTime(minDate.year, minDate.month + cnt, 1));
       if (0 ==
           date.last
-              .difference(
-                  DateTime(_targetDate.year, _targetDate.month))
+              .difference(DateTime(_targetDate.year, _targetDate.month))
               .inDays) {
         currentDateIndex = cnt;
       }
@@ -999,9 +997,8 @@ class _CalendarState<T extends EventInterface>
       final onCalendarChanged = widget.onCalendarChanged;
       if (onCalendarChanged != null) {
         WidgetsBinding.instance.addPostFrameCallback((_) {
-          onCalendarChanged(!widget.weekFormat
-              ? _dates[page]
-              : _weeks[page][firstDayOfWeek]);
+          onCalendarChanged(
+              !widget.weekFormat ? _dates[page] : _weeks[page][firstDayOfWeek]);
         });
       }
     }

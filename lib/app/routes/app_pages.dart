@@ -36,23 +36,12 @@ import 'package:remood/app/modules/write_diary/diary_binding.dart';
 import 'package:remood/app/modules/write_diary/screens/write_diary_screen.dart';
 import 'package:remood/app/modules/onboarding/onboarding_binding.dart';
 import 'package:remood/app/modules/onboarding/screens/onboarding_screen.dart';
-import 'package:remood/homepage.dart';
 import '/app/modules/home/home_binding.dart';
 import '../modules/home/screens/home_screen.dart';
 import '/app/routes/app_routes.dart';
 
 abstract class AppPages {
   static final List<GetPage> pages = [
-    GetPage(
-      name: AppRoutes.homepage,
-      page: () => const Homepage(),
-      bindings: [
-        HomeBinding(),
-        SplashBinding(),
-        ReadDiaryBinding(),
-        OnboardingBinding(),
-      ],
-    ),
     GetPage(
       name: AppRoutes.home,
       page: () => const HomeScreen(),
@@ -68,6 +57,7 @@ abstract class AppPages {
       page: () => const SplashScreen(),
       bindings: [
         SplashBinding(),
+        OnboardingBinding(),
       ],
     ),
     GetPage(
