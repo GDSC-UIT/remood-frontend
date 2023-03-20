@@ -20,7 +20,8 @@ class PositiveDiaryList extends StatelessWidget {
         itemBuilder: ((context, index) {
           return GestureDetector(
             onTap: (() {
-              readPositveDiary.readDiary(context, index, "Positive diary", 0);
+              readPositveDiary.readDiary(context, index, "Positive diary",
+                  readPositveDiary.positiveDiaryList[index], 0);
             }),
             child: Slidable(
               endActionPane:

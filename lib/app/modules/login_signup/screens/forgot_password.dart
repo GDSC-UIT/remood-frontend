@@ -5,7 +5,7 @@ import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/modules/login_signup/login_controller.dart';
 import 'package:remood/app/modules/login_signup/widgets/account_question.dart';
 import 'package:remood/app/modules/login_signup/widgets/action_bar.dart';
-import 'package:remood/app/modules/login_signup/widgets/my_textfield.dart';
+import 'package:remood/app/global_widgets/my_textfield.dart';
 import 'package:remood/app/modules/login_signup/widgets/slogan.dart';
 import 'package:remood/app/modules/login_signup/widgets/title.dart';
 import 'package:remood/app/routes/app_routes.dart';
@@ -115,12 +115,7 @@ class _ForgotPassWordState extends State<ForgotPassWord> {
                           ),
                         ),
                       ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: screenHeight * 0.0197,
-                  ),
-                ],
+                    )),
               ),
             ),
           ],

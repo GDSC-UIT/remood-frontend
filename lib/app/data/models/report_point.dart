@@ -1,65 +1,47 @@
+import 'package:hive/hive.dart';
+
 class reportPoint {
-  String? message;
-  bool? error;
-  Data? data;
+  static List<int> point = [];
+  static List<num> weight = [];
+  static DateTime checkDate = DateTime.utc(1, 1, 1970);
 
-  reportPoint({this.message, this.error, this.data});
+  int? percentage;
 
-  reportPoint.fromJson(Map<String, dynamic> json) {
-    message = json['message'];
-    error = json['error'];
-    data = json['data'] != null ? Data.fromJson(json['data']) : null;
+  DateTime? date;
+  reportPoint({this.date, this.percentage});
+
+  static void caculateFeeling(int value) {
+    num s = 0.0036 * value * value - 0.36 * value + 10;
+    weight.add(s);
+    print(point.length);
+    print(weight.length);
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['message'] = message;
-    data['error'] = error;
-    if (this.data != null) {
-      data['data'] = this.data!.toJson();
-    }
-    return data;
-  }
-}
-
-class Data {
-  DayReview? dayReview;
-
-  Data({this.dayReview});
-
-  Data.fromJson(Map<String, dynamic> json) {
-    dayReview = json['day_review'] != null
-        ? DayReview.fromJson(json['day_review'])
-        : null;
+  final _mybox = Hive.box('mybox');
+  void creatInitialList() {
+    point = [];
+    weight = [];
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    if (dayReview != null) {
-      data['day_review'] = dayReview!.toJson();
-    }
-    return data;
-  }
-}
-
-class DayReview {
-  String? userId;
-  int? date;
-  num? point;
-
-  DayReview({this.userId, this.date, this.point});
-
-  DayReview.fromJson(Map<String, dynamic> json) {
-    userId = json['user_id'];
-    date = json['date'];
-    point = json['point'];
+  void createInitialDatetime() {
+    checkDate = DateTime.utc(1, 1, 1970);
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['user_id'] = userId;
-    data['date'] = date;
-    data['point'] = point;
-    return data;
+  void loadDataList() {
+    point = _mybox.get("point")!;
+    weight = _mybox.get("weight")!.cast<num>();
+  }
+
+  void loadDataDatetime() {
+    checkDate = _mybox.get("checkdate")!;
+  }
+
+  void updateDatabaseList() {
+    _mybox.put("point", point);
+    _mybox.put("weight", weight);
+  }
+
+  void updateDatabaseDatetime() {
+    _mybox.put("checkdate", checkDate);
   }
 }

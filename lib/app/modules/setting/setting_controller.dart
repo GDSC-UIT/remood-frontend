@@ -22,10 +22,8 @@ import 'package:remood/app/data/services/setting_service.dart';
 import 'package:remood/app/routes/app_routes.dart';
 
 class SettingController extends GetxController {
-  // Hive box (Store data locally)
-  final _userBox = Hive.box<User>('user');
-  final _settingBox = Hive.box<Setting>('setting');
-  final _myBox = Hive.box<List>('mybox');
+  // hive box pindiary
+  final _mybox = Hive.box('mybox');
   PinnedDiary hiveBoxPinned = PinnedDiary();
   ListTopic hiveBoxTopic = ListTopic();
   UserBox hiveUser = UserBox();
@@ -40,22 +38,12 @@ class SettingController extends GetxController {
   void onInit() {
     /// Create initial data if this is the first-time open
     /// or load data if this is not the first time.
-    if (_myBox.get("topic") == null) {
+    if (_mybox.get("topic") == null) {
       hiveBoxTopic.createInitialData();
     } else {
       hiveBoxTopic.loadData();
     }
-    if (_userBox.get("user") == null) {
-      hiveUser.createInitialData();
-    } else {
-      hiveUser.loadData();
-    }
-    if (_settingBox.get("setting") == null) {
-      hiveSetting.createInitialData();
-    } else {
-      hiveSetting.loadData();
-    }
-    if (_myBox.get("pinneddiary") == null) {
+    if (_mybox.get("pinneddiary") == null) {
       hiveBoxPinned.createInitialData();
     } else {
       hiveBoxPinned.loadData();

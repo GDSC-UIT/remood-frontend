@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
+import 'package:remood/app/data/models/diary.dart';
 import 'package:intl/intl.dart';
 import 'package:remood/app/modules/read_diary/read_diary_controller.dart';
 import 'dart:io';
 
 class SheetReadDiary extends StatelessWidget {
-  String tag;
   int id;
+  String tag;
+  Diary diary;
   SheetReadDiary({
     super.key,
     required this.tag,
+    required this.diary,
     required this.id,
   });
 
@@ -39,30 +42,11 @@ class SheetReadDiary extends StatelessWidget {
               children: [
                 // Icon
                 Icon(
-                  // IconData(
-                  //   id == 0
-                  //       ? readDiaryController
-                  //           .positiveDiaryList[
-                  //               readDiaryController.currentDiary.value]
-                  //           .icon
-                  //       : readDiaryController
-                  //           .negativeDiaryList[
-                  //               readDiaryController.currentDiary.value]
-                  //           .icon,
-                  //   fontFamily: 'MaterialIcons',
-                  // ),
-                  Icons.abc,
-                  color: id == 0
-                      ? Color(readDiaryController
-                              .positiveDiaryList[
-                                  readDiaryController.currentDiary.value]
-                              .diaryColor)
-                          .withOpacity(1)
-                      : Color(readDiaryController
-                              .negativeDiaryList[
-                                  readDiaryController.currentDiary.value]
-                              .diaryColor)
-                          .withOpacity(1),
+                  IconData(
+                    diary.icon,
+                    fontFamily: 'MaterialIcons',
+                  ),
+                  color: Color(diary.diaryColor).withOpacity(1),
                   size: 30,
                 ),
                 const SizedBox(
@@ -70,15 +54,7 @@ class SheetReadDiary extends StatelessWidget {
                 ),
                 // date
                 Text(
-                  DateFormat('dd/MM/yyyy').format(id == 0
-                      ? readDiaryController
-                          .positiveDiaryList[
-                              readDiaryController.currentDiary.value]
-                          .date
-                      : readDiaryController
-                          .negativeDiaryList[
-                              readDiaryController.currentDiary.value]
-                          .date),
+                  DateFormat('dd/MM/yyyy').format(diary.date),
                   style: const TextStyle(
                       fontWeight: FontWeight.w600, fontSize: 20),
                 ),
@@ -106,23 +82,11 @@ class SheetReadDiary extends StatelessWidget {
                 // edit
                 IconButton(
                     onPressed: () {
-                      id == 0
-                          ? readDiaryController.editPositiveDiary()
-                          : readDiaryController.editNegativeDiary();
+                      readDiaryController.editDiary(diary);
                     },
                     icon: Icon(
                       Icons.edit,
-                      color: id == 0
-                          ? Color(readDiaryController
-                                  .positiveDiaryList[
-                                      readDiaryController.currentDiary.value]
-                                  .diaryColor)
-                              .withOpacity(1)
-                          : Color(readDiaryController
-                                  .negativeDiaryList[
-                                      readDiaryController.currentDiary.value]
-                                  .diaryColor)
-                              .withOpacity(1),
+                      color: Color(diary.diaryColor).withOpacity(1),
                       size: 30,
                     ))
               ],
@@ -145,46 +109,21 @@ class SheetReadDiary extends StatelessWidget {
           ),
 // image
           Container(
-            width: screenWidth * 0.771,
-            height: screenHeight * 0.232,
-            decoration: BoxDecoration(
-              color: AppColors.primary42,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: id == 0
-                ? readDiaryController
-                            .positiveDiaryList[
-                                readDiaryController.currentDiary.value]
-                            .image !=
-                        null
-                    ? Image.file(File(readDiaryController
-                        .positiveDiaryList[
-                            readDiaryController.currentDiary.value]
-                        .image!))
-                    : const Center(
-                        child: Icon(
-                          Icons.camera_alt,
-                          color: AppColors.darkgrey,
-                          size: 40,
-                        ),
-                      )
-                : readDiaryController
-                            .negativeDiaryList[
-                                readDiaryController.currentDiary.value]
-                            .image !=
-                        null
-                    ? Image.file(File(readDiaryController
-                        .negativeDiaryList[
-                            readDiaryController.currentDiary.value]
-                        .image!))
-                    : const Center(
-                        child: Icon(
-                          Icons.camera_alt,
-                          color: AppColors.darkgrey,
-                          size: 40,
-                        ),
+              width: screenWidth * 0.771,
+              height: screenHeight * 0.232,
+              decoration: BoxDecoration(
+                color: AppColors.primary42,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: diary.image != null
+                  ? Image.file(File(diary.image!))
+                  : const Center(
+                      child: Icon(
+                        Icons.camera_alt,
+                        color: AppColors.darkgrey,
+                        size: 40,
                       ),
-          ),
+                    )),
           // diary
           const SizedBox(
             height: 19,
@@ -194,13 +133,7 @@ class SheetReadDiary extends StatelessWidget {
             height: screenHeight * 0.34,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
-              color: Color(id == 0
-                  ? readDiaryController
-                      .positiveDiaryList[readDiaryController.currentDiary.value]
-                      .diaryColor
-                  : readDiaryController
-                      .negativeDiaryList[readDiaryController.currentDiary.value]
-                      .diaryColor),
+              color: Color(diary.diaryColor),
             ),
             child: Padding(
               padding: const EdgeInsets.all(15),

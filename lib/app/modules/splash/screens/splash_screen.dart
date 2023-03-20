@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/data/services/media_query_service.dart';
@@ -17,15 +18,19 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   final SplashController controller = Get.find();
 
+  late Future _boxLoadFuture;
   @override
   void initState() {
     super.initState();
-    Timer(
-      const Duration(seconds: 2),
-      () async => Get.offAndToNamed(await controller.isFirstOnboard() == true
-          ? AppRoutes.onboarding
-          : AppRoutes.loginScreen),
-    );
+    // Timer(
+    //   const Duration(seconds: 2),
+    //   () async => Get.offAndToNamed(await controller.isFirstOnboard() == true
+    //       ? AppRoutes.onboarding
+    //       : AppRoutes.loginScreen
+    //       ),
+    Timer(const Duration(seconds: 2), () {});
+
+    _boxLoadFuture = Future.wait([Hive.openBox('mybox')]);
   }
 
   @override

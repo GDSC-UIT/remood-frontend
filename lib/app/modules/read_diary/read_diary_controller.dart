@@ -10,12 +10,13 @@ import 'package:remood/app/modules/read_diary/widgets/bottom_sheet_search_diary.
 
 class ReadDiaryController extends GetxController {
 // hive box
-  final _mybox = Hive.box<List>('mybox');
+  final _mybox = Hive.box('mybox');
   RxList<Diary> positiveDiaryList = <Diary>[].obs;
   RxList<Diary> negativeDiaryList = <Diary>[].obs;
   ListNegativeDiary hiveBoxNegative = ListNegativeDiary();
   ListPositveDiary hiveBoxPositive = ListPositveDiary();
   PinnedDiary hiveBoxPinned = PinnedDiary();
+
   @override
   void onInit() {
     if (_mybox.get("positivediary") == null) {
@@ -36,7 +37,7 @@ class ReadDiaryController extends GetxController {
 
 // read diary
   RxInt currentDiary = 0.obs;
-  void readDiary(context, index, String tag, int id) {
+  void readDiary(context, index, String tag, Diary diary, int id) {
     currentDiary.value = index;
     showModalBottomSheet(
       shape: RoundedRectangleBorder(
@@ -52,6 +53,7 @@ class ReadDiaryController extends GetxController {
           child: SingleChildScrollView(
             child: SheetReadDiary(
               tag: tag,
+              diary: diary,
               id: id,
             ),
           ),
@@ -147,16 +149,9 @@ class ReadDiaryController extends GetxController {
 // edit diary
   RxBool isPressed = false.obs;
   TextEditingController editingController = TextEditingController();
-  void editPositiveDiary() {
+  void editDiary(Diary diary) {
     isPressed.value = !isPressed.value;
-    editingController.text =
-        ListPositveDiary.listPositiveDiary[currentDiary.value].diary;
-  }
-
-  void editNegativeDiary() {
-    isPressed.value = !isPressed.value;
-    editingController.text =
-        ListNegativeDiary.listNegativeDiary[currentDiary.value].diary;
+    editingController.text = diary.diary;
   }
 
 // save edit task

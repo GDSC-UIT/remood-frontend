@@ -8,6 +8,7 @@ import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/modules/setting/screens/security_pin_lock_screen.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/modules/setting/widgets/stack_setting_appbar.dart';
+import 'package:remood/app/routes/app_routes.dart';
 
 class SecurityScreen extends StatelessWidget {
   const SecurityScreen({super.key});
@@ -45,6 +46,27 @@ class SecurityScreen extends StatelessWidget {
                   trailing: Image.asset(Assets.arrowRight),
                   title: Text(
                     'PIN lock',
+                    style: CustomTextStyle.normalText(Colors.black),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: GestureDetector(
+                onTap: () {
+                  log("Change password");
+                  Get.toNamed(AppRoutes.changePassword);
+                },
+                child: ListTile(
+                  leading: SizedBox(
+                      width: 24, height: 24, child: Image.asset(Assets.lock)),
+                  trailing: Image.asset(Assets.arrowRight),
+                  title: Text(
+                    'Change password',
                     style: CustomTextStyle.normalText(Colors.black),
                   ),
                 ),

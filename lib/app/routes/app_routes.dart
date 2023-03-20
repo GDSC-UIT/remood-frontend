@@ -1,4 +1,5 @@
 abstract class AppRoutes {
+  static const homepage = '/';
   static const home = '/home';
   static const auth = '/auth';
   static const splash = '/splash';
@@ -27,6 +28,7 @@ abstract class AppRoutes {
   static const manageTopics = '$setting/manageTopics';
   static const pinnedDiaries = '$setting/pinnedDiaries';
   static const security = '$setting/security';
+  static const changePassword = '$security/changepassword';
   static const contactUs = '$setting/contactUs';
   static const faq = '$setting/faq';
   static const feedback = '$setting/feedback';

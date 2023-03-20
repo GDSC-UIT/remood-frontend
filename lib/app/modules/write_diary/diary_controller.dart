@@ -13,7 +13,7 @@ import 'dart:io';
 
 class DiaryController extends GetxController {
 // hive box
-  final _mybox = Hive.box<List>('mybox');
+  final _mybox = Hive.box('mybox');
   ListNegativeDiary hiveBoxNegative = ListNegativeDiary();
   ListPositveDiary hiveBoxPositive = ListPositveDiary();
   RxList<CardTopic> listTopic = <CardTopic>[].obs;
@@ -58,7 +58,7 @@ class DiaryController extends GetxController {
 // add diary
   Rx<IconData> iconTopic = Icons.work.obs;
   Rx<Color> colorDiary = AppColors.lightGreen18.obs;
-  Rx<String> titleDiary = "".obs;
+  Rx<String> titleDiary = "Work".obs;
   TextEditingController diaryNote = TextEditingController();
   File? image;
   late DateTime addDate;
