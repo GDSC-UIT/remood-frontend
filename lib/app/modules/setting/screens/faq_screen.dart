@@ -22,29 +22,19 @@ class FAQScreen extends StatelessWidget {
     // FAQs data
     List<FAQ> faqList = [
       FAQ(
-          question: "Security",
+          question: "How do I use Freshmood feature? ",
           answer:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum sapien sodales mi sagittis hendrerit. Curabitur ut lectus nec orci cursus rhoncus. ",
+              "To use this feature, you can drag the mood bar, then click on the small icon to navigate to the next page",
           isRead: false.obs),
       FAQ(
-          question: "Security",
+          question: "I’m not getting my reminder\nnotifications",
           answer:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum sapien sodales mi sagittis hendrerit. Curabitur ut lectus nec orci cursus rhoncus. ",
+              "If you choose ‘do not allow’ during the initial notification setting, your reminders may fail to deliver. Please go to [Settings > Notification > Remood] on your phone settings and allow access.",
           isRead: false.obs),
       FAQ(
-          question: "Security",
+          question: "Other",
           answer:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum sapien sodales mi sagittis hendrerit. Curabitur ut lectus nec orci cursus rhoncus. ",
-          isRead: false.obs),
-      FAQ(
-          question: "Security",
-          answer:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum sapien sodales mi sagittis hendrerit. Curabitur ut lectus nec orci cursus rhoncus. ",
-          isRead: false.obs),
-      FAQ(
-          question: "Security",
-          answer:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum sapien sodales mi sagittis hendrerit. Curabitur ut lectus nec orci cursus rhoncus. ",
+              "If you could not find the answer to your question, please send an email to [thuyhienphanthi2004@gmail.com]. We'll do our best to respond to your message as soon as possible.",
           isRead: false.obs),
     ];
 
@@ -62,7 +52,7 @@ class FAQScreen extends StatelessWidget {
             StackSettingAppbar(
               title: appBarTitle,
             ),
-
+            const SizedBox(height: 13),
 // FAQs
             Expanded(
               child: ListView(
@@ -72,7 +62,7 @@ class FAQScreen extends StatelessWidget {
                     return Obx(
                       () => Padding(
                         padding: EdgeInsets.symmetric(
-                            horizontal: screenWidth * 0.064),
+                            horizontal: screenWidth * 0.064, vertical: 5),
                         child: Column(
                           children: [
                             // Question
@@ -80,25 +70,38 @@ class FAQScreen extends StatelessWidget {
                               onTap: () => showAnswer(index),
                               behavior: HitTestBehavior.opaque,
                               child: Container(
-                                padding:
-                                    EdgeInsets.fromLTRB(px24w, px24h, px24w, 0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    // Label
-                                    Text(
-                                      faqList[index].question,
-                                      style: CustomTextStyle.h3(
-                                        Colors.black,
-                                      ).copyWith(fontSize: 14),
-                                    ),
+                                decoration: BoxDecoration(
+                                    color: AppColors.faqAnswer,
+                                    borderRadius: faqList[index].isRead.value
+                                        ? const BorderRadius.only(
+                                            topLeft: Radius.circular(10),
+                                            topRight: Radius.circular(10),
+                                          )
+                                        : BorderRadius.circular(10)),
+                                // padding:
+                                //     EdgeInsets.fromLTRB(px24w, px24h, px24w, 0),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 12, horizontal: 11),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      // Label
+                                      Text(
+                                        faqList[index].question,
+                                        style: CustomTextStyle.h3(
+                                          Colors.black,
+                                        ).copyWith(fontSize: 14),
+                                      ),
 
-                                    // Arrow-right icon
-                                    !faqList[index].isRead.value
-                                        ? const Icon(Icons.keyboard_arrow_down)
-                                        : const Icon(Icons.keyboard_arrow_up),
-                                  ],
+                                      // Arrow-right icon
+                                      !faqList[index].isRead.value
+                                          ? const Icon(
+                                              Icons.keyboard_arrow_down)
+                                          : const Icon(Icons.keyboard_arrow_up),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -106,20 +109,21 @@ class FAQScreen extends StatelessWidget {
                             // Ansqer
                             faqList[index].isRead.value
                                 ? Container(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: px24w,
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 11,
                                     ),
-                                    child: Column(
-                                      children: [
-                                        SizedBox(
-                                          height: px16h,
-                                        ),
-                                        Text(
-                                          faqList[index].answer,
-                                          style: CustomTextStyle.normalText(
-                                              AppColors.settingFaqAnswer),
-                                        ),
-                                      ],
+                                    decoration: const BoxDecoration(
+                                        color: AppColors.faqAnswer,
+                                        borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(10),
+                                            bottomRight: Radius.circular(10))),
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(bottom: 15),
+                                      child: Text(
+                                        faqList[index].answer,
+                                        style: CustomTextStyle.normalText(
+                                            AppColors.settingFaqAnswer),
+                                      ),
                                     ),
                                   )
                                 : const SizedBox(),

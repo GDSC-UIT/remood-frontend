@@ -24,6 +24,7 @@ class CustomTextStyle extends TextStyle {
       fontSize: 25,
       fontWeight: FontWeight.w600,
       color: color,
+      height: 2,
     );
   }
 

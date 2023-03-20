@@ -147,11 +147,11 @@ class SettingController extends GetxController {
       label: "Pinned diaries",
       screen: AppRoutes.pinnedDiaries,
     ),
-    SettingButton(
-      icon: Assets.password,
-      label: "Security",
-      screen: AppRoutes.security,
-    ),
+    // SettingButton(
+    //   icon: Assets.password,
+    //   label: "Security",
+    //   screen: AppRoutes.security,
+    // ),
   ];
 
   List<SettingButton> helpList = [

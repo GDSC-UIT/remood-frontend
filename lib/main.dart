@@ -34,6 +34,9 @@ void main() async {
   ]);
 
   await Firebase.initializeApp();
+  // hive box
+  await Hive.openBox<User>('user');
+  await Hive.openBox<Setting>('setting');
 
   /// Initialize local notification plugin
   NotificationService().initNotification();

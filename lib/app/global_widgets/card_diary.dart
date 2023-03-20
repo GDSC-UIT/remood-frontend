@@ -34,11 +34,10 @@ class DiaryCard extends StatelessWidget {
             Row(
               children: [
                 Icon(
-                  // IconData(
-                  //   diary.icon,
-                  //   fontFamily: 'MaterialIcons',
-                  // ),
-                  Icons.abc,
+                  IconData(
+                    diary.icon,
+                    fontFamily: 'MaterialIcons',
+                  ),
                   color: Color(diary.diaryColor).withOpacity(1),
                 ),
                 const SizedBox(
@@ -55,7 +54,7 @@ class DiaryCard extends StatelessWidget {
                       onTap: () {
                         controller.setPinMark(diary);
                       },
-                      child: controller.isPinPressed.value == false
+                      child: diary.isPinned == false
                           ? Image.asset(Assets.pinnedDiary)
                           : Image.asset(Assets.isPinnedDiary),
                     );
