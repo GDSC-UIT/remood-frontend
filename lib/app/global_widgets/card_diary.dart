@@ -54,7 +54,7 @@ class DiaryCard extends StatelessWidget {
                       onTap: () {
                         controller.setPinMark(diary);
                       },
-                      child: controller.isPinPressed.value == false
+                      child: diary.isPinned == false
                           ? Image.asset(Assets.pinnedDiary)
                           : Image.asset(Assets.isPinnedDiary),
                     );
