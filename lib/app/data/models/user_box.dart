@@ -8,7 +8,7 @@ class UserBox {
     avtURL: Assets.settingUserAvt1,
   );
 
-  final _mybox = Hive.box<User>('user');
+  final _mybox = Hive.box('mybox');
   void createInitialData() {
     user = User(
       name: "cute pie",

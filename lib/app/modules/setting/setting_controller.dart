@@ -24,13 +24,10 @@ import 'package:remood/app/routes/app_routes.dart';
 class SettingController extends GetxController {
   // hive box pindiary
   final _mybox = Hive.box('mybox');
-  final _userbox = Hive.box<User>('user');
-  final _settingbox = Hive.box<Setting>('setting');
   PinnedDiary hiveBoxPinned = PinnedDiary();
   ListTopic hiveBoxTopic = ListTopic();
   UserBox hiveUser = UserBox();
   SettingBox hiveSetting = SettingBox();
-  RxList<CardTopic> listTopic = <CardTopic>[].obs;
   Rx<User> user = User(
     name: "Untitle",
     avtURL: Assets.settingUserAvt1,
@@ -59,19 +56,19 @@ class SettingController extends GetxController {
     } else {
       hiveBoxPinned.loadData();
     }
-    if (_userbox.get("user") == null) {
+    if (_mybox.get("user") == null) {
       hiveUser.createInitialData();
     } else {
-      hiveBoxTopic.loadData();
+      hiveUser.loadData();
     }
-    if (_settingbox.get("setting") == null) {
+    if (_mybox.get("setting") == null) {
       hiveSetting.createInitialData();
     } else {
-      hiveBoxPinned.loadData();
+      hiveSetting.loadData();
     }
 
     // Observe data
-    listTopic = ListTopic.topics;
+
     user = UserBox.user.obs;
     setting = SettingBox.setting.obs;
 
@@ -263,7 +260,6 @@ class SettingController extends GetxController {
 
   void deleteTopic() {
     hiveBoxTopic.deleteTopic(currentTopic.value);
-    log(listTopic.toString());
   }
 
   // First day of the week

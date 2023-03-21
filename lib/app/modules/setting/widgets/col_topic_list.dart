@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/assets_images.dart';
+import 'package:remood/app/data/models/list_topic.dart';
 import 'package:remood/app/data/models/topic.dart';
 import 'package:remood/app/modules/setting/setting_controller.dart';
 import 'package:remood/app/modules/setting/widgets/col_topic_avt.dart';
@@ -10,9 +11,7 @@ import 'package:remood/app/routes/app_routes.dart';
 class ColTopicList extends StatelessWidget {
   const ColTopicList({
     Key? key,
-    required this.list,
   }) : super(key: key);
-  final RxList<CardTopic> list;
 
   @override
   Widget build(BuildContext context) {
@@ -22,16 +21,16 @@ class ColTopicList extends StatelessWidget {
     return Obx(
       () => Column(
         children: List.generate(
-          list.length,
+          ListTopic.topics.length,
           (index) => GestureDetector(
             onTap: () {
-              log(list[index].title);
+              log(ListTopic.topics[index].title);
 
               // Gán thứ tự topic được chọn
-              settingController.currentTopic(list[index]);
+              settingController.currentTopic(ListTopic.topics[index]);
               settingController.currentTopicIndex(index);
 
-              log(list[index].icons.toString());
+              log(ListTopic.topics[index].icons.toString());
 
               // Chuyển đến trang "Cài đặt topic"
               Get.toNamed(AppRoutes.topicDetail);
@@ -41,7 +40,7 @@ class ColTopicList extends StatelessWidget {
                 return ListTile(
                   // Topic icon
                   leading: TopicAvatar(
-                    topic: list[index],
+                    topic: ListTopic.topics[index],
                     index: index,
                     currentIndex: index.obs,
                   ),
@@ -51,7 +50,7 @@ class ColTopicList extends StatelessWidget {
 
                   // Topic label
                   title: Text(
-                    list[index].title,
+                    ListTopic.topics[index].title,
                     style: topicLabelStyle,
                   ),
                 );

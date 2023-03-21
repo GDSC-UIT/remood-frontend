@@ -10,7 +10,9 @@ class PinnedDiary {
   }
 
   void loadData() {
-    listPinnedDiary.value = _mybox.get("pinneddiary")!.cast<Diary>();
+    listPinnedDiary.value = _mybox.get("pinneddiary") == null
+        ? []
+        : _mybox.get("pinneddiary")!.cast<Diary>();
   }
 
   void updateDatabase() {

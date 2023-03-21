@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
@@ -16,7 +15,6 @@ class DiaryController extends GetxController {
   final _mybox = Hive.box('mybox');
   ListNegativeDiary hiveBoxNegative = ListNegativeDiary();
   ListPositveDiary hiveBoxPositive = ListPositveDiary();
-  RxList<CardTopic> listTopic = <CardTopic>[].obs;
   ListTopic hiveBoxTopic = ListTopic();
   @override
   void onInit() {
@@ -25,7 +23,6 @@ class DiaryController extends GetxController {
     } else {
       hiveBoxTopic.loadData();
     }
-    listTopic.value = ListTopic.topics;
     super.onInit();
   }
 
@@ -106,7 +103,7 @@ class DiaryController extends GetxController {
       TopicColor: colorTopic.value.value,
       icons: addtopicIcon.value.codePoint,
     );
-    listTopic.add(newTopic);
+    ListTopic.topics.add(newTopic);
     hiveBoxTopic.updateDatabase();
   }
 }

@@ -10,7 +10,6 @@ class StackTopic extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ListTopic ListTopics = ListTopic();
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     DiaryController topicController = Get.find();
@@ -59,7 +58,7 @@ class StackTopic extends StatelessWidget {
                                   ListTopic.topics[index].title;
                             },
                             child: TopicCard(
-                              topic: topicController.listTopic[index],
+                              topic: ListTopic.topics[index],
                               index: index,
                               currentIndex: topicController.currentTopic,
                             ),
@@ -67,7 +66,7 @@ class StackTopic extends StatelessWidget {
                       separatorBuilder: ((context, index) => SizedBox(
                             width: screenWidth * 0.024,
                           )),
-                      itemCount: topicController.listTopic.length,
+                      itemCount: ListTopic.topics.length,
                     ),
                   ),
                 ),

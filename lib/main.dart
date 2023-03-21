@@ -29,15 +29,10 @@ void main() async {
 
   Future.wait([
     Hive.openBox('mybox'),
-    Hive.openBox<User>('user'),
-    Hive.openBox<Setting>('setting'),
   ]);
 
   await Firebase.initializeApp();
   // hive box
-  await Hive.openBox<User>('user');
-  await Hive.openBox<Setting>('setting');
-
   /// Initialize local notification plugin
   NotificationService().initNotification();
 

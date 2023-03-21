@@ -12,7 +12,7 @@ class SettingBox {
     isOnPINLock: false,
   );
 
-  final _mybox = Hive.box<Setting>('setting');
+  final _mybox = Hive.box('mybox');
   void createInitialData() {
     setting = Setting(
       isSundayFirstDayOfWeek: false,
