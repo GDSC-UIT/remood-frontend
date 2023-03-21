@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
@@ -51,7 +50,7 @@ class _WriteDiaryScreenState extends State<WriteDiaryScreen> {
                 trailing: IconButton(
                   onPressed: () {
                     // return homepage
-                    Get.back();
+                    Get.toNamed(AppRoutes.home);
                   },
                   icon: const Icon(Icons.close),
                 ),
@@ -85,7 +84,7 @@ class _WriteDiaryScreenState extends State<WriteDiaryScreen> {
                   onPressed: () {
                     diaryController.addDate = dateController.currentdate.value;
                     if (diaryController.diaryNote.text.isEmpty) {
-                      Get.back();
+                      Get.toNamed(AppRoutes.home);
                     } else {
                       if (diaryController.image == null) {
                         diaryController.addDiary();

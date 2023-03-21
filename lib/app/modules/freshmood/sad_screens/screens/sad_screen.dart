@@ -13,7 +13,6 @@ class SadScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ListTopic ListTopics = ListTopic();
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     HomeController changeAsset = Get.find();
@@ -149,7 +148,7 @@ class SadScreen extends StatelessWidget {
                                 changeTopic.changeTopic(index);
                               }),
                               child: TopicCard(
-                                topic: ListTopic.topics[index],
+                                topic: changeTopic.listTopic[index],
                                 index: index,
                                 currentIndex: changeTopic.currentTopic,
                               ),
@@ -157,7 +156,7 @@ class SadScreen extends StatelessWidget {
                         separatorBuilder: ((context, index) => SizedBox(
                               width: screenWidth * 0.024,
                             )),
-                        itemCount: ListTopic.topics.length,
+                        itemCount: changeTopic.listTopic.length,
                       ),
                     ),
                   ),

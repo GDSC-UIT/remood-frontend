@@ -5,6 +5,7 @@ import 'package:remood/app/data/models/diary.dart';
 import 'package:remood/app/data/models/list_negative_diary.dart';
 import 'package:remood/app/data/models/list_positive_diary.dart';
 import 'package:remood/app/data/models/list_topic.dart';
+import 'package:remood/app/data/models/topic.dart';
 import 'package:remood/app/modules/freshmood/sad_screens/widgets/bottom_sheet_read_diary_freshmood.dart';
 
 class SadController extends GetxController {
@@ -12,6 +13,7 @@ class SadController extends GetxController {
   ListTopic hiveBoxListTopic = ListTopic();
   ListNegativeDiary hiveBoxListNegative = ListNegativeDiary();
   ListPositveDiary hiveBoxListPositive = ListPositveDiary();
+  List<CardTopic> listTopic = <CardTopic>[];
   @override
   void onInit() {
     if (_mybox.get("topic") == null) {
@@ -19,6 +21,7 @@ class SadController extends GetxController {
     } else {
       hiveBoxListTopic.loadData();
     }
+    listTopic = ListTopic.topics;
     iconSelected = ListTopic.topics[0].icons;
     positiveDiaryList = ListPositveDiary.listPositiveDiary
         .where((element) =>
