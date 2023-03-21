@@ -71,7 +71,7 @@ class SettingController extends GetxController {
     }
 
     // Observe data
-    listTopic = ListTopic.topics;
+    listTopic = ListTopic.topics.obs;
     user = UserBox.user.obs;
     setting = SettingBox.setting.obs;
 

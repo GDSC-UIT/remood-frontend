@@ -2,20 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/topic.dart';
+import 'package:remood/app/modules/write_diary/diary_controller.dart';
 
 class TopicCard extends StatelessWidget {
-  CardTopic topic;
-  int index;
-  RxInt currentIndex;
-  TopicCard({
+  final CardTopic topic;
+  final int index;
+  // RxInt currentIndex;
+  const TopicCard({
     super.key,
     required this.topic,
     required this.index,
-    required this.currentIndex,
+    // required this.currentIndex,
   });
 
   @override
   Widget build(BuildContext context) {
+    final RxInt currentIndex = Get.find<DiaryController>().currentTopic;
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return SizedBox(

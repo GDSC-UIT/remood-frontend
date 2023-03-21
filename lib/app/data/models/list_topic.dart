@@ -5,13 +5,13 @@ import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/topic.dart';
 
 class ListTopic {
-  static RxList<CardTopic> topics = [
+  static List<CardTopic> topics = [
     CardTopic(
       title: "Work",
       TopicColor: AppColors.lightGreen18.value,
       icons: Icons.work.codePoint,
     ),
-  ].obs;
+  ];
   final _mybox = Hive.box('mybox');
   void createInitialData() {
     topics = [
@@ -40,7 +40,7 @@ class ListTopic {
   }
 
   void loadData() {
-    topics.value = _mybox.get("topic")!.cast<CardTopic>();
+    topics = _mybox.get("topic")!.cast<CardTopic>();
   }
 
   void updateDatabase() {
