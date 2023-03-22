@@ -23,7 +23,7 @@ class ManageTopicsScreen extends StatelessWidget {
 
     String titleAddButton = "Create new topic";
     TextStyle topicLabelStyle = settingController.settingLabelStyle;
-    RxList<CardTopic> listTopic = ListTopic.topics.obs;
+    // RxList<CardTopic> listTopic = ListTopic.topics.obs;
 
     return Scaffold(
       backgroundColor: AppColors.backgroundPage,
@@ -31,16 +31,14 @@ class ManageTopicsScreen extends StatelessWidget {
         child: Column(
           children: [
             const StackSettingAppbar(title: "Manage topics"),
-            const SizedBox(
-              height: 20.0,
-            ),
+            const SizedBox(height: 20.0),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: ListView(
                   children: [
 // Topic list
-                    ColTopicList(list: listTopic),
+                    const ColTopicList(),
 
 // Create-new-topic button
                     GestureDetector(

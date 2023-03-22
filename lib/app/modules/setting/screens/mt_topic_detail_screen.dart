@@ -44,7 +44,7 @@ class TopicDetailScreen extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     settingController.deleteTopic();
-                    Get.back();
+                    Get.back(result: ListTopic.topics);
                   },
                   child: Container(
                     padding: EdgeInsets.only(

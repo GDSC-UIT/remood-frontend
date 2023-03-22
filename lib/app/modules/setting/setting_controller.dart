@@ -254,6 +254,7 @@ class SettingController extends GetxController {
       icons: addtopicIcon.value.codePoint,
     );
     ListTopic.topics.add(newTopic);
+    listTopic.value = ListTopic.topics;
 
     // Reset
     titleController.clear();
@@ -264,6 +265,7 @@ class SettingController extends GetxController {
   void deleteTopic() {
     hiveBoxTopic.deleteTopic(currentTopic.value);
     log(listTopic.toString());
+    listTopic.value = ListTopic.topics;
   }
 
   // First day of the week

@@ -10,14 +10,13 @@ import 'package:remood/app/routes/app_routes.dart';
 class ColTopicList extends StatelessWidget {
   const ColTopicList({
     Key? key,
-    required this.list,
   }) : super(key: key);
-  final RxList<CardTopic> list;
 
   @override
   Widget build(BuildContext context) {
     final settingController = Get.find<SettingController>();
     TextStyle topicLabelStyle = settingController.settingLabelStyle;
+    RxList<CardTopic> list = settingController.listTopic;
 
     return Obx(
       () => Column(
@@ -35,6 +34,8 @@ class ColTopicList extends StatelessWidget {
 
               // Chuyển đến trang "Cài đặt topic"
               Get.toNamed(AppRoutes.topicDetail);
+              // var res = await Get.toNamed(AppRoutes.topicDetail);
+              // list.value = res;
             },
             child: GetBuilder<SettingController>(
               builder: (_) {

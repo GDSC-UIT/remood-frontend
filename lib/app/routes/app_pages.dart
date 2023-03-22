@@ -78,7 +78,7 @@ abstract class AppPages {
     GetPage(
       name: AppRoutes.sadfreshmood,
       page: () => const SadScreen(),
-      bindings: [SadBinding(), HomeBinding()],
+      bindings: [SadBinding(), HomeBinding(), DiaryBinding()],
     ),
     GetPage(
         name: AppRoutes.choosefreshmood,
