@@ -16,6 +16,7 @@ class DiaryController extends GetxController {
   ListNegativeDiary hiveBoxNegative = ListNegativeDiary();
   ListPositveDiary hiveBoxPositive = ListPositveDiary();
   ListTopic hiveBoxTopic = ListTopic();
+
   @override
   void onInit() {
     if (_mybox.get("topic") == null) {

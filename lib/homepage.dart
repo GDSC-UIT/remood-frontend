@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:remood/app/data/models/list_topic.dart';
 import 'package:remood/app/modules/onboarding/screens/onboarding_screen.dart';
 import 'package:remood/app/modules/splash/screens/splash_screen.dart';
 
@@ -12,11 +13,12 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   late Future _boxLoadFuture;
-
+  ListTopic hivebox = ListTopic();
   @override
   void initState() {
     super.initState();
     _boxLoadFuture = Future.wait([Hive.openBox('mybox')]);
+    hivebox.loadData();
   }
 
   @override

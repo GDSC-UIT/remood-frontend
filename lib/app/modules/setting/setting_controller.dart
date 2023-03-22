@@ -32,6 +32,7 @@ class SettingController extends GetxController {
     name: "Untitle",
     avtURL: Assets.settingUserAvt1,
   ).obs;
+  RxList<CardTopic> listTopic = <CardTopic>[].obs;
   Rx<Setting> setting = Setting(
     isSundayFirstDayOfWeek: false,
     language: 0,
