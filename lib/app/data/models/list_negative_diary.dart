@@ -5,14 +5,14 @@ import 'package:remood/app/core/values/app_colors.dart';
 
 class ListNegativeDiary {
   static List<Diary> listNegativeDiary = [];
-  final _mybox = Hive.box<List>('mybox');
+  final _mybox = Hive.box('mybox');
   void createInitialData() {
     listNegativeDiary = [
       Diary(
         diary:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum sapien sodales mi sagittis hendrerit. Curabitur ut lectus nec orci cursus rhoncus. Donec a ultrices risus. ",
         date: DateTime.now(),
-        diaryColor: AppColors.LightRed22.value,
+        diaryColor: AppColors.lightRed22.value,
         icon: Icons.work.codePoint,
         title: "Work",
       ),
@@ -20,7 +20,7 @@ class ListNegativeDiary {
         diary:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum sapien sodales mi sagittis hendrerit. Curabitur ut lectus nec orci cursus rhoncus. Donec a ultrices risus. ",
         date: DateTime.now(),
-        diaryColor: AppColors.LightRed22.value,
+        diaryColor: AppColors.lightRed22.value,
         icon: Icons.work.codePoint,
         title: "Work",
       ),

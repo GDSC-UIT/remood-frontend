@@ -1,8 +1,8 @@
 import 'dart:collection';
 import 'package:flutter/painting.dart';
 import 'package:get/get.dart';
-import '/app/core/values/languages/en_US.dart';
-import '/app/core/values/languages/vi_VN.dart';
+import '../../core/values/languages/en_us.dart';
+import '../../core/values/languages/vi_vn.dart';
 
 class LocalizationService extends Translations {
   static final locale = _getLocaleFromLanguage();
@@ -25,8 +25,8 @@ class LocalizationService extends Translations {
     'vi': 'Tiếng Việt',
   });
 
-  static void changeLocale(String _languageCode) {
-    final locale = _getLocaleFromLanguage(languageCode: _languageCode);
+  static void changeLocale(String languageCode) {
+    final locale = _getLocaleFromLanguage(languageCode: languageCode);
     Get.updateLocale(locale);
   }
 
@@ -52,5 +52,6 @@ class LocalizationService extends Translations {
     //   var defaultLanguage = json['default_language'];
     //   return defaultLanguage;
     // }
+    return null;
   }
 }

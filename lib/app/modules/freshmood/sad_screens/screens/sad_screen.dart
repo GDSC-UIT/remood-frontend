@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/data/models/list_topic.dart';
 import 'package:remood/app/global_widgets/card_topic.dart';
-import 'package:remood/app/modules/freshmood/freshmood_widgets/back_button.dart';
 import 'package:remood/app/modules/freshmood/sad_screens/sad_screen_controller.dart';
 import 'package:remood/app/modules/home/home_controller.dart';
 import 'package:remood/app/routes/app_routes.dart';
@@ -16,26 +13,53 @@ class SadScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ListTopic _ListTopics = ListTopic();
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    ListTopic ListTopics = ListTopic();
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     HomeController changeAsset = Get.find();
     SadController changeTopic = Get.find();
     return Scaffold(
-      backgroundColor: AppColors.BackgroundColor,
+      backgroundColor: AppColors.backgroundPage,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
 // back container
-          const BackButtonContainer(),
+          Padding(
+            padding: const EdgeInsets.only(top: 50, left: 22),
+            child: GestureDetector(
+              onTap: () {
+                Get.toNamed(AppRoutes.home);
+              },
+              child: Container(
+                height: 46,
+                width: 46,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: const [
+                      BoxShadow(
+                        blurRadius: 1.0,
+                        offset: Offset(1, 1),
+                      )
+                    ],
+                    borderRadius: BorderRadius.circular(10)),
+                child: const Padding(
+                  padding: EdgeInsets.only(left: 5),
+                  child: Icon(
+                    Icons.arrow_back_ios,
+                    size: 17,
+                  ),
+                ),
+              ),
+            ),
+          ),
           SizedBox(
-            height: _screenHeight * 0.18,
+            height: screenHeight * 0.18,
           ),
 // message container
           Center(
             child: Container(
-              width: _screenWidth * 0.72,
-              height: _screenHeight * 0.09,
+              width: screenWidth * 0.72,
+              height: screenHeight * 0.09,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
@@ -44,7 +68,7 @@ class SadScreen extends StatelessWidget {
                 child: Text(
                   "What made you sad today?",
                   style: TextStyle(
-                      color: AppColors.Primary,
+                      color: AppColors.primary,
                       fontWeight: FontWeight.w700,
                       fontSize: 20),
                 ),
@@ -70,7 +94,7 @@ class SadScreen extends StatelessWidget {
           ),
 // icon feelings
           Center(
-            child: Container(
+            child: SizedBox(
               width: 56,
               height: 56,
               child: FittedBox(
@@ -87,11 +111,13 @@ class SadScreen extends StatelessWidget {
 // topic container
           Center(
             child: Container(
-              width: _screenWidth * 0.84,
-              height: _screenHeight * 0.134,
+              width: screenWidth * 0.84,
+              height: screenHeight * 0.134,
               decoration: BoxDecoration(
                 color: Colors.white,
-                boxShadow: [BoxShadow(blurRadius: 1, offset: Offset(1, 1))],
+                boxShadow: const [
+                  BoxShadow(blurRadius: 1, offset: Offset(1, 1))
+                ],
                 borderRadius: BorderRadius.circular(23),
               ),
 // list topic
@@ -104,7 +130,7 @@ class SadScreen extends StatelessWidget {
                       child: const Text(
                         "Choose a topic",
                         style: TextStyle(
-                          color: AppColors.Primary,
+                          color: AppColors.primary,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -125,11 +151,11 @@ class SadScreen extends StatelessWidget {
                               child: TopicCard(
                                 topic: ListTopic.topics[index],
                                 index: index,
-                                currentIndex: changeTopic.currentTopic,
+                                // currentIndex: changeTopic.currentTopic,
                               ),
                             )),
                         separatorBuilder: ((context, index) => SizedBox(
-                              width: _screenWidth * 0.024,
+                              width: screenWidth * 0.024,
                             )),
                         itemCount: ListTopic.topics.length,
                       ),
@@ -140,28 +166,30 @@ class SadScreen extends StatelessWidget {
             ),
           ),
 // Next button
-          SizedBox(
+          const SizedBox(
             height: 22,
           ),
           Padding(
-            padding: EdgeInsets.only(left: _screenWidth * 0.67),
+            padding: EdgeInsets.only(left: screenWidth * 0.67),
             child: GestureDetector(
               onTap: () {
                 // next
                 Get.toNamed(AppRoutes.choosefreshmood);
               },
               child: Container(
-                width: _screenWidth * 0.253,
-                height: _screenHeight * 0.05,
+                width: screenWidth * 0.253,
+                height: screenHeight * 0.05,
                 decoration: BoxDecoration(
                     color: Colors.white,
-                    boxShadow: [BoxShadow(blurRadius: 1, offset: Offset(1, 1))],
+                    boxShadow: const [
+                      BoxShadow(blurRadius: 1, offset: Offset(1, 1))
+                    ],
                     borderRadius: BorderRadius.circular(23)),
                 child: const Center(
                   child: Text(
                     "Next",
                     style: TextStyle(
-                        color: AppColors.Primary,
+                        color: AppColors.primary,
                         fontSize: 16,
                         fontWeight: FontWeight.w600),
                   ),

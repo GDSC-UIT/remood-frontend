@@ -1,5 +1,3 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
@@ -10,11 +8,11 @@ class SheetSearchDiary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     ReadDiaryController searchDiary = Get.find();
     return Container(
-      height: _screenHeight * 0.82,
+      height: screenHeight * 0.82,
       decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
@@ -28,8 +26,8 @@ class SheetSearchDiary extends StatelessWidget {
 // "Diary"
           Padding(
             padding: EdgeInsets.only(
-              top: _screenHeight * 0.039,
-              left: _screenWidth * 0.064,
+              top: screenHeight * 0.039,
+              left: screenWidth * 0.064,
             ),
             child: const Text(
               "Diary",
@@ -45,7 +43,7 @@ class SheetSearchDiary extends StatelessWidget {
 // Textfield search
           Center(
             child: SizedBox(
-              width: _screenWidth * 0.872,
+              width: screenWidth * 0.872,
               child: TextField(
                 onChanged: (value) => searchDiary.searchTitleDiary(value),
                 controller: searchDiary.searchController,
@@ -53,7 +51,7 @@ class SheetSearchDiary extends StatelessWidget {
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(16),
                       borderSide: const BorderSide(
-                        color: AppColors.Greyscale,
+                        color: AppColors.greyscale,
                       ),
                     ),
                     focusedBorder: OutlineInputBorder(
@@ -62,38 +60,38 @@ class SheetSearchDiary extends StatelessWidget {
                         color: Colors.blue,
                       ),
                     ),
-                    prefixIcon: Icon(Icons.search),
+                    prefixIcon: const Icon(Icons.search),
                     hintText: "Search your Diary topic"),
-                style: TextStyle(fontSize: 20),
+                style: const TextStyle(fontSize: 20),
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 24,
           ),
 // underline
           Container(
             decoration: const BoxDecoration(
               border: Border(
-                bottom: BorderSide(color: AppColors.Greyscale),
+                bottom: BorderSide(color: AppColors.greyscale),
               ),
             ),
           ),
 // done button
           SizedBox(
-            height: _screenHeight * 0.55,
+            height: screenHeight * 0.55,
           ),
 // done button
           Center(
             child: SizedBox(
-              width: _screenWidth * 0.88,
+              width: screenWidth * 0.88,
               child: ElevatedButton(
                 onPressed: () {
                   Get.back();
                 },
                 style: ButtonStyle(
                   backgroundColor:
-                      MaterialStateProperty.all<Color>(AppColors.MainColor),
+                      MaterialStateProperty.all<Color>(AppColors.mainColor),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(13),

@@ -9,11 +9,10 @@ import 'package:remood/app/data/models/list_topic.dart';
 import 'package:remood/app/data/models/topic.dart';
 import 'package:remood/app/modules/write_diary/widgets/bottom_sheet_add_topic.dart';
 import 'dart:io';
-import 'package:flutter/animation.dart';
 
 class DiaryController extends GetxController {
 // hive box
-  final _mybox = Hive.box<List>('mybox');
+  final _mybox = Hive.box('mybox');
   ListNegativeDiary hiveBoxNegative = ListNegativeDiary();
   ListPositveDiary hiveBoxPositive = ListPositveDiary();
   RxList<CardTopic> listTopic = <CardTopic>[].obs;
@@ -57,8 +56,8 @@ class DiaryController extends GetxController {
 
 // add diary
   Rx<IconData> iconTopic = Icons.work.obs;
-  Rx<Color> colorDiary = AppColors.LightGreen18.obs;
-  Rx<String> titleDiary = "".obs;
+  Rx<Color> colorDiary = AppColors.lightGreen18.obs;
+  Rx<String> titleDiary = "Work".obs;
   TextEditingController diaryNote = TextEditingController();
   File? image;
   late DateTime addDate;
@@ -81,8 +80,8 @@ class DiaryController extends GetxController {
   }
 
 // choose color added topic
-  Rx<int> currentColorTopic = 0.obs;
-  Rx<Color> colorTopic = AppColors.LightPrimary250.obs;
+  RxInt currentColorTopic = 0.obs;
+  Rx<Color> colorTopic = AppColors.lightprimary250.obs;
   void changeColorTopic(index, Color currentColor) {
     currentColorTopic.value = index;
     colorTopic.value = currentColor;
@@ -90,10 +89,11 @@ class DiaryController extends GetxController {
 
 // choose icon added topic
   Rx<int> currentIconTopic = 0.obs;
+  int get getCurrentIconTopic => currentColorTopic.value;
   Rx<IconData> addtopicIcon = Icons.search.obs;
-  void changeIconTopic(index, IconData currentIcon) {
-    currentIconTopic.value = index;
-    addtopicIcon.value = currentIcon;
+  void changeIconTopic(int index, IconData currentIcon) {
+    currentIconTopic(index);
+    addtopicIcon(currentIcon);
   }
 
 // add topic
@@ -101,12 +101,11 @@ class DiaryController extends GetxController {
 
   void addCurrentTopic() {
     CardTopic newTopic = CardTopic(
-        title: titleController.text.trim(),
-        TopicColor: colorTopic.value.value,
-        icons: addtopicIcon.value.codePoint);
+      title: titleController.text.trim(),
+      TopicColor: colorTopic.value.value,
+      icons: addtopicIcon.value.codePoint,
+    );
     listTopic.add(newTopic);
     hiveBoxTopic.updateDatabase();
   }
-
-/*  */
 }

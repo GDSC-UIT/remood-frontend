@@ -1,13 +1,9 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/list_negative_diary.dart';
 import 'package:remood/app/data/models/list_positive_diary.dart';
 import 'package:intl/intl.dart';
-import 'package:remood/app/modules/read_diary/read_diary_controller.dart';
-import 'package:remood/app/modules/read_diary/widgets/list_positive_diary_card.dart';
 import 'dart:io';
 
 class SheetReadDiaryFreshmood extends StatelessWidget {
@@ -23,11 +19,11 @@ class SheetReadDiaryFreshmood extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _screenWidth = MediaQuery.of(context).size.width;
-    double _screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
 
     return Container(
-      height: _screenHeight * 0.82,
+      height: screenHeight * 0.82,
       decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
@@ -39,22 +35,21 @@ class SheetReadDiaryFreshmood extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.only(
-              top: _screenHeight * 0.03,
-              left: _screenWidth * 0.0453,
+              top: screenHeight * 0.03,
+              left: screenWidth * 0.0453,
             ),
             child: Row(
               children: [
 // Icon
                 Icon(
-                  id == 0
-                      ? IconData(
-                          ListPositveDiary
-                              .listPositiveDiary[currentDiary.value].icon,
-                          fontFamily: 'MaterialIcons')
-                      : IconData(
-                          ListNegativeDiary
-                              .listNegativeDiary[currentDiary.value].icon,
-                          fontFamily: 'MaterialIcons'),
+                  IconData(
+                    id == 0
+                        ? ListPositveDiary
+                            .listPositiveDiary[currentDiary.value].icon
+                        : ListNegativeDiary
+                            .listNegativeDiary[currentDiary.value].icon,
+                    fontFamily: 'MaterialIcons',
+                  ),
                   color: id == 0
                       ? Color(ListPositveDiary
                               .listPositiveDiary[currentDiary.value].diaryColor)
@@ -74,24 +69,25 @@ class SheetReadDiaryFreshmood extends StatelessWidget {
                           .listPositiveDiary[currentDiary.value].date
                       : ListNegativeDiary
                           .listNegativeDiary[currentDiary.value].date),
-                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.w600, fontSize: 20),
                 ),
                 SizedBox(
-                  width: _screenWidth * 0.115,
+                  width: screenWidth * 0.115,
                 ),
 // tag
                 Container(
-                  width: _screenWidth * 0.355,
-                  height: _screenHeight * 0.046,
+                  width: screenWidth * 0.355,
+                  height: screenHeight * 0.046,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(40),
                     border: Border.all(
-                        color: AppColors.Grey22.withOpacity(1), width: 1),
+                        color: AppColors.grey22.withOpacity(1), width: 1),
                   ),
                   child: Center(
                       child: Text(
                     tag,
-                    style: TextStyle(color: AppColors.Grey22.withOpacity(1)),
+                    style: TextStyle(color: AppColors.grey22.withOpacity(1)),
                   )),
                 )
               ],
@@ -99,12 +95,12 @@ class SheetReadDiaryFreshmood extends StatelessWidget {
           ),
 // underline
           SizedBox(
-            height: _screenHeight * 0.021,
+            height: screenHeight * 0.021,
           ),
           Container(
             decoration: const BoxDecoration(
               border: Border(
-                bottom: BorderSide(color: AppColors.Greyscale),
+                bottom: BorderSide(color: AppColors.greyscale),
               ),
             ),
           ),
@@ -113,10 +109,10 @@ class SheetReadDiaryFreshmood extends StatelessWidget {
             height: 20,
           ),
           Container(
-            width: _screenWidth * 0.771,
-            height: _screenHeight * 0.232,
+            width: screenWidth * 0.771,
+            height: screenHeight * 0.232,
             decoration: BoxDecoration(
-              color: AppColors.Primary42,
+              color: AppColors.primary42,
               borderRadius: BorderRadius.circular(10),
             ),
             child: id == 0
@@ -128,7 +124,7 @@ class SheetReadDiaryFreshmood extends StatelessWidget {
                     : const Center(
                         child: Icon(
                           Icons.camera_alt,
-                          color: AppColors.DarkGrey,
+                          color: AppColors.darkgrey,
                           size: 40,
                         ),
                       )
@@ -140,7 +136,7 @@ class SheetReadDiaryFreshmood extends StatelessWidget {
                     : const Center(
                         child: Icon(
                           Icons.camera_alt,
-                          color: AppColors.DarkGrey,
+                          color: AppColors.darkgrey,
                           size: 40,
                         ),
                       ),
@@ -150,14 +146,14 @@ class SheetReadDiaryFreshmood extends StatelessWidget {
             height: 19,
           ),
           Container(
-            width: _screenWidth * 0.848,
-            height: _screenHeight * 0.34,
+            width: screenWidth * 0.848,
+            height: screenHeight * 0.34,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
-              color: id == 0
-                  ? Color(ListPositveDiary
-                      .listPositiveDiary[currentDiary.value].diaryColor)
-                  : Color(ListNegativeDiary
+              color: Color(id == 0
+                  ? ListPositveDiary
+                      .listPositiveDiary[currentDiary.value].diaryColor
+                  : ListNegativeDiary
                       .listNegativeDiary[currentDiary.value].diaryColor),
             ),
             child: Padding(
@@ -172,7 +168,7 @@ class SheetReadDiaryFreshmood extends StatelessWidget {
                             .listNegativeDiary[currentDiary.value].diary,
                     style: const TextStyle(
                         fontWeight: FontWeight.w400,
-                        color: AppColors.TextDiaryColor,
+                        color: AppColors.textDiaryColor,
                         fontSize: 15),
                   ),
                 ),
@@ -185,14 +181,14 @@ class SheetReadDiaryFreshmood extends StatelessWidget {
             height: 20,
           ),
           SizedBox(
-            width: _screenWidth * 0.88,
+            width: screenWidth * 0.88,
             child: ElevatedButton(
               onPressed: () {
                 Get.back();
               },
               style: ButtonStyle(
                 backgroundColor:
-                    MaterialStateProperty.all<Color>(AppColors.MainColor),
+                    MaterialStateProperty.all<Color>(AppColors.mainColor),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(13),

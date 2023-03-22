@@ -1,24 +1,22 @@
 import 'package:get/get.dart';
-import 'package:flutter/foundation.dart';
-import 'package:get/get.dart';
 import 'package:hive/hive.dart';
-import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/diary.dart';
 import 'package:remood/app/data/models/list_negative_diary.dart';
+import 'package:remood/app/data/models/list_pinned_diary.dart';
 import 'package:remood/app/data/models/list_positive_diary.dart';
-import 'package:remood/app/modules/read_diary/screens/read_diary_screen.dart';
 import 'package:remood/app/modules/read_diary/widgets/bottom_sheet_read_diary.dart';
 import 'package:flutter/material.dart';
 import 'package:remood/app/modules/read_diary/widgets/bottom_sheet_search_diary.dart';
-import 'package:remood/app/routes/app_routes.dart';
 
 class ReadDiaryController extends GetxController {
 // hive box
-  final _mybox = Hive.box<List>('mybox');
+  final _mybox = Hive.box('mybox');
   RxList<Diary> positiveDiaryList = <Diary>[].obs;
   RxList<Diary> negativeDiaryList = <Diary>[].obs;
   ListNegativeDiary hiveBoxNegative = ListNegativeDiary();
   ListPositveDiary hiveBoxPositive = ListPositveDiary();
+  PinnedDiary hiveBoxPinned = PinnedDiary();
+
   @override
   void onInit() {
     if (_mybox.get("positivediary") == null) {
@@ -39,7 +37,7 @@ class ReadDiaryController extends GetxController {
 
 // read diary
   RxInt currentDiary = 0.obs;
-  void readDiary(context, index, String tag, int id) {
+  void readDiary(context, index, String tag, Diary diary, int id) {
     currentDiary.value = index;
     showModalBottomSheet(
       shape: RoundedRectangleBorder(
@@ -55,6 +53,7 @@ class ReadDiaryController extends GetxController {
           child: SingleChildScrollView(
             child: SheetReadDiary(
               tag: tag,
+              diary: diary,
               id: id,
             ),
           ),
@@ -142,19 +141,17 @@ class ReadDiaryController extends GetxController {
     hiveBoxNegative.updateDatabase();
   }
 
+  void deletePinnedDiary(index, diary) {
+    PinnedDiary.listPinnedDiary.remove(diary);
+    hiveBoxPinned.updateDatabase();
+  }
+
 // edit diary
   RxBool isPressed = false.obs;
   TextEditingController editingController = TextEditingController();
-  void editPositiveDiary() {
+  void editDiary(Diary diary) {
     isPressed.value = !isPressed.value;
-    editingController.text =
-        ListPositveDiary.listPositiveDiary[currentDiary.value].diary;
-  }
-
-  void editNegativeDiary() {
-    isPressed.value = !isPressed.value;
-    editingController.text =
-        ListNegativeDiary.listNegativeDiary[currentDiary.value].diary;
+    editingController.text = diary.diary;
   }
 
 // save edit task
@@ -168,8 +165,9 @@ class ReadDiaryController extends GetxController {
       positiveDiaryList.refresh();
       isPressed.value = false;
       Get.back();
-    } else
+    } else {
       Get.back();
+    }
   }
 
   void doneNegativePress() {
@@ -181,7 +179,28 @@ class ReadDiaryController extends GetxController {
       negativeDiaryList.refresh();
       isPressed.value = false;
       Get.back();
-    } else
+    } else {
       Get.back();
+    }
+  }
+
+  RxBool isPinPressed = false.obs;
+
+  void pressPin(Diary diary) {
+    isPinPressed(diary.isPinned == null ? false : diary.isPinned!);
+  }
+
+  void setPinMark(Diary diary) {
+    isPinPressed(!isPinPressed.value);
+    diary.isPinned = isPinPressed.value;
+    diary.isPinned == true
+        ? PinnedDiary.listPinnedDiary.add(diary)
+        : PinnedDiary.listPinnedDiary.remove(diary);
+
+    update();
+
+    hiveBoxNegative.updateDatabase();
+    hiveBoxPositive.updateDatabase();
+    hiveBoxPinned.updateDatabase();
   }
 }

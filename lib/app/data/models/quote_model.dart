@@ -6,18 +6,18 @@ class QuoteModel {
   QuoteModel({this.data, this.error, this.message});
 
   QuoteModel.fromJson(Map<String, dynamic> json) {
-    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
+    data = json['data'] != null ? Data.fromJson(json['data']) : null;
     error = json['error'];
     message = json['message'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     if (this.data != null) {
       data['data'] = this.data!.toJson();
     }
-    data['error'] = this.error;
-    data['message'] = this.message;
+    data['error'] = error;
+    data['message'] = message;
     return data;
   }
 }
@@ -31,15 +31,15 @@ class Data {
     if (json['quotes'] != null) {
       quotes = <Quotes>[];
       json['quotes'].forEach((v) {
-        quotes!.add(new Quotes.fromJson(v));
+        quotes!.add(Quotes.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.quotes != null) {
-      data['quotes'] = this.quotes!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (quotes != null) {
+      data['quotes'] = quotes!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -57,9 +57,9 @@ class Quotes {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['text'] = this.text;
-    data['author'] = this.author;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['text'] = text;
+    data['author'] = author;
     return data;
   }
 }

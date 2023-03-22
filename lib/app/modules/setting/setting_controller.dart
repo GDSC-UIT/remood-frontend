@@ -24,15 +24,17 @@ import 'package:remood/app/routes/app_routes.dart';
 class SettingController extends GetxController {
   // hive box pindiary
   final _mybox = Hive.box('mybox');
+  final _userbox = Hive.box<User>('user');
+  final _settingbox = Hive.box<Setting>('setting');
   PinnedDiary hiveBoxPinned = PinnedDiary();
   ListTopic hiveBoxTopic = ListTopic();
   UserBox hiveUser = UserBox();
   SettingBox hiveSetting = SettingBox();
+  RxList<CardTopic> listTopic = <CardTopic>[].obs;
   Rx<User> user = User(
     name: "Untitle",
     avtURL: Assets.settingUserAvt1,
   ).obs;
-  RxList<CardTopic> listTopic = <CardTopic>[].obs;
   Rx<Setting> setting = Setting(
     isSundayFirstDayOfWeek: false,
     language: 0,
@@ -57,19 +59,19 @@ class SettingController extends GetxController {
     } else {
       hiveBoxPinned.loadData();
     }
-    if (_mybox.get("user") == null) {
+    if (_userbox.get("user") == null) {
       hiveUser.createInitialData();
     } else {
-      hiveUser.loadData();
+      hiveBoxTopic.loadData();
     }
-    if (_mybox.get("setting") == null) {
+    if (_settingbox.get("setting") == null) {
       hiveSetting.createInitialData();
     } else {
-      hiveSetting.loadData();
+      hiveBoxPinned.loadData();
     }
 
     // Observe data
-
+    listTopic = ListTopic.topics.obs;
     user = UserBox.user.obs;
     setting = SettingBox.setting.obs;
 
@@ -115,11 +117,11 @@ class SettingController extends GetxController {
   var settingLabelStyle = CustomTextStyle.normalText(Colors.black);
 
   List<SettingButton> settingList = [
-    SettingButton(
-      icon: Assets.calendar,
-      label: "Start of the week",
-      screen: AppRoutes.starOfTheWeek,
-    ),
+    // SettingButton(
+    //   icon: Assets.calendar,
+    //   label: "Start of the week",
+    //   screen: AppRoutes.starOfTheWeek,
+    // ),
     SettingButton(
       icon: Assets.language,
       label: "Language",
@@ -252,6 +254,7 @@ class SettingController extends GetxController {
       icons: addtopicIcon.value.codePoint,
     );
     ListTopic.topics.add(newTopic);
+    listTopic.value = ListTopic.topics;
 
     // Reset
     titleController.clear();
@@ -261,6 +264,8 @@ class SettingController extends GetxController {
 
   void deleteTopic() {
     hiveBoxTopic.deleteTopic(currentTopic.value);
+    log(listTopic.toString());
+    listTopic.value = ListTopic.topics;
   }
 
   // First day of the week
@@ -310,8 +315,8 @@ class SettingController extends GetxController {
   // Languages list
   var lanList = [
     Language(label: "English", actived: false.obs),
-    Language(label: "Tiếng Việt", actived: false.obs),
-    Language(label: "日本語", actived: false.obs),
+    // Language(label: "Tiếng Việt", actived: false.obs),
+    // Language(label: "日本語", actived: false.obs),
   ];
 
   // Language label style (selected)
