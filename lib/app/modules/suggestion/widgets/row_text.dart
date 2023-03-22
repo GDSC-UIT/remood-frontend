@@ -19,10 +19,10 @@ class RowText extends StatelessWidget {
           style: CustomTextStyle.suggestionBlogsText(),
         ),
         const Spacer(),
-        Text(
-          "View all",
-          style: CustomTextStyle.suggestionViewAllText(),
-        ),
+        // Text(
+        //   "View all",
+        //   style: CustomTextStyle.suggestionViewAllText(),
+        // ),
         SizedBox(
           width: pctWidth * 11,
         ),
