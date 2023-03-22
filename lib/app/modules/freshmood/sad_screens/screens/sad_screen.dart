@@ -141,23 +141,25 @@ class SadScreen extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(
                         horizontal: 32,
                       ),
-                      child: ListView.separated(
-                        physics: const BouncingScrollPhysics(),
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: ((context, index) => GestureDetector(
-                              onTap: (() {
-                                changeTopic.changeTopic(index);
-                              }),
-                              child: TopicCard(
-                                topic: ListTopic.topics[index],
-                                index: index,
-                                // currentIndex: changeTopic.currentTopic,
-                              ),
-                            )),
-                        separatorBuilder: ((context, index) => SizedBox(
-                              width: screenWidth * 0.024,
-                            )),
-                        itemCount: ListTopic.topics.length,
+                      child: Obx(
+                        () => ListView.separated(
+                          physics: const BouncingScrollPhysics(),
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: ((context, index) => GestureDetector(
+                                onTap: (() {
+                                  changeTopic.changeTopic(index);
+                                }),
+                                child: TopicCard(
+                                  topic: ListTopic.topics[index],
+                                  index: index,
+                                  currentIndex: changeTopic.currentTopic,
+                                ),
+                              )),
+                          separatorBuilder: ((context, index) => SizedBox(
+                                width: screenWidth * 0.024,
+                              )),
+                          itemCount: ListTopic.topics.length,
+                        ),
                       ),
                     ),
                   ),
