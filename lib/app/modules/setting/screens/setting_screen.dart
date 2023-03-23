@@ -134,6 +134,9 @@ class SettingScreen extends StatelessWidget {
                     height: 10,
                   ),
                   ColButtonList(list: settingController.helpList),
+                  const SizedBox(
+                    height: 30,
+                  ),
                 ],
               ),
             ),
