@@ -7,17 +7,17 @@ import 'package:remood/app/modules/write_diary/diary_controller.dart';
 class TopicCard extends StatelessWidget {
   final CardTopic topic;
   final int index;
-  // RxInt currentIndex;
-  const TopicCard({
+  RxInt currentIndex;
+  TopicCard({
     super.key,
     required this.topic,
     required this.index,
-    // required this.currentIndex,
+    required this.currentIndex,
   });
 
   @override
   Widget build(BuildContext context) {
-    final RxInt currentIndex = Get.find<DiaryController>().currentTopic;
+    //final RxInt currentIndex = Get.find<DiaryController>().currentTopic;
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return SizedBox(

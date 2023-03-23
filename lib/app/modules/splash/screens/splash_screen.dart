@@ -1,12 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hive/hive.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/core/values/assets_images.dart';
 import 'package:remood/app/data/services/media_query_service.dart';
-import 'package:remood/app/modules/home/screens/home_screen.dart';
-import 'package:remood/app/modules/onboarding/screens/onboarding_screen.dart';
 import 'package:remood/app/modules/splash/splash_controller.dart';
 import 'package:remood/app/routes/app_routes.dart';
 

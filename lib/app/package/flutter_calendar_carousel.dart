@@ -340,8 +340,8 @@ class _CalendarState<T extends EventInterface>
             headerMargin: widget.headerMargin,
             headerTitle: headerText ??
                 (widget.weekFormat
-                    ? _localeDate.format(this._weeks[this._pageNum].first)
-                    : _localeDate.format(this._dates[this._pageNum])),
+                    ? _localeDate.format(_weeks[_pageNum].first)
+                    : _localeDate.format(_dates[_pageNum])),
             headerTextStyle: widget.headerTextStyle,
             showHeaderButtons: widget.showHeaderButton,
             headerIconColor: widget.iconColor,

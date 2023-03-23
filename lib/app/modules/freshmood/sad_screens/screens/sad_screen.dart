@@ -151,7 +151,7 @@ class SadScreen extends StatelessWidget {
                               child: TopicCard(
                                 topic: ListTopic.topics[index],
                                 index: index,
-                                // currentIndex: changeTopic.currentTopic,
+                                currentIndex: changeTopic.currentTopic,
                               ),
                             )),
                         separatorBuilder: ((context, index) => SizedBox(
