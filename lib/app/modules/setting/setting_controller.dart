@@ -256,6 +256,9 @@ class SettingController extends GetxController {
     ListTopic.topics.add(newTopic);
     listTopic.value = ListTopic.topics;
 
+    // Update manually for GetBuilder
+    update();
+
     // Reset
     titleController.clear();
 
@@ -266,6 +269,7 @@ class SettingController extends GetxController {
     hiveBoxTopic.deleteTopic(currentTopic.value);
     log(listTopic.toString());
     listTopic.value = ListTopic.topics;
+    update();
   }
 
   // First day of the week
