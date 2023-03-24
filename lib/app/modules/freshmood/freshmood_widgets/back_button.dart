@@ -16,14 +16,15 @@ class BackButtonContainer extends StatelessWidget {
           height: 46,
           width: 46,
           decoration: BoxDecoration(
-              color: Colors.white,
-              boxShadow: const [
-                BoxShadow(
-                  blurRadius: 1.0,
-                  offset: Offset(1, 1),
-                )
-              ],
-              borderRadius: BorderRadius.circular(10)),
+            color: Colors.white,
+            boxShadow: const [
+              BoxShadow(
+                blurRadius: 1.0,
+                offset: Offset(1, 1),
+              )
+            ],
+            borderRadius: BorderRadius.circular(10),
+          ),
           child: const Padding(
             padding: EdgeInsets.only(left: 5),
             child: Icon(

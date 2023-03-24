@@ -13,6 +13,7 @@ class ReadDiaryController extends GetxController {
   final _mybox = Hive.box('mybox');
   RxList<Diary> positiveDiaryList = <Diary>[].obs;
   RxList<Diary> negativeDiaryList = <Diary>[].obs;
+  RxList<Diary> pinnedDiaryList = <Diary>[].obs;
   ListNegativeDiary hiveBoxNegative = ListNegativeDiary();
   ListPositveDiary hiveBoxPositive = ListPositveDiary();
   PinnedDiary hiveBoxPinned = PinnedDiary();
@@ -29,8 +30,16 @@ class ReadDiaryController extends GetxController {
     } else {
       hiveBoxNegative.loadData();
     }
-    positiveDiaryList.value = ListPositveDiary.listPositiveDiary;
-    negativeDiaryList.value = ListNegativeDiary.listNegativeDiary;
+    if (_mybox.get("pinneddiary") == null) {
+      hiveBoxPinned.createInitialData();
+    } else {
+      hiveBoxPinned.loadData();
+    }
+
+    // Observe data
+    positiveDiaryList(ListPositveDiary.listPositiveDiary);
+    negativeDiaryList(ListNegativeDiary.listNegativeDiary);
+    pinnedDiaryList(PinnedDiary.listPinnedDiary);
 
     super.onInit();
   }
@@ -194,13 +203,13 @@ class ReadDiaryController extends GetxController {
     isPinPressed(!isPinPressed.value);
     diary.isPinned = isPinPressed.value;
     diary.isPinned == true
-        ? PinnedDiary.listPinnedDiary.add(diary)
-        : PinnedDiary.listPinnedDiary.remove(diary);
-
-    update();
+        ? pinnedDiaryList.add(diary)
+        : pinnedDiaryList.remove(diary);
 
     hiveBoxNegative.updateDatabase();
     hiveBoxPositive.updateDatabase();
     hiveBoxPinned.updateDatabase();
+
+    update();
   }
 }
