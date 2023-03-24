@@ -64,6 +64,7 @@ class ColButtonList extends StatelessWidget {
             }
           },
           child: ListTile(
+            // Setting option icon
             leading: Container(
               padding: const EdgeInsets.all(10.0),
               width: 42,
@@ -76,7 +77,15 @@ class ColButtonList extends StatelessWidget {
                 settingList[index].icon,
               ),
             ),
-            trailing: Image.asset(Assets.arrowRight),
+
+            // Right arrow icon
+            trailing: SizedBox(
+              width: 25,
+              height: 25,
+              child: Image.asset(Assets.arrowRight),
+            ),
+
+            // Setting option title
             title: Text(
               settingList[index].label,
               style: settingLabelStyle,

@@ -51,7 +51,11 @@ class ColTopicList extends StatelessWidget {
                     ),
 
                     // Right-arrow icon
-                    trailing: Image.asset(Assets.arrowRight),
+                    trailing: SizedBox(
+                      width: 25,
+                      height: 25,
+                      child: Image.asset(Assets.arrowRight),
+                    ),
 
                     // Topic label
                     title: Text(

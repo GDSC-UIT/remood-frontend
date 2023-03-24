@@ -24,8 +24,13 @@ class ShowDate extends StatelessWidget {
             onPressed: () {
               controller.previousDate();
             },
-            icon: Image.asset(Assets.arrowLeftCircle),
+            icon: SizedBox(
+              width: 25,
+              height: 25,
+              child: Image.asset(Assets.arrowLeftCircle),
+            ),
           ),
+
           // Current date
           Obx(
             () => Container(
@@ -37,12 +42,17 @@ class ShowDate extends StatelessWidget {
               ),
             ),
           ),
+
           // Go to the next day
           IconButton(
             onPressed: () {
               controller.nextDate();
             },
-            icon: Image.asset(Assets.arrowRightCircle),
+            icon: SizedBox(
+              width: 25,
+              height: 25,
+              child: Image.asset(Assets.arrowRightCircle),
+            ),
           ),
         ],
       ),
