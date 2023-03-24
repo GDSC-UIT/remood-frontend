@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/article_api.dart';
 import 'package:remood/app/modules/suggestion/widgets/card_article.dart';
@@ -34,26 +35,35 @@ class ListArticle extends StatelessWidget {
       AppColors.grey,
     ];
     return FutureBuilder<ArticleApi>(
-        future: randomArticle(),
-        builder: ((context, snapshot) {
-          if (snapshot.hasData) {
-            return Swiper(
-              itemCount: 10,
-              itemBuilder: (context, index) => InkWell(
-                onTap: (() => launchUrl(
-                    Uri.parse(snapshot.data!.data!.articles![index].url!))),
-                child: CardArticle(
-                  color: colors[2],
-                  image: snapshot.data!.data!.articles![index].image!,
-                  title: snapshot.data!.data!.articles![index].title!,
-                ),
+      future: randomArticle(),
+      builder: ((context, snapshot) {
+        if (snapshot.hasData) {
+          return Swiper(
+            itemCount: 10,
+            itemBuilder: (context, index) => InkWell(
+              onTap: (() => launchUrl(
+                  Uri.parse(snapshot.data!.data!.articles![index].url!))),
+              child: CardArticle(
+                color: colors[2],
+                image: snapshot.data!.data!.articles![index].image!,
+                title: snapshot.data!.data!.articles![index].title!,
               ),
-              layout: SwiperLayout.TINDER,
-              itemHeight: screenHeight * 0.23,
-              itemWidth: screenWidth * 0.9,
-            );
-          }
-          return const CircularProgressIndicator();
-        }));
+            ),
+            layout: SwiperLayout.TINDER,
+            itemHeight: screenHeight * 0.23,
+            itemWidth: screenWidth * 0.9,
+          );
+        }
+        return const Center(
+          child: Padding(
+            padding: EdgeInsets.only(top: 50.0),
+            child: SpinKitFadingCircle(
+              color: AppColors.smileFace,
+              size: 50.0,
+            ),
+          ),
+        );
+      }),
+    );
   }
 }
