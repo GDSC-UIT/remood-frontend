@@ -20,7 +20,7 @@ class SuggestionScreen extends StatelessWidget {
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: AppColors.backgroundColor,
+      backgroundColor: AppColors.backgroundPage,
       body: SafeArea(
         right: false,
         left: false,
