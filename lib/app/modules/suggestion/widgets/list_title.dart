@@ -1,7 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
+import 'package:remood/app/core/values/app_colors.dart';
 import 'package:remood/app/data/models/topic_api.dart';
 import 'package:remood/app/modules/suggestion/suggestion_controller.dart';
 import 'package:remood/app/modules/suggestion/widgets/title.dart';
@@ -53,7 +55,11 @@ class ListTitle extends StatelessWidget {
                     )),
                 itemCount: snapshot.data!.data!.topics!.length);
           }
-          return const CircularProgressIndicator();
+          return const Center(
+              child: SpinKitFadingCircle(
+            color: AppColors.smileFace,
+            size: 50.0,
+          ));
         }),
       ),
     );

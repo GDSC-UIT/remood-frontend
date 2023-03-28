@@ -53,15 +53,11 @@ class ReadDiaryFreshmood extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: diaryController.currentChoice == 0
-                    ? const Expanded(
-                        child: Center(
-                          child: PositiveDiaryListFreshmood(),
-                        ),
+                    ? const Center(
+                        child: PositiveDiaryListFreshmood(),
                       )
-                    : const Expanded(
-                        child: Center(
-                          child: NegativeDiaryListFreshmood(),
-                        ),
+                    : const Center(
+                        child: NegativeDiaryListFreshmood(),
                       ),
               ),
             ),

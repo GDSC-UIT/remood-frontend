@@ -18,49 +18,57 @@ class ColTopicList extends StatelessWidget {
     TextStyle topicLabelStyle = settingController.settingLabelStyle;
     RxList<CardTopic> list = settingController.listTopic;
 
-    return Obx(
-      () => Column(
-        children: List.generate(
-          list.length,
-          (index) => GestureDetector(
-            onTap: () {
-              log(list[index].title);
+    return GetBuilder<SettingController>(
+      init: SettingController(),
+      initState: (_) {},
+      builder: (_) {
+        return Column(
+          children: List.generate(
+            list.length,
+            (index) => GestureDetector(
+              onTap: () {
+                log(list[index].title);
 
-              // Gán thứ tự topic được chọn
-              settingController.currentTopic(list[index]);
-              settingController.currentTopicIndex(index);
+                // Gán thứ tự topic được chọn
+                settingController.currentTopic(list[index]);
+                settingController.currentTopicIndex(index);
 
-              log(list[index].icons.toString());
+                log(list[index].icons.toString());
 
-              // Chuyển đến trang "Cài đặt topic"
-              Get.toNamed(AppRoutes.topicDetail);
-              // var res = await Get.toNamed(AppRoutes.topicDetail);
-              // list.value = res;
-            },
-            child: GetBuilder<SettingController>(
-              builder: (_) {
-                return ListTile(
-                  // Topic icon
-                  leading: TopicAvatar(
-                    topic: list[index],
-                    index: index,
-                    currentIndex: index.obs,
-                  ),
-
-                  // Right-arrow icon
-                  trailing: Image.asset(Assets.arrowRight),
-
-                  // Topic label
-                  title: Text(
-                    list[index].title,
-                    style: topicLabelStyle,
-                  ),
-                );
+                // Chuyển đến trang "Cài đặt topic"
+                Get.toNamed(AppRoutes.topicDetail);
+                // var res = await Get.toNamed(AppRoutes.topicDetail);
+                // list.value = res;
               },
+              child: GetBuilder<SettingController>(
+                builder: (_) {
+                  return ListTile(
+                    // Topic icon
+                    leading: TopicAvatar(
+                      topic: list[index],
+                      index: index,
+                      currentIndex: index.obs,
+                    ),
+
+                    // Right-arrow icon
+                    trailing: SizedBox(
+                      width: 25,
+                      height: 25,
+                      child: Image.asset(Assets.arrowRight),
+                    ),
+
+                    // Topic label
+                    title: Text(
+                      list[index].title,
+                      style: topicLabelStyle,
+                    ),
+                  );
+                },
+              ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

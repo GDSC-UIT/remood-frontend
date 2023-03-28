@@ -58,6 +58,7 @@ dependencies:
   webview_flutter: ^4.0.6
   is_first_run: ^1.0.0
   percent_indicator: ^4.2.3
+  internet_connection_checker: ^1.0.0+1
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -46,6 +46,7 @@ class ManageTopicsScreen extends StatelessWidget {
                         Get.toNamed(AppRoutes.createNewTopic);
                       },
                       child: ListTile(
+                        // Add-topic button icon
                         leading: TopicAvatar(
                             topic: CardTopic(
                               title: titleAddButton,
@@ -54,7 +55,15 @@ class ManageTopicsScreen extends StatelessWidget {
                             ),
                             index: 0,
                             currentIndex: 0.obs),
-                        trailing: Image.asset(Assets.arrowRight),
+
+                        // Right arrow icon
+                        trailing: SizedBox(
+                          width: 25,
+                          height: 25,
+                          child: Image.asset(Assets.arrowRight),
+                        ),
+
+                        // Add-topic button title
                         title: Text(
                           titleAddButton,
                           style: topicLabelStyle,

@@ -28,7 +28,7 @@ class SadScreen extends StatelessWidget {
             padding: const EdgeInsets.only(top: 50, left: 22),
             child: GestureDetector(
               onTap: () {
-                Get.toNamed(AppRoutes.home);
+                Get.offAllNamed(AppRoutes.home);
               },
               child: Container(
                 height: 46,
@@ -151,7 +151,7 @@ class SadScreen extends StatelessWidget {
                               child: TopicCard(
                                 topic: ListTopic.topics[index],
                                 index: index,
-                                // currentIndex: changeTopic.currentTopic,
+                                currentIndex: changeTopic.currentTopic,
                               ),
                             )),
                         separatorBuilder: ((context, index) => SizedBox(

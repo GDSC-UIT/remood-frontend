@@ -65,7 +65,7 @@ class StackTopic extends StatelessWidget {
                                   child: TopicCard(
                                     topic: topicController.listTopic[index],
                                     index: index,
-                                    // currentIndex: topicController.currentTopic,
+                                    currentIndex: topicController.currentTopic,
                                   ),
                                 )),
                             separatorBuilder: ((context, index) =>

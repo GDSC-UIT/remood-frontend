@@ -3,14 +3,16 @@ import 'package:remood/app/data/models/diary.dart';
 import 'package:get/get.dart';
 
 class PinnedDiary {
-  static RxList<Diary> listPinnedDiary = <Diary>[].obs;
+  static List<Diary> listPinnedDiary = <Diary>[];
   final _mybox = Hive.box('mybox');
   void createInitialData() {
     listPinnedDiary = <Diary>[].obs;
   }
 
   void loadData() {
-    listPinnedDiary.value = _mybox.get("pinneddiary")!.cast<Diary>();
+    listPinnedDiary = _mybox.get("pinneddiary") == null
+        ? []
+        : _mybox.get("pinneddiary")!.cast<Diary>();
   }
 
   void updateDatabase() {

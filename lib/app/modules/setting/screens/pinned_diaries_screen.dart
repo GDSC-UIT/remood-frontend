@@ -5,12 +5,15 @@ import 'package:remood/app/core/values/text_style.dart';
 import 'package:remood/app/data/models/list_pinned_diary.dart';
 import 'package:remood/app/data/services/media_query_service.dart';
 import 'package:remood/app/global_widgets/card_diary.dart';
+import 'package:remood/app/modules/read_diary/read_diary_controller.dart';
 
 class PinnedDiariesScreen extends StatelessWidget {
   const PinnedDiariesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    ReadDiaryController readDiaryController = Get.find();
+
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     String appBarTitle = "Pinned diaries";
@@ -63,16 +66,21 @@ class PinnedDiariesScreen extends StatelessWidget {
               height: screenHeight * 0.037,
             ),
             Expanded(
-              child: Obx(
-                () => ListView.separated(
+              child: GetBuilder<ReadDiaryController>(
+                builder: (_) {
+                  return ListView.separated(
                     padding: EdgeInsets.symmetric(
-                        horizontal: 31 * MediaQueryService().pctWidth(context)),
-                    itemBuilder: ((context, index) =>
-                        DiaryCard(diary: PinnedDiary.listPinnedDiary[index])),
+                      horizontal: 31 * MediaQueryService().pctWidth(context),
+                    ),
+                    itemBuilder: ((context, index) => DiaryCard(
+                          diary: readDiaryController.pinnedDiaryList[index],
+                        )),
                     separatorBuilder: (context, index) => SizedBox(
-                          height: screenHeight * 0.0197,
-                        ),
-                    itemCount: PinnedDiary.listPinnedDiary.length),
+                      height: screenHeight * 0.0197,
+                    ),
+                    itemCount: readDiaryController.pinnedDiaryList.length,
+                  );
+                },
               ),
             )
           ],

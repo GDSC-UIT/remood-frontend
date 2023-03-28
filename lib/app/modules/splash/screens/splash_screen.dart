@@ -26,6 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
       () async => Get.offAndToNamed(await controller.isFirstOnboard() == true
           ? AppRoutes.onboarding
           : AppRoutes.home),
+      // : AppRoutes.onboarding),
     );
 
     // _boxLoadFuture = Future.wait([Hive.openBox('mybox')]);

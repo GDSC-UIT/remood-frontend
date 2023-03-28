@@ -122,11 +122,11 @@ class SettingController extends GetxController {
     //   label: "Start of the week",
     //   screen: AppRoutes.starOfTheWeek,
     // ),
-    SettingButton(
-      icon: Assets.language,
-      label: "Language",
-      screen: AppRoutes.language,
-    ),
+    // SettingButton(
+    //   icon: Assets.language,
+    //   label: "Language",
+    //   screen: AppRoutes.language,
+    // ),
     SettingButton(
       icon: Assets.notification,
       label: "Notification",
@@ -256,6 +256,9 @@ class SettingController extends GetxController {
     ListTopic.topics.add(newTopic);
     listTopic.value = ListTopic.topics;
 
+    // Update manually for GetBuilder
+    update();
+
     // Reset
     titleController.clear();
 
@@ -266,6 +269,7 @@ class SettingController extends GetxController {
     hiveBoxTopic.deleteTopic(currentTopic.value);
     log(listTopic.toString());
     listTopic.value = ListTopic.topics;
+    update();
   }
 
   // First day of the week

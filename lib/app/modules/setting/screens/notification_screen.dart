@@ -48,7 +48,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Reminder ON/OFF',
+                    'Reminder',
                     style: CustomTextStyle.reportHeading()
                         .copyWith(color: Colors.black, fontSize: 16),
                   ),

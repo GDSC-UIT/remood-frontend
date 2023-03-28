@@ -45,7 +45,7 @@ class _HappyScreenState extends State<HappyScreen> {
             padding: const EdgeInsets.only(top: 50, left: 22),
             child: GestureDetector(
               onTap: () {
-                Get.toNamed(AppRoutes.home);
+                Get.offAllNamed(AppRoutes.home);
               },
               child: Container(
                 height: 46,
@@ -111,7 +111,7 @@ class _HappyScreenState extends State<HappyScreen> {
             padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.18),
             child: SizedBox(
                 width: screenWidth * 0.64,
-                height: screenHeight * 0.297,
+                height: screenHeight * 0.4,
                 child: FutureBuilder<QuoteModel>(
                   future: fetchPost(),
                   builder: (context, snapshot) {
