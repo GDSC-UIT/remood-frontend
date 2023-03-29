@@ -20,7 +20,7 @@ class ListCardBlog extends StatelessWidget {
     SuggestionController articleController = Get.find();
     Future<ArticleApi> fetchApiArticle(String topic) async {
       final response = await http.get(Uri.parse(
-          "https://remood-oze7nwnjba-as.a.run.app/api/articles/all/topics?topics=$topic"));
+          "https://remood-backend.onrender.com/api/articles/all/topics?topics=$topic"));
       if (response.statusCode == 200) {
         return ArticleApi.fromJson(jsonDecode(response.body));
       } else {

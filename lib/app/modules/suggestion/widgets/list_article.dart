@@ -21,7 +21,7 @@ class ListArticle extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     Future<ArticleApi> randomArticle() async {
       final response = await http.get(Uri.parse(
-          "https://remood-oze7nwnjba-as.a.run.app/api/articles/random?number=10"));
+          "https://remood-backend.onrender.com/api/articles/random?number=10"));
       if (response.statusCode == 200) {
         return ArticleApi.fromJson(jsonDecode(response.body));
       } else {
