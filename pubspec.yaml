@@ -35,11 +35,11 @@ dependencies:
   intl: ^0.18.0
   google_fonts: ^4.0.3
   passcode_screen: ^2.0.1
-  flutter_slidable: ^2.0.0
-  image_picker: ^0.8.7
+  flutter_slidable: ^3.0.0
+  image_picker: ^1.0.4
   enumerated_class: ^0.0.1+1
-  permission_handler: ^10.2.0
-  flutter_local_notifications: ^13.0.0
+  permission_handler: ^11.0.0
+  flutter_local_notifications: ^15.1.1
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
